@@ -53,8 +53,10 @@ Material:
     - _QueueControl: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Reflexes: 1
     - _SrcBlend: 1
     - _Surface: 1
+    - _Trasparency: 0
     - _ViewWaves: 230.6
     - _WaveAmplitude: -26.98
     - _WaveSpeed: 0.02
