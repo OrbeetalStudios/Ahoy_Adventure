@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbeb59d1a9d7be44aa01278f72448373, type: 3}
+  m_Name: BoxCollection
+  m_EditorClassIdentifier: 
+  objID: 4
+  prefab: {fileID: 2018091963255080869, guid: 1dfbf29dbc5528e49bdc3e8715e4691b, type: 3}
+  numberOfObjects: 10
+  collection:
+  - {fileID: 0}

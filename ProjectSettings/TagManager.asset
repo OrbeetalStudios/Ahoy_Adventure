@@ -3,17 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Island
+  - Box
+  - Bullet
+  - Enemy
+  - Mine
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Island
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - Enemies
+  - Bullet
   - 
   - 
   - 
