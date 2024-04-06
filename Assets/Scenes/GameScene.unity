@@ -2082,7 +2082,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d89cef3b7ff82d49aa04e0df1a4b678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 180
+  spawnPointPrefab: {fileID: 2488922333133670303, guid: 0581bb66a555e7c45bb3ced54de441d4,
+    type: 3}
   filenameJson: wavesJson
 --- !u!4 &1414464500
 Transform:
@@ -2093,7 +2094,7 @@ Transform:
   m_GameObject: {fileID: 1414464498}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2516685, y: 0.30049464, z: 9.165261}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

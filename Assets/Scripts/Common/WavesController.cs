@@ -5,7 +5,7 @@ using MEC;
 
 public class WavesController : MonoBehaviour
 {
-    [SerializeField, Range(0f, 180f)] private float spawnRadius;
+    [SerializeField] private GameObject spawnPointPrefab;
     [SerializeField] private string filenameJson;
     private JSONWaves wavesDataJson = new();
 
@@ -29,6 +29,17 @@ public class WavesController : MonoBehaviour
             enemyShip.SetActive(true);
 
             yield return Timing.WaitForSeconds(8f);
+        }
+    }
+    [ProButton]
+    public void SetNewSpawnPoint(float radius, float angle)
+    {
+        if (spawnPointPrefab == null) return;
+
+        SpawnPoint newSpawnPoint = Instantiate(spawnPointPrefab, null).GetComponent<SpawnPoint>();
+        if (newSpawnPoint)
+        {
+            newSpawnPoint.SetPosition(radius, angle);
         }
     }
 }
