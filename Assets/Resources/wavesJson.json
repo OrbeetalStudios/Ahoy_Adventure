@@ -5,19 +5,23 @@
 		"enemies": [
 			{
 				"id": "enemy_default",
-				"spawnTime": 3
+				"spawnTime": 3,
+				"spawnQuadrant":  1
 			},
 			{
 				"id": "enemy_default",
-				"spawnTime": 4
+				"spawnTime": 4,
+				"spawnQuadrant": 2
 			},
 			{
 				"id": "enemy_fast",
-				"spawnTime": 6
+				"spawnTime": 6,
+				"spawnQuadrant": 3
 			},
 			{
 				"id": "enemy_default",
-				"spawnTime": 2
+				"spawnTime": 2,
+				"spawnQuadrant": 4
 			}
 		]
 	},

@@ -6,10 +6,13 @@ using com.cyborgAssets.inspectorButtonPro;
 public class SpawnPoint : MonoBehaviour
 {
     private Vector3 newPosition = new Vector3();
+    public float currAngle;
 
     [ProButton]
     public void SetPosition(float radius, float angle)
     {
+        currAngle = angle;
+
         newPosition.x = radius * Mathf.Cos(angle * Mathf.Deg2Rad);
         newPosition.z = radius * Mathf.Sin(angle * Mathf.Deg2Rad);
 

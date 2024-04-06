@@ -25,6 +25,7 @@ public class JSONEnemy
 {
     public string id;
     public int spawnTime;
+    public int spawnQuadrant;
 
     public EPoolObjectType GetId()
     {
