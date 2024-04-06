@@ -17,32 +17,12 @@ public class Enemy : MonoBehaviour
 
     protected void Awake()
     {
-        SetupEnemy();
-    }
-    public void SetupEnemy()
-    {
         FindSpawnPoint();
-        SetInitialPosition();
-        FindAlternativePosition();
-        //Damage
-        //Speed
-        //type
-
     }
-
     protected void OnEnable()
     {
-        FindAlternativePosition();
+        SetInitialPosition();
     }
-
-    public void FindAlternativePosition()
-    { 
-        //Alternative position for respawn
-        FindSpawnPoint();
-        Vector3 randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
-        resetPosition = randomSpawnPoint;
-    }
-
     public void SetInitialPosition()
     {
         Vector3 randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
@@ -65,8 +45,6 @@ public class Enemy : MonoBehaviour
 
      void OnTriggerEnter(Collider other)
     {
-       
-
         switch (other.tag)
         {
             case "Player":
@@ -82,10 +60,8 @@ public class Enemy : MonoBehaviour
             case "Island":
                 movement.StartPlunder();
                 break;
-
         }        
      }
-
     private void SpawnBox()
     {
         if (Random.Range(0f, 1f) > spawnChance) return; // if random value is between 0 and spawnChanche, go on and spawn a box

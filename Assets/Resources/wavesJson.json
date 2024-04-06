@@ -1,29 +1,49 @@
 {"waves": [
-        {"id": 1,
-	 "enemies": [
-	  	{"id": "enemy_default",
-		 "spawnTime": 3},
-		{"id": "enemy_default",
-		 "spawnTime": 4},
-		{"id": "enemy_fase",
-		 "spawnTime": 6},
-		{"id": "enemy_default",
-		 "spawnTime": 2}
-	  ]
+	{
+		"id": 1,
+		"isLast": true,
+		"enemies": [
+			{
+				"id": "enemy_default",
+				"spawnTime": 3
+			},
+			{
+				"id": "enemy_default",
+				"spawnTime": 4
+			},
+			{
+				"id": "enemy_fast",
+				"spawnTime": 6
+			},
+			{
+				"id": "enemy_default",
+				"spawnTime": 2
+			}
+		]
 	},
-	{"id": 2,
-	 "enemies": [
-	  	{"id": "enemy_default",
-		 "spawnTime": 3},
-		{"id": "enemy_default",
-		 "spawnTime": 4}
-	  ]
+	{
+		"id": 2,
+		"isLast": false,
+		"enemies": [
+			{
+				"id": "enemy_default",
+				"spawnTime": 3
+			},
+			{
+				"id": "enemy_default",
+				"spawnTime": 4
+			}
+		]
 	},
-	{"id": 3,
-	 "enemies": [
-	  	{"id": "enemy_elite",
-		 "spawnTime": 3}
-	  ]
+	{
+		"id": 3,
+		"isLast": false,
+		"enemies": [
+			{
+				"id": "enemy_elite",
+				"spawnTime": 3
+			}
+		]
 	}
     ]
 }
