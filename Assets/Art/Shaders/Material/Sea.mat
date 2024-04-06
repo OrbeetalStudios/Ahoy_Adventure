@@ -48,23 +48,28 @@ Material:
     - _BlendModePreserveSpecular: 1
     - _CastShadows: 1
     - _Cull: 2
-    - _Depth: 577
+    - _Depth: 1
     - _DstBlend: 10
+    - _FoamAmount: 1
+    - _FoamCutOff: 0
+    - _FoamSize: 1
+    - _FoamSpeed: 1
     - _QueueControl: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Reflexes: 1
     - _SrcBlend: 1
     - _Surface: 1
-    - _Trasparency: 0
-    - _ViewWaves: 230.6
+    - _Trasparency: 2
+    - _ViewWaves: 150
     - _WaveAmplitude: -26.98
     - _WaveSpeed: 0.02
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
-    m_Colors: []
+    m_Colors:
+    - _FoamColor: {r: 4, g: 4, b: 4, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5415530377897508058
 MonoBehaviour:

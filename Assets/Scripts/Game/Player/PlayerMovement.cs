@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : Player
 {
-    [SerializeField, Range(0f, 100f)]
+    [SerializeField, Range(0f, 1000f)]
     private float semiaxis_A, semiaxis_B = 2f;
     [SerializeField]
     private GameObject model;
