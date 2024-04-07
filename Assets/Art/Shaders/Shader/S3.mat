@@ -49,13 +49,13 @@ Material:
     - _FoamScale: 30
     - _FoamSpeed: 0.5
     - _NormalSpeed: 2
-    - _NormalStrength: 0.58
+    - _NormalStrength: -1.98
     - _NormalTile: 0.0006
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RippleSilmness: 7
-    - _Smoothness: -1.08
-    - _Trasparency: 0.96
+    - _Smoothness: 0.58
+    - _Trasparency: 1.04
     - _WaterSpeed: 1
     - _WaveSize: 2
     - _WaveSpeed: 1
