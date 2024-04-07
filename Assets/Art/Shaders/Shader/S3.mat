@@ -20,7 +20,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _NormalSpeedB _Smoothness
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -42,26 +42,36 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ColorMix: 0.21
     - _Density: 20
     - _Float: 0
     - _FoamAmount: 0.4
     - _FoamCutOff: 3
     - _FoamScale: 30
     - _FoamSpeed: 0.5
-    - _NormalSpeed: 2
-    - _NormalStrength: -1.98
-    - _NormalTile: 0.0006
-    - _QueueControl: 0
+    - _NormalSpeed: 1
+    - _NormalSpeedB: 1
+    - _NormalStrength: 0.4
+    - _NormalTile: 0.003
+    - _QueueControl: 1
     - _QueueOffset: 0
     - _RippleSilmness: 7
-    - _Smoothness: 0.58
-    - _Trasparency: 1.04
+    - _Smoothness: 18.63
+    - _Trasparency: 0.9
     - _WaterSpeed: 1
     - _WaveSize: 2
     - _WaveSpeed: 1
+    - _WaveTile: 0.4
+    - _Wave_Scale: 1.55
     m_Colors:
     - _BaseColor: {r: 0.03457564, g: 0.1592629, b: 2.199025, a: 1}
+    - _ColorA: {r: 0, g: 0.008337639, b: 0.11488747, a: 0.8156863}
+    - _ColorB: {r: 0.022435822, g: 0, b: 0.66666657, a: 1}
+    - _ColorEmission: {r: 0, g: 0.23234352, b: 0.20454414, a: 0.30588236}
     - _Direction: {r: -4, g: 0, b: 0, a: 0}
+    - _DirectionA: {r: -1, g: 0, b: 0, a: 0}
+    - _DirectionB: {r: 1, g: 0, b: 0, a: 0}
+    - _DirectionWave: {r: 0.24, g: 0.24, b: 0, a: 0}
     - _FoamColor: {r: 1.522012, g: 1.469364, b: 1.469364, a: 0.9254902}
     - _RippleColor: {r: 0.7564968, g: 1.072011, b: 1.924528, a: 1}
   m_BuildTextureStacks: []
