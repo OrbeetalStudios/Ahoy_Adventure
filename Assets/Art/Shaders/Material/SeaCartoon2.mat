@@ -24,6 +24,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Displacement:
+        m_Texture: {fileID: 2800000, guid: 20afd95551ac4d94cac897a64900dbc8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: c99b81832ef544046a40f5535e0962f2, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -42,10 +46,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DepthDistance: 0
+    - _DepthStrength: -0.2
+    - _DisplaceStrength: 0.03
+    - _NormalStrength: 0.467
+    - _NormalTilling: -2
+    - _PanSpeed: 0.01
     - _QueueControl: 1
     - _QueueOffset: 0
-    - _Refract_Strength: 0.18
-    m_Colors: []
+    - _Refract_Strength: 0.12
+    - _Tilling: 1
+    m_Colors:
+    - _NormalDIrection: {r: 0, g: 0.08, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6883758228080878372
 MonoBehaviour:
