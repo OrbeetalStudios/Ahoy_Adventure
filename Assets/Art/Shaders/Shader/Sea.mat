@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SeaCartoon2
-  m_Shader: {fileID: -6465566751694194690, guid: d0461ad2ab3fcdc408c39c549002e9b3,
+  m_Name: Sea
+  m_Shader: {fileID: -6465566751694194690, guid: a6948b4f749ee9e40a2a0932ee5b8d50,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,12 +24,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Displacement:
-        m_Texture: {fileID: 2800000, guid: 4cff69223cfa64e4f8632bda60e8fb1a, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 7d7566d60fd31c743ad8f41144f6ae43, type: 3}
+        m_Texture: {fileID: 2800000, guid: c99b81832ef544046a40f5535e0962f2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -46,24 +42,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DepthDistance: -1.35
-    - _DepthStrength: -0.08
-    - _DisplaceStrength: 9.17
-    - _NormalStrength: 0.59
-    - _NormalTilling: 9.21
-    - _PanSpeed: -0.85
-    - _QueueControl: 1
+    - _NormalDepth: 0
+    - _NormalTile: 165.8
+    - _QueueControl: 0
     - _QueueOffset: 0
-    - _Refract_Strength: -26.42
-    - _Smothness: 7.68
-    - _TRasparency: 16.05
-    - _Tilling: -1.66
+    - _Size: 5.46
     m_Colors:
-    - _BottomColor: {r: 0.022508781, g: 0, b: 4.2991195, a: 0.68235296}
-    - _NormalDIrection: {r: 0, g: 0.08, b: 0, a: 0}
-    - _TopColor: {r: 0.12001575, g: 0.07208958, b: 0.8490566, a: 0}
+    - _ColorDown: {r: 0.0056388597, g: 0.16301483, b: 0.09867547, a: 1}
+    - _ColorUp: {r: 0, g: 0.1563009, b: 1.563846, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &6883758228080878372
+--- !u!114 &1893755712469759238
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
