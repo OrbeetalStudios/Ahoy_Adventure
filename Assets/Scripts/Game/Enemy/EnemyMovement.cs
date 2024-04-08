@@ -24,14 +24,12 @@ public class EnemyMovement : Enemy
 
     private void OnEnable()
     {
-        base.OnEnable();
         canMove = true;
         Timing.RunCoroutine(Move().CancelWith(gameObject));
     }
 
     private void Awake()
     {
-        base.Awake();
         plunderDefault = plunderTime;   
     }
 

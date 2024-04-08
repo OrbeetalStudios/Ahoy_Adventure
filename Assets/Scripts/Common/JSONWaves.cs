@@ -16,6 +16,7 @@ public class JSONWaves
 public class JSONWave
 {
     public int id;
+    public bool isLast;
     public List<JSONEnemy> enemies;
 }
 
@@ -24,4 +25,28 @@ public class JSONEnemy
 {
     public string id;
     public int spawnTime;
+    public int spawnQuadrant;
+
+    public EPoolObjectType GetId()
+    {
+        EPoolObjectType ret;
+
+        switch (id)
+        {
+            case "enemy_default":
+                ret = EPoolObjectType.enemy_default;
+                break;
+            case "enemy_fast":
+                ret = EPoolObjectType.enemy_fast;
+                break;
+            case "enemy_elite":
+                ret = EPoolObjectType.enemy_elite;
+                break;
+            default:
+                ret = EPoolObjectType.enemy_default;
+                break;
+        }
+
+        return ret;
+    }
 }

@@ -12,9 +12,7 @@ public class PoolController : MonoSingleton<PoolController>
     
     private void Start()
     {
-        InitializeCollections();
-
-        Timing.RunCoroutine(SpawnEnemy().CancelWith(gameObject)); 
+        InitializeCollections(); 
     }
     private void InitializeCollections()
     {
@@ -59,15 +57,5 @@ public class PoolController : MonoSingleton<PoolController>
     {
         GameObject bullet = GetObjectFromCollection(EPoolObjectType.bullet);
         bullet.SetActive(true);
-    }
-    protected IEnumerator<float> SpawnEnemy()
-    {
-        while (true)
-        {
-            GameObject enemyShip = GetObjectFromCollection(EPoolObjectType.enemy_default);
-            enemyShip.SetActive(true);
-
-            yield return Timing.WaitForSeconds(spawnInterval);
-        }
     }
 }
