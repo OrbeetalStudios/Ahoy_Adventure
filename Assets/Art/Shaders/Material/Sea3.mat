@@ -46,7 +46,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorMix: -2.13
+    - _ColorMix: -2.08
     - _Density: 20
     - _Depth: 60.05
     - _DepthColor: 1.01
@@ -54,27 +54,27 @@ Material:
     - _Float: 0
     - _FoamAmount: 0.4
     - _FoamCutOff: 3
-    - _FoamDistance: -0.91
+    - _FoamDistance: -0.63
     - _FoamScale: 30
     - _FoamSpeed: 0.5
-    - _FoamStrength: 0.98
-    - _FoamTile: 3.7
-    - _NormalGloss: 2
-    - _NormalSpeed: 4.92
+    - _FoamStrength: -0.16
+    - _FoamTile: 2.03
+    - _NormalGloss: 1.4
+    - _NormalSpeed: 4.45
     - _NormalSpeedB: 4.72
     - _NormalStrength: 0.5
-    - _NormalTile: 0.00655
+    - _NormalTile: 0.0041
     - _QueueControl: 1
     - _QueueOffset: 0
     - _RippleSilmness: 7
-    - _Smoothness: 0.72
-    - _Trasparency: 0.54
+    - _Smoothness: 0.41
+    - _Trasparency: 0.51
     - _WaterSpeed: 1
     - _WaveSize: 2
     - _WaveSpeed: 1
-    - _WaveStrength: 4
-    - _WaveTile: -0.11
-    - _Wave_Scale: 1.46
+    - _WaveStrength: 4.15
+    - _WaveTile: 0.42
+    - _Wave_Scale: 0
     m_Colors:
     - _BaseColor: {r: 0.03457564, g: 0.1592629, b: 2.199025, a: 1}
     - _ColorA: {r: 0.81761, g: 0.81761, b: 0.81761, a: 0.54901963}

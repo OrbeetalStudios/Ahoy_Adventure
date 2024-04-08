@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2755076592084022045
+--- !u!114 &-6542136893245665119
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_USG_OceanDisplace_URP
-  m_Shader: {fileID: -6465566751694194690, guid: fa29dc42fcdf4304b8112d9c6d246dc7,
+  m_Name: Sea5
+  m_Shader: {fileID: -6465566751694194690, guid: 69a8133543c3be141ad182b32959b7c0,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -33,7 +33,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: Vector1_50C74F87
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -59,18 +59,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_1C8FEA19: 1.71
-    - Vector1_50C74F87: 0.24
+    - Vector1_1C8FEA19: 3.15
+    - Vector1_50C74F87: -0.18
     - Vector1_5DE38BA8: 0.38
     - Vector1_712C90A3: 2.49
     - Vector1_C8CD7BB7: 0.02
     - Vector1_EBF894A3: 0.09
-    - Vector1_F8D9205E: 5
+    - Vector1_F8D9205E: 0
     - _QueueControl: 1
     - _QueueOffset: 0
-    - _Transparency: 0.96
+    - _Transparency: 0.95
     - _smothnesss: 3.02
     m_Colors:
-    - Color_31F2026D: {r: 0, g: 0.3161745, b: 1, a: 0}
-    - Color_C8989E96: {r: 0, g: 0.6981132, b: 0.5070135, a: 0}
+    - Color_31F2026D: {r: 0.27327338, g: 0.74891496, b: 0.8396226, a: 0}
+    - Color_C8989E96: {r: 0.34242618, g: 0.4809069, b: 0.764151, a: 0}
   m_BuildTextureStacks: []
