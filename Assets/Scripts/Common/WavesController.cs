@@ -83,15 +83,4 @@ public class WavesController : MonoBehaviour
             yield return Timing.WaitForSeconds(wavesDataJson.waves[currentWave].enemies[currentEnemy].spawnTime);
         }
     }
-    [ProButton]
-    public void SetNewSpawnPoint(float radius, float angle)
-    {
-        if (spawnPointPrefab == null) return;
-
-        SpawnPoint newSpawnPoint = GameObject.Instantiate(spawnPointPrefab, gameObject.transform).GetComponent<SpawnPoint>();
-        if (newSpawnPoint)
-        {
-            newSpawnPoint.SetPosition(radius, angle);
-        }
-    }
 }

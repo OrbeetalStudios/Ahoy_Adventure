@@ -6,7 +6,7 @@ using com.cyborgAssets.inspectorButtonPro;
 public class SpawnPoint : MonoBehaviour
 {
     private Vector3 newPosition = new Vector3();
-    public float currAngle;
+    [HideInInspector] public float currAngle;
 
     [ProButton]
     public void SetPosition(float radius, float angle)

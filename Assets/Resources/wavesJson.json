@@ -14,7 +14,7 @@
 				"spawnQuadrant": 2
 			},
 			{
-				"id": "enemy_fast",
+				"id": "enemy_default",
 				"spawnTime": 6,
 				"spawnQuadrant": 3
 			},
