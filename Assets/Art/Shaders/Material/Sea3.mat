@@ -51,39 +51,40 @@ Material:
     - _Depth: 1.55
     - _DepthColor: 1.01
     - _DepthColout: 0
-    - _Float: 0
+    - _Float: 19.29
     - _FoamAmount: 0.4
-    - _FoamCutOff: 3
-    - _FoamDistance: -6.66
+    - _FoamCutOff: 0.94
+    - _FoamDistance: 1.37
     - _FoamScale: 30
-    - _FoamSpeed: 0.5
-    - _FoamStrength: -0.003
-    - _FoamTile: 0.24
-    - _NormalGloss: 0.3
+    - _FoamSpeed: 0.002
+    - _FoamStrength: 0.17
+    - _FoamTile: 3.81
+    - _NoramlTilling: -1.61
+    - _NormalGloss: 0.25
     - _NormalSpeed: 2
     - _NormalSpeedB: 2
     - _NormalStrength: 0.5
-    - _NormalTile: 0.006
+    - _NormalTile: 0.0011
     - _QueueControl: 1
     - _QueueOffset: 0
     - _RippleSilmness: 7
-    - _Smoothness: 1.48
-    - _Trasparency: 0.67
+    - _Smoothness: 15.37
+    - _Trasparency: 0.74
     - _WaterSpeed: 1
     - _WaveSize: 2
-    - _WaveSpeed: 3
-    - _WaveStrength: 4.92
+    - _WaveSpeed: 1
+    - _WaveStrength: 8
     - _WaveTile: -0.05
-    - _Wave_Scale: 0.3
+    - _Wave_Scale: 0.94
     m_Colors:
     - _BaseColor: {r: 0.03457564, g: 0.1592629, b: 2.199025, a: 1}
     - _ColorA: {r: 1, g: 0.61320746, b: 0.61320746, a: 0.54901963}
-    - _ColorB: {r: 0.32564422, g: 0.86822146, b: 1.4585197, a: 0.9529412}
+    - _ColorB: {r: 0.16561835, g: 0.56336325, b: 0.99371064, a: 0.9529412}
     - _ColorEmission: {r: 0.17230324, g: 0.4192155, b: 0.55345905, a: 1}
     - _DepthColor: {r: 0.0022720601, g: 0.011875939, b: 0.7225636, a: 0.9843137}
     - _Direction: {r: -4, g: 0, b: 0, a: 0}
-    - _DirectionA: {r: 3, g: 5, b: 0, a: 0}
-    - _DirectionB: {r: -3, g: -5, b: 0, a: 0}
+    - _DirectionA: {r: 1, g: 1, b: 0, a: 0}
+    - _DirectionB: {r: -1, g: -1, b: 0, a: 0}
     - _DirectionWave: {r: 1.1, g: 1.5, b: 0, a: 0}
     - _FoamColor: {r: 0, g: 65.79394, b: 126.854385, a: 1}
     - _RippleColor: {r: 0.7564968, g: 1.072011, b: 1.924528, a: 1}
