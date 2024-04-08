@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2755076592084022045
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SeaCartoon2
-  m_Shader: {fileID: -6465566751694194690, guid: d0461ad2ab3fcdc408c39c549002e9b3,
+  m_Name: Shader Graphs_USG_OceanDisplace_URP
+  m_Shader: {fileID: -6465566751694194690, guid: fa29dc42fcdf4304b8112d9c6d246dc7,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,12 +37,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Displacement:
-        m_Texture: {fileID: 2800000, guid: 4cff69223cfa64e4f8632bda60e8fb1a, type: 3}
+    - Texture2D_19B6F7E7:
+        m_Texture: {fileID: 2800000, guid: c99b81832ef544046a40f5535e0962f2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 7d7566d60fd31c743ad8f41144f6ae43, type: 3}
+    - Texture2D_F61624DA:
+        m_Texture: {fileID: 2800000, guid: 4cff69223cfa64e4f8632bda60e8fb1a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -46,33 +59,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DepthDistance: 0.2
-    - _DepthStrength: -1.59
-    - _DisplaceStrength: 9.17
-    - _NormalStrength: 0.76
-    - _NormalTilling: 3.9
-    - _PanSpeed: -0.85
+    - Vector1_1C8FEA19: 1.71
+    - Vector1_50C74F87: 0.24
+    - Vector1_5DE38BA8: 0.38
+    - Vector1_712C90A3: 2.49
+    - Vector1_C8CD7BB7: 0.02
+    - Vector1_EBF894A3: 0.09
+    - Vector1_F8D9205E: 5
     - _QueueControl: 1
     - _QueueOffset: 0
-    - _Refract_Strength: -26.42
-    - _Smothness: 7.88
-    - _TRasparency: 16.05
-    - _Tilling: -1.66
+    - _Transparency: 0.96
+    - _smothnesss: 1.95
     m_Colors:
-    - _BottomColor: {r: 0.022508781, g: 0, b: 4.2991195, a: 0.68235296}
-    - _NormalDIrection: {r: 0, g: 0.08, b: 0, a: 0}
-    - _TopColor: {r: 0.12001575, g: 0.07208958, b: 0.8490566, a: 0}
+    - Color_31F2026D: {r: 0, g: 0.3161745, b: 1, a: 0}
+    - Color_C8989E96: {r: 0, g: 0.6981132, b: 0.5070135, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &6883758228080878372
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 7
