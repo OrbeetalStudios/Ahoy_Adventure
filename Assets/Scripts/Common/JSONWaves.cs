@@ -18,6 +18,7 @@ public class JSONWave
     public int id;
     public bool isLast;
     public List<JSONEnemy> enemies;
+    public List<JSONMine> mines;
 }
 
 [System.Serializable]
@@ -49,4 +50,11 @@ public class JSONEnemy
 
         return ret;
     }
+}
+
+[System.Serializable]
+public class JSONMine
+{
+    public int spawnTime;
+    public int spawnQuadrant;
 }

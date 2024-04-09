@@ -43,6 +43,8 @@ public class WavesController : MonoBehaviour
                 else if (sp.currAngle > 180 && sp.currAngle <= 270) spawnPoints[EQuadrant.Quadrant_180_270].Add(sp);
                 else spawnPoints[EQuadrant.Quadrant_270_360].Add(sp);
             }
+
+            Debug.Log("spawn point " + i + " angle: " + sp.currAngle);
         }
     }
     [ProButton]
@@ -76,11 +78,10 @@ public class WavesController : MonoBehaviour
                 {
                     enemyShip.transform.position = spawnPoints[currQuadrant][Random.Range(0, spawnPoints[currQuadrant].Count)].transform.position;
                 }
-                
+
+                yield return Timing.WaitForSeconds(enemy.spawnTime);
                 enemyShip.SetActive(true);
             }
-
-            yield return Timing.WaitForSeconds(wavesDataJson.waves[currentWave].enemies[currentEnemy].spawnTime);
         }
     }
 }

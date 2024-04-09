@@ -6,7 +6,7 @@
 			{
 				"id": "enemy_default",
 				"spawnTime": 3,
-				"spawnQuadrant":  1
+				"spawnQuadrant": 1
 			},
 			{
 				"id": "enemy_default",
@@ -21,6 +21,24 @@
 			{
 				"id": "enemy_default",
 				"spawnTime": 2,
+				"spawnQuadrant": 4
+			}
+		],
+		"mines": [
+			{
+				"spawnTime": 3,
+				"spawnQuadrant": 1
+			},
+			{
+				"spawnTime": 3,
+				"spawnQuadrant": 2
+			},
+			{
+				"spawnTime": 3,
+				"spawnQuadrant": 3
+			},
+			{
+				"spawnTime": 3,
 				"spawnQuadrant": 4
 			}
 		]
