@@ -47,32 +47,33 @@ Material:
     m_Ints: []
     m_Floats:
     - _ColorMix: -3.36
-    - _Depth: 3.9
-    - _FoamCutOff: 0.38
-    - _FoamDistance: -11.3
-    - _FoamSpeed: 0.01
-    - _FoamStrength: 0.41
-    - _FoamTile: 1.93
-    - _NoramlTilling: -1.31
-    - _NormalGloss: 0.35
-    - _NormalSpeed: 2
-    - _NormalSpeedB: 2
-    - _NormalTile: 0.001
+    - _Depth: 3.69
+    - _FoamCutOff: 0.65
+    - _FoamDistance: -10.63
+    - _FoamSpeed: 0.002
+    - _FoamStrength: 2.28
+    - _FoamTile: -3.56
+    - _NoramlTilling: -1.99
+    - _NormalGloss: 0.5
+    - _NormalSpeed: 3.09
+    - _NormalSpeedB: 3.09
+    - _NormalTile: 0.002
     - _QueueControl: 1
     - _QueueOffset: 0
-    - _Smoothness: 16.02
-    - _Trasparency: 0.284
-    - _WaveSpeed: -15.86
+    - _Smoothness: 2.1
+    - _Trasparency: 0.83
+    - _WaveSpeed: 1
     - _WaveStrength: 7.62
-    - _WaveTile: 3.2
-    - _Wave_Scale: -0.05
+    - _WaveTile: 1.2
+    - _Wave_Scale: -0.33
     m_Colors:
-    - _ColorA: {r: 0.8679245, g: 0.34662384, b: 0.34662384, a: 0}
+    - _ColorA: {r: 0.57861626, g: 0.34116092, b: 0.19833063, a: 0}
     - _ColorB: {r: 0.07948893, g: 0.44438732, b: 0.8930816, a: 1}
     - _DepthColor: {r: 0.010502409, g: 0.031915765, b: 1.1132739, a: 1}
     - _DirectionA: {r: 1, g: 1, b: 0, a: 0}
     - _DirectionB: {r: -1, g: -1, b: 0, a: 0}
     - _DirectionWave: {r: 1.1, g: 1.5, b: 0, a: 0}
+    - _FoamColor: {r: 5.2164764, g: 3.822135, b: 3.822135, a: 0.8901961}
   m_BuildTextureStacks: []
 --- !u!114 &2963865730444625738
 MonoBehaviour:
