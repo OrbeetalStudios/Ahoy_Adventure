@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MEC;
@@ -9,7 +8,7 @@ public class LinearMotionToTarget : AbstractMotionToTarget
     {
         targetPosition = Vector3.zero;
         currentSpeed = speed;
-        moveHandle = Timing.RunCoroutine(Move());
+        moveToTargetHandle = Timing.RunCoroutine(Move().CancelWith(gameObject));
     }
     protected override IEnumerator<float> Move()
     {
