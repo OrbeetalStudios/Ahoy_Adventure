@@ -22,13 +22,15 @@ public class WavesController : MonoBehaviour
     };
     [SerializeField] private string filenameJson;
     private JSONWaves wavesDataJson = new();
+    private int numberOfWaves;
 
     // Start is called before the first frame update
     void Start()
     {
         LoadSpawnPoints();
-        LoadJSON(filenameJson);
+        LoadWavesData(filenameJson);
         Timing.RunCoroutine(SpawnEnemies());
+        Timing.RunCoroutine(SpawnMines());
     }
     private void LoadSpawnPoints()
     {
@@ -43,18 +45,16 @@ public class WavesController : MonoBehaviour
                 else if (sp.currAngle > 180 && sp.currAngle <= 270) spawnPoints[EQuadrant.Quadrant_180_270].Add(sp);
                 else spawnPoints[EQuadrant.Quadrant_270_360].Add(sp);
             }
-
-            Debug.Log("spawn point " + i + " angle: " + sp.currAngle);
         }
     }
     [ProButton]
-    public void LoadJSON(string fileName)
+    public void LoadWavesData(string fileName)
     {
         wavesDataJson = JSONWaves.CreateFromJSON(TextFileReader.ReadFileAsText(fileName));
+        numberOfWaves = wavesDataJson.waves.Count;
     }
     private IEnumerator<float> SpawnEnemies()
     {
-        int numberOfWaves = wavesDataJson.waves.Count;
         int currentWave = 0;
         int currentEnemy = -1;
 
@@ -81,6 +81,37 @@ public class WavesController : MonoBehaviour
 
                 yield return Timing.WaitForSeconds(enemy.spawnTime);
                 enemyShip.SetActive(true);
+            }
+        }
+    }
+    private IEnumerator<float> SpawnMines()
+    {
+        int currentWave = 0;
+        int currentMine = -1;
+
+        while (currentWave < numberOfWaves)
+        {
+            currentMine++;
+
+            if (currentMine >= wavesDataJson.waves[currentWave].mines.Count)
+            {
+                if (!wavesDataJson.waves[currentWave].isLast) currentWave++;
+                currentMine = -1;
+                continue;
+            }
+
+            JSONMine mine = wavesDataJson.waves[currentWave].mines[currentMine];
+            GameObject newMine = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.mine);
+            if (newMine != null)
+            {
+                EQuadrant currQuadrant = (EQuadrant)mine.spawnQuadrant;
+                if (spawnPoints[currQuadrant].Count != 0)
+                {
+                    newMine.transform.position = spawnPoints[currQuadrant][Random.Range(0, spawnPoints[currQuadrant].Count)].transform.position;
+                }
+
+                yield return Timing.WaitForSeconds(mine.spawnTime);
+                newMine.SetActive(true);
             }
         }
     }
