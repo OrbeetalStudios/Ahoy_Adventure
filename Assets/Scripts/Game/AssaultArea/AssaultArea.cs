@@ -26,7 +26,6 @@ public class AssaultArea : MonoBehaviour
         resetCount = Countdown;
         enemyMovScript=enemyObj.GetComponent<EnemyMovement>();
     }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -42,7 +41,6 @@ public class AssaultArea : MonoBehaviour
             }
         }  
     }
-
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -55,12 +53,10 @@ public class AssaultArea : MonoBehaviour
             ResetCount();
         }
     }
-
     public void ResetCount()
     {
       Countdown=resetCount;
     }
-
     protected IEnumerator<float> countDownCoroutine()
     {
         startCount = true;
@@ -77,7 +73,6 @@ public class AssaultArea : MonoBehaviour
         }
         startCount=false;
     }
-
     private void OnDisable()
     {
         playerInside = false;

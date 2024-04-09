@@ -9,7 +9,7 @@ public class LinearMotionToTarget : AbstractMotionToTarget
     {
         targetPosition = Vector3.zero;
         currentSpeed = speed;
-        Timing.RunCoroutine(Move());
+        moveHandle = Timing.RunCoroutine(Move());
     }
     protected override IEnumerator<float> Move()
     {

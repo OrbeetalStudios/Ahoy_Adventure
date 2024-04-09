@@ -4,12 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : EnemyMovement
 {
-    [SerializeField, Range(0f, 180f)]//180 more rendering distance with this settings
-    public Vector3 resetPosition;
-    [SerializeField]
-    private EnemyMovement movement;
     [SerializeField, Range(0f, 1f)] private float spawnChance = 0.5f;
 
      void OnTriggerEnter(Collider other)
@@ -27,7 +23,7 @@ public class Enemy : MonoBehaviour
                 gameObject.SetActive(false);
                 break;
             case "Island":
-                movement.StartPlunder();
+                StartPlunder();
                 break;
         }        
      }

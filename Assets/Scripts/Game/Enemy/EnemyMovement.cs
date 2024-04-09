@@ -4,11 +4,10 @@ using UnityEngine;
 using MEC;
 using System;
 
-public class EnemyMovement : Enemy
+public class EnemyMovement : MonoBehaviour
 {
     [SerializeField]
     private float enemySpeed;
-    private bool canMove = true;
     [SerializeField]
     private GameObject assaultArea;  
     public int plunderTime;
@@ -21,21 +20,16 @@ public class EnemyMovement : Enemy
     [SerializeField]
     private Material originalMaterial;
 
-
     private void OnEnable()
     {
-        canMove = true;
         Timing.RunCoroutine(Move().CancelWith(gameObject));
     }
-
     private void Awake()
     {
         plunderDefault = plunderTime;   
     }
-
-    public void StartPlunder()
+    protected void StartPlunder()
     {
-        canMove = false;
         StopCoroutine("Move");
         Vector3 relativePos = transform.position - Vector3.zero;
         Quaternion rotation = Quaternion.LookRotation(relativePos,Vector3.up);
@@ -44,12 +38,10 @@ public class EnemyMovement : Enemy
         assaultArea.SetActive(true);
         inPlunder = true;   
         Timing.RunCoroutine(Plunder().CancelWith(gameObject));
-
-
     }
     private  IEnumerator<float> Move()
     {
-        while (canMove==true)
+        while (true)
         {
             // relative vector from center to object
             Vector3 relativePos = transform.position - Vector3.zero;
@@ -59,14 +51,12 @@ public class EnemyMovement : Enemy
             transform.rotation = rotation;
 
             // Update position
-            transform.position -= relativePos.normalized * enemySpeed * Time.deltaTime;
+            transform.position -= enemySpeed * Time.deltaTime * relativePos.normalized;
             yield return Timing.WaitForOneFrame;
         }
     }
-
     protected IEnumerator<float> Plunder()
-    {
-       
+    { 
         while (inPlunder==true)
         {
             if (plunderTime <= 0)
@@ -78,21 +68,17 @@ public class EnemyMovement : Enemy
                 transform.rotation = rotation;
                 inPlunder = false;
                 Timing.RunCoroutine(ReturnOutsideMap(relativePos).CancelWith(gameObject));
-                StopCoroutine("Plunder");
             }
             plunderTime--;
             yield return Timing.WaitForSeconds(1f);
         }
        
     }
-
     public void RestartPlunder()
     {
         Timing.RunCoroutine(Plunder().CancelWith(gameObject));
     }
-
-
-   protected IEnumerator<float> ReturnOutsideMap(Vector3 relativePos)
+    protected IEnumerator<float> ReturnOutsideMap(Vector3 relativePos)
     {
         plunderTime = plunderDefault;
         while (this.isActiveAndEnabled)
@@ -107,20 +93,12 @@ public class EnemyMovement : Enemy
             }
             yield return Timing.WaitForOneFrame;
         }
-        StopCoroutine("ReturnOutsideMap");
-      
-
-
     }
-
     private void OnDisable()
     {
         assaultArea.SetActive(false);
-        canMove = false;
         StopAllCoroutines();
         plunderTime = plunderDefault;
-        transform.position = resetPosition;
         render.material = originalMaterial;
     }
-
 }
