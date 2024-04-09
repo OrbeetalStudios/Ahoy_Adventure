@@ -20,7 +20,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _NormalGloss
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -49,18 +49,18 @@ Material:
     - _ColorMix: -3.36
     - _Depth: 3.69
     - _FoamCutOff: 0.65
-    - _FoamDistance: -10.63
+    - _FoamDistance: -10.59
     - _FoamSpeed: 0.002
-    - _FoamStrength: 2.28
-    - _FoamTile: -3.56
+    - _FoamStrength: 3.65
+    - _FoamTile: -1.63
     - _NoramlTilling: -1.99
-    - _NormalGloss: 0.5
+    - _NormalGloss: 0.3
     - _NormalSpeed: 3.09
     - _NormalSpeedB: 3.09
     - _NormalTile: 0.002
     - _QueueControl: 1
     - _QueueOffset: 0
-    - _Smoothness: 2.1
+    - _Smoothness: 12.11
     - _Trasparency: 0.83
     - _WaveSpeed: 1
     - _WaveStrength: 7.62
