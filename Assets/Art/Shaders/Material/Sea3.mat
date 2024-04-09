@@ -53,12 +53,12 @@ Material:
     - _DepthColout: 0
     - _Float: 19.29
     - _FoamAmount: 0.4
-    - _FoamCutOff: 0.94
-    - _FoamDistance: 1.37
+    - _FoamCutOff: 0.96
+    - _FoamDistance: 1.75
     - _FoamScale: 30
     - _FoamSpeed: 0.002
-    - _FoamStrength: 0.17
-    - _FoamTile: 3.81
+    - _FoamStrength: 0.33
+    - _FoamTile: 4.79
     - _NoramlTilling: -1.61
     - _NormalGloss: 0.25
     - _NormalSpeed: 2
@@ -73,7 +73,7 @@ Material:
     - _WaterSpeed: 1
     - _WaveSize: 2
     - _WaveSpeed: 1
-    - _WaveStrength: 8
+    - _WaveStrength: 7.34
     - _WaveTile: -0.05
     - _Wave_Scale: 0.94
     m_Colors:

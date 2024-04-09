@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Enemy
   - Mine
+  - Water
   layers:
   - Default
   - TransparentFX

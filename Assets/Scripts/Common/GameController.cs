@@ -104,7 +104,7 @@ public class GameController : MonoSingleton<GameController>
     {
         GameOverPanel.SetActive(false);
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+      //  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 
