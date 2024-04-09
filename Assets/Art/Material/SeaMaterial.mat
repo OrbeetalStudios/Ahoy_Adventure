@@ -46,26 +46,26 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorMix: -4.22
-    - _Depth: 1.42
-    - _FoamCutOff: 0.96
-    - _FoamDistance: 1.75
-    - _FoamSpeed: 0.002
-    - _FoamStrength: 0.2
-    - _FoamTile: 3.12
-    - _NoramlTilling: -1.61
-    - _NormalGloss: 0.3
+    - _ColorMix: -3.36
+    - _Depth: 3.9
+    - _FoamCutOff: 0.38
+    - _FoamDistance: -11.3
+    - _FoamSpeed: 0.01
+    - _FoamStrength: 0.41
+    - _FoamTile: 1.93
+    - _NoramlTilling: -1.31
+    - _NormalGloss: 0.35
     - _NormalSpeed: 2
     - _NormalSpeedB: 2
-    - _NormalTile: 0.0011
+    - _NormalTile: 0.001
     - _QueueControl: 1
     - _QueueOffset: 0
-    - _Smoothness: 15.37
-    - _Trasparency: 0.75
+    - _Smoothness: 16.02
+    - _Trasparency: 0.284
     - _WaveSpeed: -15.86
-    - _WaveStrength: 7.54
-    - _WaveTile: -0.87
-    - _Wave_Scale: 0
+    - _WaveStrength: 7.62
+    - _WaveTile: 3.2
+    - _Wave_Scale: -0.05
     m_Colors:
     - _ColorA: {r: 0.8679245, g: 0.34662384, b: 0.34662384, a: 0}
     - _ColorB: {r: 0.07948893, g: 0.44438732, b: 0.8930816, a: 1}
