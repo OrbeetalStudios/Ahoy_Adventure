@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using com.cyborgAssets.inspectorButtonPro;
 using MEC;
+using System.Linq;
 
 public class WavesController : MonoBehaviour
 {
@@ -13,12 +14,12 @@ public class WavesController : MonoBehaviour
         Quadrant_270_360 = 4
     }
     [SerializeField] private GameObject spawnPointPrefab;
-    private Dictionary<EQuadrant, List<SpawnPoint>> spawnPoints = new Dictionary<EQuadrant, List<SpawnPoint>>()
+    private Dictionary<EQuadrant, Coll<SpawnPoint>> spawnPoints = new Dictionary<EQuadrant, Coll<SpawnPoint>>()
     {
-        {EQuadrant.Quadrant_0_90, new List<SpawnPoint>() },
-        {EQuadrant.Quadrant_90_180, new List<SpawnPoint>() },
-        {EQuadrant.Quadrant_180_270, new List<SpawnPoint>() },
-        {EQuadrant.Quadrant_270_360, new List<SpawnPoint>() }
+        {EQuadrant.Quadrant_0_90, new Coll<SpawnPoint>() },
+        {EQuadrant.Quadrant_90_180, new Coll<SpawnPoint>() },
+        {EQuadrant.Quadrant_180_270, new Coll<SpawnPoint>() },
+        {EQuadrant.Quadrant_270_360, new Coll<SpawnPoint>() }
     };
     [SerializeField] private string filenameJson;
     private JSONWaves wavesDataJson = new();
@@ -76,7 +77,10 @@ public class WavesController : MonoBehaviour
                 EQuadrant currQuadrant = (EQuadrant)enemy.spawnQuadrant;
                 if (spawnPoints[currQuadrant].Count != 0)
                 {
-                    enemyShip.transform.position = spawnPoints[currQuadrant][Random.Range(0, spawnPoints[currQuadrant].Count)].transform.position;
+                    int[] newValues = Enumerable.Range(0, spawnPoints[currQuadrant].Count).Where(x => x != spawnPoints[currQuadrant].LastInd).ToArray();
+                    int newIndex = newValues[Random.Range(0, newValues.Length)];
+
+                    enemyShip.transform.position = spawnPoints[currQuadrant].GetAt(newIndex).transform.position;
                 }
 
                 yield return Timing.WaitForSeconds(enemy.spawnTime);
@@ -107,12 +111,34 @@ public class WavesController : MonoBehaviour
                 EQuadrant currQuadrant = (EQuadrant)mine.spawnQuadrant;
                 if (spawnPoints[currQuadrant].Count != 0)
                 {
-                    newMine.transform.position = spawnPoints[currQuadrant][Random.Range(0, spawnPoints[currQuadrant].Count)].transform.position;
+                    int[] newValues = Enumerable.Range(0, spawnPoints[currQuadrant].Count).Where(x => x != spawnPoints[currQuadrant].LastInd).ToArray();
+                    int newIndex = newValues[Random.Range(0, newValues.Length)];
+
+                    newMine.transform.position = spawnPoints[currQuadrant].GetAt(newIndex).transform.position;
                 }
 
                 yield return Timing.WaitForSeconds(mine.spawnTime);
                 newMine.SetActive(true);
             }
         }
+    }
+}
+
+public class Coll<T>
+{
+    List<T> coll = new List<T>();
+    int lastInd = -1;
+
+    public int Count { get { return coll.Count; } }
+    public int LastInd { get { return lastInd; } }
+
+    public void Add(T item)
+    {
+        coll.Add(item);
+    }
+    public T GetAt(int index)
+    {
+        lastInd = index;
+        return coll.ElementAt(index);
     }
 }
