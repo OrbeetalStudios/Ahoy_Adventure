@@ -3596,7 +3596,6 @@ GameObject:
   - component: {fileID: 3094651362993063134}
   - component: {fileID: 7333641586394767643}
   - component: {fileID: 7791608244395059048}
-  - component: {fileID: 7791608244395059050}
   - component: {fileID: 7791608244395059049}
   m_Layer: 6
   m_Name: Player
@@ -3815,23 +3814,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7791608244395059050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855919750002729401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 757e03ef3615a5140ba9408c07077c28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 7791608244395059049}
-  depthBeforeSubmerged: 1
-  displacementAmount: 2
-  depthBeforeSubmergedX: 1
-  displacementAmountX: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
