@@ -53,12 +53,12 @@ Material:
     - _DepthColout: 0
     - _Float: 19.29
     - _FoamAmount: 0.4
-    - _FoamCutOff: 68.33
-    - _FoamDistance: -4.58
+    - _FoamCutOff: -0.01
+    - _FoamDistance: 1
     - _FoamScale: 30
     - _FoamSpeed: 0.002
-    - _FoamStrength: -3.97
-    - _FoamTile: 4.49
+    - _FoamStrength: 2.86
+    - _FoamTile: 1.5
     - _NoramlTilling: -1.61
     - _NormalGloss: 0.25
     - _NormalSpeed: 2
@@ -86,7 +86,7 @@ Material:
     - _DirectionA: {r: 1, g: 1, b: 0, a: 0}
     - _DirectionB: {r: -1, g: -1, b: 0, a: 0}
     - _DirectionWave: {r: 1.1, g: 1.5, b: 0, a: 0}
-    - _FoamColor: {r: 0, g: 65.79394, b: 126.854385, a: 1}
+    - _FoamColor: {r: 2.5401163, g: 2.6438038, b: 2.7381594, a: 0.92156863}
     - _RippleColor: {r: 0.7564968, g: 1.072011, b: 1.924528, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6288277618754226739
