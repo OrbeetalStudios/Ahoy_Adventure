@@ -811,10 +811,8 @@ GameObject:
   - component: {fileID: 302274210}
   - component: {fileID: 302274209}
   - component: {fileID: 302274208}
-  - component: {fileID: 302274212}
-  - component: {fileID: 302274211}
   m_Layer: 0
-  m_Name: Sea
+  m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -840,7 +838,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a2333f0b1f463e34b8ca4c9ad688a05d, type: 2}
+  - {fileID: 2100000, guid: 0f519f4f30a4c0545b3cdd1876815499, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -869,7 +867,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302274207}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4579454407841743219, guid: 7768ed1592417e440b54e304f7fa61df, type: 3}
 --- !u!4 &302274210
 Transform:
   m_ObjectHideFlags: 0
@@ -878,41 +876,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302274207}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -199, z: 17}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 276, y: -78, z: 80}
   m_LocalScale: {x: 48.1, y: 48.1, z: 48.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1891535867}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &302274211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302274207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a704e71585862148bd4c36fa27d4614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amplitude: 0.37
-  length: 0.55
-  speed: 0.76
-  offset: 0
---- !u!114 &302274212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302274207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aeaf34b47f9f834980f59903120eb79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &393757221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2329,7 +2299,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -99.9
+  near clip plane: -93.98
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -3411,7 +3381,7 @@ Transform:
   m_GameObject: {fileID: 1767188595}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -452, y: -94.4, z: -363}
+  m_LocalPosition: {x: -518, y: -190, z: -134}
   m_LocalScale: {x: 48, y: 48, z: 48}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3566,6 +3536,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1800036374}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1891535866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891535867}
+  m_Layer: 0
+  m_Name: Sea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1891535867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891535866}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -197.77649, y: 76, z: 44.345592}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 302274210}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1036650266193326275
 Transform:
   m_ObjectHideFlags: 0
@@ -3808,7 +3810,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -3844,4 +3846,4 @@ SceneRoots:
   - {fileID: 1224671948}
   - {fileID: 1414464500}
   - {fileID: 1767188598}
-  - {fileID: 302274210}
+  - {fileID: 1891535867}
