@@ -66,6 +66,7 @@ public class WavesController : MonoBehaviour
             if (currentEnemy >= wavesDataJson.waves[currentWave].enemies.Count)
             {
                 if (!wavesDataJson.waves[currentWave].isLast) currentWave++;
+                else if (wavesDataJson.waves[currentWave].enemies.Count == 0) break;
                 currentEnemy = -1;
                 continue;
             }
@@ -100,6 +101,7 @@ public class WavesController : MonoBehaviour
             if (currentMine >= wavesDataJson.waves[currentWave].mines.Count)
             {
                 if (!wavesDataJson.waves[currentWave].isLast) currentWave++;
+                else if (wavesDataJson.waves[currentWave].mines.Count == 0) break;
                 currentMine = -1;
                 continue;
             }

@@ -1,7 +1,7 @@
 {"waves": [
 	{
 		"id": 1,
-		"isLast": true,
+		"isLast": false,
 		"enemies": [
 			{
 				"id": "enemy_default",
@@ -45,7 +45,7 @@
 	},
 	{
 		"id": 2,
-		"isLast": false,
+		"isLast": true,
 		"enemies": [
 			{
 				"id": "enemy_default",
