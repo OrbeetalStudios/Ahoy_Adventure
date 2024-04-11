@@ -15,7 +15,7 @@ public class EnemyMovement : AbstractMotionToTarget
     {
         while (this.isActiveAndEnabled)
         {
-            transform.position += relativePos.normalized * speed * Time.deltaTime;
+            transform.position += speed * Time.deltaTime * relativePos.normalized;
             distanceTraveled = (transform.position - Vector3.zero).magnitude;
             if (distanceTraveled >= distanceThreshold)
             {
