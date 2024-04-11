@@ -33,26 +33,23 @@ public class PlayerInput : PlayerMovement
         Timing.RunCoroutine(rayCastTarget().CancelWith(gameObject));
         reload = reloadCannonTime;
     }
-
-   
-
-
     private void StartFire()
-    {
-       
+    {  
         if (ammoCount > 0 && canFire)
         {
-        
             ammoCount--;
             GameController.Instance.UpdateAmmo(ammoCount);
-            pool.SpawnBullet();
-            Timing.RunCoroutine(FireRatio(fireRatio).CancelWith(gameObject));
-           if (ammoCount < 3 && !isLoading)
+            GameObject bullet = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.bullet);
+            if (bullet != null)
             {
-                Timing.RunCoroutine(loadingCannon().CancelWith(gameObject));
+                bullet.SetActive(true);
+                Timing.RunCoroutine(FireRatio(fireRatio).CancelWith(gameObject));
+                if (ammoCount < 3 && !isLoading)
+                {
+                    Timing.RunCoroutine(loadingCannon().CancelWith(gameObject));
+                }
             }
-        }
-       
+        }  
     }
     protected  IEnumerator<float> loadingCannon()
     {

@@ -53,9 +53,4 @@ public class PoolController : MonoSingleton<PoolController>
         // If the specified id is not found, return null
         return null;
     }
-    public void SpawnBullet()
-    {
-        GameObject bullet = GetObjectFromCollection(EPoolObjectType.bullet);
-        bullet.SetActive(true);
-    }
 }
