@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4612336853922118028}
-  - component: {fileID: 1297428307796833193}
   - component: {fileID: 738415285023344151}
   - component: {fileID: 4107848473949761084}
+  - component: {fileID: -7274126366939921561}
   m_Layer: 7
   m_Name: Enemy_elite
   m_TagString: Enemy
@@ -36,29 +36,6 @@ Transform:
   - {fileID: 6925265323589916149}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1297428307796833193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054213451365819344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aca434e3225abb48b830833e31c1216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resetPosition: {x: 0, y: 0, z: 0}
-  movement: {fileID: 1297428307796833193}
-  spawnChance: 1
-  enemySpeed: 5
-  assaultArea: {fileID: 4655593177920169884}
-  plunderTime: 15
-  plunderDefault: 0
-  inPlunder: 0
-  render: {fileID: 7992926150301721306}
-  originalMaterial: {fileID: 8975480819012031255, guid: 9be88e9a27323504cbebf9bf86deda35,
-    type: 3}
 --- !u!65 &738415285023344151
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107,6 +84,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &-7274126366939921561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054213451365819344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27329248526c35343a3eb5420d920c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  distanceTraveled: 0
+  spawnChance: 1
+  assaultArea: {fileID: 4655593177920169884}
+  render: {fileID: 7992926150301721306}
+  originalMaterial: {fileID: 8975480819012031255, guid: 9be88e9a27323504cbebf9bf86deda35,
+    type: 3}
+  plunderTime: 15
+  plunderDefault: 0
 --- !u!1001 &8447107847250528673
 PrefabInstance:
   m_ObjectHideFlags: 0
