@@ -53,7 +53,7 @@ public class GameController : MonoSingleton<GameController>
         UpdateAmmoUI(ammoCount);
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         GameOverPanel.SetActive(true);
         Time.timeScale = 0;

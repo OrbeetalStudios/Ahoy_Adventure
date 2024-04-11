@@ -77,6 +77,7 @@ public class EnemyMovement : Enemy
                 rotation *= Quaternion.Euler(0, 180, 0);
                 transform.rotation = rotation;
                 inPlunder = false;
+                Island.Instance.DecreaseTreasure();
                 Timing.RunCoroutine(ReturnOutsideMap(relativePos).CancelWith(gameObject));
                 StopCoroutine("Plunder");
             }

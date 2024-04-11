@@ -1454,7 +1454,7 @@ Transform:
   m_GameObject: {fileID: 493272060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 837.3287, y: 924.90247, z: -2.9564834}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5888,6 +5888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7489004505615018513}
   - component: {fileID: 7489004505615018514}
+  - component: {fileID: 7489004505615018515}
   m_Layer: 3
   m_Name: Island
   m_TagString: Island
@@ -6012,6 +6013,20 @@ CapsuleCollider:
   m_Height: 9.095827
   m_Direction: 0
   m_Center: {x: -0.01591079, y: -2.8169825, z: 0.27059937}
+--- !u!114 &7489004505615018515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678103044673904336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f74b11c62adb4498f9fbb0c60ce340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTreasure: 1
+  currentTreasure: 0
 --- !u!114 &7791608244395059048
 MonoBehaviour:
   m_ObjectHideFlags: 0
