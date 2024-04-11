@@ -48,12 +48,14 @@
 		"isLast": true,
 		"enemies": [
 			{
-				"id": "enemy_default",
-				"spawnTime": 3
+				"id": "enemy_fast",
+				"spawnTime": 3,
+				"spawnQuadrant": 2
 			},
 			{
-				"id": "enemy_default",
-				"spawnTime": 4
+				"id": "enemy_elite",
+				"spawnTime": 4,
+				"spawnQuadrant": 1
 			}
 		]
 	},
