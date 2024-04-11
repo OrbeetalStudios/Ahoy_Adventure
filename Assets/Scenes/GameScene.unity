@@ -515,6 +515,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 99148395edccdb24baef9b6c8af900f3, type: 2}
   - {fileID: 11400000, guid: 43e159920d272bd4b98bc9122d91b7e4, type: 2}
   - {fileID: 11400000, guid: d35638ced8283b04e8fcd6e6167b5efd, type: 2}
+  - {fileID: 11400000, guid: 6e6f870f787885945ae731e1b679d6bf, type: 2}
   spawnInterval: 8
 --- !u!1 &147198398
 GameObject:

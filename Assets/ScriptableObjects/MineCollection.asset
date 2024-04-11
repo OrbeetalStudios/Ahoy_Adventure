@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbeb59d1a9d7be44aa01278f72448373, type: 3}
   m_Name: MineCollection
   m_EditorClassIdentifier: 
-  objID: 5
+  objID: 6
   prefab: {fileID: 1612527991413689135, guid: 394068507019e3144b579f74b6c339b6, type: 3}
   numberOfObjects: 10
   collection: []

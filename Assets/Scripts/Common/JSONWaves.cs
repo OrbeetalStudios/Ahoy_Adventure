@@ -37,6 +37,9 @@ public class JSONEnemy
             case "enemy_default":
                 ret = EPoolObjectType.enemy_default;
                 break;
+            case "enemy_slow":
+                ret = EPoolObjectType.enemy_slow;
+                break;
             case "enemy_fast":
                 ret = EPoolObjectType.enemy_fast;
                 break;
