@@ -22,7 +22,6 @@ public class PlayerInput : PlayerMovement
     private Enemy lastHitEnemy;
     private bool IsHit=false;
     private bool canFire = true;
-    private bool firePress=false;
     private float reload;
     private bool isLoading = false;
     private void OnEnable()
@@ -43,12 +42,12 @@ public class PlayerInput : PlayerMovement
        
         if (ammoCount > 0 && canFire)
         {
-            firePress = true;
+        
             ammoCount--;
             GameController.Instance.UpdateAmmo(ammoCount);
             pool.SpawnBullet();
             Timing.RunCoroutine(FireRatio(fireRatio).CancelWith(gameObject));
-            if (ammoCount < 3 && !isLoading)
+           if (ammoCount < 3 && !isLoading)
             {
                 Timing.RunCoroutine(loadingCannon().CancelWith(gameObject));
             }
@@ -58,16 +57,17 @@ public class PlayerInput : PlayerMovement
     protected  IEnumerator<float> loadingCannon()
     {
         isLoading = true;
-        while (true)
+        while (ammoCount!=3)
         {
-            if(ammoCount==0)
+            if(ammoCount<=0)
             {
                 yield return Timing.WaitForSeconds(reloadCannonTime);
                 ammoCount = 3;
+                GameController.Instance.UpdateAmmo(ammoCount);
                 reloadCannonTime = reload;
                 break;
             }
-            
+            yield return Timing.WaitForOneFrame;
         }
 
         isLoading = false;
