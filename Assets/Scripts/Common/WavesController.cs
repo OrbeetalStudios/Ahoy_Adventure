@@ -76,6 +76,7 @@ public class WavesController : MonoBehaviour
             if (enemyShip != null)
             {
                 EQuadrant currQuadrant = (EQuadrant)enemy.spawnQuadrant;
+                if (!System.Enum.IsDefined(typeof(EQuadrant), currQuadrant)) currQuadrant = EQuadrant.Quadrant_0_90; // default
                 if (spawnPoints[currQuadrant].Count != 0)
                 {
                     int[] newValues = Enumerable.Range(0, spawnPoints[currQuadrant].Count).Where(x => x != spawnPoints[currQuadrant].LastInd).ToArray();
@@ -111,6 +112,7 @@ public class WavesController : MonoBehaviour
             if (newMine != null)
             {
                 EQuadrant currQuadrant = (EQuadrant)mine.spawnQuadrant;
+                if (!System.Enum.IsDefined(typeof(EQuadrant), currQuadrant)) currQuadrant = EQuadrant.Quadrant_0_90; // default
                 if (spawnPoints[currQuadrant].Count != 0)
                 {
                     int[] newValues = Enumerable.Range(0, spawnPoints[currQuadrant].Count).Where(x => x != spawnPoints[currQuadrant].LastInd).ToArray();
