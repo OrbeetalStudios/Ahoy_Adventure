@@ -39,6 +39,7 @@ public class GameController : MonoSingleton<GameController>
 
     public void UpdateLife()
     {
+        Debug.Log("Ho tolto una vita");
         lifeCount--;
         LifeUpdated?.Invoke(lifeCount);
         UpdateLifeUI();
@@ -66,6 +67,7 @@ public class GameController : MonoSingleton<GameController>
 
     private void UpdateLifeUI()
     {
+        
         for (int i = 0; i < lifeImages.Length; i++)
         {
             lifeImages[i].gameObject.SetActive(i < lifeCount);
