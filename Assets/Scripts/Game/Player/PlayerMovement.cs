@@ -47,8 +47,7 @@ public class PlayerMovement : Player
     {
         // Normalize Input Vector
         Vector3 direction = new Vector3(inputVector.x, 0f, inputVector.y).normalized;
-        if (transform.position.z < 0)
-        {
+       
             // If input right movement clocwise
             if (inputVector.x > 0f && clockwiseMotion)
             {
@@ -61,21 +60,8 @@ public class PlayerMovement : Player
                 model.transform.Rotate(0, -180, 0);
                 clockwiseMotion = true;
             }
-        }
-        else if (transform.position.z > 0)
-        {
-            if (inputVector.x > 0f && !clockwiseMotion)
-            {
-                model.transform.Rotate(0, -180, 0);
-                clockwiseMotion = true;
-            }
-            // if input left movement counterclockwise
-            else if (inputVector.x < 0f && clockwiseMotion)
-            {
-                model.transform.Rotate(0, 180, 0);
-                clockwiseMotion = false;
-            }
-        }
+       
+        
 
 
         // direction of movement
