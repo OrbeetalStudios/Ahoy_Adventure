@@ -7,15 +7,13 @@ public class Floater : MonoBehaviour
     public Rigidbody rb;
     public float depthBeforeSubmerged = 1f;
     public float displacementAmount = 3f;
-    public float depthBeforeSubmergedX = 1f;
-    public float displacementAmountX = 3f;
-
+   
     private void FixedUpdate()
     {
-        float waveHeight = WaveManager.instance.GetWaveHeight(transform.position.x);
-        if(transform.position.y< waveHeight)
+        
+        if(transform.position.y< 0f)
         {
-            float displacementMultipler = Mathf.Clamp01((waveHeight-transform.position.y) / depthBeforeSubmerged) * displacementAmount;
+            float displacementMultipler = Mathf.Clamp01(-transform.position.y / depthBeforeSubmerged) * displacementAmount;
             rb.AddForce(new Vector3(0f, Mathf.Abs(Physics.gravity.y) * displacementMultipler, 0f), ForceMode.Acceleration);
         }
         
