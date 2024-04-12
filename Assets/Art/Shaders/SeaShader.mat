@@ -67,7 +67,7 @@ Material:
     - _RippleSpeed: 1
     - _RippleTickhness: 6.8
     - _Smothness: 0.93
-    - _Transaprency: 0.86
+    - _Transaprency: 0.938
     - _UnderWaterSpeed: 0.02
     - _UnderwaterStrength: 5.9
     - _WaterSpeed: 0.28
