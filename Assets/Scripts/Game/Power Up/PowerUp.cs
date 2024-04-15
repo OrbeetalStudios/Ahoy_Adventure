@@ -12,6 +12,10 @@ public class PowerUp : MonoBehaviour
     {
         playerRef = other.GetComponent<Player>();
 
+        if (waitHandle != null)
+        {
+            Timing.KillCoroutines(waitHandle);
+        }
         waitHandle = Timing.RunCoroutine(WaitPowerUpDuration());
     }
     protected IEnumerator<float> WaitPowerUpDuration()
