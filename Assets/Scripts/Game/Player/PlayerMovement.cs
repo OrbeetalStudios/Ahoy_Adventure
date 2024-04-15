@@ -1,5 +1,4 @@
 using MEC;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,39 +40,31 @@ public class PlayerMovement : Player
             yield return Timing.WaitForOneFrame;
         }
     }
-
     // Method to set movement direction from external script (player movement)
     public void SetMovementDirection(Vector2 inputVector)
     {
         // Normalize Input Vector
         Vector3 direction = new Vector3(inputVector.x, 0f, inputVector.y).normalized;
        
-            // If input right movement clocwise
-            if (inputVector.x > 0f && clockwiseMotion)
-            {
-                model.transform.Rotate(0, 180, 0);
-                clockwiseMotion = false;
-            }
-            // if input left movement counterclockwise
-            else if (inputVector.x < 0f && !clockwiseMotion)
-            {
-                model.transform.Rotate(0, -180, 0);
-                clockwiseMotion = true;
-            }
-       
-        
-
+        // If input right movement clocwise
+        if (inputVector.x > 0f && clockwiseMotion)
+        {
+            model.transform.Rotate(0, 180, 0);
+            clockwiseMotion = false;
+        }
+        // if input left movement counterclockwise
+        else if (inputVector.x < 0f && !clockwiseMotion)
+        {
+            model.transform.Rotate(0, -180, 0);
+            clockwiseMotion = true;
+        }
 
         // direction of movement
         movementDirection = direction;
     }
-
-
     private void OnDrawGizmos()//Draw Gizmos for test
     {
-      
-
-        // calculate CenterOFEllipse
+        // calculate CenterOfEllipse
         Vector3 ellipseCenter = Vector3.zero;
 
         // drawPath
