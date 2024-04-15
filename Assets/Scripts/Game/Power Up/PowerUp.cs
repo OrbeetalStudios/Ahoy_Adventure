@@ -22,6 +22,6 @@ public class PowerUp : MonoBehaviour
     }
     public virtual void Expired()
     {
-        Debug.Log("Default PowerUpExpired method!");
+        Debug.Log("Default PowerUp Expired method!");
     }
 }

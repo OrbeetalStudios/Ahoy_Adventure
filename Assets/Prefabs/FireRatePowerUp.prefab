@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7989098575927394855
+--- !u!1 &2406789811972904784
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7319334029793192269}
-  - component: {fileID: 6868283225228497027}
+  - component: {fileID: 5079296895600096550}
+  - component: {fileID: 2726909789326653091}
   m_Layer: 0
-  m_Name: PowerUpController
+  m_Name: FireRatePowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7319334029793192269
+--- !u!4 &5079296895600096550
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7989098575927394855}
+  m_GameObject: {fileID: 2406789811972904784}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,19 +32,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6868283225228497027
+--- !u!114 &2726909789326653091
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7989098575927394855}
+  m_GameObject: {fileID: 2406789811972904784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae19072dde1d4e4e9aa4df0736b3c2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c0f132ee62ca144689ec41266e2daa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpsPrefabs:
-  - {fileID: 5513897136321957344, guid: a0ae5c95562d51f429c54d94fd9ea679, type: 3}
-  - {fileID: 2406789811972904784, guid: d88c17387bc9d1a4fa9244e9686bf431, type: 3}
-  - {fileID: 5871007204001880894, guid: a75d78b033b38d6418488469d67af1c2, type: 3}
+  DurationInSeconds: 5
+  fireRateBoost: 1
