@@ -1162,9 +1162,9 @@ RectTransform:
   - {fileID: 147198399}
   - {fileID: 159233076}
   - {fileID: 1672767801}
-  - {fileID: 771177060}
   - {fileID: 1133839634}
   - {fileID: 1771761381}
+  - {fileID: 771177060}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4742,7 +4742,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 24.604004, y: 0.000019073486}
+  m_AnchoredPosition: {x: 24.604004, y: 0}
   m_SizeDelta: {x: -49.2085, y: 0.000061035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1308523592
@@ -8001,6 +8001,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: ccad3d70-6fb3-4ef4-a982-c6462a9a7cf0
     m_ActionName: Player/Movement[/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f2a00337-c244-4cd1-ab7c-f66dee04c7c3
+    m_ActionName: Player/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
