@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     private float speed;
     protected float currentSpeed;
 
-   
+    public float Speed { get { return speed; } set { speed = value; } }
 
     protected void Update()
     {

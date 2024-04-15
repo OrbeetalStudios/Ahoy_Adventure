@@ -70,7 +70,10 @@ public class PlayerInput : PlayerMovement
         isLoading = false;
         StopCoroutine("loadingCannon");
     }
-
+    public void ApplySpeedBoost(float boostValue)
+    {
+        Speed += boostValue;
+    }
    
     protected IEnumerator<float> FireRatio(float fireRatio)
     {

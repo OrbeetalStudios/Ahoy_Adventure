@@ -9,11 +9,11 @@ public class SpeedPowerUp : PowerUp
     public override void Collected(GameObject other)
     {
         base.Collected(other);
-        
-        //
+
+        playerRef.ApplySpeedBoost(speedBoost);
     }
     public override void Expired()
     {
-        //
+        playerRef.ApplySpeedBoost(-speedBoost);
     }
 }

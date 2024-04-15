@@ -5,12 +5,12 @@ using MEC;
 public class PowerUp : MonoBehaviour
 {
     private CoroutineHandle waitHandle;
-    protected Player playerRef;
+    protected PlayerInput playerRef;
     [SerializeField] protected float DurationInSeconds = 5;
 
     public virtual void Collected(GameObject other)
     {
-        playerRef = other.GetComponent<Player>();
+        playerRef = other.GetComponent<PlayerInput>();
 
         if (waitHandle != null)
         {
