@@ -554,7 +554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -662.6401, y: 1044.5472}
+  m_AnchoredPosition: {x: -662.6401, y: 999}
   m_SizeDelta: {x: -675.4266, y: -406.756}
   m_Pivot: {x: 1.0000001, y: -1.5991092}
 --- !u!114 &147198400
@@ -707,7 +707,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 190.81}
+  m_AnchoredPosition: {x: -325, y: 190.81}
   m_SizeDelta: {x: -675.6268, y: -406.9565}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &159233077
@@ -4917,6 +4917,7 @@ GameObject:
   - component: {fileID: 1672767804}
   - component: {fileID: 1672767803}
   - component: {fileID: 1672767802}
+  - component: {fileID: 1672767805}
   m_Layer: 5
   m_Name: CannonPanel
   m_TagString: Untagged
@@ -4943,7 +4944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 323, y: 190.81}
+  m_AnchoredPosition: {x: 101, y: 38}
   m_SizeDelta: {x: -675.6268, y: -406.9565}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1672767802
@@ -4966,8 +4967,8 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 1
   m_StartAxis: 0
-  m_CellSize: {x: 20, y: 20}
-  m_Spacing: {x: 13, y: 0}
+  m_CellSize: {x: 15, y: 15}
+  m_Spacing: {x: 5.4, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &1672767803
@@ -4983,14 +4984,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 702423241, guid: 7bb12e1a1363c514bb9ee72a9acafce2, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5008,6 +5009,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672767800}
   m_CullTransparentMesh: 1
+--- !u!114 &1672767805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672767800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2f81be8250b2d44a0cbf652641a551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1036650266193326275}
+  offset: {x: 0, y: 21, z: 0}
 --- !u!1001 &1739935480
 PrefabInstance:
   m_ObjectHideFlags: 0
