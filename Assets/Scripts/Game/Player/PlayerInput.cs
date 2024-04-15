@@ -98,6 +98,7 @@ public class PlayerInput : PlayerMovement
         float horizontalInput = inputVector.x;
         float verticalInput = inputVector.y;
         controls.Player.Fire.performed += ctx => StartFire();
+        controls.Player.Pause.performed += ctx => GameController.Instance.Pause();
 
 
 

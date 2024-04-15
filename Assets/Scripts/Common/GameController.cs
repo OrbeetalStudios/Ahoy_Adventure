@@ -108,15 +108,26 @@ public class GameController : MonoSingleton<GameController>
     public void Restart()
     {
         GameOverPanel.SetActive(false);
+        PausePanel.SetActive(false);    
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(1);
     }
 
     public void Pause()
     {
-        isPaused = true;
-        Time.timeScale = 0; // Metti in pausa il gioco
-        PausePanel.SetActive(true); // Mostra il menu di pausa
+        if (isPaused == true)
+        {
+            PausePanel.SetActive(false);
+            Time.timeScale = 1; // Riprendi il gioco
+            isPaused =false;
+        }
+        else
+        {
+            isPaused = true;
+            Time.timeScale = 0;
+            PausePanel.SetActive(true); 
+        }
+       
     }
 
     public void Resume()
