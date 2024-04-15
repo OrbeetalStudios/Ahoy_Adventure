@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PowerUpController : MonoSingleton<PowerUpController>
 {
-    [SerializeField] public List<GameObject> powerUpsPrefabs;
+    [SerializeField] public List<PowerUpData> DataList;
     private List<PowerUp> powerUps = new();
     private void Start()
     {
-        foreach (var item in powerUpsPrefabs)
+        foreach (var data in DataList)
         {
-            GameObject obj = Instantiate(item, this.transform);
-            powerUps.Add(obj.GetComponent<PowerUp>());
+            GameObject obj = new GameObject(data.ObjectName, typeof(PowerUp));
+            obj.transform.SetParent(this.transform); // just for better hierarchy
+            PowerUp powerUp = obj.GetComponent<PowerUp>();
+            powerUp.data = data;
+            powerUps.Add(powerUp);
         }
     }
     public void ActivatePowerUp(GameObject other)

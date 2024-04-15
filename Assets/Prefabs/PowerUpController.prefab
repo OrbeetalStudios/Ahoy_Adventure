@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae19072dde1d4e4e9aa4df0736b3c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpsPrefabs:
-  - {fileID: 5513897136321957344, guid: a0ae5c95562d51f429c54d94fd9ea679, type: 3}
-  - {fileID: 2406789811972904784, guid: d88c17387bc9d1a4fa9244e9686bf431, type: 3}
-  - {fileID: 5871007204001880894, guid: a75d78b033b38d6418488469d67af1c2, type: 3}
-  - {fileID: 5395647477996204785, guid: c1498e6308d18e14485fccbfcf43644c, type: 3}
+  DataList:
+  - {fileID: 11400000, guid: 3ba90c6b7403ee44c8c699d6cb58fee0, type: 2}
+  - {fileID: 11400000, guid: 08c3e0280a2ef3d4b81f465051da6b0e, type: 2}
+  - {fileID: 11400000, guid: 5e1c33c21eff12e45bcbd72254b17f25, type: 2}
+  - {fileID: 11400000, guid: 6215f6e726d2e904ba6abe7550b54872, type: 2}

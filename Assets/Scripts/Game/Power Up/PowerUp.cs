@@ -5,12 +5,15 @@ using MEC;
 public class PowerUp : MonoBehaviour
 {
     private CoroutineHandle waitHandle;
-    protected PlayerInput playerRef;
-    [SerializeField] protected float DurationInSeconds = 5;
+    private PlayerInput playerRef;
+    public PowerUpData data;
 
     public virtual void Collected(GameObject other)
     {
         playerRef = other.GetComponent<PlayerInput>();
+        if (playerRef == null) return;
+
+        playerRef.ApplyPowerUp(data.Type, data.Value);
 
         if (waitHandle != null)
         {
@@ -20,12 +23,12 @@ public class PowerUp : MonoBehaviour
     }
     protected IEnumerator<float> WaitPowerUpDuration()
     {
-        yield return Timing.WaitForSeconds(DurationInSeconds);
+        yield return Timing.WaitForSeconds(data.DurationInSeconds);
 
         Expired();
     }
     public virtual void Expired()
     {
-        Debug.Log("Default PowerUp Expired method!");
+        playerRef.ApplyPowerUp(data.Type, -data.Value);
     }
 }

@@ -70,9 +70,22 @@ public class PlayerInput : PlayerMovement
         isLoading = false;
         StopCoroutine("loadingCannon");
     }
-    public void ApplySpeedBoost(float boostValue)
+    public void ApplyPowerUp(EPowerUpType type, float value)
     {
-        Speed += boostValue;
+        switch (type)
+        {
+            case EPowerUpType.Speed:
+                Speed += value;
+                break;
+            case EPowerUpType.FireRate:
+                break;
+            case EPowerUpType.PlunderRate:
+                break;
+            case EPowerUpType.KillScore:
+                break;
+            default:
+                break;
+        }
     }
    
     protected IEnumerator<float> FireRatio(float fireRatio)
