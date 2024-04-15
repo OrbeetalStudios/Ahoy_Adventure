@@ -64,9 +64,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _AmbientOcclusion: 1
-    - _DepthDistance: -0.77
-    - _DepthStrength: 1.77
-    - _DisplaceStrength: 0.01
+    - _DepthDistance: 0
+    - _DepthStrength: 0
+    - _DisplaceStrength: 0.13
     - _Emission: -0.08
     - _Metallic: -1.3
     - _NormalStrength: 0.68
@@ -75,7 +75,7 @@ Material:
     - _PanSpeed: 0.01
     - _QueueControl: 1
     - _QueueOffset: 0
-    - _RefractStrength: 0
+    - _RefractStrength: 10.37
     - _Smothness: -0.09
     - _Trasparency: 0.65
     m_Colors:
