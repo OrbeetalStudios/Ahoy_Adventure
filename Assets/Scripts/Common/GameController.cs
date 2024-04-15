@@ -17,10 +17,13 @@ public class GameController : MonoSingleton<GameController>
     [SerializeField] private Image[] lifeImages;
     [SerializeField] private Image[] ammoImages;
     [SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private GameObject PausePanel;
 
 
     private int currentScore = 0;
     private int lifeCount = 3;
+    private bool isPaused = false;
+
 
     private void Start()
     {
@@ -107,6 +110,20 @@ public class GameController : MonoSingleton<GameController>
         GameOverPanel.SetActive(false);
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Pause()
+    {
+        isPaused = true;
+        Time.timeScale = 0; // Metti in pausa il gioco
+        PausePanel.SetActive(true); // Mostra il menu di pausa
+    }
+
+    public void Resume()
+    {
+        isPaused = false;
+        Time.timeScale = 1; // Riprendi il gioco
+        PausePanel.SetActive(false); // Nascondi il menu di pausa
     }
 
 
