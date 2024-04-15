@@ -5,9 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject settings;
 
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void Settings()
+    {
+        settings.SetActive(true);
+    }
+
+    public void ExitSettings()
+    {
+        settings.SetActive(false);
     }
 }
