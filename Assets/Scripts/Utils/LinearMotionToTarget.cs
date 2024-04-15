@@ -6,8 +6,10 @@ public class LinearMotionToTarget : AbstractMotionToTarget
 {
     protected void Start()
     {
-        targetPosition = Vector3.zero;
         currentSpeed = speed;
+    }
+    private void OnEnable()
+    {
         moveToTargetHandle = Timing.RunCoroutine(Move().CancelWith(gameObject));
     }
     protected override IEnumerator<float> Move()

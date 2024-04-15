@@ -6,11 +6,8 @@ public class Mine : LinearMotionToTarget
 {
     void Start()
     {
-        GameObject island;
-        if (island = GameObject.FindWithTag("Island"))
-        {
-            targetPosition = island.transform.position;
-        }
+        targetPosition = Island.Instance.transform.position;
+        targetPosition.y = 0f;
 
         base.Start();
     }

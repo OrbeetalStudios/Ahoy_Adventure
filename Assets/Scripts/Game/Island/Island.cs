@@ -10,14 +10,14 @@ public class Island : MonoSingleton<Island>
         currentTreasure = maxTreasure;
     }
 
-  /*  public void DecreaseTreasure(int amount = 1)
-    {
-        currentTreasure -= amount;
+   public void DecreaseTreasure(int amount = 1)
+   {
+       currentTreasure -= amount;
 
-        if (currentTreasure <= 0)
-        {
-            //Game over
-            GameController.Instance.GameOver();
-        }
-    }*/
+       if (currentTreasure <= 0)
+       {
+           //Game over
+           //GameController.Instance.GameOver();
+       }
+   }
 }
