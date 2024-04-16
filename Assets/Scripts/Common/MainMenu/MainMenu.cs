@@ -8,7 +8,10 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField]
     private GameObject settings;
+    [SerializeField]
+    private GameObject crew;
     private bool OpenSettings = false;
+    private bool OpenCrew = false;
 
     public void PlayGame()
     {
@@ -28,6 +31,20 @@ public class MainMenu : MonoBehaviour
             settings.SetActive(false);
         }
         
+    }
+
+    public void OpenCrewPanel()
+    {
+        if (!OpenCrew)
+        {
+            OpenCrew = true;
+            crew.SetActive(true);
+        }
+        else
+        {
+            OpenCrew = false;
+            crew.SetActive(false) ;
+        }
     }
 
     public void ExitSettings()

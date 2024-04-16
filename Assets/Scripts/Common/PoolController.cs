@@ -9,6 +9,8 @@ public class PoolController : MonoSingleton<PoolController>
 {
     [SerializeField] private List<PoolObject> collections;
     [SerializeField] private float spawnInterval=30f;
+
+
     
     private void Start()
     {

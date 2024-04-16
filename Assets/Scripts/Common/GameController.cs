@@ -67,7 +67,6 @@ public class GameController :MonoBehaviour
 
     public void UpdateLife()
     {
-        Debug.Log("Ho tolto una vita");
         lifeCount--;
         LifeUpdated?.Invoke(lifeCount);
         UpdateLifeUI();
