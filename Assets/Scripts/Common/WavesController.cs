@@ -30,8 +30,8 @@ public class WavesController : MonoBehaviour
     {
         LoadSpawnPoints();
         LoadWavesData(filenameJson);
-        Timing.RunCoroutine(SpawnEnemies());
-        Timing.RunCoroutine(SpawnMines());
+        Timing.RunCoroutine(SpawnEnemies().CancelWith(gameObject));
+        Timing.RunCoroutine(SpawnMines().CancelWith(gameObject));
     }
     private void LoadSpawnPoints()
     {

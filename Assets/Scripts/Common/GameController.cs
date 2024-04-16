@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameController : MonoSingleton<GameController>
+public class GameController :MonoBehaviour
 {
     // Dichiarazione degli eventi per la vita, il punteggio e le munizioni
     public event Action<int> LifeUpdated;
@@ -14,6 +14,7 @@ public class GameController : MonoSingleton<GameController>
 
     // Riferimenti agli oggetti UI
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text scoreOver;
     [SerializeField] private Image[] lifeImages;
     [SerializeField] private Image[] ammoImages;
     [SerializeField] private GameObject GameOverPanel;
@@ -24,7 +25,31 @@ public class GameController : MonoSingleton<GameController>
     private int lifeCount = 3;
     private bool isPaused = false;
 
+   
+    private static GameController _instance;
 
+    // Proprietà pubblica per accedere all'istanza del singleton
+    public static GameController Instance
+    {
+        get
+        {
+            // Se l'istanza non esiste, cerchiamo di trovarla nella scena
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<GameController>();
+
+                // Se non è stata trovata, la creiamo
+                if (_instance == null)
+                {
+                    GameObject singletonObject = new GameObject("GameController");
+                    _instance = singletonObject.AddComponent<GameController>();
+                }
+            }
+
+            // Restituisci l'istanza trovata o creata
+            return _instance;
+        }
+    }
     private void Start()
     {
         // Inizializza UI
@@ -66,6 +91,7 @@ public class GameController : MonoSingleton<GameController>
     private void UpdateScoreUI()
     {
         scoreText.text = currentScore.ToString();
+        scoreOver.text = currentScore.ToString();
     }
 
     private void UpdateLifeUI()
@@ -135,6 +161,12 @@ public class GameController : MonoSingleton<GameController>
         isPaused = false;
         Time.timeScale = 1; // Riprendi il gioco
         PausePanel.SetActive(false); // Nascondi il menu di pausa
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
     }
 
 
