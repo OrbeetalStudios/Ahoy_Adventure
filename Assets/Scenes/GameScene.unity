@@ -5935,6 +5935,7 @@ GameObject:
   - component: {fileID: 7333641586394767643}
   - component: {fileID: 7791608244395059048}
   - component: {fileID: 7791608244395059050}
+  - component: {fileID: 7791608244395059051}
   - component: {fileID: 7791608244395059049}
   m_Layer: 6
   m_Name: Player
@@ -6132,15 +6133,6 @@ MonoBehaviour:
   model: {fileID: 1243915696}
   reloadCannonTime: 5
   fireRatio: 1
-  pool: {fileID: 48564973}
-  raycastDistance: 233
-  raycastMask:
-    serializedVersion: 2
-    m_Bits: 192
-  highlightMaterial: {fileID: -1725942987148635205, guid: a47c0a49b37f2f6449cd9c102351933f,
-    type: 3}
-  originalMaterial: {fileID: 8975480819012031255, guid: ea45b9792140cf34db3732691cd8eb9b,
-    type: 3}
 --- !u!54 &7791608244395059049
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6183,6 +6175,26 @@ MonoBehaviour:
   rb: {fileID: 7791608244395059049}
   depthBeforeSubmerged: 1
   displacementAmount: 3
+--- !u!114 &7791608244395059051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855919750002729401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cadaab64a37340b4da66aff7bea3cd65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastDistance: 233
+  raycastMask:
+    serializedVersion: 2
+    m_Bits: 192
+  highlightMaterial: {fileID: -1725942987148635205, guid: dcfa74ee9df8de94bb4ef454a5779738,
+    type: 3}
+  originalMaterial: {fileID: 8975480819012031255, guid: 9be88e9a27323504cbebf9bf86deda35,
+    type: 3}
 --- !u!1001 &8351470122176899728
 PrefabInstance:
   m_ObjectHideFlags: 0

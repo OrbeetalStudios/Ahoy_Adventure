@@ -5,12 +5,12 @@ using MEC;
 public class PowerUp : MonoBehaviour
 {
     private CoroutineHandle waitHandle;
-    private PlayerInput playerRef;
+    private Player playerRef;
     public PowerUpData data;
 
     public virtual void Collected(GameObject other)
     {
-        playerRef = other.GetComponent<PlayerInput>();
+        playerRef = other.GetComponent<Player>();
         if (playerRef == null) return;
 
         playerRef.ApplyPowerUp(data.Type, data.Value);

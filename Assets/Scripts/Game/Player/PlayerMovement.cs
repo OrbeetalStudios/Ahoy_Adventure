@@ -2,17 +2,27 @@ using MEC;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : Player
+public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField, Range(0f, 20f)]
+    private float speed;
+    protected float currentSpeed;
+    public float Speed { get { return speed; } set { speed = value; } }
     [SerializeField, Range(0f, 100f)]
     private float semiaxis_A, semiaxis_B = 2f;
     [SerializeField]
     private GameObject model;
     private Vector3 movementDirection = Vector3.zero;
+    private bool clockwiseMotion = false;
+    private float angle = 0.0f;
 
     private void Start()
     {
         Timing.RunCoroutine(Move());
+    }
+    protected void Update()
+    {
+        currentSpeed = speed;//For Prototype changes in-game
     }
     protected  IEnumerator<float> Move()
     {
@@ -41,11 +51,8 @@ public class PlayerMovement : Player
         }
     }
     // Method to set movement direction from external script (player movement)
-    public void SetMovementDirection(Vector2 inputVector)
-    {
-        // Normalize Input Vector
-        Vector3 direction = new Vector3(inputVector.x, 0f, inputVector.y).normalized;
-       
+    public void SetMovementDirection(Vector3 inputVector)
+    {  
         // If input right movement clocwise
         if (inputVector.x > 0f && clockwiseMotion)
         {
@@ -60,7 +67,7 @@ public class PlayerMovement : Player
         }
 
         // direction of movement
-        movementDirection = direction;
+        movementDirection = inputVector;
     }
     private void OnDrawGizmos()//Draw Gizmos for test
     {
