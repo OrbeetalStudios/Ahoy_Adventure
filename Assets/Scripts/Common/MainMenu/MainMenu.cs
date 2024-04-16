@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField]
     private GameObject settings;
+    private bool OpenSettings = false;
 
     public void PlayGame()
     {
@@ -16,7 +17,17 @@ public class MainMenu : MonoBehaviour
 
     public void Settings()
     {
-        settings.SetActive(true);
+        if (OpenSettings == false)
+        {
+            settings.SetActive(true);
+            OpenSettings = true;
+        }
+        else
+        {
+            OpenSettings = false;
+            settings.SetActive(false);
+        }
+        
     }
 
     public void ExitSettings()
