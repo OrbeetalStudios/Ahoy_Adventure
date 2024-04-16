@@ -96,6 +96,7 @@ public class Player : PlayerMovement
                 Speed += value;
                 break;
             case EPowerUpType.FireRate:
+                fireRatio -= value;
                 break;
             case EPowerUpType.PlunderRate:
                 break;
