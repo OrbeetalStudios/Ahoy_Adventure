@@ -18,6 +18,7 @@ public class PowerUp : MonoBehaviour
         if (waitHandle != null)
         {
             Timing.KillCoroutines(waitHandle);
+            Expired();
         }
         waitHandle = Timing.RunCoroutine(WaitPowerUpDuration());
     }
