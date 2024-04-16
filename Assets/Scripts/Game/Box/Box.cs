@@ -13,13 +13,14 @@ public class Box : LinearMotionToTarget
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             //manage power up
+            PowerUpController.Instance.ActivatePowerUp(other.gameObject);
 
             this.gameObject.SetActive(false);
         }
-        else if (other.tag == "Island")
+        else if (other.CompareTag("Island"))
         {
             this.gameObject.SetActive(false);
         }
