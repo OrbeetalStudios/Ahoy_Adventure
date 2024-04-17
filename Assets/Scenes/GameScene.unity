@@ -11507,13 +11507,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1855919750002729401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e575f26e639da1b4a821dc0d516ddeae, type: 3}
+  m_Script: {fileID: 11500000, guid: c1eec5e2753bae6448229ae425e234ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  semiaxis_A: 0
-  semiaxis_B: 2
+  speed: 1
+  semiaxis_A: 45
+  semiaxis_B: 43
   model: {fileID: 1243915696}
+  reloadCannonTime: 4.2
+  fireRatio: 0.9
 --- !u!1001 &8351470122176899728
 PrefabInstance:
   m_ObjectHideFlags: 0
