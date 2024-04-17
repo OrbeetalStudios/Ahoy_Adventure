@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11249,8 +11249,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1036650266193326275}
   - component: {fileID: 3094651362993063134}
+  - component: {fileID: 7791608244395059052}
   - component: {fileID: 7333641586394767643}
-  - component: {fileID: 7791608244395059048}
   - component: {fileID: 7791608244395059050}
   - component: {fileID: 7791608244395059051}
   - component: {fileID: 7791608244395059049}
@@ -11436,24 +11436,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTreasure: 1
   currentTreasure: 0
---- !u!114 &7791608244395059048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855919750002729401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21529ea04e8d93948b8904ebfdbc92bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  semiaxis_A: 45
-  semiaxis_B: 43
-  model: {fileID: 1243915696}
-  reloadCannonTime: 5
-  fireRatio: 1
 --- !u!54 &7791608244395059049
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11516,6 +11498,22 @@ MonoBehaviour:
     type: 3}
   originalMaterial: {fileID: 8975480819012031255, guid: 9be88e9a27323504cbebf9bf86deda35,
     type: 3}
+--- !u!114 &7791608244395059052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855919750002729401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e575f26e639da1b4a821dc0d516ddeae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  semiaxis_A: 0
+  semiaxis_B: 2
+  model: {fileID: 1243915696}
 --- !u!1001 &8351470122176899728
 PrefabInstance:
   m_ObjectHideFlags: 0
