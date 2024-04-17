@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private GameObject model;
     private Vector3 movementDirection = Vector3.zero;
-    private bool clockwiseMotion = false;
+    private bool clockwiseMotion=true;
     private float angle = 0.0f;
 
     private void Start()
@@ -56,13 +56,13 @@ public class PlayerMovement : MonoBehaviour
         // If input right movement clocwise
         if (inputVector.x > 0f && clockwiseMotion)
         {
-            model.transform.Rotate(0, 180, 0);
+            model.transform.Rotate(-180, 0, 0);
             clockwiseMotion = false;
         }
         // if input left movement counterclockwise
         else if (inputVector.x < 0f && !clockwiseMotion)
         {
-            model.transform.Rotate(0, -180, 0);
+            model.transform.Rotate(180, 0, 0);
             clockwiseMotion = true;
         }
 
