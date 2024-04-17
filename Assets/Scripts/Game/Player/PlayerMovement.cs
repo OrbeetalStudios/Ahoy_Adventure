@@ -10,12 +10,12 @@ public class PlayerMovement : MonoBehaviour
     public float Speed { get { return speed; } set { speed = value; } }
     [SerializeField, Range(0f, 100f)]
     private float semiaxis_A, semiaxis_B = 2f;
-    [SerializeField]
-    private GameObject model;
     private Vector3 movementDirection = Vector3.zero;
     private bool clockwiseMotion=true;
     private float angle = 0.0f;
-
+    [SerializeField]
+    private Animator anim;
+    private bool moveRight=false;
     private void Start()
     {
         Timing.RunCoroutine(Move());
@@ -29,8 +29,9 @@ public class PlayerMovement : MonoBehaviour
         while (true)
         {
             // Check if there is movement direction set
-            if (movementDirection != Vector3.zero)
+            if (movementDirection != Vector3.zero && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
+                
                 // Calculate new position based on movement direction
                 Vector3 newPosition = transform.position + movementDirection * currentSpeed * Time.deltaTime;
                 newPosition.x = semiaxis_A * Mathf.Cos(angle);
@@ -56,14 +57,20 @@ public class PlayerMovement : MonoBehaviour
         // If input right movement clocwise
         if (inputVector.x > 0f && clockwiseMotion)
         {
-            model.transform.Rotate(-180, 0, 0);
-            clockwiseMotion = false;
+            
+                anim.Play("TurnLeft");
+                clockwiseMotion = false;
+            
+           
+
         }
         // if input left movement counterclockwise
         else if (inputVector.x < 0f && !clockwiseMotion)
         {
-            model.transform.Rotate(180, 0, 0);
+           
+            anim.Play("TurnRight");
             clockwiseMotion = true;
+            moveRight = true;
         }
 
         // direction of movement
