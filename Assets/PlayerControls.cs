@@ -68,17 +68,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""65b6c5ad-9185-4e1b-a9b5-b005ab748ec2"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""Arrow"",
                     ""id"": ""09d1b030-bb80-4148-99d5-0149200bde2c"",
                     ""path"": ""2DVector"",

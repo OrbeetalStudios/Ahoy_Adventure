@@ -19,6 +19,7 @@ public class GameController :MonoBehaviour
     [SerializeField] private Image[] ammoImages;
     [SerializeField] private GameObject GameOverPanel;
     [SerializeField] private GameObject PausePanel;
+    [SerializeField] private GameObject pauseButton;
 
 
     private int currentScore = 0;
@@ -130,37 +131,28 @@ public class GameController :MonoBehaviour
         }
     }
 
-    public void Restart()
-    {
-        GameOverPanel.SetActive(false);
-        PausePanel.SetActive(false);    
-        Time.timeScale = 1;
-        SceneManager.LoadScene(1);
-    }
+
 
     public void Pause()
     {
         if (isPaused == true)
         {
             PausePanel.SetActive(false);
+            pauseButton.SetActive(true);
             Time.timeScale = 1; // Riprendi il gioco
             isPaused =false;
         }
         else
         {
             isPaused = true;
+            pauseButton.SetActive(false);
             Time.timeScale = 0;
             PausePanel.SetActive(true); 
         }
        
     }
 
-    public void Resume()
-    {
-        isPaused = false;
-        Time.timeScale = 1; // Riprendi il gioco
-        PausePanel.SetActive(false); // Nascondi il menu di pausa
-    }
+    
 
     public void MainMenu()
     {

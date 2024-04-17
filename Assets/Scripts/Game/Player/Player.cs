@@ -33,7 +33,7 @@ public class Player : PlayerMovement
     {
         Vector2 inputVector = context.ReadValue<Vector2>();
         controls.Player.Fire.performed += ctx => StartFire();
-
+        controls.Player.Pause.performed += ctx => GameController.Instance.Pause();
         // Velocity of Input
         SetMovementDirection(new Vector3(inputVector.x, 0f, inputVector.y).normalized);
     }
