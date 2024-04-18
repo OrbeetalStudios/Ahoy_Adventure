@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameController :MonoBehaviour
+public class GameController : MonoSingleton<GameController>
 {
     // Dichiarazione degli eventi per la vita, il punteggio e le munizioni
     public event Action<int> LifeUpdated;
@@ -26,31 +26,6 @@ public class GameController :MonoBehaviour
     private int lifeCount = 3;
     private bool isPaused = false;
 
-   
-    private static GameController _instance;
-
-    // Proprietà pubblica per accedere all'istanza del singleton
-    public static GameController Instance
-    {
-        get
-        {
-            // Se l'istanza non esiste, cerchiamo di trovarla nella scena
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<GameController>();
-
-                // Se non è stata trovata, la creiamo
-                if (_instance == null)
-                {
-                    GameObject singletonObject = new GameObject("GameController");
-                    _instance = singletonObject.AddComponent<GameController>();
-                }
-            }
-
-            // Restituisci l'istanza trovata o creata
-            return _instance;
-        }
-    }
     private void Start()
     {
         // Inizializza UI

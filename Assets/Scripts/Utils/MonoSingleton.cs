@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 {
     private static T instance;
+    [SerializeField] private bool bDontDestroyOnLoad = true;
 
     private void Awake()
     {
@@ -15,7 +16,7 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
         }
         else
         {
-            DontDestroyOnLoad(gameObject);
+            if (bDontDestroyOnLoad) DontDestroyOnLoad(gameObject);
             instance = (T)this;
         }
     }

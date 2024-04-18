@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -589,6 +589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3fb7d58976c6e48ba78a553ac254ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bDontDestroyOnLoad: 1
   collections:
   - {fileID: 11400000, guid: fba6e1d344735494dac1368d04de1b50, type: 2}
   - {fileID: 11400000, guid: eada33fc8c8f9e0459f883b569fdce94, type: 2}
@@ -3238,6 +3239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd3dec0b49dbef409caa3099742a1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bDontDestroyOnLoad: 0
   scoreText: {fileID: 1547806293}
   scoreOver: {fileID: 1636472321}
   lifeImages:
@@ -11346,11 +11348,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1036650266193326275}
   - component: {fileID: 3094651362993063134}
-  - component: {fileID: 7791608244395059052}
   - component: {fileID: 7333641586394767643}
   - component: {fileID: 7791608244395059050}
   - component: {fileID: 7791608244395059051}
   - component: {fileID: 7791608244395059049}
+  - component: {fileID: 7791608244395059052}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -11531,6 +11533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09f74b11c62adb4498f9fbb0c60ce340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bDontDestroyOnLoad: 1
   maxTreasure: 1
   currentTreasure: 0
 --- !u!54 &7791608244395059049
@@ -11604,7 +11607,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1855919750002729401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1eec5e2753bae6448229ae425e234ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 21529ea04e8d93948b8904ebfdbc92bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
