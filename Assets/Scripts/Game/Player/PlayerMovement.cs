@@ -13,9 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 movementDirection = Vector3.zero;
     private bool clockwiseMotion=true;
     private float angle = 0.0f;
-    [SerializeField]
-    private Animator anim;
-    private bool moveRight=false;
+    public Animator anim;
+    private bool startG=false;
     private void Start()
     {
         Timing.RunCoroutine(Move());
@@ -29,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         while (true)
         {
             // Check if there is movement direction set
-            if (movementDirection != Vector3.zero && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            if (movementDirection != Vector3.zero && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f && startG==true)
             {
                 
                 // Calculate new position based on movement direction
@@ -57,20 +56,15 @@ public class PlayerMovement : MonoBehaviour
         // If input right movement clocwise
         if (inputVector.x > 0f && clockwiseMotion)
         {
-            
-                anim.Play("TurnLeft");
-                clockwiseMotion = false;
-            
-           
-
+            startG= true;
+            anim.Play("TurnLeft");  
+            clockwiseMotion = false;
         }
         // if input left movement counterclockwise
-        else if (inputVector.x < 0f && !clockwiseMotion)
+        else if (inputVector.x < 0f && !clockwiseMotion&& startG==true)
         {
-           
             anim.Play("TurnRight");
             clockwiseMotion = true;
-            moveRight = true;
         }
 
         // direction of movement

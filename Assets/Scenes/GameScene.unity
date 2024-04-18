@@ -5685,7 +5685,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 82906d85f9265d3438b8205dc08a4c75,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 82906d85f9265d3438b8205dc08a4c75,
         type: 3}
@@ -5700,7 +5700,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 82906d85f9265d3438b8205dc08a4c75,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 82906d85f9265d3438b8205dc08a4c75,
         type: 3}
@@ -5710,7 +5710,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 82906d85f9265d3438b8205dc08a4c75,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 82906d85f9265d3438b8205dc08a4c75,
         type: 3}
@@ -5781,6 +5781,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: d2ff71954b82c9f4fb96953d266e945c, type: 2}
   - {fileID: 7400000, guid: 5892ae240d716c445bb27c43b8de0223, type: 2}
+  - {fileID: 7400000, guid: fd3190b04f017a94d90fb43ccc2e96ae, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -11608,7 +11609,6 @@ MonoBehaviour:
   speed: 1
   semiaxis_A: 45
   semiaxis_B: 43
-  model: {fileID: 1187300671}
   anim: {fileID: 1187300674}
   reloadCannonTime: 4.2
   fireRatio: 0.9

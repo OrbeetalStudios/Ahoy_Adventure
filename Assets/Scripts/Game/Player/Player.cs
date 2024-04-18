@@ -39,6 +39,7 @@ public class Player : PlayerMovement
     }
     private void OnMoveCanceled(InputAction.CallbackContext context)
     {
+        //Here the logic for acceleration deceleration
         // When button is Unpressed stopMovement
         SetMovementDirection(Vector3.zero);
     }
@@ -48,6 +49,7 @@ public class Player : PlayerMovement
         {
             ammoCount--;
             GameController.Instance.UpdateAmmo(ammoCount);
+            
             GameObject bullet = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.bullet);
             if (bullet != null)
             {
