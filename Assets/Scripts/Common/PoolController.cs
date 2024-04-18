@@ -55,4 +55,11 @@ public class PoolController : MonoSingleton<PoolController>
         // If the specified id is not found, return null
         return null;
     }
+    public void DeactivateAll()
+    {
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+    }
 }

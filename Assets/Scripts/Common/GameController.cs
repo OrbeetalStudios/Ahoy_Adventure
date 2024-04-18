@@ -132,6 +132,7 @@ public class GameController : MonoSingleton<GameController>
     public void MainMenu()
     {
         Time.timeScale = 1;
+        PoolController.Instance.DeactivateAll();
         SceneManager.LoadScene(0);
     }
 
