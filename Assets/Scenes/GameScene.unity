@@ -5782,6 +5782,7 @@ Animation:
   - {fileID: 7400000, guid: d2ff71954b82c9f4fb96953d266e945c, type: 2}
   - {fileID: 7400000, guid: 5892ae240d716c445bb27c43b8de0223, type: 2}
   - {fileID: 7400000, guid: fd3190b04f017a94d90fb43ccc2e96ae, type: 2}
+  - {fileID: 7400000, guid: 95cba87f4af44284283d19ca28d7b13f, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -11609,6 +11610,7 @@ MonoBehaviour:
   speed: 1
   semiaxis_A: 45
   semiaxis_B: 43
+  clockwiseMotion: 1
   anim: {fileID: 1187300674}
   reloadCannonTime: 4.2
   fireRatio: 0.9

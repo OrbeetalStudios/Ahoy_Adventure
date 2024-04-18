@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField, Range(0f, 100f)]
     private float semiaxis_A, semiaxis_B = 2f;
     private Vector3 movementDirection = Vector3.zero;
-    private bool clockwiseMotion=true;
+    public bool clockwiseMotion=true;
     private float angle = 0.0f;
     public Animator anim;
     private bool startG=false;

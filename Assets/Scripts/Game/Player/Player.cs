@@ -49,7 +49,14 @@ public class Player : PlayerMovement
         {
             ammoCount--;
             GameController.Instance.UpdateAmmo(ammoCount);
-            
+            if (clockwiseMotion)
+            {
+                anim.Play("Fire",1);
+            }
+            else
+            {
+                anim.Play("NoClocwiseFire",1);
+            }
             GameObject bullet = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.bullet);
             if (bullet != null)
             {
