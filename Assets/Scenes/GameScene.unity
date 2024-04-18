@@ -11608,11 +11608,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  currentSpeed: 0
   semiaxis_A: 45
   semiaxis_B: 43
   clockwiseMotion: 1
   anim: {fileID: 1187300674}
-  Deceleration: 0.3
+  Acceleration: 0.24
+  deceleration: 0.65
   reloadCannonTime: 4.2
   fireRatio: 0.9
 --- !u!1001 &8351470122176899728

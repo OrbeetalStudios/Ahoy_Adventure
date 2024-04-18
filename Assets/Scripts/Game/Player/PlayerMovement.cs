@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         // If input right movement clocwise
         if (inputVector.x > 0f && clockwiseMotion)
         {
-            //currentSpeed = 0;
+            currentSpeed = 0;
             startG= true;
             anim.Play("TurnLeft");  
             clockwiseMotion = false;
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         // if input left movement counterclockwise
         else if (inputVector.x < 0f && !clockwiseMotion&& startG==true)
         {
-           // currentSpeed=0;
+            currentSpeed=0;
             anim.Play("TurnRight");
             clockwiseMotion = true;
         }

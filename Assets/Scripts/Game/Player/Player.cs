@@ -20,14 +20,14 @@ public class Player : PlayerMovement
         controls = new PlayerControls();
         controls.Enable();
         controls.Player.Movement.performed += OnMovePerformed;
-        controls.Player.Movement.canceled += OnMoveCanceled;
+       
         reload = reloadCannonTime;
     }
     private void OnDisable()
     {
         controls.Disable();
         controls.Player.Movement.performed -= OnMovePerformed;
-        controls.Player.Movement.canceled -= OnMoveCanceled;
+      
     }
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
@@ -38,7 +38,7 @@ public class Player : PlayerMovement
         if (inputVector == Vector2.zero)
         {
             // Se il vettore di input è zero, chiama direttamente OnMoveCanceled per fermare il movimento
-            OnMoveCanceled(context);
+            Timing.RunCoroutine(DecelerationCo().CancelWith(gameObject));
         }
         else
         {
@@ -47,11 +47,7 @@ public class Player : PlayerMovement
         }
         
     }
-    private void OnMoveCanceled(InputAction.CallbackContext context)
-    {
-        Timing.RunCoroutine(DecelerationCo().CancelWith(gameObject));
-       
-    }
+
 
     protected IEnumerator<float> DecelerationCo()
     {
@@ -59,17 +55,12 @@ public class Player : PlayerMovement
         {
             // Riduci gradualmente la velocità
             currentSpeed -= deceleration * Time.deltaTime;
-
-            // Assicurati che la velocità non diventi negativa
-            currentSpeed = Mathf.Max(currentSpeed, 0f);
-
             // Attendi il prossimo frame
             yield return Timing.WaitForOneFrame;
         }
+        currentSpeed = 0f;
         Timing.KillCoroutines("Deceleration");
         SetMovementDirection(Vector3.zero);
-      
-       
     }
     
         private void StartFire()
