@@ -15,14 +15,13 @@ public class PlayerMovement : MonoBehaviour
     private float angle = 0.0f;
     public Animator anim;
     private bool startG=false;
+    public float Acceleration=0.1f;
+    public float deceleration = 0.3f;
     private void Start()
     {
         Timing.RunCoroutine(Move());
     }
-    protected void Update()
-    {
-        currentSpeed = speed;//For Prototype changes in-game
-    }
+
     protected  IEnumerator<float> Move()
     {
         while (true)
@@ -30,7 +29,12 @@ public class PlayerMovement : MonoBehaviour
             // Check if there is movement direction set
             if (movementDirection != Vector3.zero && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f && startG==true)
             {
-                
+                //Acceleration
+                if (currentSpeed < speed)
+                {
+                    currentSpeed += Acceleration * Time.deltaTime;
+                }
+            
                 // Calculate new position based on movement direction
                 Vector3 newPosition = transform.position + movementDirection * currentSpeed * Time.deltaTime;
                 newPosition.x = semiaxis_A * Mathf.Cos(angle);
@@ -46,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
                 // Increment angle
                 angle += (clockwiseMotion ? (-1) : 1) * currentSpeed * Time.deltaTime;
             }
-
+         
             yield return Timing.WaitForOneFrame;
         }
     }
@@ -56,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         // If input right movement clocwise
         if (inputVector.x > 0f && clockwiseMotion)
         {
+            //currentSpeed = 0;
             startG= true;
             anim.Play("TurnLeft");  
             clockwiseMotion = false;
@@ -63,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         // if input left movement counterclockwise
         else if (inputVector.x < 0f && !clockwiseMotion&& startG==true)
         {
+           // currentSpeed=0;
             anim.Play("TurnRight");
             clockwiseMotion = true;
         }
@@ -94,4 +100,6 @@ public class PlayerMovement : MonoBehaviour
             currentAngle += angleStep;
         }
     }
+
+    
 }

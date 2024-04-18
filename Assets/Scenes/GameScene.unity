@@ -11612,6 +11612,7 @@ MonoBehaviour:
   semiaxis_B: 43
   clockwiseMotion: 1
   anim: {fileID: 1187300674}
+  Deceleration: 0.3
   reloadCannonTime: 4.2
   fireRatio: 0.9
 --- !u!1001 &8351470122176899728

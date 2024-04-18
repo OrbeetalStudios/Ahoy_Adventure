@@ -35,15 +35,44 @@ public class Player : PlayerMovement
         controls.Player.Fire.performed += ctx => StartFire();
         controls.Player.Pause.performed += ctx => GameController.Instance.Pause();
         // Velocity of Input
-        SetMovementDirection(new Vector3(inputVector.x, 0f, inputVector.y).normalized);
+        if (inputVector == Vector2.zero)
+        {
+            // Se il vettore di input è zero, chiama direttamente OnMoveCanceled per fermare il movimento
+            OnMoveCanceled(context);
+        }
+        else
+        {
+            // Altrimenti, imposta la direzione del movimento in base all'input
+            SetMovementDirection(new Vector3(inputVector.x, 0f, inputVector.y).normalized);
+        }
+        
     }
     private void OnMoveCanceled(InputAction.CallbackContext context)
     {
-        //Here the logic for acceleration deceleration
-        // When button is Unpressed stopMovement
-        SetMovementDirection(Vector3.zero);
+        Timing.RunCoroutine(DecelerationCo().CancelWith(gameObject));
+       
     }
-    private void StartFire()
+
+    protected IEnumerator<float> DecelerationCo()
+    {
+        while (currentSpeed > 0)
+        {
+            // Riduci gradualmente la velocità
+            currentSpeed -= deceleration * Time.deltaTime;
+
+            // Assicurati che la velocità non diventi negativa
+            currentSpeed = Mathf.Max(currentSpeed, 0f);
+
+            // Attendi il prossimo frame
+            yield return Timing.WaitForOneFrame;
+        }
+        Timing.KillCoroutines("Deceleration");
+        SetMovementDirection(Vector3.zero);
+      
+       
+    }
+    
+        private void StartFire()
     {  
         if (ammoCount > 0 && canFire)
         {
