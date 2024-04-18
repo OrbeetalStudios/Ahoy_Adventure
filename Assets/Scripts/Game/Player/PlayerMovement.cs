@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField, Range(0f, 20f)]
     private float speed;
+    [SerializeField]
     protected float currentSpeed;
     public float Speed { get { return speed; } set { speed = value; } }
     [SerializeField, Range(0f, 100f)]
