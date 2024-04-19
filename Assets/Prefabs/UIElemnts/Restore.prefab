@@ -30,7 +30,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1788672287076118787}
   - {fileID: 4447341648300497672}
   m_Father: {fileID: 7130663479460815353}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -238,16 +237,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2891661040575028252}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5526973145918269281}
+  m_Father: {fileID: 4447341648300497672}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13, y: 0.0000026226}
+  m_AnchoredPosition: {x: 3.4881794, y: 0.5053011}
   m_SizeDelta: {x: 224.55, y: 35.804}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3699698510193013291
@@ -278,7 +277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Restor Purchases
+  m_text: EXIT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9131e592c5ab25842be91ec05b04a6d4, type: 2}
   m_sharedMaterial: {fileID: 3703565654224285237, guid: 9131e592c5ab25842be91ec05b04a6d4,
@@ -378,13 +377,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1788672287076118787}
   m_Father: {fileID: 5526973145918269281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -134.28, y: -0.5053}
-  m_SizeDelta: {x: 70, y: 70}
+  m_AnchoredPosition: {x: -3.4882, y: -0.5053}
+  m_SizeDelta: {x: 331.5837, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4458143001646316076
 CanvasRenderer:
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6320507a27792a2489ea3dfc3e1f52e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 95e34b135cdd4ca4e9c0394ba7ad2ccf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

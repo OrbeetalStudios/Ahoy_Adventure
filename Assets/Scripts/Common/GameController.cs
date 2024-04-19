@@ -152,7 +152,13 @@ public class GameController : MonoSingleton<GameController>
        
     }
 
-    
+    public void Restart()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Time.timeScale = 1;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+
 
     public void MainMenu()
     {
