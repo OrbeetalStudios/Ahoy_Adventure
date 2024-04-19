@@ -3364,6 +3364,74 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &513148085
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.74
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.854847
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_Name
+      value: Nave  nemica
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ebfb084eafd8be94eaaff05ed2e6a5f1, type: 3}
 --- !u!1001 &522635179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7137,7 +7205,7 @@ Transform:
   m_GameObject: {fileID: 1392123162}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -206.05205, y: 141.96039, z: 32.773182}
+  m_LocalPosition: {x: -206.05205, y: 144.48, z: 32.773182}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11715,3 +11783,4 @@ SceneRoots:
   - {fileID: 1082852735}
   - {fileID: 1392123163}
   - {fileID: 8351470122176899728}
+  - {fileID: 513148085}
