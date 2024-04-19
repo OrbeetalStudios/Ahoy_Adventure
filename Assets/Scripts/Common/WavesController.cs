@@ -28,6 +28,7 @@ public class WavesController : MonoBehaviour
     private JSONWaves wavesDataJson = new();
     private int numberOfWaves;
     private int currentWave = 0;
+    private int waveCounterUI = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -80,8 +81,9 @@ public class WavesController : MonoBehaviour
                     if (!wavesDataJson.waves[currentWave].isLast) currentWave++;
                     else if (wavesDataJson.waves[currentWave].enemies.Count == 0) break;
                     currentEnemy = -1;
+                    waveCounterUI++;
                 }
-
+                
                 yield return Timing.WaitForSeconds(1.5f);
                 continue;
             }
@@ -160,7 +162,7 @@ public class WavesController : MonoBehaviour
     }
     private void UpdateUI()
     {
-        currentWaveText.text = "Current Wave: " + (currentWave + 1).ToString();
+        currentWaveText.text = "Wave: " + (waveCounterUI + 1).ToString();
     }
 }
 

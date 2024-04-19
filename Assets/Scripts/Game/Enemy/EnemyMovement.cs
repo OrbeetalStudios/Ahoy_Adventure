@@ -19,6 +19,7 @@ public class EnemyMovement : AbstractMotionToTarget
             distanceTraveled = (transform.position - Vector3.zero).magnitude;
             if (distanceTraveled >= distanceThreshold)
             {
+                distanceTraveled = 0;
                 gameObject.SetActive(false);
                 break;
             }

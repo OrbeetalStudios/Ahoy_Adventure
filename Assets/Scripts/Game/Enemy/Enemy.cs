@@ -67,7 +67,7 @@ public class Enemy : EnemyMovement
                 rotation *= Quaternion.Euler(0, 180, 0);
                 transform.rotation = rotation;
                 Island.Instance.DecreaseTreasure();
-                Timing.RunCoroutine(ReturnOutsideMap(relativePos));
+                Timing.RunCoroutine(ReturnOutsideMap(relativePos).CancelWith(gameObject));
             }
             plunderTime--;
             yield return Timing.WaitForSeconds(1f);
