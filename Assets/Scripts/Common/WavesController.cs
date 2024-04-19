@@ -29,7 +29,7 @@ public class WavesController : MonoBehaviour
     private JSONWaves wavesDataJson = new();
     private int numberOfWaves;
     private int currentWave = 0;
-    private int waveCounterUI = 0;
+    private int waveCounterUI = 1;
     private bool enemiesEnd, minesEnd, bothEnd;
 
     // Start is called before the first frame update
@@ -71,7 +71,7 @@ public class WavesController : MonoBehaviour
 
         while (true)
         {
-            if (enemiesEnd && minesEnd)
+            if (enemiesEnd && minesEnd && !bothEnd)
             {
                 if (!wavesDataJson.waves[currentWave].isLast) currentWave++;
 
@@ -80,6 +80,8 @@ public class WavesController : MonoBehaviour
                 bothEnd = true;
             }
             else if (!enemiesEnd && !minesEnd) bothEnd = false;
+
+            UpdateUI();
 
             yield return Timing.WaitForOneFrame;
         }
@@ -127,8 +129,6 @@ public class WavesController : MonoBehaviour
                 enemyShip.SetActive(true);
                 activeObj.Add(enemyShip);
             }
-
-            UpdateUI();
         }
     }
     private IEnumerator<float> SpawnMines()
@@ -193,7 +193,7 @@ public class WavesController : MonoBehaviour
     }
     private void UpdateUI()
     {
-        currentWaveText.text = "Wave: " + (waveCounterUI + 1).ToString();
+        currentWaveText.text = "Wave: " + waveCounterUI.ToString();
     }
 }
 
