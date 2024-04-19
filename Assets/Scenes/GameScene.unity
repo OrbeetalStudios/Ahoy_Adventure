@@ -11623,7 +11623,7 @@ Transform:
   m_GameObject: {fileID: 1855919750002729401}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 44, y: -0.5, z: 0}
+  m_LocalPosition: {x: 44.96, y: -0.5, z: -0}
   m_LocalScale: {x: 8.058989, y: 4.2885985, z: 4.7805133}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -11912,6 +11912,7 @@ MonoBehaviour:
   Acceleration: 0.5
   deceleration: 0.7
   displayAmmo: {fileID: 1672767800}
+  inputVector: {x: 0, y: 0}
   reloadCannonTime: 5
   fireRatio: 1
 --- !u!1001 &8351470122176899728
