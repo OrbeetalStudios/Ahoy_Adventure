@@ -15,10 +15,15 @@ public class PlayerMovement : MonoBehaviour
     public bool clockwiseMotion=true;
     private float angle = 0.0f;
     public Animator anim;
+    public Animator animPlayer;
     private bool startG=false;
     public float Acceleration=0.1f;
     public float deceleration = 0.3f;
-  
+    private bool isAnimStart=false;
+    public GameObject displayAmmo;
+    [HideInInspector]
+    public Vector2 inputVector;
+
     private void Start()
     {
         Timing.RunCoroutine(Move());
@@ -32,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
             if (movementDirection != Vector3.zero && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f && startG==true)
             {
                 //Acceleration
-                if (currentSpeed < speed)
+                if (currentSpeed < speed && inputVector != Vector2.zero)
                 {
                     currentSpeed += Acceleration * Time.deltaTime;
                 }
@@ -62,10 +67,23 @@ public class PlayerMovement : MonoBehaviour
         // If input right movement clocwise
         if (inputVector.x > 0f && clockwiseMotion)
         {
-            currentSpeed = 0;
-            startG= true;
-            anim.Play("TurnLeft");  
-            clockwiseMotion = false;
+            if (!isAnimStart)
+            {
+                isAnimStart = true;
+                clockwiseMotion = false;
+                startG = true;
+                displayAmmo.SetActive(true);
+                anim.SetBool("FirstInput", true);
+              
+            }
+            else
+            {
+                currentSpeed = 0;
+              //  startG = true;
+                anim.Play("TurnLeft");
+                clockwiseMotion = false;
+            }
+           
         }
         // if input left movement counterclockwise
         else if (inputVector.x < 0f && !clockwiseMotion&& startG==true)

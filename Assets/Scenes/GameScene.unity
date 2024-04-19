@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1718,7 +1718,7 @@ PrefabInstance:
     - target: {fileID: 1168161902590291005, guid: c175e7a8704597045a31417b8a5374ae,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15.724014
+      value: -15.723999
       objectReference: {fileID: 0}
     - target: {fileID: 1168161902590291005, guid: c175e7a8704597045a31417b8a5374ae,
         type: 3}
@@ -5932,12 +5932,14 @@ Animation:
   m_GameObject: {fileID: 1187300671}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 8c60e953d168f6540b84c04580ec55ce, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: d2ff71954b82c9f4fb96953d266e945c, type: 2}
   - {fileID: 7400000, guid: 5892ae240d716c445bb27c43b8de0223, type: 2}
   - {fileID: 7400000, guid: fd3190b04f017a94d90fb43ccc2e96ae, type: 2}
   - {fileID: 7400000, guid: 95cba87f4af44284283d19ca28d7b13f, type: 2}
+  - {fileID: 7400000, guid: a3d1198974848a84bb97e8b46b065a7e, type: 2}
+  - {fileID: 7400000, guid: 8e13c69ec9721044f9c861ce9f39a733, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -9383,7 +9385,7 @@ PrefabInstance:
     - target: {fileID: 1168161902590291005, guid: c175e7a8704597045a31417b8a5374ae,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15.724014
+      value: -15.723999
       objectReference: {fileID: 0}
     - target: {fileID: 1168161902590291005, guid: c175e7a8704597045a31417b8a5374ae,
         type: 3}
@@ -11620,14 +11622,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855919750002729401}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 44, y: -0.5, z: 0}
   m_LocalScale: {x: 8.058989, y: 4.2885985, z: 4.7805133}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 872348947}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1855919750002729401
 GameObject:
   m_ObjectHideFlags: 0
@@ -11900,6 +11902,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1eec5e2753bae6448229ae425e234ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  currentSpeed: 0
+  semiaxis_A: 45
+  semiaxis_B: 43
+  clockwiseMotion: 1
+  anim: {fileID: 1187300674}
+  animPlayer: {fileID: 0}
+  Acceleration: 0.5
+  deceleration: 0.7
+  displayAmmo: {fileID: 1672767800}
+  reloadCannonTime: 5
+  fireRatio: 1
 --- !u!1001 &8351470122176899728
 PrefabInstance:
   m_ObjectHideFlags: 0

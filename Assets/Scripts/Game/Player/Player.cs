@@ -15,14 +15,16 @@ public class Player : PlayerMovement
     private bool canFire = true;
     private float reload;
     private bool isLoading = false;
-    private Vector2 inputVector;
+   
+  
 
     private void OnEnable()
     {
         controls = new PlayerControls();
         controls.Enable();
         controls.Player.Movement.performed += OnMovePerformed;
-       
+        displayAmmo.SetActive(false);
+        anim.Play("OnIiland");
         reload = reloadCannonTime;
     }
     private void OnDisable()
