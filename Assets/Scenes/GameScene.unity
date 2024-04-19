@@ -7487,6 +7487,7 @@ MonoBehaviour:
   spawnPointPrefab: {fileID: 2488922333133670303, guid: 0581bb66a555e7c45bb3ced54de441d4,
     type: 3}
   filenameJson: wavesJson
+  secondsBetweenWaves: 1
 --- !u!4 &1414464500
 Transform:
   m_ObjectHideFlags: 0

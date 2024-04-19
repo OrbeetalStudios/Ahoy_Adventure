@@ -25,18 +25,19 @@ public class WavesController : MonoBehaviour
         {EQuadrant.Quadrant_270_360, new Coll<SpawnPoint>() }
     };
     [SerializeField] private string filenameJson;
+    [SerializeField] private float secondsBetweenWaves= 1;
     private JSONWaves wavesDataJson = new();
     private int numberOfWaves;
     private int currentWave = 0;
     private int waveCounterUI = 0;
+    private bool enemiesEnd, minesEnd, bothEnd;
 
     // Start is called before the first frame update
     void Start()
     {
         LoadSpawnPoints();
         LoadWavesData(filenameJson);
-        Timing.RunCoroutine(SpawnEnemies().CancelWith(gameObject));
-        Timing.RunCoroutine(SpawnMines().CancelWith(gameObject));
+        Timing.RunCoroutine(SpawnManager().CancelWith(gameObject));
     }
     private void LoadSpawnPoints()
     {
@@ -59,8 +60,32 @@ public class WavesController : MonoBehaviour
         wavesDataJson = JSONWaves.CreateFromJSON(TextFileReader.ReadFileAsText(fileName));
         numberOfWaves = wavesDataJson.waves.Count;
     }
-    private IEnumerator<float> SpawnEnemies()
+    private IEnumerator<float> SpawnManager()
     {
+        enemiesEnd = false;
+        minesEnd = false;
+        bothEnd = false;
+
+        Timing.RunCoroutine(SpawnEnemies().CancelWith(gameObject));
+        Timing.RunCoroutine(SpawnMines().CancelWith(gameObject));
+
+        while (true)
+        {
+            if (enemiesEnd && minesEnd)
+            {
+                if (!wavesDataJson.waves[currentWave].isLast) currentWave++;
+
+                yield return Timing.WaitForSeconds(secondsBetweenWaves);
+                waveCounterUI++;
+                bothEnd = true;
+            }
+            else if (!enemiesEnd && !minesEnd) bothEnd = false;
+
+            yield return Timing.WaitForOneFrame;
+        }
+    }
+    private IEnumerator<float> SpawnEnemies()
+    {   
         int currentEnemy = -1;
         List<GameObject> activeObj = new();
 
@@ -77,14 +102,18 @@ public class WavesController : MonoBehaviour
                 }
                 if (goOn)
                 {
+                    enemiesEnd = true;
                     activeObj.Clear();
-                    if (!wavesDataJson.waves[currentWave].isLast) currentWave++;
-                    else if (wavesDataJson.waves[currentWave].enemies.Count == 0) break;
-                    currentEnemy = -1;
-                    waveCounterUI++;
+                    if (bothEnd)
+                    {
+                        enemiesEnd = false;
+                        
+                        if (wavesDataJson.waves[currentWave].enemies.Count == 0) break;
+                        currentEnemy = -1;         
+                    }
                 }
-                
-                yield return Timing.WaitForSeconds(1.5f);
+
+                yield return Timing.WaitForSeconds(1);
                 continue;
             }
 
@@ -103,7 +132,7 @@ public class WavesController : MonoBehaviour
         }
     }
     private IEnumerator<float> SpawnMines()
-    {
+    {    
         int currentMine = -1;
         List<GameObject> activeObj = new();
 
@@ -120,19 +149,21 @@ public class WavesController : MonoBehaviour
                 }
                 if (goOn)
                 {
+                    minesEnd = true;
                     activeObj.Clear();
-                    if (!wavesDataJson.waves[currentWave].isLast) currentWave++;
-                    else if (wavesDataJson.waves[currentWave].enemies.Count == 0) break;
-                    currentMine = -1;
+                    if (bothEnd)
+                    {
+                        minesEnd = false;
+                        if (wavesDataJson.waves[currentWave].enemies.Count == 0) break;
+                        currentMine = -1;
+                    }
                 }
 
-                yield return Timing.WaitForSeconds(1.5f);
+                yield return Timing.WaitForSeconds(1);
                 continue;
             }
 
             JSONMine mine = wavesDataJson.waves[currentWave].mines[currentMine];
-
-
             GameObject newMine = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.mine);
             if (newMine != null)
             {

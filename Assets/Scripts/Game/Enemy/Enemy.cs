@@ -37,7 +37,6 @@ public class Enemy : EnemyMovement
     private void OnDisable()
     {
         assaultArea.SetActive(false);
-        StopAllCoroutines();
         plunderTime = plunderDefault;
         render.material = originalMaterial;
     }
@@ -68,6 +67,7 @@ public class Enemy : EnemyMovement
                 transform.rotation = rotation;
                 Island.Instance.DecreaseTreasure();
                 Timing.RunCoroutine(ReturnOutsideMap(relativePos).CancelWith(gameObject));
+                break;
             }
             plunderTime--;
             yield return Timing.WaitForSeconds(1f);

@@ -1,7 +1,7 @@
 {"waves": [
 	{
 		"id": 1,
-		"isLast": true,
+		"isLast": false,
 		"enemies": [
 			{
 				"id": "enemy_default",
@@ -31,14 +31,6 @@
 			},
 			{
 				"spawnTime": 3,
-				"spawnQuadrant": 2
-			},
-			{
-				"spawnTime": 3,
-				"spawnQuadrant": 3
-			},
-			{
-				"spawnTime": 3,
 				"spawnQuadrant": 4
 			}
 		]
@@ -57,15 +49,15 @@
 				"spawnTime": 4,
 				"spawnQuadrant": 1
 			}
-		]
-	},
-	{
-		"id": 3,
-		"isLast": false,
-		"enemies": [
+		],
+		"mines": [
 			{
-				"id": "enemy_elite",
-				"spawnTime": 3
+				"spawnTime": 3,
+				"spawnQuadrant": 2
+			},
+			{
+				"spawnTime": 3,
+				"spawnQuadrant": 3
 			}
 		]
 	}
