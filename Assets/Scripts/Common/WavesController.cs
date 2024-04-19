@@ -3,9 +3,12 @@ using UnityEngine;
 using com.cyborgAssets.inspectorButtonPro;
 using MEC;
 using System.Linq;
+using TMPro;
 
 public class WavesController : MonoBehaviour
 {
+    // Riferimenti agli oggetti UI
+    [SerializeField] private TMP_Text currentWaveText;
     enum EQuadrant
     {
         Quadrant_0_90 = 1,
@@ -24,6 +27,7 @@ public class WavesController : MonoBehaviour
     [SerializeField] private string filenameJson;
     private JSONWaves wavesDataJson = new();
     private int numberOfWaves;
+    private int currentWave = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -56,8 +60,8 @@ public class WavesController : MonoBehaviour
     }
     private IEnumerator<float> SpawnEnemies()
     {
-        int currentWave = 0;
         int currentEnemy = -1;
+        List<GameObject> activeObj = new();
 
         while (currentWave < numberOfWaves)
         {
@@ -65,9 +69,20 @@ public class WavesController : MonoBehaviour
 
             if (currentEnemy >= wavesDataJson.waves[currentWave].enemies.Count)
             {
-                if (!wavesDataJson.waves[currentWave].isLast) currentWave++;
-                else if (wavesDataJson.waves[currentWave].enemies.Count == 0) break;
-                currentEnemy = -1;
+                bool goOn = true;
+                foreach (GameObject obj in activeObj)
+                {
+                    goOn &= !obj.activeSelf; 
+                }
+                if (goOn)
+                {
+                    activeObj.Clear();
+                    if (!wavesDataJson.waves[currentWave].isLast) currentWave++;
+                    else if (wavesDataJson.waves[currentWave].enemies.Count == 0) break;
+                    currentEnemy = -1;
+                }
+
+                yield return Timing.WaitForSeconds(1.5f);
                 continue;
             }
 
@@ -75,25 +90,20 @@ public class WavesController : MonoBehaviour
             GameObject enemyShip = PoolController.Instance.GetObjectFromCollection(enemy.GetId());
             if (enemyShip != null)
             {
-                EQuadrant currQuadrant = (EQuadrant)enemy.spawnQuadrant;
-                if (!System.Enum.IsDefined(typeof(EQuadrant), currQuadrant)) currQuadrant = EQuadrant.Quadrant_0_90; // default
-                if (spawnPoints[currQuadrant].Count != 0)
-                {
-                    int[] newValues = Enumerable.Range(0, spawnPoints[currQuadrant].Count).Where(x => x != spawnPoints[currQuadrant].LastInd).ToArray();
-                    int newIndex = newValues[Random.Range(0, newValues.Length)];
-
-                    enemyShip.transform.position = spawnPoints[currQuadrant].GetAt(newIndex).transform.position;
-                }
+                SetUpNewGameObject(enemyShip, (EQuadrant)enemy.spawnQuadrant);
 
                 yield return Timing.WaitForSeconds(enemy.spawnTime);
                 enemyShip.SetActive(true);
+                activeObj.Add(enemyShip);
             }
+
+            UpdateUI();
         }
     }
     private IEnumerator<float> SpawnMines()
     {
-        int currentWave = 0;
         int currentMine = -1;
+        List<GameObject> activeObj = new();
 
         while (currentWave < numberOfWaves)
         {
@@ -101,30 +111,56 @@ public class WavesController : MonoBehaviour
 
             if (currentMine >= wavesDataJson.waves[currentWave].mines.Count)
             {
-                if (!wavesDataJson.waves[currentWave].isLast) currentWave++;
-                else if (wavesDataJson.waves[currentWave].mines.Count == 0) break;
-                currentMine = -1;
+                bool goOn = true;
+                foreach (GameObject obj in activeObj)
+                {
+                    goOn &= !obj.activeSelf;
+                }
+                if (goOn)
+                {
+                    activeObj.Clear();
+                    if (!wavesDataJson.waves[currentWave].isLast) currentWave++;
+                    else if (wavesDataJson.waves[currentWave].enemies.Count == 0) break;
+                    currentMine = -1;
+                }
+
+                yield return Timing.WaitForSeconds(1.5f);
                 continue;
             }
 
             JSONMine mine = wavesDataJson.waves[currentWave].mines[currentMine];
+
+
             GameObject newMine = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.mine);
             if (newMine != null)
             {
-                EQuadrant currQuadrant = (EQuadrant)mine.spawnQuadrant;
-                if (!System.Enum.IsDefined(typeof(EQuadrant), currQuadrant)) currQuadrant = EQuadrant.Quadrant_0_90; // default
-                if (spawnPoints[currQuadrant].Count != 0)
-                {
-                    int[] newValues = Enumerable.Range(0, spawnPoints[currQuadrant].Count).Where(x => x != spawnPoints[currQuadrant].LastInd).ToArray();
-                    int newIndex = newValues[Random.Range(0, newValues.Length)];
-
-                    newMine.transform.position = spawnPoints[currQuadrant].GetAt(newIndex).transform.position;
-                }
+                SetUpNewGameObject(newMine, (EQuadrant)mine.spawnQuadrant);
 
                 yield return Timing.WaitForSeconds(mine.spawnTime);
                 newMine.SetActive(true);
             }
         }
+    }
+    private void SetUpNewGameObject(GameObject go, EQuadrant quadrant)
+    {
+        EQuadrant currQuadrant = quadrant;
+
+        if (!System.Enum.IsDefined(typeof(EQuadrant), currQuadrant))
+        {
+            currQuadrant = EQuadrant.Quadrant_0_90; // default
+        }
+
+        if (spawnPoints[currQuadrant].Count != 0)
+        {
+            int[] newValues = Enumerable.Range(0, spawnPoints[currQuadrant].Count).Where(x => x != spawnPoints[currQuadrant].LastInd).ToArray();
+            int newIndex = newValues[Random.Range(0, newValues.Length)];
+
+            go.transform.position = spawnPoints[currQuadrant].GetAt(newIndex).transform.position;
+        }
+    }
+    private void UpdateUI()
+    {
+        currentWaveText.text = "Current Wave: " + (currentWave + 1).ToString();
     }
 }
 
