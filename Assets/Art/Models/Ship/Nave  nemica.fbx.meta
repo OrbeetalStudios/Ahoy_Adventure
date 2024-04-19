@@ -3,7 +3,39 @@ guid: ebfb084eafd8be94eaaff05ed2e6a5f1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: efe553d038ee23a4581589c389b51e63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.039
+    second: {fileID: 2100000, guid: efe553d038ee23a4581589c389b51e63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.040
+    second: {fileID: 2100000, guid: efe553d038ee23a4581589c389b51e63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.050
+    second: {fileID: 2100000, guid: efe553d038ee23a4581589c389b51e63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cannone
+    second: {fileID: 6184404153836957689, guid: fa7c822998a3fa040b702cf65bb97052,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cannone.002
+    second: {fileID: 6184404153836957689, guid: dcfa74ee9df8de94bb4ef454a5779738,
+      type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

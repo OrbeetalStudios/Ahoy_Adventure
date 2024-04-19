@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     public bool clockwiseMotion=true;
     private float angle = 0.0f;
     public Animator anim;
-    public Animator animPlayer;
     private bool startG=false;
     public float Acceleration=0.1f;
     public float deceleration = 0.3f;
