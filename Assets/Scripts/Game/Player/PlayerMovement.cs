@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private bool startG=false;
     public float Acceleration=0.1f;
     public float deceleration = 0.3f;
+  
     private void Start()
     {
         Timing.RunCoroutine(Move());

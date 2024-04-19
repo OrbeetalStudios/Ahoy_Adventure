@@ -1,5 +1,6 @@
 using MEC;
 using System.Collections.Generic;
+using Unity.VisualScripting.InputSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,7 @@ public class Player : PlayerMovement
     private bool canFire = true;
     private float reload;
     private bool isLoading = false;
+    private Vector2 inputVector;
 
     private void OnEnable()
     {
@@ -31,7 +33,7 @@ public class Player : PlayerMovement
     }
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
-        Vector2 inputVector = context.ReadValue<Vector2>();
+        inputVector = context.ReadValue<Vector2>();
         controls.Player.Fire.performed += ctx => StartFire();
         controls.Player.Pause.performed += ctx => GameController.Instance.Pause();
         // Velocity of Input
@@ -51,16 +53,20 @@ public class Player : PlayerMovement
 
     protected IEnumerator<float> DecelerationCo()
     {
-        while (currentSpeed > 0)
+        while (currentSpeed > 0 && inputVector==Vector2.zero)
         {
             // Riduci gradualmente la velocità
             currentSpeed -= deceleration * Time.deltaTime;
             // Attendi il prossimo frame
             yield return Timing.WaitForOneFrame;
         }
-        currentSpeed = 0f;
+        if(currentSpeed < 0)
+        {
+            currentSpeed = 0f;
+            Timing.KillCoroutines("Deceleration");
+            SetMovementDirection(Vector3.zero);
+        }
         Timing.KillCoroutines("Deceleration");
-        SetMovementDirection(Vector3.zero);
     }
     
         private void StartFire()
