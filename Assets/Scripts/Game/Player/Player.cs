@@ -23,7 +23,7 @@ public class Player : PlayerMovement
         controls = new PlayerControls();
         controls.Enable();
         controls.Player.Movement.performed += OnMovePerformed;
-        displayAmmo.SetActive(false);
+        GameController.Instance.ImgAmmoDeactivated();
         anim.Play("OnIiland");
         reload = reloadCannonTime;
     }

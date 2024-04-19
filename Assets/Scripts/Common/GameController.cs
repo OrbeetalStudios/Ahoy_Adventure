@@ -1,5 +1,6 @@
 using MEC;
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -90,6 +91,30 @@ public class GameController : MonoSingleton<GameController>
         }
     }
 
+    public void ImgAmmoDeactivated()
+    {
+        for (int i = 0; i < ammoImages.Length; i++)
+        {
+            SetImageTransparency(ammoImages[i],0f);
+        }
+    }
+
+    public void ImgAmmoActivated()
+    {
+        Timing.RunCoroutine(ammoActive());
+    }
+
+    protected IEnumerator<float> ammoActive()
+    {
+        yield return Timing.WaitForSeconds(4f);
+        for (int i = 0; i < ammoImages.Length; i++)
+        {
+            yield return Timing.WaitForSeconds(0.5f);
+            SetImageTransparency(ammoImages[i], 100f);
+            
+        }
+        Timing.KillCoroutines("ammoActive");
+    }
 
     private void SetImageTransparency(Image image, float alpha)
     {

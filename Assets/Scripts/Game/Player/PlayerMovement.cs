@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
                 isAnimStart = true;
                 clockwiseMotion = false;
                 startG = true;
-                displayAmmo.SetActive(true);
+                GameController.Instance.ImgAmmoActivated();
                 anim.SetBool("FirstInput", true);
               
             }
