@@ -164,7 +164,7 @@ public class GameController : MonoSingleton<GameController>
     {
         Time.timeScale = 1;
         PoolController.Instance.DeactivateAll();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
 

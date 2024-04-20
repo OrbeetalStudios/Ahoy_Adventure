@@ -16944,7 +16944,7 @@ MonoBehaviour:
   raycastMask:
     serializedVersion: 2
     m_Bits: 192
-  highlightMaterial: {fileID: -1725942987148635205, guid: dcfa74ee9df8de94bb4ef454a5779738,
+  highlightMaterial: {fileID: 1146215725531996892, guid: fa7c822998a3fa040b702cf65bb97052,
     type: 3}
   originalMaterial: {fileID: 2100000, guid: efe553d038ee23a4581589c389b51e63, type: 2}
 --- !u!114 &7791608244395059052

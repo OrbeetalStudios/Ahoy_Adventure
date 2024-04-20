@@ -12,10 +12,13 @@ public class MainMenu : MonoBehaviour
     private GameObject crew;
     private bool OpenSettings = false;
     private bool OpenCrew = false;
+    public GameObject fadeOut;
+
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
+        fadeOut.SetActive(true);
+        SceneManager.LoadScene(2);
     }
 
     public void Settings()
