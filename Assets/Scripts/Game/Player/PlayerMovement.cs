@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private bool startG=false;
     public float Acceleration=0.1f;
     public float deceleration = 0.3f;
-    private bool isAnimStart=false;
+    public bool isAnimStart=false;
     public GameObject displayAmmo;
     [HideInInspector]
     public Vector2 inputVector;
@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
                 startG = true;
                 GameController.Instance.ImgAmmoActivated();
                 anim.SetBool("FirstInput", true);
+                FoamEffect.Instance.StartFoam(isAnimStart);
               
             }
             else
