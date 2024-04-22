@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb75150075d36d4db1c84ff7896f08d, type: 3}
-  m_Name: PlunderRate
+  m_Name: Invulnerale
   m_EditorClassIdentifier: 
-  ObjectName: Attack PowerUp
+  ObjectName: Invulnerability
   Type: 2
   DurationInSeconds: 5
-  Value: 2
+  Value: 0

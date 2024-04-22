@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,8 +16,8 @@ public class PowerUpController : MonoSingleton<PowerUpController>
             powerUps.Add(powerUp);
         }
     }
-    public void ActivatePowerUp(GameObject other)
+    public void ActivatePowerUp()
     {
-        powerUps[Random.Range(0, powerUps.Count)].Collected(other);
+        powerUps[Random.Range(0, powerUps.Count)].Collected();
     }
 }

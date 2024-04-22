@@ -1,7 +1,10 @@
 public enum EPowerUpType
-{ 
-    Speed,
+{
     FireRate,
-    PlunderRate,
-    KillScore
+    Speed,
+    //PlunderRate,
+    Invulnerability,
+    KillGold,
+    LifeUp,
+    CrewGold
 }

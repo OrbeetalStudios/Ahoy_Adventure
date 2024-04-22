@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameController : MonoSingleton<GameController>
+public class GameController : MonoSingleton<GameController>, IPowerUpEvent
 {
     // Dichiarazione degli eventi per la vita, il punteggio e le munizioni
     public event Action<int> LifeUpdated;
@@ -22,25 +22,27 @@ public class GameController : MonoSingleton<GameController>
     [SerializeField] private GameObject PausePanel;
     [SerializeField] private GameObject pauseButton;
 
-
     private int currentScore = 0;
+    [SerializeField] private int defaultScoreIncrement = 1;
+    private int scoreIncrement;
     private int lifeCount = 3;
     private bool isPaused = false;
     [SerializeField] private WavesController waves;
 
     private void Start()
     {
+        scoreIncrement = defaultScoreIncrement;
+
         // Inizializza UI
         UpdateScoreUI();
         UpdateLifeUI();
         AudioManager.Instance.StopSpecificMusic(0);
-        AudioManager.Instance.PlaySpecificMusic(2);
-       
+        AudioManager.Instance.PlaySpecificMusic(2);     
     }
 
     public void UpdateScore()
     {
-        currentScore++;
+        currentScore += scoreIncrement;
         ScoreUpdated?.Invoke(currentScore);
         UpdateScoreUI();
     }
@@ -74,8 +76,7 @@ public class GameController : MonoSingleton<GameController>
     }
 
     private void UpdateLifeUI()
-    {
-        
+    {      
         for (int i = 0; i < lifeImages.Length; i++)
         {
             lifeImages[i].gameObject.SetActive(i < lifeCount);
@@ -85,7 +86,6 @@ public class GameController : MonoSingleton<GameController>
             }
         }
     }
-
     private void UpdateAmmoUI(int ammoCount)
     {
         for (int i = 0; i < ammoImages.Length; i++)
@@ -93,7 +93,6 @@ public class GameController : MonoSingleton<GameController>
             SetImageTransparency(ammoImages[i], i >= ammoCount ? 0.5f : 1f);
         }
     }
-
     public void ImgAmmoDeactivated()
     {
         for (int i = 0; i < ammoImages.Length; i++)
@@ -101,25 +100,21 @@ public class GameController : MonoSingleton<GameController>
             SetImageTransparency(ammoImages[i],0f);
         }
     }
-
     public void ImgAmmoActivated()
     {
         Timing.RunCoroutine(ammoActive());
     }
-
     protected IEnumerator<float> ammoActive()
     {
         yield return Timing.WaitForSeconds(4f);
         for (int i = 0; i < ammoImages.Length; i++)
         {
             yield return Timing.WaitForSeconds(0.5f);
-            SetImageTransparency(ammoImages[i], 100f);
-            
+            SetImageTransparency(ammoImages[i], 100f);         
         }
-        waves.StartGame();
-        Timing.KillCoroutines("ammoActive");
-    }
 
+        waves.StartGame();
+    }
     private void SetImageTransparency(Image image, float alpha)
     {
         if (image != null)
@@ -134,9 +129,6 @@ public class GameController : MonoSingleton<GameController>
             image.color = currentColor;
         }
     }
-
-
-
     public void Pause()
     {
         if (isPaused == true)
@@ -152,18 +144,14 @@ public class GameController : MonoSingleton<GameController>
             pauseButton.SetActive(false);
             Time.timeScale = 0;
             PausePanel.SetActive(true); 
-        }
-       
+        }    
     }
-
     public void Restart()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         Time.timeScale = 1;
         SceneManager.LoadScene(currentSceneIndex);
     }
-
-
     public void MainMenu()
     {
         Time.timeScale = 1;
@@ -171,11 +159,42 @@ public class GameController : MonoSingleton<GameController>
         AudioManager.Instance.StopSpecificMusic(2);
         SceneManager.LoadScene(1);
     }
-
-
     public void ExitGame()
     {
         Application.Quit();
     }
-
+    public void OnPowerUpCollected(PowerUpData data)
+    {
+        switch (data.Type)
+        {
+            case EPowerUpType.KillGold:
+                scoreIncrement = (int)data.Value;
+                break;
+            case EPowerUpType.LifeUp:
+                // TODO
+                break;
+            case EPowerUpType.CrewGold:
+                // TODO
+                break;
+            default:
+                break;
+        }
+    }
+    public void OnPowerUpExpired(PowerUpData data)
+    {
+        switch (data.Type)
+        {
+            case EPowerUpType.KillGold:
+                scoreIncrement = defaultScoreIncrement;
+                break;
+            case EPowerUpType.LifeUp:
+                // TODO
+                break;
+            case EPowerUpType.CrewGold:
+                // TODO
+                break;
+            default:
+                break;
+        }
+    }
 }

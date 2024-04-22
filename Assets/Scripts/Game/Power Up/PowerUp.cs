@@ -1,25 +1,28 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using MEC;
 
 public class PowerUp : MonoBehaviour
 {
     private CoroutineHandle waitHandle;
-    private Player playerRef;
     public PowerUpData data;
+    public bool active = false;
 
-    public virtual void Collected(GameObject other)
+    public virtual void Collected()
     {
-        playerRef = other.GetComponent<Player>();
-        if (playerRef == null) return;
-
-        playerRef.ApplyPowerUp(data.Type, data.Value);
-
         if (waitHandle != null)
         {
             Timing.KillCoroutines(waitHandle);
             Expired();
         }
+
+        // Send message to any listeners
+        foreach (GameObject go in EventListener.Instance.listeners)
+        {
+            ExecuteEvents.Execute<IPowerUpEvent>(go, null, (x, y) => x.OnPowerUpCollected(this.data));
+        }
+
         waitHandle = Timing.RunCoroutine(WaitPowerUpDuration());
     }
     protected IEnumerator<float> WaitPowerUpDuration()
@@ -30,6 +33,10 @@ public class PowerUp : MonoBehaviour
     }
     public virtual void Expired()
     {
-        playerRef.ApplyPowerUp(data.Type, -data.Value);
+        // Send message to any listeners
+        foreach (GameObject go in EventListener.Instance.listeners)
+        {
+            ExecuteEvents.Execute<IPowerUpEvent>(go, null, (x, y) => x.OnPowerUpExpired(this.data));
+        }
     }
 }

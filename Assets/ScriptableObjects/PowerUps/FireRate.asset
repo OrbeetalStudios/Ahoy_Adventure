@@ -15,4 +15,4 @@ MonoBehaviour:
   ObjectName: FireRate Power Up
   Type: 1
   DurationInSeconds: 5
-  Value: 1
+  Value: 0

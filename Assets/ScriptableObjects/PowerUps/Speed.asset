@@ -15,4 +15,4 @@ MonoBehaviour:
   ObjectName: Speed PowerUp
   Type: 0
   DurationInSeconds: 5
-  Value: 2
+  Value: 1

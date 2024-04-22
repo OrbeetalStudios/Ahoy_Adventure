@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField, Range(0f, 20f)]
-    private float speed;
+    protected float defaultSpeed;
+    protected float speed;
     [SerializeField]
-    protected float currentSpeed;
-    public float Speed { get { return speed; } set { speed = value; } }
+    private float currentSpeed;
     [SerializeField, Range(0f, 100f)]
     private float semiaxis_A, semiaxis_B = 2f;
     private Vector3 movementDirection = Vector3.zero;
@@ -25,9 +25,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        speed = defaultSpeed;
         Timing.RunCoroutine(Move());
     }
-
     protected  IEnumerator<float> Move()
     {
         while (true)
@@ -96,6 +96,23 @@ public class PlayerMovement : MonoBehaviour
         // direction of movement
         movementDirection = inputVector;
     }
+    protected IEnumerator<float> DecelerationCo()
+    {
+        while (currentSpeed > 0 && inputVector == Vector2.zero)
+        {
+            // Riduci gradualmente la velocità
+            currentSpeed -= deceleration * Time.deltaTime;
+            // Attendi il prossimo frame
+            yield return Timing.WaitForOneFrame;
+        }
+        if (currentSpeed < 0)
+        {
+            currentSpeed = 0f;
+            Timing.KillCoroutines("Deceleration");
+            SetMovementDirection(Vector3.zero);
+        }
+        Timing.KillCoroutines("Deceleration");
+    }
     private void OnDrawGizmos()//Draw Gizmos for test
     {
         // calculate CenterOfEllipse
@@ -120,6 +137,4 @@ public class PlayerMovement : MonoBehaviour
             currentAngle += angleStep;
         }
     }
-
-    
 }

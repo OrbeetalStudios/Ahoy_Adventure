@@ -1,22 +1,21 @@
 using MEC;
 using System.Collections.Generic;
-using Unity.VisualScripting.InputSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : PlayerMovement
+public class Player : PlayerMovement, IPowerUpEvent
 {
     private PlayerControls controls;
     [SerializeField, Range(0f,30f)] 
     private float reloadCannonTime;
-    [SerializeField, Range(0f, 10f)] 
+    [SerializeField, Range(0f, 10f)]
+    private float defaultFireRatio;
     private float fireRatio;
     private int ammoCount=3;
     private bool canFire = true;
     private float reload;
     private bool isLoading = false;
-   
-  
+    private bool invulnerabilityOn = false;
 
     private void OnEnable()
     {
@@ -26,6 +25,7 @@ public class Player : PlayerMovement
         GameController.Instance.ImgAmmoDeactivated();
         anim.Play("OnIiland",0);
         reload = reloadCannonTime;
+        fireRatio = defaultFireRatio;
     }
     private void OnDisable()
     {
@@ -51,27 +51,7 @@ public class Player : PlayerMovement
         }
         
     }
-
-
-    protected IEnumerator<float> DecelerationCo()
-    {
-        while (currentSpeed > 0 && inputVector==Vector2.zero)
-        {
-            // Riduci gradualmente la velocità
-            currentSpeed -= deceleration * Time.deltaTime;
-            // Attendi il prossimo frame
-            yield return Timing.WaitForOneFrame;
-        }
-        if(currentSpeed < 0)
-        {
-            currentSpeed = 0f;
-            Timing.KillCoroutines("Deceleration");
-            SetMovementDirection(Vector3.zero);
-        }
-        Timing.KillCoroutines("Deceleration");
-    }
-    
-        private void StartFire()
+    private void StartFire()
     {  
         if (ammoCount > 0 && canFire)
         {
@@ -125,19 +105,35 @@ public class Player : PlayerMovement
         }
         canFire = true;
     }
-    public void ApplyPowerUp(EPowerUpType type, float value)
+    public void OnPowerUpCollected(PowerUpData data)
     {
-        switch (type)
+        switch (data.Type)
         {
-            case EPowerUpType.Speed:
-                Speed += value;
-                break;
             case EPowerUpType.FireRate:
-                fireRatio -= value;
+                fireRatio = data.Value;
                 break;
-            case EPowerUpType.PlunderRate:
+            case EPowerUpType.Speed:
+                speed = data.Value;
                 break;
-            case EPowerUpType.KillScore:
+            case EPowerUpType.Invulnerability:
+                invulnerabilityOn = true;
+                break;
+            default:
+                break;
+        }
+    }
+    public void OnPowerUpExpired(PowerUpData data)
+    {
+        switch (data.Type)
+        {
+            case EPowerUpType.FireRate:
+                fireRatio = defaultFireRatio;
+                break;
+            case EPowerUpType.Speed:
+                speed = defaultSpeed;
+                break;
+            case EPowerUpType.Invulnerability:
+                invulnerabilityOn = false;
                 break;
             default:
                 break;
