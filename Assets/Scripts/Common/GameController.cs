@@ -26,6 +26,7 @@ public class GameController : MonoSingleton<GameController>
     private int currentScore = 0;
     private int lifeCount = 3;
     private bool isPaused = false;
+    [SerializeField] private WavesController waves;
 
     private void Start()
     {
@@ -113,6 +114,7 @@ public class GameController : MonoSingleton<GameController>
             SetImageTransparency(ammoImages[i], 100f);
             
         }
+        waves.StartGame();
         Timing.KillCoroutines("ammoActive");
     }
 

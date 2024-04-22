@@ -36,7 +36,11 @@ public class WavesController : MonoBehaviour
     void Start()
     {
         LoadSpawnPoints();
-        LoadWavesData(filenameJson);
+        LoadWavesData(filenameJson);   
+    }
+
+    public void StartGame()
+    {
         Timing.RunCoroutine(SpawnManager().CancelWith(gameObject));
     }
     private void LoadSpawnPoints()

@@ -2698,7 +2698,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -186, y: -31.000006}
+  m_AnchoredPosition: {x: -186, y: -31.000061}
   m_SizeDelta: {x: -465.49063, y: -119.30581}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &363442129
@@ -3429,6 +3429,7 @@ MonoBehaviour:
   GameOverPanel: {fileID: 771177059}
   PausePanel: {fileID: 1771761380}
   pauseButton: {fileID: 1133839633}
+  waves: {fileID: 1414464499}
 --- !u!4 &493272062
 Transform:
   m_ObjectHideFlags: 0
@@ -4272,7 +4273,7 @@ ParticleSystem:
       m_PostInfinity: 2
       m_RotationOrder: 4
   moveWithTransform: 1
-  moveWithCustomTransform: {fileID: 0}
+  moveWithCustomTransform: {fileID: 1187300670}
   scalingMode: 1
   randomSeed: 0
   InitialModule:
@@ -8930,7 +8931,7 @@ Transform:
   m_GameObject: {fileID: 706062036}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -5.2616158, z: -5.05}
+  m_LocalPosition: {x: 0, y: -5.2616177, z: -3.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9433,8 +9434,8 @@ Transform:
   m_LocalScale: {x: 0.2091825, y: 0.23317643, z: 0.12408502}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1187300670}
   - {fileID: 706062039}
+  - {fileID: 1187300670}
   m_Father: {fileID: 1036650266193326275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &886014789
