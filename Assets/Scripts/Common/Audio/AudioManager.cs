@@ -18,21 +18,21 @@ public class AudioManager : MonoSingleton<AudioManager>
 
     public void MusicOff()
     {
-        musicGroup.audioMixer.SetFloat("MusicVolume", 0);
+        musicGroup.audioMixer.SetFloat("MusicVolume", -80f);
     }
     public void MusicOn()
     {
-        musicGroup.audioMixer.SetFloat("MusicVolume", 100);
+        musicGroup.audioMixer.SetFloat("MusicVolume", -14.03f);
     }
 
     public void SoundOff()
     {
-        oneShotGroup.audioMixer.SetFloat("MusicVolume", 0);
+        oneShotGroup.audioMixer.SetFloat("OneShotsVolume", -80f);
     }
 
     public void SoundOn()
     {
-        oneShotGroup.audioMixer.SetFloat("MusicVolume", 100);
+        oneShotGroup.audioMixer.SetFloat("OneShotsVolume", -14.03f);
     }
 
     public void PlaySpecificMusic(int index)
