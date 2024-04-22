@@ -15,23 +15,30 @@ public class AudioManager : MonoSingleton<AudioManager>
     private List<AudioSource> Musics;
     [SerializeField]
     private List<AudioSource> OneShots;
+    public bool soundIsPlaying = true;
+    public bool musicIsPlaying = true;
 
     public void MusicOff()
     {
+        musicIsPlaying=false;
         musicGroup.audioMixer.SetFloat("MusicVolume", -80f);
     }
     public void MusicOn()
     {
+        musicIsPlaying=true;
         musicGroup.audioMixer.SetFloat("MusicVolume", -14.03f);
     }
 
     public void SoundOff()
     {
+
+        soundIsPlaying = false;
         oneShotGroup.audioMixer.SetFloat("OneShotsVolume", -80f);
     }
 
     public void SoundOn()
     {
+        soundIsPlaying = true;
         oneShotGroup.audioMixer.SetFloat("OneShotsVolume", -14.03f);
     }
 

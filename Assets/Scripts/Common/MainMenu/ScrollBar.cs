@@ -7,35 +7,65 @@ public class ScrollBar : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject OnButton;
+    private GameObject On_MusicButton;
     [SerializeField]
-    private GameObject OffButton;
+    private GameObject Off_MusicButton;
+    [SerializeField]
+    private GameObject On_SoundButton;
+    [SerializeField]
+    private GameObject Off_SoundButton;
 
+    public void Awake()
+    {
+        if (AudioManager.Instance.musicIsPlaying == true)
+        {
+            On_MusicButton.SetActive(true);
+            Off_MusicButton.SetActive(false);
+        }
+        else
+        {
+            On_MusicButton.SetActive(false);
+            Off_MusicButton.SetActive(true);
+        }
+
+        if (AudioManager.Instance.soundIsPlaying == true)
+        {
+            On_SoundButton.SetActive(true);
+            Off_SoundButton.SetActive(false);
+        }
+        else
+        {
+            On_SoundButton.SetActive(false);
+            Off_SoundButton.SetActive(true);
+        }
+
+
+    }
     public void OffMusic()
     {
         AudioManager.Instance.MusicOff();
-        OnButton.SetActive(false);
-        OffButton.SetActive(true);
+        On_MusicButton.SetActive(false);
+        Off_MusicButton.SetActive(true);
     }
 
     public void OnMusic()
     {
         AudioManager.Instance.MusicOn();
-        OffButton.SetActive(false);
-        OnButton.SetActive(true);
+        On_MusicButton.SetActive(true);
+        Off_MusicButton.SetActive(false);
     }
 
     public void OffSound()
     {
         AudioManager.Instance.SoundOff();
-        OnButton.SetActive(false);
-        OffButton.SetActive(true);
+        On_SoundButton.SetActive(false);
+        Off_SoundButton.SetActive(true);
     }
 
     public void OnSound()
     {
         AudioManager.Instance.SoundOn();
-        OffButton.SetActive(false);
-        OnButton.SetActive(true);
+        On_SoundButton.SetActive(true);
+        Off_SoundButton.SetActive(false);
     }
 }
