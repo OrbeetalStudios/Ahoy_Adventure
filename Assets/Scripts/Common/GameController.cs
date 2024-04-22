@@ -63,6 +63,7 @@ public class GameController : MonoSingleton<GameController>
 
     public void GameOver()
     {
+        AudioManager.Instance.PlaySpecificOneShot(9);
         GameOverPanel.SetActive(true);
         Time.timeScale = 0;
     }
@@ -178,4 +179,14 @@ public class GameController : MonoSingleton<GameController>
         Application.Quit();
     }
 
+    public void OnClickSound()
+    {
+        AudioManager.Instance.PlaySpecificOneShot(4);
+    }
+
+    public void OnOffSound()
+    {
+        AudioManager.Instance.PlaySpecificOneShot(14);   
+    }
+   
 }
