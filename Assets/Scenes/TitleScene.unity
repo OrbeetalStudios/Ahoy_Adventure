@@ -1247,9 +1247,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 72ae2c14c43fa3c42a396f9f62fbdf72, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.538
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1836,6 +1836,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1280528039}
   - component: {fileID: 1280528040}
+  - component: {fileID: 1280528041}
   m_Layer: 0
   m_Name: IntroWaves
   m_TagString: Untagged
@@ -1870,7 +1871,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 90e66a809a0a19040b1c359a5d8a151c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.874
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1954,6 +1955,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1280528041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280528038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ebac0f46eac2248a0386f7825d4149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1280528040}
+  duration: 160
+  targetVolume: 100
 --- !u!1 &1326305714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2447,6 +2463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1557673962}
   - component: {fileID: 1557673963}
+  - component: {fileID: 1557673964}
   m_Layer: 0
   m_Name: Bee
   m_TagString: Untagged
@@ -2481,7 +2498,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 33a1f659b1ac6ad46a7f2b663ec55bda, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.954
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2565,6 +2582,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1557673964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557673961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ebac0f46eac2248a0386f7825d4149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1557673963}
+  duration: 3
+  targetVolume: 100
 --- !u!1 &1621128176
 GameObject:
   m_ObjectHideFlags: 0

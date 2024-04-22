@@ -27,9 +27,19 @@ public class Logo : MonoBehaviour
         plane.SetActive(false);
     }
 
-    private void PlayBee()
+    public void PlayBee()
     {
-        AudioManager.Instance.PlayBee();
+        AudioManager.Instance.PlaySpecificOneShot(2);
+    }
+
+    public void StopBee()
+    {
+        AudioManager.Instance.StopSpecificOneShot(2);
+    }
+
+    public void PlayWave()
+    {
+        AudioManager.Instance.PlaySpecificOneShot(11);
     }
 
 }

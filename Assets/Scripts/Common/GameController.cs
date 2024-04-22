@@ -33,6 +33,8 @@ public class GameController : MonoSingleton<GameController>
         // Inizializza UI
         UpdateScoreUI();
         UpdateLifeUI();
+        AudioManager.Instance.StopSpecificMusic(0);
+        AudioManager.Instance.PlaySpecificMusic(2);
        
     }
 
@@ -174,4 +176,5 @@ public class GameController : MonoSingleton<GameController>
     {
         Application.Quit();
     }
+
 }
