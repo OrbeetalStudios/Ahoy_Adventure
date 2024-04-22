@@ -168,6 +168,7 @@ public class GameController : MonoSingleton<GameController>
     {
         Time.timeScale = 1;
         PoolController.Instance.DeactivateAll();
+        AudioManager.Instance.StopSpecificMusic(2);
         SceneManager.LoadScene(1);
     }
 
