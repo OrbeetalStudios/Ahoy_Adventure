@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class Logo : MonoBehaviour
 {
-    public Animator sprite;
-    public Animator mesh;
+
     public GameObject plane;
-    public GameObject spriteObj;
+  
+   
     // Start is called before the first frame update
     public void LoadMenu()
     {
@@ -18,7 +18,7 @@ public class Logo : MonoBehaviour
 
     public void ActiveFlag()
     {
-        spriteObj.SetActive(false);
+        
         plane.SetActive(true);
     }
 
@@ -26,5 +26,11 @@ public class Logo : MonoBehaviour
     {
         plane.SetActive(false);
     }
+
+    private void PlayBee()
+    {
+        AudioManager.Instance.PlayBee();
+    }
+
 }
 
