@@ -71,6 +71,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
 
     public void GameOver()
     {
+        AudioManager.Instance.StopSpecificMusic(2);
         AudioManager.Instance.PlaySpecificOneShot(9);
         GameOverPanel.SetActive(true);
         Time.timeScale = 0;
