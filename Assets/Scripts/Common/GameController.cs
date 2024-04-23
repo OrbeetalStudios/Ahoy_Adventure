@@ -71,6 +71,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
 
     public void GameOver()
     {
+        AudioManager.Instance.PlaySpecificOneShot(9);
         GameOverPanel.SetActive(true);
         Time.timeScale = 0;
     }
@@ -169,6 +170,17 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
     {
         Application.Quit();
     }
+
+    public void OnClickSound()
+    {
+        AudioManager.Instance.PlaySpecificOneShot(4);
+    }
+
+    public void OnOffSound()
+    {
+        AudioManager.Instance.PlaySpecificOneShot(14);   
+    }
+   
     public void OnPowerUpCollected(PowerUpData data)
     {
         switch (data.Type)

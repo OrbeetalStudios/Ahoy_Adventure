@@ -41,11 +41,15 @@ public class MainMenu : MonoBehaviour
         if (!OpenCrew)
         {
             OpenCrew = true;
+            AudioManager.Instance.StopSpecificMusic(0);
+            AudioManager.Instance.PlaySpecificMusic(1);
             crew.SetActive(true);
         }
         else
         {
             OpenCrew = false;
+            AudioManager.Instance.StopSpecificMusic(1);
+            AudioManager.Instance.PlaySpecificMusic(0);
             crew.SetActive(false) ;
         }
     }
@@ -60,7 +64,24 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-  
+    public void OnClickSound()
+    {
+        AudioManager.Instance.PlaySpecificOneShot(4);
+    }
 
+    public void PlayOnOff()
+    {
+        AudioManager.Instance.PlaySpecificOneShot(14);
+    }
+
+    public void ScrollMenu()
+    {
+        AudioManager.Instance.PlaySpecificOneShot(13);
+    }
+
+    public void HireSound()
+    {
+        AudioManager.Instance.PlaySpecificOneShot(10);
+    }
 
 }
