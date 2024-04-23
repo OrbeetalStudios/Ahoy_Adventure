@@ -657,8 +657,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 78.963, y: -34.73}
-  m_SizeDelta: {x: 211.9265, y: 170.4412}
+  m_AnchoredPosition: {x: -100.48, y: -38.476}
+  m_SizeDelta: {x: 200.96, y: 162.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &256000070
 MonoBehaviour:
@@ -680,7 +680,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Batteria da 12 pentole con fondo fuso alto un centimetro, acciaio 18/10
+  m_text: Batteria da 13pentole con fondo fuso porcodio
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523df0787bdbbdd4d9bb6f7bb43f4d81, type: 2}
   m_sharedMaterial: {fileID: 1809009447606896218, guid: 523df0787bdbbdd4d9bb6f7bb43f4d81,
@@ -715,7 +715,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -10.573608, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3774,18 +3774,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1532858959}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: OnClickSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1532858959}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: ScrollMenu
