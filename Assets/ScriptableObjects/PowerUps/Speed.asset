@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Speed
   m_EditorClassIdentifier: 
   ObjectName: Speed PowerUp
-  Type: 0
-  DurationInSeconds: 5
+  Type: 1
+  DurationInSeconds: 10
   Value: 1
+  spawnChance: 3

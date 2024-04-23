@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FireRate
   m_EditorClassIdentifier: 
   ObjectName: FireRate Power Up
-  Type: 1
+  Type: 0
   DurationInSeconds: 5
   Value: 0
+  spawnChance: 3

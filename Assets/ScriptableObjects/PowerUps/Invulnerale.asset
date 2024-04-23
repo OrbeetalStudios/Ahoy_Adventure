@@ -16,3 +16,4 @@ MonoBehaviour:
   Type: 2
   DurationInSeconds: 5
   Value: 0
+  spawnChance: 1

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: More Gold PowerUp
   Type: 3
-  DurationInSeconds: 10
+  DurationInSeconds: 5
   Value: 2
+  spawnChance: 2
