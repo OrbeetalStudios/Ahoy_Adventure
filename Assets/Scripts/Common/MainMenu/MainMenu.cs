@@ -1,3 +1,4 @@
+using MEC;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -15,6 +16,13 @@ public class MainMenu : MonoBehaviour
     public GameObject fadeOut;
 
 
+    public void Start()
+    {
+      
+        AudioManager.Instance.PlaySpecificMusic(0);
+    }
+
+   
     public void PlayGame()
     {
         fadeOut.SetActive(true);
