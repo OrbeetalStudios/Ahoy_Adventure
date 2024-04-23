@@ -8,30 +8,33 @@ public class PowerUp : MonoBehaviour
     private CoroutineHandle waitHandle;
     public PowerUpData data;
     public bool active = false;
+    private int currentDurationTime;
 
-    public virtual void Collected()
+    public void Collected()
     {
-        if (waitHandle != null)
+        currentDurationTime = data.DurationInSeconds; // reset power up duration counter
+        if (waitHandle == null)
         {
-            Timing.KillCoroutines(waitHandle);
-            Expired();
+            waitHandle = Timing.RunCoroutine(WaitPowerUpDuration().CancelWith(gameObject));
         }
 
         // Send message to any listeners
         foreach (GameObject go in EventListener.Instance.listeners)
         {
             ExecuteEvents.Execute<IPowerUpEvent>(go, null, (x, y) => x.OnPowerUpCollected(this.data));
-        }
-
-        waitHandle = Timing.RunCoroutine(WaitPowerUpDuration());
+        }     
     }
     protected IEnumerator<float> WaitPowerUpDuration()
     {
-        yield return Timing.WaitForSeconds(data.DurationInSeconds);
+        while (currentDurationTime > 0)
+        {
+            currentDurationTime--;
+            yield return Timing.WaitForSeconds(1f);
+        }
 
         Expired();
     }
-    public virtual void Expired()
+    private void Expired()
     {
         // Send message to any listeners
         foreach (GameObject go in EventListener.Instance.listeners)
