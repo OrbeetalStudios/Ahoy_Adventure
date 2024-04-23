@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def13a5627a9c7047b639cca7c34ce7c, type: 3}
   m_Name: CrewData 2
   m_EditorClassIdentifier: 
-  characterID: 0
-  characterName: 
-  ability: 
-  bio: 
-  sprite: {fileID: 0}
+  characterID: 2
+  characterName: fry tatina
+  ability: Fire Rate increase
+  bio: An inseparable friend of Peppino, Fry Tatina shares a passion for speed with
+    him. Together, they create a dynamic duo ready to master any danger that awaits
+    them on the open sea. Because of her exuberant nature, Fry Tatina has been forbidden
+    to drink coffee to prevent her from having an uncontrollable adrenaline rush.
+  sprite: {fileID: 21300000, guid: 209efdc32b0b7aa40a5c31e471c6d1a7, type: 3}
+  Cost: 50
+  AbilitySprite: {fileID: 21300000, guid: 27e8d594ce726214ab8006e448f81127, type: 3}
+  Category: 0

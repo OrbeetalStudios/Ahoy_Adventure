@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def13a5627a9c7047b639cca7c34ce7c, type: 3}
   m_Name: CrewData 6
   m_EditorClassIdentifier: 
-  characterID: 0
-  characterName: 
-  ability: 
-  bio: 
-  sprite: {fileID: 0}
+  characterID: 6
+  characterName: Keith
+  ability: Island Level Up
+  bio: Keith is a somewhat irreverent little fellow. He and his brother Mort form
+    the duo in charge of renovating and maintaining the island. Keith tells everyone
+    that he is better-looking and smarter than Mort.
+  sprite: {fileID: 21300000, guid: 209efdc32b0b7aa40a5c31e471c6d1a7, type: 3}
+  Cost: 80
+  AbilitySprite: {fileID: 21300000, guid: e33ce6b343fb8204a9ae0fb168402308, type: 3}
+  Category: 1

@@ -12,8 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def13a5627a9c7047b639cca7c34ce7c, type: 3}
   m_Name: CrewData 3
   m_EditorClassIdentifier: 
-  characterID: 0
-  characterName: 
-  ability: 
-  bio: 
-  sprite: {fileID: 0}
+  characterID: 3
+  characterName: Spritz
+  ability: Ammo
+  bio: A pirate's life can be frightening in some situations, so Spritz always tries
+    to be prescient. His anxiety and foresight do not help him relax on the ship,
+    but they certainly make him more alert and prepared than others. She was given
+    her name to refer back to the drink she is used to consuming to try to keep her
+    fears under control.
+  sprite: {fileID: 21300000, guid: 209efdc32b0b7aa40a5c31e471c6d1a7, type: 3}
+  Cost: 70
+  AbilitySprite: {fileID: 21300000, guid: c3a494b49ab146b4ead943f612add256, type: 3}
+  Category: 0

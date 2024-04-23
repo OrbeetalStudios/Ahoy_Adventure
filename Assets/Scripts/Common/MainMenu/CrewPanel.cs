@@ -13,6 +13,7 @@ public class CrewPanel : MonoBehaviour
     [SerializeField] private TMP_Text Ability;
     [SerializeField] private Image characterSprite;
     [SerializeField] private List<CrewData> characterDataList;
+    [SerializeField] private Image characterAbility;
     private Dictionary<CharacterName, CrewData> characterDataMap;
     public enum CharacterName
     {
@@ -57,5 +58,7 @@ public class CrewPanel : MonoBehaviour
         Bio.text = data.bio;
         Ability.text = data.ability;
         characterSprite.sprite = data.sprite;
+        characterAbility.sprite = data.AbilitySprite;
+        
     }
 }

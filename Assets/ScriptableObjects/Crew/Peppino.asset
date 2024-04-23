@@ -20,3 +20,5 @@ MonoBehaviour:
     and thanks to him, the Crew has an extra sprint in the tasks at hand.
   sprite: {fileID: 21300000, guid: 209efdc32b0b7aa40a5c31e471c6d1a7, type: 3}
   Cost: 40
+  AbilitySprite: {fileID: 21300000, guid: a7006bdbf1b0c504dbf7acc503d907b5, type: 3}
+  Category: 0
