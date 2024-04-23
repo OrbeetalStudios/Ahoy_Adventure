@@ -11,6 +11,8 @@ public class Player : PlayerMovement, IPowerUpEvent
     [SerializeField, Range(0f, 10f)]
     private float defaultFireRatio;
     private float fireRatio;
+    [SerializeField, Range(0f, 2f)] 
+    private float cannonShotVfxOffset;
     private int ammoCount=3;
     private bool canFire = true;
     private float reload;
@@ -47,7 +49,7 @@ public class Player : PlayerMovement, IPowerUpEvent
         // Velocity of Input
         if (inputVector == Vector2.zero)
         {
-            // Se il vettore di input è zero, chiama direttamente OnMoveCanceled per fermare il movimento
+            // Se il vettore di input ï¿½ zero, chiama direttamente OnMoveCanceled per fermare il movimento
             Timing.RunCoroutine(DecelerationCo().CancelWith(gameObject));
         }
         else
@@ -81,6 +83,8 @@ public class Player : PlayerMovement, IPowerUpEvent
                     Timing.RunCoroutine(LoadingCannon().CancelWith(gameObject));
                 }
             }
+            GameObject cannonShot = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.cannon_shot);
+            PlayCannonShotVFX(gameObject,cannonShot);
         }  
     }
     protected  IEnumerator<float> LoadingCannon()
@@ -138,5 +142,10 @@ public class Player : PlayerMovement, IPowerUpEvent
             default:
                 break;
         }
+    }
+    private void PlayCannonShotVFX(GameObject parent, GameObject effect){
+        effect.transform.position = parent.transform.TransformPoint(Vector3.back * cannonShotVfxOffset);
+        effect.transform.rotation = parent.transform.rotation;
+        effect.SetActive(true);
     }
 }
