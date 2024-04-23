@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17742,7 +17742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1eec5e2753bae6448229ae425e234ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  defaultSpeed: 0.6
   currentSpeed: 0
   semiaxis_A: 45
   semiaxis_B: 43
@@ -17754,7 +17754,7 @@ MonoBehaviour:
   displayAmmo: {fileID: 1672767800}
   inputVector: {x: 0, y: 0}
   reloadCannonTime: 5
-  fireRatio: 1
+  defaultFireRatio: 0
 --- !u!1001 &8351470122176899728
 PrefabInstance:
   m_ObjectHideFlags: 0

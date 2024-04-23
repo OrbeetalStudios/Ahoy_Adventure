@@ -64,6 +64,10 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void OnClickCharacter()
+    {
+        AudioManager.Instance.PlaySpecificOneShot(0);
+    }
     public void OnClickSound()
     {
         AudioManager.Instance.PlaySpecificOneShot(4);
