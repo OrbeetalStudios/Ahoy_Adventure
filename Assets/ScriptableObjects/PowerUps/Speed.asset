@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: Speed PowerUp
   Type: 1
+  img: {fileID: 21300000, guid: 6c467424b2b0f2a40a2cb590fb9fff1e, type: 3}
   DurationInSeconds: 10
   Value: 1
   spawnChance: 3

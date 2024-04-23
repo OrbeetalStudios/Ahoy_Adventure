@@ -7,13 +7,13 @@ public class PowerUp : MonoBehaviour
 {
     private CoroutineHandle waitHandle;
     public PowerUpData data;
-    public bool active = false;
-    private int currentDurationTime;
+    [ShowOnly] [SerializeField] private bool active = false;
+    [ShowOnly] [SerializeField] private int currentDurationTime;
 
     public void Collected()
     {
         currentDurationTime = data.DurationInSeconds; // reset power up duration counter
-        if (!waitHandle.IsValid)
+        if (!active)
         {
             waitHandle = Timing.RunCoroutine(WaitPowerUpDuration().CancelWith(gameObject));
         }
@@ -28,6 +28,7 @@ public class PowerUp : MonoBehaviour
     {
         Debug.Log("Activated " + data.ObjectName + "!!!");
 
+        active = true;
         while (currentDurationTime > 0)
         {
             currentDurationTime--;
@@ -35,6 +36,7 @@ public class PowerUp : MonoBehaviour
         }
 
         Expired();
+        active = false;
     }
     private void Expired()
     {

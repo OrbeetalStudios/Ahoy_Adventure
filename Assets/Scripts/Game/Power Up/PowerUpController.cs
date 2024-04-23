@@ -3,17 +3,19 @@ using UnityEngine;
 
 public class PowerUpController : MonoSingleton<PowerUpController>
 {
-    [SerializeField] public List<PowerUpData> DataList;
+    [SerializeField] private List<PowerUpData> dataList;
+    public List<PowerUpData> DataList { get { return dataList; } }
     private List<PowerUp> powerUps = new();
     private float[] weights;
+
     private void Start()
     {
-        weights = new float[DataList.Count];
+        weights = new float[dataList.Count];
 
         PowerUpData data;
-        for (int i = 0; i < DataList.Count; i++)
+        for (int i = 0; i < dataList.Count; i++)
         {
-            data = DataList[i];
+            data = dataList[i];
 
             // Setup the PowerUp game object
             GameObject obj = new GameObject(data.ObjectName, typeof(PowerUp));
