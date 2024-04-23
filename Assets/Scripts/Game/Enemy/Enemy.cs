@@ -47,7 +47,7 @@ public class Enemy : EnemyMovement
     }
     private void OnDisable()
     {
-        Timing.KillCoroutines("plunder_coroutine_tag");
+        Timing.KillCoroutines("plunder_coroutine_tag"+gameObject.GetInstanceID().ToString());
         assaultArea.SetActive(false);
         plunderTime = plunderDefault;
         render.material = originalMaterial;
@@ -64,7 +64,8 @@ public class Enemy : EnemyMovement
 
         // start plunder
         assaultArea.SetActive(true);
-        Timing.RunCoroutine(Plunder(), "plunder_coroutine_tag");
+        Debug.Log("plunder_coroutine_tag"+gameObject.GetInstanceID().ToString());
+        Timing.RunCoroutine(Plunder(), "plunder_coroutine_tag"+gameObject.GetInstanceID().ToString());
 
         PlaySFX(enemyStartPlunderingSfxIndex);
     }

@@ -73,7 +73,7 @@ public class WavesController : MonoBehaviour
 
         Timing.RunCoroutine(SpawnEnemies().CancelWith(gameObject));
         Timing.RunCoroutine(SpawnMines().CancelWith(gameObject));
-
+        PlaySFX(waveStartSfxIndex);
         while (true)
         {
             if (enemiesEnd && minesEnd && !bothEnd)
