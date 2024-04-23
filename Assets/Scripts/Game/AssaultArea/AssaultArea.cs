@@ -12,11 +12,12 @@ public class AssaultArea : MonoBehaviour
     private bool playerInside = false;
     private bool startCount = false;
     private Enemy enemyScript;
-    SpriteRenderer spriteRenderer;
+    Material m_material;
+    GameObject effect;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        m_material = GetComponent<Renderer>().material;
     }
     private void Start()
     {
@@ -25,16 +26,17 @@ public class AssaultArea : MonoBehaviour
     }
     private void OnEnable()
     {
-        spriteRenderer.color = Color.red;
+        m_material.color = Color.red;
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            spriteRenderer.color = Color.green;
+            enemyObj.GetComponent<Enemy>().isEngaged = true;
+            m_material.color = Color.green;
             playerInside = true;
             enemyScript.StopCoroutine("Plunder");
-            GameObject effect = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.engage_combat);
+            effect = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.engage_combat);
             PlayVFX(enemyObj, effect);
             PlaySFX(counterPlunderSfxIndex);
             if (startCount == false)
@@ -47,7 +49,9 @@ public class AssaultArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            spriteRenderer.color = Color.red;
+            StopVFX(effect);
+            enemyObj.GetComponent<Enemy>().isEngaged = false;
+            m_material.color = Color.red;
             playerInside = false;
             enemyScript.RestartPlunder();
             ResetCount();
@@ -68,6 +72,7 @@ public class AssaultArea : MonoBehaviour
                 enemyObj.SetActive(false);
                 playerInside =false;
                 PlaySFX(winCounterPlunderSfxIndex);
+                enemyObj.GetComponent<Enemy>().isEngaged = false;
             }
             Countdown--;
             yield return Timing.WaitForSeconds(1f);
@@ -76,6 +81,8 @@ public class AssaultArea : MonoBehaviour
     }
     private void OnDisable()
     {
+        enemyObj.GetComponent<Enemy>().isEngaged = false;
+        StopVFX(effect);
         StopSFX(counterPlunderSfxIndex);
         playerInside = false;
         startCount = false;
@@ -86,6 +93,10 @@ public class AssaultArea : MonoBehaviour
     private void PlayVFX(GameObject parent, GameObject effect){
         effect.transform.position = parent.transform.position;
         effect.SetActive(true);
+    }
+
+    private void StopVFX(GameObject effect){
+        effect.SetActive(false);
     }
 
     private void PlaySFX(int index){

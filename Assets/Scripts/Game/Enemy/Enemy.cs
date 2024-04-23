@@ -13,6 +13,7 @@ public class Enemy : EnemyMovement
     [SerializeField] private int enemyCollisionSfxIndex;
     public int plunderTime;
     public int plunderDefault;
+    public bool isEngaged = false;
 
     private void Awake()
     {
@@ -64,14 +65,13 @@ public class Enemy : EnemyMovement
 
         // start plunder
         assaultArea.SetActive(true);
-        Debug.Log("plunder_coroutine_tag"+gameObject.GetInstanceID().ToString());
         Timing.RunCoroutine(Plunder(), "plunder_coroutine_tag"+gameObject.GetInstanceID().ToString());
 
         PlaySFX(enemyStartPlunderingSfxIndex);
     }
     protected IEnumerator<float> Plunder()
     {
-        while (true)
+    while (!isEngaged)
         {
             if (plunderTime <= 0)
             {
