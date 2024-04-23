@@ -4,7 +4,7 @@ using MEC;
 
 public class Enemy : EnemyMovement
 {
-    [SerializeField, Range(0f, 1f)] private float spawnChance = 0.5f;
+    [SerializeField, Range(0f, 1f)] private float spawnChance;
     [SerializeField] private GameObject assaultArea;
     [SerializeField] private Renderer render;
     [SerializeField] private Material originalMaterial;
@@ -79,7 +79,7 @@ public class Enemy : EnemyMovement
     }
     private void SpawnBox()
     {
-        if (Random.Range(0f, 1f) > spawnChance) return; // if random value is between 0 and spawnChanche, go on and spawn a box
+        if (spawnChance == 0f || Random.value > spawnChance) return; // if random value is between 0 and spawnChanche, go on and spawn a box
 
         GameObject box = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.box);
         box.transform.localPosition = this.transform.localPosition;
