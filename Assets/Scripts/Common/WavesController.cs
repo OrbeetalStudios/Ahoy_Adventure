@@ -70,7 +70,6 @@ public class WavesController : MonoBehaviour
         enemiesEnd = false;
         minesEnd = false;
         bothEnd = false;
-        PlaySFX(waveStartSfxIndex);
 
         Timing.RunCoroutine(SpawnEnemies().CancelWith(gameObject));
         Timing.RunCoroutine(SpawnMines().CancelWith(gameObject));
@@ -84,10 +83,10 @@ public class WavesController : MonoBehaviour
                 yield return Timing.WaitForSeconds(secondsBetweenWaves);
                 waveCounterUI++;
                 bothEnd = true;
+                PlaySFX(waveStartSfxIndex);
             }
             else if (!enemiesEnd && !minesEnd) bothEnd = false;
             
-            PlaySFX(waveStartSfxIndex);
             UpdateUI();
 
             yield return Timing.WaitForOneFrame;
