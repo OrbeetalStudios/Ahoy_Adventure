@@ -13,7 +13,7 @@ public class PowerUp : MonoBehaviour
     public void Collected()
     {
         currentDurationTime = data.DurationInSeconds; // reset power up duration counter
-        if (waitHandle == null)
+        if (!waitHandle.IsValid)
         {
             waitHandle = Timing.RunCoroutine(WaitPowerUpDuration().CancelWith(gameObject));
         }
@@ -26,6 +26,8 @@ public class PowerUp : MonoBehaviour
     }
     protected IEnumerator<float> WaitPowerUpDuration()
     {
+        Debug.Log("Activated " + data.ObjectName + "!!!");
+
         while (currentDurationTime > 0)
         {
             currentDurationTime--;
@@ -36,6 +38,8 @@ public class PowerUp : MonoBehaviour
     }
     private void Expired()
     {
+        Debug.Log("Expired " + data.ObjectName + "!!!");
+
         // Send message to any listeners
         foreach (GameObject go in EventListener.Instance.listeners)
         {
