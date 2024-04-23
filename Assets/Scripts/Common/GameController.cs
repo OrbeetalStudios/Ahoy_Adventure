@@ -33,6 +33,9 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
     {
         scoreIncrement = defaultScoreIncrement;
 
+        // inscriviti a eventlistener per ricevere gli eventi
+        EventListener.Instance.AddListener(this.gameObject);
+
         // Inizializza UI
         UpdateScoreUI();
         UpdateLifeUI();

@@ -26,12 +26,14 @@ public class Player : PlayerMovement, IPowerUpEvent
         anim.Play("OnIiland",0);
         reload = reloadCannonTime;
         fireRatio = defaultFireRatio;
+
+        // iscriviti a eventlistener per ricevere gli eventi
+        EventListener.Instance.AddListener(this.gameObject);
     }
     private void OnDisable()
     {
         controls.Disable();
-        controls.Player.Movement.performed -= OnMovePerformed;
-      
+        controls.Player.Movement.performed -= OnMovePerformed;     
     }
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
