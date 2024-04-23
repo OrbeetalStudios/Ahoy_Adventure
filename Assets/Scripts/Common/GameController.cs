@@ -27,13 +27,14 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
     private int scoreIncrement;
     private int lifeCount = 3;
     private bool isPaused = false;
+    private bool invulnerabilityOn = false;
     [SerializeField] private WavesController waves;
 
     private void Start()
     {
         scoreIncrement = defaultScoreIncrement;
 
-        // inscriviti a eventlistener per ricevere gli eventi
+        // iscriviti a eventlistener per ricevere gli eventi
         EventListener.Instance.AddListener(this.gameObject);
 
         // Inizializza UI
@@ -52,6 +53,8 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
 
     public void UpdateLife()
     {
+        if (invulnerabilityOn) return;
+
         lifeCount--;
         LifeUpdated?.Invoke(lifeCount);
         UpdateLifeUI();
@@ -170,6 +173,9 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
     {
         switch (data.Type)
         {
+            case EPowerUpType.Invulnerability:
+                invulnerabilityOn = true;
+                break;
             case EPowerUpType.KillGold:
                 scoreIncrement = (int)data.Value;
                 break;
@@ -187,6 +193,9 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
     {
         switch (data.Type)
         {
+            case EPowerUpType.Invulnerability:
+                invulnerabilityOn = false;
+                break;
             case EPowerUpType.KillGold:
                 scoreIncrement = defaultScoreIncrement;
                 break;

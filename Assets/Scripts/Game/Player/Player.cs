@@ -15,7 +15,6 @@ public class Player : PlayerMovement, IPowerUpEvent
     private bool canFire = true;
     private float reload;
     private bool isLoading = false;
-    private bool invulnerabilityOn = false;
 
     private void OnEnable()
     {
@@ -117,9 +116,6 @@ public class Player : PlayerMovement, IPowerUpEvent
             case EPowerUpType.Speed:
                 speed = data.Value;
                 break;
-            case EPowerUpType.Invulnerability:
-                invulnerabilityOn = true;
-                break;
             default:
                 break;
         }
@@ -133,9 +129,6 @@ public class Player : PlayerMovement, IPowerUpEvent
                 break;
             case EPowerUpType.Speed:
                 speed = defaultSpeed;
-                break;
-            case EPowerUpType.Invulnerability:
-                invulnerabilityOn = false;
                 break;
             default:
                 break;
