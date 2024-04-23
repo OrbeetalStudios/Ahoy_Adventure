@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   distanceTraveled: 0
-  spawnChance: 1
+  spawnChance: 0.33
   assaultArea: {fileID: 4655593177920169884}
   render: {fileID: 4466364199185534056}
   originalMaterial: {fileID: 2100000, guid: efe553d038ee23a4581589c389b51e63, type: 2}
