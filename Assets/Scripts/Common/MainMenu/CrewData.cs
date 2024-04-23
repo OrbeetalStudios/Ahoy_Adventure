@@ -12,7 +12,7 @@ public class CrewData : ScriptableObject
     public string bio;
     public Sprite sprite;
     public int Cost;
-    public int category;
+    public List<Sprite> AbilitySprite;
     public enum CategoryID
     {
         Normal,

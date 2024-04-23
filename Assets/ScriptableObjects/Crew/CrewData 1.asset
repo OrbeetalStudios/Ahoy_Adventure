@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: CrewData 1
   m_EditorClassIdentifier: 
   characterID: 1
-  characterName: 
-  ability: 
-  bio: 
-  sprite: {fileID: 0}
-  Cost: 0
+  characterName: Ravan ello
+  ability: Cannonball Size Increase
+  bio: Ravan Ello is not capable of half-measures. Strong, sturdy, and tenacious,
+    his motto has been "the more, the better" since his youth. Everyone knows that
+    wherever he goes, he always carries his inseparable set of giant cannonballs
+    to prove his superiority to everyone.
+  sprite: {fileID: 21300000, guid: 209efdc32b0b7aa40a5c31e471c6d1a7, type: 3}
+  Cost: 70
   category: 0
   Category: 0
