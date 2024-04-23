@@ -76,6 +76,7 @@ public class AssaultArea : MonoBehaviour
     }
     private void OnDisable()
     {
+        StopSFX(counterPlunderSfxIndex);
         playerInside = false;
         startCount = false;
         StopCoroutine("CountDownCoroutine");
