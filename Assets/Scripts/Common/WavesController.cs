@@ -9,6 +9,7 @@ public class WavesController : MonoBehaviour
 {
     // Riferimenti agli oggetti UI
     [SerializeField] private TMP_Text currentWaveText;
+    [SerializeField] private int waveStartSfxIndex;
     enum EQuadrant
     {
         Quadrant_0_90 = 1,
@@ -69,6 +70,7 @@ public class WavesController : MonoBehaviour
         enemiesEnd = false;
         minesEnd = false;
         bothEnd = false;
+        PlaySFX(waveStartSfxIndex);
 
         Timing.RunCoroutine(SpawnEnemies().CancelWith(gameObject));
         Timing.RunCoroutine(SpawnMines().CancelWith(gameObject));
@@ -84,7 +86,8 @@ public class WavesController : MonoBehaviour
                 bothEnd = true;
             }
             else if (!enemiesEnd && !minesEnd) bothEnd = false;
-
+            
+            PlaySFX(waveStartSfxIndex);
             UpdateUI();
 
             yield return Timing.WaitForOneFrame;
@@ -204,6 +207,10 @@ public class WavesController : MonoBehaviour
     private void UpdateUI()
     {
         currentWaveText.text = "Wave: " + waveCounterUI.ToString();
+    }
+
+    private void PlaySFX(int index){
+        AudioManager.Instance.PlaySpecificOneShot(index);
     }
 }
 

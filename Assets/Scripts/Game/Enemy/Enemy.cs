@@ -8,6 +8,9 @@ public class Enemy : EnemyMovement
     [SerializeField] private GameObject assaultArea;
     [SerializeField] private Renderer render;
     [SerializeField] private Material originalMaterial;
+    [SerializeField] private int enemyHitSfxIndex;
+    [SerializeField] private int enemyStartPlunderingSfxIndex;
+    [SerializeField] private int enemyCollisionSfxIndex;
     public int plunderTime;
     public int plunderDefault;
 
@@ -24,6 +27,7 @@ public class Enemy : EnemyMovement
                 gameObject.SetActive(false);
                 GameObject collisionEffect = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.collision_with_barrels);
                 PlayVFX(gameObject, collisionEffect);
+                PlaySFX(enemyCollisionSfxIndex);
                 break;
             case "Bullet":
                 GameController.Instance.UpdateScore();
@@ -31,6 +35,7 @@ public class Enemy : EnemyMovement
                 // TODO: if elite or not
                 GameObject destroyVfx = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.enemy_destroy_vfx);
                 PlayVFX(gameObject, destroyVfx);
+                PlaySFX(enemyHitSfxIndex);
                 //
                 other.gameObject.SetActive(false);//Deactivate Bullet
                 gameObject.SetActive(false);
@@ -59,6 +64,8 @@ public class Enemy : EnemyMovement
         // start plunder
         assaultArea.SetActive(true);
         Timing.RunCoroutine(Plunder());
+
+        PlaySFX(enemyStartPlunderingSfxIndex);
     }
     protected IEnumerator<float> Plunder()
     {
@@ -95,5 +102,9 @@ public class Enemy : EnemyMovement
     private void PlayVFX(GameObject parent, GameObject effect){
         effect.transform.position = parent.transform.position;
         effect.SetActive(true);
+    }
+
+    private void PlaySFX(int index){
+        AudioManager.Instance.PlaySpecificOneShot(index);
     }
 }

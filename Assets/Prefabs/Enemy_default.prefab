@@ -102,6 +102,9 @@ MonoBehaviour:
   assaultArea: {fileID: 4655593177920169884}
   render: {fileID: 2003133923719287537}
   originalMaterial: {fileID: 2100000, guid: efe553d038ee23a4581589c389b51e63, type: 2}
+  enemyHitSfxIndex: 8
+  enemyStartPlunderingSfxIndex: 12
+  enemyCollisionSfxIndex: 5
   plunderTime: 15
   plunderDefault: 0
 --- !u!1001 &868378963912691317
@@ -262,6 +265,16 @@ PrefabInstance:
       propertyPath: enemyObj
       value: 
       objectReference: {fileID: 2054213451365819344}
+    - target: {fileID: 3681011631015862642, guid: e419719818742cf4d9364a437ab3bc52,
+        type: 3}
+      propertyPath: counterPlunderSfxIndex
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681011631015862642, guid: e419719818742cf4d9364a437ab3bc52,
+        type: 3}
+      propertyPath: winCounterPlunderSfxIndex
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3864610203423059517, guid: e419719818742cf4d9364a437ab3bc52,
         type: 3}
       propertyPath: m_Name

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Box : LinearMotionToTarget
 {
+    [SerializeField] private int sfxIndex;
     void Start()
     {
         targetPosition = Island.Instance.transform.position;
@@ -19,6 +20,7 @@ public class Box : LinearMotionToTarget
             PowerUpController.Instance.ActivatePowerUp();
 
             this.gameObject.SetActive(false);
+            PlaySFX(sfxIndex);
         }
         else if (other.CompareTag("Island"))
         {
@@ -31,5 +33,9 @@ public class Box : LinearMotionToTarget
     private void PlayVFX(GameObject parent, GameObject effect){
         effect.transform.position = parent.transform.position;
         effect.SetActive(true);
+    }
+
+    private void PlaySFX(int index){
+        AudioManager.Instance.PlaySpecificOneShot(index);
     }
 }

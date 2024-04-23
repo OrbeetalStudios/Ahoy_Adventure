@@ -6,6 +6,8 @@ public class AssaultArea : MonoBehaviour
 {
     [SerializeField] GameObject enemyObj;
     [SerializeField] private int Countdown = 5;
+    [SerializeField] private int counterPlunderSfxIndex;
+    [SerializeField] private int winCounterPlunderSfxIndex;
     private int resetCount;
     private bool playerInside = false;
     private bool startCount = false;
@@ -34,6 +36,7 @@ public class AssaultArea : MonoBehaviour
             enemyScript.StopCoroutine("Plunder");
             GameObject effect = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.engage_combat);
             PlayVFX(enemyObj, effect);
+            PlaySFX(counterPlunderSfxIndex);
             if (startCount == false)
             {
                 Timing.RunCoroutine(CountDownCoroutine().CancelWith(gameObject));
@@ -48,6 +51,7 @@ public class AssaultArea : MonoBehaviour
             playerInside = false;
             enemyScript.RestartPlunder();
             ResetCount();
+            StopSFX(counterPlunderSfxIndex);
         }
     }
     public void ResetCount()
@@ -62,7 +66,8 @@ public class AssaultArea : MonoBehaviour
             if (Countdown ==0)
             {
                 enemyObj.SetActive(false);
-                playerInside =false;   
+                playerInside =false;
+                PlaySFX(winCounterPlunderSfxIndex);
             }
             Countdown--;
             yield return Timing.WaitForSeconds(1f);
@@ -80,5 +85,13 @@ public class AssaultArea : MonoBehaviour
     private void PlayVFX(GameObject parent, GameObject effect){
         effect.transform.position = parent.transform.position;
         effect.SetActive(true);
+    }
+
+    private void PlaySFX(int index){
+        AudioManager.Instance.PlaySpecificOneShot(index);
+    }
+
+    private void StopSFX(int index){
+        AudioManager.Instance.StopSpecificOneShot(index);
     }
 }
