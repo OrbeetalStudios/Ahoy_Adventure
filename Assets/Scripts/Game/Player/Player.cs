@@ -13,6 +13,8 @@ public class Player : PlayerMovement, IPowerUpEvent
     private float fireRatio;
     [SerializeField, Range(0f, 2f)] 
     private float cannonShotVfxOffset;
+    [SerializeField] 
+    private int cannonShotSfxIndex;
     private int ammoCount=3;
     private bool canFire = true;
     private float reload;
@@ -85,6 +87,7 @@ public class Player : PlayerMovement, IPowerUpEvent
             }
             GameObject cannonShot = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.cannon_shot);
             PlayCannonShotVFX(gameObject,cannonShot);
+            PlaySFX(cannonShotSfxIndex);
         }  
     }
     protected  IEnumerator<float> LoadingCannon()
@@ -147,5 +150,9 @@ public class Player : PlayerMovement, IPowerUpEvent
         effect.transform.position = parent.transform.TransformPoint(Vector3.back * cannonShotVfxOffset);
         effect.transform.rotation = parent.transform.rotation;
         effect.SetActive(true);
+    }
+
+    private void PlaySFX(int index){
+        AudioManager.Instance.PlaySpecificOneShot(index);
     }
 }
