@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: Invulnerability
   Type: 2
+  img: {fileID: 21300000, guid: 3ba7444416d2ac6449c62fd4aad9d8d9, type: 3}
   DurationInSeconds: 5
   Value: 0
   spawnChance: 1

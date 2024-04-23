@@ -22,10 +22,16 @@ public class Enemy : EnemyMovement
             case "Player":
                 GameController.Instance.UpdateLife();
                 gameObject.SetActive(false);
+                GameObject collisionEffect = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.collision_with_barrels);
+                PlayVFX(gameObject, collisionEffect);
                 break;
             case "Bullet":
                 GameController.Instance.UpdateScore();
                 SpawnBox();
+                // TODO: if elite or not
+                GameObject destroyVfx = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.enemy_destroy_vfx);
+                PlayVFX(gameObject, destroyVfx);
+                //
                 other.gameObject.SetActive(false);//Deactivate Bullet
                 gameObject.SetActive(false);
                 break;
@@ -84,5 +90,10 @@ public class Enemy : EnemyMovement
         GameObject box = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.box);
         box.transform.localPosition = this.transform.localPosition;
         box.SetActive(true);
+    }
+
+    private void PlayVFX(GameObject parent, GameObject effect){
+        effect.transform.position = parent.transform.position;
+        effect.SetActive(true);
     }
 }

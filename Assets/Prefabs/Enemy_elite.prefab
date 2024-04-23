@@ -102,6 +102,9 @@ MonoBehaviour:
   assaultArea: {fileID: 4655593177920169884}
   render: {fileID: 8798570924568291983}
   originalMaterial: {fileID: 2100000, guid: efe553d038ee23a4581589c389b51e63, type: 2}
+  spawnParticleEffect: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
+  destroyedParticleEffect: {fileID: 1965343156803978, guid: aa8d6482d70a23445b4b2a928ed1b845,
+    type: 3}
   plunderTime: 15
   plunderDefault: 0
 --- !u!1001 &7916017536911259147

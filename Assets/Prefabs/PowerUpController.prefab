@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae19072dde1d4e4e9aa4df0736b3c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DataList:
-  - {fileID: 11400000, guid: 3ba90c6b7403ee44c8c699d6cb58fee0, type: 2}
+  bDontDestroyOnLoad: 1
+  dataList:
   - {fileID: 11400000, guid: 08c3e0280a2ef3d4b81f465051da6b0e, type: 2}
+  - {fileID: 11400000, guid: 3ba90c6b7403ee44c8c699d6cb58fee0, type: 2}
   - {fileID: 11400000, guid: 5e1c33c21eff12e45bcbd72254b17f25, type: 2}
   - {fileID: 11400000, guid: 6215f6e726d2e904ba6abe7550b54872, type: 2}

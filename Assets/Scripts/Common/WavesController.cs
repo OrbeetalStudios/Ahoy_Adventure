@@ -125,6 +125,7 @@ public class WavesController : MonoBehaviour
 
             JSONEnemy enemy = wavesDataJson.waves[currentWave].enemies[currentEnemy];
             GameObject enemyShip = PoolController.Instance.GetObjectFromCollection(enemy.GetId());
+            GameObject spawnVfx = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.enemy_spawn_vfx);
             if (enemyShip != null)
             {
                 SetUpNewGameObject(enemyShip, (EQuadrant)enemy.spawnQuadrant);
@@ -132,8 +133,13 @@ public class WavesController : MonoBehaviour
                 yield return Timing.WaitForSeconds(enemy.spawnTime);
                 enemyShip.SetActive(true);
                 activeObj.Add(enemyShip);
+                PlaySpawnVFX(enemyShip, spawnVfx);
             }
         }
+    }
+    private void PlaySpawnVFX(GameObject enemy, GameObject effect){
+        effect.transform.position = enemy.transform.position;
+        effect.SetActive(true);
     }
     private IEnumerator<float> SpawnMines()
     {    
