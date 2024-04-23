@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public Vector2 inputVector;
 
-    private void Start()
+    protected void Start()
     {
         speed = defaultSpeed;
         Timing.RunCoroutine(Move());

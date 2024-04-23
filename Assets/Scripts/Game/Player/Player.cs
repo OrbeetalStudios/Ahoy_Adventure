@@ -16,6 +16,12 @@ public class Player : PlayerMovement, IPowerUpEvent
     private float reload;
     private bool isLoading = false;
 
+    private void Start()
+    {
+        base.Start();
+        // iscriviti a eventlistener per ricevere gli eventi
+        EventListener.Instance.AddListener(this.gameObject);
+    }
     private void OnEnable()
     {
         controls = new PlayerControls();
@@ -26,8 +32,7 @@ public class Player : PlayerMovement, IPowerUpEvent
         reload = reloadCannonTime;
         fireRatio = defaultFireRatio;
 
-        // iscriviti a eventlistener per ricevere gli eventi
-        EventListener.Instance.AddListener(this.gameObject);
+        
     }
     private void OnDisable()
     {
