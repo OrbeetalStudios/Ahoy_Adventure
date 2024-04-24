@@ -175,7 +175,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     }
     private IEnumerator<float> CheckGamOverCondition()
     {
-        while (currentLives > 0 && Island.Instance.CurrentTreasure > 0)
+        while (currentLives > 0)// && Island.Instance.CurrentTreasure > 0)
         {
             yield return Timing.WaitForOneFrame;
         }
