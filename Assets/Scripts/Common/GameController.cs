@@ -29,11 +29,15 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     private int currentLives;
     private bool isPaused = false;
     [SerializeField] private WavesController waves;
+    private int currentDoubloonAmount;
 
     private void Start()
     {
         currentLives = defaultStartLives;
         scoreIncrement = defaultScoreIncrement;
+
+        // Read saved amount of doubloons collected by user up to now
+        currentDoubloonAmount = SavedDataManager.ReadInt(SavedDataManager.ESavedDataType.HighScore);
 
         // iscriviti a eventlistener per ricevere gli eventi
         EventListener.Instance.AddListener(this.gameObject);
@@ -61,7 +65,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         UpdateAmmoUI(ammoCount);
     }
 
-    public void GameOver()
+    private void GameOver()
     {
         AudioManager.Instance.StopSpecificMusic(2);
         AudioManager.Instance.PlaySpecificOneShot(9);
@@ -193,7 +197,8 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
                 }
                 break;
             case EPowerUpType.DoubloonUp:
-                // TODO
+                // save the doubloons
+                SavedDataManager.WriteInt(SavedDataManager.ESavedDataType.HighScore, ++currentDoubloonAmount);
                 break;
             default:
                 break;
