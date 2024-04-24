@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject settings;
     [SerializeField]
+    private GameObject buttonPanel;
+    [SerializeField]
     private GameObject crew;
     private bool OpenSettings = false;
     private bool OpenCrew = false;
@@ -18,7 +20,6 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
-      
         AudioManager.Instance.PlaySpecificMusic(0);
     }
 
@@ -34,11 +35,13 @@ public class MainMenu : MonoBehaviour
         if (OpenSettings == false)
         {
             settings.SetActive(true);
+            buttonPanel.SetActive(false);
             OpenSettings = true;
         }
         else
         {
             OpenSettings = false;
+            buttonPanel.SetActive(true);
             settings.SetActive(false);
         }
         
