@@ -7,7 +7,7 @@ public class Island : MonoSingleton<Island>
     public int CurrentTreasure { get { return currentTreasure; } }
     [SerializeField] private int treasureLostSfxIndex;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentTreasure = maxTreasure;
     }
