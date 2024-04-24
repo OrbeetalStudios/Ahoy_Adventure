@@ -18,6 +18,8 @@ public class PowerUpPanel : MonoBehaviour, IPowerUpEvent
 
         foreach (var data in PowerUpController.Instance.DataList)
         {
+            if (data.IsOneShot) continue;
+
             GameObject obj = new GameObject(data.ObjectName);
             Image img = obj.AddComponent<Image>();
             img.sprite = data.img;

@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameController : MonoSingleton<GameController>, IPowerUpEvent
+public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPlayerEvent
 {
     // Dichiarazione degli eventi per la vita, il punteggio e le munizioni
     public event Action<int> LifeUpdated;
@@ -25,17 +25,21 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
     private int currentScore = 0;
     [SerializeField] private int defaultScoreIncrement = 1;
     private int scoreIncrement;
-    private int lifeCount = 3;
+    [SerializeField] private int defaultStartLives = 3;
+    private int currentLives;
     private bool isPaused = false;
-    private bool invulnerabilityOn = false;
     [SerializeField] private WavesController waves;
 
     private void Start()
     {
+        currentLives = defaultStartLives;
         scoreIncrement = defaultScoreIncrement;
 
         // iscriviti a eventlistener per ricevere gli eventi
         EventListener.Instance.AddListener(this.gameObject);
+
+        // Start checking game over conditions
+        Timing.RunCoroutine(CheckGamOverCondition().CancelWith(gameObject));
 
         // Inizializza UI
         UpdateScoreUI();
@@ -49,18 +53,6 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
         currentScore += scoreIncrement;
         ScoreUpdated?.Invoke(currentScore);
         UpdateScoreUI();
-    }
-
-    public void UpdateLife()
-    {
-        if (invulnerabilityOn) return;
-
-        lifeCount--;
-        LifeUpdated?.Invoke(lifeCount);
-        UpdateLifeUI();
-
-        if (lifeCount <= 0)
-            GameOver();
     }
 
     public void UpdateAmmo(int ammoCount)
@@ -87,11 +79,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
     {      
         for (int i = 0; i < lifeImages.Length; i++)
         {
-            lifeImages[i].gameObject.SetActive(i < lifeCount);
-            if (lifeCount == 0)
-            {
-                GameOver();
-            }
+            lifeImages[i].gameObject.SetActive(i < currentLives);
         }
     }
     private void UpdateAmmoUI(int ammoCount)
@@ -181,21 +169,30 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
     {
         AudioManager.Instance.PlaySpecificOneShot(14);   
     }
-   
+    private IEnumerator<float> CheckGamOverCondition()
+    {
+        while (currentLives > 0)
+        {
+            yield return Timing.WaitForOneFrame;
+        }
+
+        GameOver();
+    }
     public void OnPowerUpCollected(PowerUpData data)
     {
         switch (data.Type)
         {
-            case EPowerUpType.Invulnerability:
-                invulnerabilityOn = true;
-                break;
             case EPowerUpType.KillGold:
                 scoreIncrement = (int)data.Value;
                 break;
             case EPowerUpType.LifeUp:
-                // TODO
+                if (currentLives < defaultStartLives)
+                {
+                    currentLives++;
+                    UpdateLifeUI();
+                }
                 break;
-            case EPowerUpType.CrewGold:
+            case EPowerUpType.DoubloonUp:
                 // TODO
                 break;
             default:
@@ -206,20 +203,16 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
     {
         switch (data.Type)
         {
-            case EPowerUpType.Invulnerability:
-                invulnerabilityOn = false;
-                break;
             case EPowerUpType.KillGold:
                 scoreIncrement = defaultScoreIncrement;
-                break;
-            case EPowerUpType.LifeUp:
-                // TODO
-                break;
-            case EPowerUpType.CrewGold:
-                // TODO
                 break;
             default:
                 break;
         }
+    }
+    public void OnPlayerHit()
+    {
+        currentLives--;
+        UpdateLifeUI();
     }
 }

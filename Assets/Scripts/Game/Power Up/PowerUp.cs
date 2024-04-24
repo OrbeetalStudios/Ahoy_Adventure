@@ -13,7 +13,7 @@ public class PowerUp : MonoBehaviour
     public void Collected()
     {
         currentDurationTime = data.DurationInSeconds; // reset power up duration counter
-        if (!active)
+        if (!active && !data.IsOneShot)
         {
             waitHandle = Timing.RunCoroutine(WaitPowerUpDuration().CancelWith(gameObject));
         }
@@ -26,8 +26,6 @@ public class PowerUp : MonoBehaviour
     }
     protected IEnumerator<float> WaitPowerUpDuration()
     {
-        Debug.Log("Activated " + data.ObjectName + "!!!");
-
         active = true;
         while (currentDurationTime > 0)
         {
@@ -40,8 +38,6 @@ public class PowerUp : MonoBehaviour
     }
     private void Expired()
     {
-        Debug.Log("Expired " + data.ObjectName + "!!!");
-
         // Send message to any listeners
         foreach (GameObject go in EventListener.Instance.listeners)
         {
