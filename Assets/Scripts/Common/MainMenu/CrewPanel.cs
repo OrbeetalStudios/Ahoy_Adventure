@@ -12,7 +12,10 @@ public class CrewPanel : MonoBehaviour
     [SerializeField] private TMP_Text costText;
     [SerializeField] private TMP_Text doubloonsAmount;
     [SerializeField] private GameObject chooseText;
-    [SerializeField] private List<Button> crewButtonList; // Changed the type to UnityEngine.UI.Button
+    [SerializeField] private GameObject allPanelCrew;
+    [SerializeField] private List<Button> crewButtonList; 
+    [SerializeField] private List<Image> abilityImage;
+    [SerializeField] private List<Button> crewbutton;
     [SerializeField] private Button characters;
     [SerializeField] private TMP_Text Bio;
     [SerializeField] private GameObject panelCost;
@@ -196,5 +199,14 @@ public class CrewPanel : MonoBehaviour
             AudioManager.Instance.PlaySpecificOneShot(0);
         }
        
+    }
+
+    public void EnableAllCrewPanel()
+    {
+        allPanelCrew.SetActive(true);
+    }
+    public void DisableAllCrewPanel()
+    {
+        allPanelCrew.SetActive(false);
     }
 }
