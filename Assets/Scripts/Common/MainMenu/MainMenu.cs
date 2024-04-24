@@ -72,10 +72,7 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void OnClickCharacter()
-    {
-        AudioManager.Instance.PlaySpecificOneShot(0);
-    }
+   
     public void OnClickSound()
     {
         AudioManager.Instance.PlaySpecificOneShot(4);
@@ -90,10 +87,4 @@ public class MainMenu : MonoBehaviour
     {
         AudioManager.Instance.PlaySpecificOneShot(13);
     }
-
-    public void HireSound()
-    {
-        AudioManager.Instance.PlaySpecificOneShot(10);
-    }
-
 }
