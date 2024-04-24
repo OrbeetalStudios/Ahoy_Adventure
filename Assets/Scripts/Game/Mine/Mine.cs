@@ -16,7 +16,6 @@ public class Mine : LinearMotionToTarget
     {
         if (other.tag == "Player")
         {
-            GameController.Instance.UpdateLife();
             this.gameObject.SetActive(false);
             GameObject effect = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.collision_with_barrels);
             PlayVFX(gameObject,effect);

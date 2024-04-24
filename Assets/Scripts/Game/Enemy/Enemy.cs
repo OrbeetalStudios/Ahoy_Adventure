@@ -24,7 +24,6 @@ public class Enemy : EnemyMovement
         switch (other.tag)
         {
             case "Player":
-                GameController.Instance.UpdateLife();
                 gameObject.SetActive(false);
                 GameObject collisionEffect = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.collision_with_barrels);
                 PlayVFX(gameObject, collisionEffect);

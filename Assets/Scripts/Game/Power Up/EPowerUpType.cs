@@ -6,5 +6,5 @@ public enum EPowerUpType
     Invulnerability,
     KillGold,
     LifeUp,
-    CrewGold
+    DoubloonUp
 }

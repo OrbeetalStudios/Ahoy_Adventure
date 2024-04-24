@@ -4,9 +4,10 @@ public class Island : MonoSingleton<Island>
 {
     [SerializeField, Range(1, 30)] private int maxTreasure;
     [ShowOnly] [SerializeField] private int currentTreasure;
+    public int CurrentTreasure { get { return currentTreasure; } }
     [SerializeField] private int treasureLostSfxIndex;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentTreasure = maxTreasure;
     }
@@ -14,13 +15,8 @@ public class Island : MonoSingleton<Island>
    public void DecreaseTreasure(int amount = 1)
    {
         PlaySFX(treasureLostSfxIndex);
-        currentTreasure -= amount;
-
-        if (currentTreasure <= 0)
-        {
-            //Game over
-            //GameController.Instance.GameOver();
-        }
+        // commentato al momento
+        //currentTreasure -= amount;
    }
 
     private void PlaySFX(int index){

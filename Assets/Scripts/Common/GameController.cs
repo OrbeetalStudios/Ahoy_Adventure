@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameController : MonoSingleton<GameController>, IPowerUpEvent
+public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPlayerEvent
 {
     // Dichiarazione degli eventi per la vita, il punteggio e le munizioni
     public event Action<int> LifeUpdated;
@@ -25,17 +25,25 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
     private int currentScore = 0;
     [SerializeField] private int defaultScoreIncrement = 1;
     private int scoreIncrement;
-    private int lifeCount = 3;
+    [SerializeField] private int defaultStartLives = 3;
+    private int currentLives;
     private bool isPaused = false;
-    private bool invulnerabilityOn = false;
     [SerializeField] private WavesController waves;
+    private int currentDoubloonAmount;
 
     private void Start()
     {
+        currentLives = defaultStartLives;
         scoreIncrement = defaultScoreIncrement;
+
+        // Read saved amount of doubloons collected by user up to now
+        currentDoubloonAmount = SavedDataManager.ReadInt(SavedDataManager.ESavedDataType.HighScore);
 
         // iscriviti a eventlistener per ricevere gli eventi
         EventListener.Instance.AddListener(this.gameObject);
+
+        // Start checking game over conditions
+        Timing.RunCoroutine(CheckGamOverCondition().CancelWith(gameObject));
 
         // Inizializza UI
         UpdateScoreUI();
@@ -51,25 +59,13 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
         UpdateScoreUI();
     }
 
-    public void UpdateLife()
-    {
-        if (invulnerabilityOn) return;
-
-        lifeCount--;
-        LifeUpdated?.Invoke(lifeCount);
-        UpdateLifeUI();
-
-        if (lifeCount <= 0)
-            GameOver();
-    }
-
     public void UpdateAmmo(int ammoCount)
     {
         AmmoUpdated?.Invoke(ammoCount);
         UpdateAmmoUI(ammoCount);
     }
 
-    public void GameOver()
+    private void GameOver()
     {
         AudioManager.Instance.StopSpecificMusic(2);
         AudioManager.Instance.PlaySpecificOneShot(9);
@@ -87,11 +83,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
     {      
         for (int i = 0; i < lifeImages.Length; i++)
         {
-            lifeImages[i].gameObject.SetActive(i < lifeCount);
-            if (lifeCount == 0)
-            {
-                GameOver();
-            }
+            lifeImages[i].gameObject.SetActive(i < currentLives);
         }
     }
     private void UpdateAmmoUI(int ammoCount)
@@ -181,22 +173,32 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
     {
         AudioManager.Instance.PlaySpecificOneShot(14);   
     }
-   
+    private IEnumerator<float> CheckGamOverCondition()
+    {
+        while (currentLives > 0)// && Island.Instance.CurrentTreasure > 0)
+        {
+            yield return Timing.WaitForOneFrame;
+        }
+
+        GameOver();
+    }
     public void OnPowerUpCollected(PowerUpData data)
     {
         switch (data.Type)
         {
-            case EPowerUpType.Invulnerability:
-                invulnerabilityOn = true;
-                break;
             case EPowerUpType.KillGold:
                 scoreIncrement = (int)data.Value;
                 break;
             case EPowerUpType.LifeUp:
-                // TODO
+                if (currentLives < defaultStartLives)
+                {
+                    currentLives++;
+                    UpdateLifeUI();
+                }
                 break;
-            case EPowerUpType.CrewGold:
-                // TODO
+            case EPowerUpType.DoubloonUp:
+                // save the doubloons
+                SavedDataManager.WriteInt(SavedDataManager.ESavedDataType.HighScore, ++currentDoubloonAmount);
                 break;
             default:
                 break;
@@ -206,20 +208,16 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent
     {
         switch (data.Type)
         {
-            case EPowerUpType.Invulnerability:
-                invulnerabilityOn = false;
-                break;
             case EPowerUpType.KillGold:
                 scoreIncrement = defaultScoreIncrement;
-                break;
-            case EPowerUpType.LifeUp:
-                // TODO
-                break;
-            case EPowerUpType.CrewGold:
-                // TODO
                 break;
             default:
                 break;
         }
+    }
+    public void OnPlayerHit()
+    {
+        currentLives--;
+        UpdateLifeUI();
     }
 }

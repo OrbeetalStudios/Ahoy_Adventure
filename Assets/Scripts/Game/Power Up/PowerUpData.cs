@@ -8,5 +8,6 @@ public class PowerUpData : ScriptableObject
     public Sprite img;
     [Range(0, 15)] public int DurationInSeconds;
     public float Value;
+    public bool IsOneShot = false;
     [Range(0f, 10f)] public float spawnChance;
 }

@@ -2,6 +2,7 @@ using MEC;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class Player : PlayerMovement, IPowerUpEvent
 {
@@ -19,6 +20,7 @@ public class Player : PlayerMovement, IPowerUpEvent
     private bool canFire = true;
     private float reload;
     private bool isLoading = false;
+    private bool invulnerabilityOn = false;
 
     private void Start()
     {
@@ -35,13 +37,25 @@ public class Player : PlayerMovement, IPowerUpEvent
         anim.Play("OnIiland",0);
         reload = reloadCannonTime;
         fireRatio = defaultFireRatio;
-
-        
     }
     private void OnDisable()
     {
         controls.Disable();
         controls.Player.Movement.performed -= OnMovePerformed;     
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy") ||
+            other.CompareTag("Mine"))
+        {
+            if (invulnerabilityOn) return;
+
+            // Send message to any listeners
+            foreach (GameObject go in EventListener.Instance.listeners)
+            {
+                ExecuteEvents.Execute<IPlayerEvent>(go, null, (x, y) => x.OnPlayerHit());
+            }
+        }
     }
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
@@ -128,6 +142,9 @@ public class Player : PlayerMovement, IPowerUpEvent
             case EPowerUpType.Speed:
                 speed = data.Value;
                 break;
+            case EPowerUpType.Invulnerability:
+                invulnerabilityOn = true;
+                break;
             default:
                 break;
         }
@@ -141,6 +158,9 @@ public class Player : PlayerMovement, IPowerUpEvent
                 break;
             case EPowerUpType.Speed:
                 speed = defaultSpeed;
+                break;
+            case EPowerUpType.Invulnerability:
+                invulnerabilityOn = false;
                 break;
             default:
                 break;
