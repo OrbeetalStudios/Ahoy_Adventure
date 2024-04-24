@@ -17,12 +17,13 @@ public class CrewPanel : MonoBehaviour
     public List<Sprite> selectionSprite;
     [SerializeField] private Image hireButton;
     [SerializeField] private TMP_Text hireButtonText;
-    [SerializeField] private int Doubloons=50;
+    private CrewData currentCharacterData;
+    [SerializeField] private int Doubloons=40;
     private int cost;
+    private bool purchased;
     private Dictionary<CharacterName, CrewData> characterDataMap;
     private int selectedIndex = 0;
-    private List<CharacterName> hiredCharacters = new List<CharacterName>(); // Lista per tenere traccia dei personaggi acquistati
-    private CharacterName currentCharacter; // Personaggio corrente
+
     public enum CharacterName
     {
         Peppino,
@@ -54,7 +55,7 @@ public class CrewPanel : MonoBehaviour
             crewButtonList[i].onClick.AddListener(() => OnButtonClick(character));
         }
 
-        // Cerca l'indice selezionato nella lista
+        // Applica gli sprite ad ogni indice
         for (int i = 0; i < selectionSprite.Count; i++)
         {
             if (selectionSprite[i] == hireButton.sprite)
@@ -70,7 +71,7 @@ public class CrewPanel : MonoBehaviour
     {
         // Ottieni i dati del personaggio dal dizionario
         CrewData data = characterDataMap[character];
-
+        currentCharacterData = data;
         // Imposta i dati del personaggio nelle variabili appropriate
         nameText.text = data.characterName;
         Bio.text = data.bio;
@@ -78,10 +79,21 @@ public class CrewPanel : MonoBehaviour
         characterSprite.sprite = data.sprite;
         characterAbility.sprite = data.AbilitySprite;
         cost = data.Cost;
-        if (hiredCharacters.Contains(currentCharacter))
+       
+        if (data.purchased==true)
         {
-            hireButton.sprite= selectionSprite[1];
-            hireButtonText.text = "Assigned";
+            if (currentCharacterData.lastIndex == 1)
+            {
+                //Ilcostononvienemostrato
+                hireButton.sprite = selectionSprite[1];
+                hireButtonText.text = "Assigned";
+            }
+            else
+            {
+                hireButton.sprite = selectionSprite[2];
+                hireButtonText.text = "Dimsiss";
+            }
+     
         }
         else
         {
@@ -94,10 +106,10 @@ public class CrewPanel : MonoBehaviour
     public void OnClickHIRE()
     {
 
-        switch (selectedIndex)
+        switch (currentCharacterData.lastIndex)
         {
             case 0:
-                if (Doubloons >= cost)
+                if (Doubloons >= cost && !purchased)
                 {
                     BuyPirate();
                     hireButton.sprite = selectionSprite[1];
@@ -111,23 +123,22 @@ public class CrewPanel : MonoBehaviour
                     AudioManager.Instance.PlaySpecificOneShot(4);
                 }
                 break;
-
-
             case 1:
                 hireButton.sprite = selectionSprite[2];
                 hireButtonText.text = "Dismiss";
-                
-                AudioManager.Instance.PlaySpecificOneShot(4); break;
+                currentCharacterData.lastIndex = 2;
+                AudioManager.Instance.PlaySpecificOneShot(18); break;
             case 2:
                 hireButton.sprite = selectionSprite[1];
                 hireButtonText.text = "Assigned";
+                currentCharacterData.lastIndex = 1;
                 AudioManager.Instance.PlaySpecificOneShot(17);
                 break;
 
             default:
                 hireButton.sprite= selectionSprite[0];
                 hireButtonText.text = "Hire";
-                selectedIndex=0;
+                currentCharacterData.lastIndex = 0;
                 break;
         }
 
@@ -137,6 +148,9 @@ public class CrewPanel : MonoBehaviour
     {
         //aggiornaidoblooni
         //togliPannelloCosto
+        currentCharacterData.purchased = true;
+        currentCharacterData.lastIndex = 1;
         Doubloons -= cost;
+       
     }
 }

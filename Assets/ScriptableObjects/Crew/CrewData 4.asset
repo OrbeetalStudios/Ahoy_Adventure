@@ -21,4 +21,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 209efdc32b0b7aa40a5c31e471c6d1a7, type: 3}
   Cost: 50
   AbilitySprite: {fileID: 21300000, guid: be82859790caf95408a5ec36baf62a1f, type: 3}
+  purchased: 0
+  lastIndex: 0
   Category: 0

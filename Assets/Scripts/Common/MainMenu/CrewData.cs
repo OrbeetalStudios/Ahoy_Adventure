@@ -13,6 +13,8 @@ public class CrewData : ScriptableObject
     public Sprite sprite;
     public int Cost;
     public Sprite AbilitySprite;
+    public bool purchased;
+    public int lastIndex;
     public enum CategoryID
     {
         Normal,
