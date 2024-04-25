@@ -15,10 +15,13 @@ public class Enemy : EnemyMovement
     public int plunderTime;
     public int plunderDefault;
     public bool isEngaged = false;
+    private Island IslandScript;
 
     private void Awake()
     {
         plunderDefault = plunderTime;
+        GameObject islandObject = GameObject.FindWithTag("Island");
+        IslandScript= islandObject.GetComponent<Island>();    
     }
     void OnTriggerEnter(Collider other)
     {
@@ -80,7 +83,7 @@ public class Enemy : EnemyMovement
                 Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
                 rotation *= Quaternion.Euler(0, 180, 0);
                 transform.rotation = rotation;
-                Island.Instance.DecreaseTreasure(plunderQuantity);
+                IslandScript.DecreaseTreasure(plunderQuantity);
                 Timing.RunCoroutine(ReturnOutsideMap(relativePos).CancelWith(gameObject));
                 break;
             }

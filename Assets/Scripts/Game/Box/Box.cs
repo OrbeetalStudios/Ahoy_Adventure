@@ -7,7 +7,7 @@ public class Box : LinearMotionToTarget
     [SerializeField] private int sfxIndex;
     void Start()
     {
-        targetPosition = Island.Instance.transform.position;
+        targetPosition = Vector3.zero;
         targetPosition.y = 0f;
 
         base.Start();
