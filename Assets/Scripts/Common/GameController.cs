@@ -67,7 +67,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         UpdateAmmoUI(ammoCount);
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         AudioManager.Instance.StopSpecificMusic(2);
         AudioManager.Instance.PlaySpecificOneShot(9);
