@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Island : MonoSingleton<Island>
 {
-    [SerializeField, Range(1, 30)] private int maxTreasure;
+    [SerializeField, Range(1, 30)] private int maxTreasure = 10;
     [ShowOnly] [SerializeField] private int currentTreasure;
     public int CurrentTreasure { get { return currentTreasure; } }
     [SerializeField] private int treasureLostSfxIndex;
@@ -12,11 +12,16 @@ public class Island : MonoSingleton<Island>
         currentTreasure = maxTreasure;
     }
 
-   public void DecreaseTreasure(int amount = 1)
+   public void DecreaseTreasure(int amount)
    {
         PlaySFX(treasureLostSfxIndex);
-        // commentato al momento
-        //currentTreasure -= amount;
+        currentTreasure -= amount;
+        GameController.Instance.UpdateTreasureUI(currentTreasure);
+        if (currentTreasure <= 0f)
+        {
+            //Game over
+            GameController.Instance.GameOver();
+        }
    }
 
     private void PlaySFX(int index){

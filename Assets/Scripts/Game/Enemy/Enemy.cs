@@ -11,6 +11,7 @@ public class Enemy : EnemyMovement
     [SerializeField] private int enemyHitSfxIndex;
     [SerializeField] private int enemyStartPlunderingSfxIndex;
     [SerializeField] private int enemyCollisionSfxIndex;
+    [SerializeField, Range(0, 6)] private int plunderQuantity;
     public int plunderTime;
     public int plunderDefault;
     public bool isEngaged = false;
@@ -79,7 +80,7 @@ public class Enemy : EnemyMovement
                 Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
                 rotation *= Quaternion.Euler(0, 180, 0);
                 transform.rotation = rotation;
-                Island.Instance.DecreaseTreasure();
+                Island.Instance.DecreaseTreasure(plunderQuantity);
                 Timing.RunCoroutine(ReturnOutsideMap(relativePos).CancelWith(gameObject));
                 break;
             }

@@ -105,6 +105,7 @@ MonoBehaviour:
   enemyHitSfxIndex: 8
   enemyStartPlunderingSfxIndex: 12
   enemyCollisionSfxIndex: 5
+  plunderQuantity: 4
   plunderTime: 15
   plunderDefault: 0
   isEngaged: 0
