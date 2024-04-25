@@ -12,7 +12,7 @@ public class Island : MonoSingleton<Island>
         currentTreasure = maxTreasure;
     }
 
-   public void DecreaseTreasure(int amount)
+    public void DecreaseTreasure(int amount)
    {
         PlaySFX(treasureLostSfxIndex);
         currentTreasure -= amount;
