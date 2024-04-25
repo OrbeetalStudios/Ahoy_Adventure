@@ -19,9 +19,11 @@ MonoBehaviour:
     him. Together, they create a dynamic duo ready to master any danger that awaits
     them on the open sea. Because of her exuberant nature, Fry Tatina has been forbidden
     to drink coffee to prevent her from having an uncontrollable adrenaline rush.
-  sprite: {fileID: 21300000, guid: 209efdc32b0b7aa40a5c31e471c6d1a7, type: 3}
+  sprite: {fileID: 21300000, guid: 2c009220834bd0e4eaa9c4a7a8a3012e, type: 3}
   Cost: 50
   AbilitySprite: {fileID: 21300000, guid: 27e8d594ce726214ab8006e448f81127, type: 3}
-  purchased: 0
-  lastIndex: 0
+  purchased: 1
+  lastIndex: 1
+  buttonSprite: {fileID: 21300000, guid: 07dbebd0d5471f24a93b22611c84f7b5, type: 3}
+  buttonSpriteLight: {fileID: 21300000, guid: f62819ca09de4024daee72e56d35c321, type: 3}
   Category: 0

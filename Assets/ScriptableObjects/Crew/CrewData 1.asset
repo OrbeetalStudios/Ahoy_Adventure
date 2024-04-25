@@ -24,4 +24,6 @@ MonoBehaviour:
   AbilitySprite: {fileID: 21300000, guid: 7c7e7acf5b73fcd4fac04b6e1b145e9e, type: 3}
   purchased: 0
   lastIndex: 0
+  buttonSprite: {fileID: 21300000, guid: ce70862feeb1bfd48866bf8e8cc870c4, type: 3}
+  buttonSpriteLight: {fileID: 21300000, guid: 4ae8491bd2a4f044699bdafdca1a0524, type: 3}
   Category: 0

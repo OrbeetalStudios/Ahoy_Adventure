@@ -18,9 +18,11 @@ MonoBehaviour:
   bio: Slim Jim is the group's youngest and most enterprising pirate. His boundless
     ambition to become the greatest pirate of all time leads him to achieve ever-greater
     goals, often disregarding the consequences of his actions.
-  sprite: {fileID: 21300000, guid: 209efdc32b0b7aa40a5c31e471c6d1a7, type: 3}
+  sprite: {fileID: 21300000, guid: 28fafad357033a04f9dca800b0ca3590, type: 3}
   Cost: 100
   AbilitySprite: {fileID: 21300000, guid: d75083df3c6905940a6d8c229f9c84cb, type: 3}
   purchased: 0
   lastIndex: 0
+  buttonSprite: {fileID: 21300000, guid: fd5ff90fc74ca5247aa0edf06f2b2f7a, type: 3}
+  buttonSpriteLight: {fileID: 21300000, guid: fd75e40341d7bce4db833413500cd1ad, type: 3}
   Category: 2

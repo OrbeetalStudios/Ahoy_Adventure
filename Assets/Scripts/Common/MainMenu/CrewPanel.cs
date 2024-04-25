@@ -1,8 +1,11 @@
 using com.cyborgAssets.inspectorButtonPro;
 using System.Collections.Generic;
 using TMPro;
+using TreeEditor;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 
 public class CrewPanel : MonoBehaviour
@@ -13,27 +16,36 @@ public class CrewPanel : MonoBehaviour
     [SerializeField] private TMP_Text doubloonsAmount;
     [SerializeField] private GameObject chooseText;
     [SerializeField] private GameObject allPanelCrew;
-    [SerializeField] private List<Button> crewButtonList; 
-    [SerializeField] private List<Image> abilityImage;
-    [SerializeField] private List<Button> crewbutton;
+    [SerializeField] private Transform assagnedCharacterPanel;
+    [SerializeField] private Transform assagnedCharacterAbility;
+    [SerializeField] private GameObject soloCrewPanel;
+    [SerializeField] private Transform VerticalButton; 
     [SerializeField] private Button characters;
     [SerializeField] private TMP_Text Bio;
     [SerializeField] private GameObject panelCost;
     [SerializeField] private Animation anim;
     [SerializeField] private TMP_Text Ability;
     [SerializeField] private Image characterSprite;
+    [SerializeField] private Image imageButtonSolo;
+    [SerializeField] private Image imageButtonCrew;
     [SerializeField] private List<CrewData> characterDataList;
     [SerializeField] private Image characterAbility;
     public List<Sprite> selectionSprite;
     [SerializeField] private Image hireButton;
     [SerializeField] private TMP_Text hireButtonText;
     private CrewData currentCharacterData;
-    [SerializeField] private int Doubloons=40;
+    [SerializeField] private int Doubloons=50;
     private bool choosePirate;
     private int cost;
     private bool purchased;
-    private Dictionary<CharacterName, CrewData> characterDataMap;
+    private Dictionary<string, CrewData> characterDataMap;
     private int selectedIndex = 0;
+    public Button characterButtonPrefab;
+    private Button buttonSelected;
+    private Sprite previousSpriteDefault;
+    private List<Button> newButtonCrew = new List<Button>();
+    private List<Image> newAbilityCrew = new List<Image>();
+
 
 
     [ProButton]
@@ -49,40 +61,15 @@ public class CrewPanel : MonoBehaviour
         }
 
         // Resetta il valore di Doubloons al suo valore iniziale (40)
-        Doubloons = 40;
+        Doubloons = 50;
     }
-    public enum CharacterName
-    {
-        Peppino,
-        Ravanello,
-        Frytatina,
-        Spritz,
-        DonPichotte,
-        Fonteena,
-        Keith,
-        Mort,
-        SlimJim
-    }
-
+    
     private void Start()
     {
+
         doubloonsAmount.text = Doubloons.ToString();
-        characterDataMap = new Dictionary<CharacterName, CrewData>();
-        for (int i = 0; i < characterDataList.Count; i++)
-        {
-            characterDataMap[(CharacterName)i] = characterDataList[i];
-        }
-        // Loop through each crew button and assign an enum value
-        for (int i = 0; i < crewButtonList.Count; i++)
-        {
-            // Get the corresponding enum value based on the index
-            CharacterName character = (CharacterName)i;
-
-            // Assign a click event to the button and pass the enum value
-            int index = i; // Store the index in a local variable to avoid closure issues
-            crewButtonList[i].onClick.AddListener(() => OnButtonClick(character));
-        }
-
+        characterDataMap = new Dictionary<string, CrewData>();
+        CreateButtons(characterDataMap);
         // Applica gli sprite ad ogni indice
         for (int i = 0; i < selectionSprite.Count; i++)
         {
@@ -95,12 +82,68 @@ public class CrewPanel : MonoBehaviour
 
     }
 
-    public void OnButtonClick(CharacterName character)
+    public void CreateButtons(Dictionary<string, CrewData> characterDataMap)
     {
+        foreach (CrewData characterData in characterDataList)
+        {
+            characterDataMap[characterData.characterName] = characterData;
+        }
+        // Loop attraverso i dati dei personaggi per creare dinamicamente i bottoni
+        foreach (var characterEntry in characterDataMap)
+        {
+            string characterName = characterEntry.Key;
+            CrewData characterData = characterEntry.Value;
+
+            // Crea un nuovo oggetto bottone
+            GameObject newButtonObject = new GameObject(characterName.ToString());
+            Button newButton = newButtonObject.AddComponent<Button>();
+
+            // Aggiungi il pulsante alla UI
+            newButton.transform.SetParent(VerticalButton, false);
+            
+            // Assegna gli sprite al pulsante
+            Sprite buttonSprite = characterData.buttonSprite;
+            Sprite buttonSpriteLight = characterData.buttonSpriteLight;
+            Image buttonImage = newButtonObject.AddComponent<Image>();
+            buttonImage.sprite=buttonSprite;
+            newButton.targetGraphic = buttonImage;
+            // Configura la transizione del pulsante
+            newButton.transition = Selectable.Transition.SpriteSwap;
+            SpriteState spriteSwapState = new SpriteState
+            {
+                highlightedSprite = buttonSpriteLight,
+                selectedSprite = buttonSpriteLight 
+            };
+            newButton.spriteState = spriteSwapState;
+            newButton.onClick.AddListener(() => OnButtonClick(characterName, buttonImage, buttonSpriteLight,newButton));        }
+    }
+
+    public void OnButtonClick(string characterName, Image buttonImage , Sprite buttonSpriteLight, Button newButton)
+    {
+
+        if (buttonSelected != newButton)
+        {
+            // Se c'è già un pulsante selezionato diverso da quello attualmente cliccato
+            if (buttonSelected != null)
+            {
+                // Ripristina l'immagine precedente del pulsante selezionato
+                buttonSelected.image.sprite = previousSpriteDefault;
+            }
+
+            // Memorizza il nuovo pulsante selezionato e la sua immagine predefinita
+            buttonSelected = newButton;
+            previousSpriteDefault = buttonImage.sprite;
+        }
+
+        // Modifica l'immagine del pulsante attualmente cliccato
+        buttonImage.sprite = buttonSpriteLight;
+
+
+        AudioManager.Instance.PlaySpecificOneShot(4);
         chooseText.SetActive(false);
         choosePirate = true;
         // Ottieni i dati del personaggio dal dizionario
-        CrewData data = characterDataMap[character];
+        CrewData data = characterDataMap[characterName];
         currentCharacterData = data;
         // Imposta i dati del personaggio nelle variabili appropriate
         nameText.text = data.characterName;
@@ -111,29 +154,7 @@ public class CrewPanel : MonoBehaviour
         categoryText.text = data.Category.ToString();
         cost = data.Cost;
         costText.text = cost.ToString();
-       
-        if (data.purchased==true)
-        {
-            panelCost.SetActive(false);
-            if (currentCharacterData.lastIndex == 1)
-            {
-                //Ilcostononvienemostrato
-                hireButton.sprite = selectionSprite[1];
-                hireButtonText.text = "Assigned";
-            }
-            else
-            {
-                hireButton.sprite = selectionSprite[2];
-                hireButtonText.text = "Dimsiss";
-            }
-     
-        }
-        else
-        {
-            panelCost.SetActive(true);
-            hireButton.sprite = selectionSprite[0];
-            hireButtonText.text = "hire";
-        }
+        SetHireButtonDefault(currentCharacterData);
         
     }
 
@@ -163,11 +184,22 @@ public class CrewPanel : MonoBehaviour
                     }
                     break;
                 case 1:
-                    hireButton.sprite = selectionSprite[2];
-                    hireButtonText.text = "Dismiss";
-                    currentCharacterData.lastIndex = 2;
-                    AudioManager.Instance.PlaySpecificOneShot(18); break;
+                    if (newButtonCrew.Count == 4)
+                    {
+                        AudioManager.Instance.PlaySpecificOneShot(19);
+                    }
+                    else
+                    {
+                        AssignedPirates(currentCharacterData);
+                        hireButton.sprite = selectionSprite[2];
+                        hireButtonText.text = "Dismiss";
+                        currentCharacterData.lastIndex = 2;
+                        AudioManager.Instance.PlaySpecificOneShot(18); 
+                    }
+                    break;
+
                 case 2:
+                    DismissPirate();
                     hireButton.sprite = selectionSprite[1];
                     hireButtonText.text = "Assigned";
                     currentCharacterData.lastIndex = 1;
@@ -203,10 +235,77 @@ public class CrewPanel : MonoBehaviour
 
     public void EnableAllCrewPanel()
     {
-        allPanelCrew.SetActive(true);
+        allPanelCrew.SetActive(true); 
+        soloCrewPanel.SetActive(false);
     }
     public void DisableAllCrewPanel()
     {
         allPanelCrew.SetActive(false);
+        soloCrewPanel.SetActive(true);
     }
+
+    //cercare di riciclare i pulsanti
+    private void AssignedPirates(CrewData currentCharacterData)
+    {
+        // Crea una copia del prefab del pulsante del personaggio
+        characterButtonPrefab = buttonSelected;
+        Sprite currentSprite= currentCharacterData.AbilitySprite;
+        // Istanzia un'immagine e imposta lo sprite
+        GameObject newObjImageObject = new GameObject("CharacterAbilityImage");
+        Image newObjImage = newObjImageObject.AddComponent<Image>();
+        newAbilityCrew.Add(newObjImage);
+        newObjImage.sprite = currentSprite;
+        newObjImage.transform.SetParent(assagnedCharacterAbility, false);
+        Button newObjButton = Instantiate(characterButtonPrefab, assagnedCharacterPanel);
+        newButtonCrew.Add(newObjButton);
+        
+    }
+    private void DismissPirate()
+    {
+        for (int i = 0; i < newButtonCrew.Count; i++)
+        {
+            // Controlla se le immagini dei pulsanti corrispondono
+            if (newButtonCrew[i].image.sprite == buttonSelected.image.sprite)
+            {
+                // Rimuovi il pulsante dalla gerarchia degli oggetti
+                Destroy(newButtonCrew[i].gameObject);
+                Destroy(newAbilityCrew[i].gameObject);
+
+                // Rimuovi il pulsante dalla lista
+                newButtonCrew.RemoveAt(i);
+                newAbilityCrew.RemoveAt(i);
+                break; // Esci dal ciclo una volta trovato il pulsante
+            }
+
+        }
+
+    }
+
+    private void SetHireButtonDefault(CrewData currentCharacterData)
+    {
+        if (currentCharacterData.purchased == true)
+        {
+            panelCost.SetActive(false);
+            if (currentCharacterData.lastIndex == 1)
+            {
+                hireButton.sprite = selectionSprite[1];
+                hireButtonText.text = "Assigned";
+            }
+            else
+            {
+                hireButton.sprite = selectionSprite[2];
+                hireButtonText.text = "Dimsiss";
+            }
+
+        }
+        else
+        {
+            panelCost.SetActive(true);
+            hireButton.sprite = selectionSprite[0];
+            hireButtonText.text = "hire";
+        }
+
+    }
+  
+
 }

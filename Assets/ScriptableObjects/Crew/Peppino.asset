@@ -18,9 +18,11 @@ MonoBehaviour:
   bio: Peppino is a hyperactive little being. Fortunately, pirate life is full of
     things to do! When he's operational on the ship, he doesn't stop for a minute,
     and thanks to him, the Crew has an extra sprint in the tasks at hand.
-  sprite: {fileID: 21300000, guid: 209efdc32b0b7aa40a5c31e471c6d1a7, type: 3}
+  sprite: {fileID: 21300000, guid: a702721f4c2e3fc48a403ce9032ea9dd, type: 3}
   Cost: 40
   AbilitySprite: {fileID: 21300000, guid: a7006bdbf1b0c504dbf7acc503d907b5, type: 3}
-  purchased: 0
-  lastIndex: 0
+  purchased: 1
+  lastIndex: 1
+  buttonSprite: {fileID: 21300000, guid: 4d4bc8f762aebc840adeb19170725170, type: 3}
+  buttonSpriteLight: {fileID: 21300000, guid: cb90bd3f5ab9a424fa77fc709b824494, type: 3}
   Category: 0

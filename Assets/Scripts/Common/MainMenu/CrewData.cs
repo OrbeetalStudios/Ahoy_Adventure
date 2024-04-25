@@ -15,6 +15,8 @@ public class CrewData : ScriptableObject
     public Sprite AbilitySprite;
     public bool purchased;
     public int lastIndex;
+    public Sprite buttonSprite;
+    public Sprite buttonSpriteLight;
     public enum CategoryID
     {
         Normal,
