@@ -7,9 +7,31 @@ using UnityEngine.UI;
 public class AllCrewPanel : MonoBehaviour
 {
     [SerializeField]
-    private List<Image> abilityImage;
+    private Image soloImage;
     [SerializeField]
-    private List<UnityEngine.UI.Button> crewbutton;
+    private Image CrewImage;
+    [SerializeField]
+    private Sprite LightSolo;
+    [SerializeField]
+    private Sprite LightCrew;
+    [SerializeField]
+    private Sprite defSolo;
+    [SerializeField]
+    private Sprite defCrew;
+
+    
+
+    public void OnlightSolo()
+    {
+        soloImage.sprite = LightSolo;
+        CrewImage.sprite = defCrew;
+    }
+
+    public void OnLightCrew()
+    {
+        soloImage.sprite = defSolo;
+        CrewImage.sprite = LightCrew;
+    }
 }
   
 

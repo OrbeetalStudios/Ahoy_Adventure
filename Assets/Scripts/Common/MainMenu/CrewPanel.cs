@@ -34,7 +34,7 @@ public class CrewPanel : MonoBehaviour
     [SerializeField] private Image hireButton;
     [SerializeField] private TMP_Text hireButtonText;
     private CrewData currentCharacterData;
-    [SerializeField] private int Doubloons=200;
+    [SerializeField] private int Doubloons=210;
     private bool choosePirate;
     private int cost;
     private bool purchased;
@@ -61,7 +61,7 @@ public class CrewPanel : MonoBehaviour
         }
 
         // Resetta il valore di Doubloons al suo valore iniziale (40)
-        Doubloons = 200;
+        Doubloons = 210;
     }
     
     private void Start()
