@@ -18,8 +18,10 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     [SerializeField] private TMP_Text scoreOver;
     [SerializeField] private Image[] lifeImages;
     [SerializeField] private Image[] ammoImages;
+    [SerializeField] private Image[] treasureImages;
     [SerializeField] private GameObject GameOverPanel;
     [SerializeField] private GameObject PausePanel;
+    [SerializeField] private GameObject TreasurePanel;
     [SerializeField] private GameObject pauseButton;
 
     private int currentScore = 0;
@@ -65,7 +67,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         UpdateAmmoUI(ammoCount);
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         AudioManager.Instance.StopSpecificMusic(2);
         AudioManager.Instance.PlaySpecificOneShot(9);
@@ -219,5 +221,12 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     {
         currentLives--;
         UpdateLifeUI();
+    }
+
+    public void UpdateTreasureUI(int currentTreasure){
+        for (int i = 0; i < treasureImages.Length; i++)
+        {
+            treasureImages[i].gameObject.SetActive(i < currentTreasure);
+        }
     }
 }

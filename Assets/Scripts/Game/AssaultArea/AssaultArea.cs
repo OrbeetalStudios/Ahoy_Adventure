@@ -82,7 +82,7 @@ public class AssaultArea : MonoBehaviour
     private void OnDisable()
     {
         enemyObj.GetComponent<Enemy>().isEngaged = false;
-        StopVFX(effect);
+        if(effect!= null) StopVFX(effect);
         StopSFX(counterPlunderSfxIndex);
         playerInside = false;
         startCount = false;
