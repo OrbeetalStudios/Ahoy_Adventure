@@ -3,7 +3,7 @@ using UnityEngine;
 public class Island : MonoSingleton<Island>
 {
     [SerializeField, Range(1, 30)] private int maxTreasure = 10;
-    [ShowOnly] [SerializeField] private int currentTreasure;
+    [SerializeField] private int currentTreasure;
     public int CurrentTreasure { get { return currentTreasure; } }
     [SerializeField] private int treasureLostSfxIndex;
     // Start is called before the first frame update

@@ -6,8 +6,8 @@ using com.cyborgAssets.inspectorButtonPro;
 public class SpawnPoint : MonoBehaviour
 {
     private Vector3 newPosition = new();
-    [ShowOnly] public float currAngle;
-    [ShowOnly] [SerializeField] private float currDistance;
+    public float currAngle;
+    [SerializeField] private float currDistance;
 
     private void Awake()
     {

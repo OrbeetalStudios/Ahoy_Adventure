@@ -7,8 +7,8 @@ public class PowerUp : MonoBehaviour
 {
     private CoroutineHandle waitHandle;
     public PowerUpData data;
-    [ShowOnly] [SerializeField] private bool active = false;
-    [ShowOnly] [SerializeField] private int currentDurationTime;
+   [SerializeField] private bool active = false;
+     [SerializeField] private int currentDurationTime;
 
     public void Collected()
     {

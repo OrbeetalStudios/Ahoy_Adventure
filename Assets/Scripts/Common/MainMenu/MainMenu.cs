@@ -16,6 +16,8 @@ public class MainMenu : MonoBehaviour
     private bool OpenSettings = false;
     private bool OpenCrew = false;
     public GameObject fadeOut;
+    [SerializeField]
+    private GameObject creditsPanel;
 
 
     public void Start()
@@ -63,6 +65,15 @@ public class MainMenu : MonoBehaviour
             AudioManager.Instance.PlaySpecificMusic(0);
             crew.SetActive(false) ;
         }
+    }
+
+    public void OpenCredits()
+    {
+        creditsPanel.SetActive(true);
+    }
+    public void ExitCredits()
+    {
+        creditsPanel.SetActive(false);
     }
 
     public void ExitSettings()
