@@ -20243,8 +20243,8 @@ MonoBehaviour:
   isAnimStart: 0
   displayAmmo: {fileID: 1672767800}
   inputVector: {x: 0, y: 0}
-  reloadCannonTime: 5
-  defaultFireRatio: 0
+  reloadCannonTime: 3
+  defaultFireRatio: 1
   cannonShotVfxOffset: 1
   cannonShotSfxIndex: 1
 --- !u!1001 &8351470122176899728

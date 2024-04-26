@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27329248526c35343a3eb5420d920c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4
   distanceTraveled: 0
   spawnChance: 0.33
   assaultArea: {fileID: 8358944469325113104}
