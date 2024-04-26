@@ -57,7 +57,7 @@ public class Enemy : EnemyMovement
         assaultArea.SetActive(false);
         plunderTime = plunderDefault;
         render.material = originalMaterial;
-        plunderBar.SetActive(true);
+        plunderBar.SetActive(false);
     }
     private void StartPlunder()
     {
