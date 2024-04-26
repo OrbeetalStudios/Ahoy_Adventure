@@ -294,7 +294,7 @@ public class CrewPanel : MonoBehaviour
             else
             {
                 hireButton.sprite = selectionSprite[2];
-                hireButtonText.text = "Dimsiss";
+                hireButtonText.text = "Dismiss";
             }
 
         }
