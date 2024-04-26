@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: More Gold PowerUp
   Type: 3
-  img: {fileID: 21300000, guid: c73b634f6386f9a42a3136ce97d51adf, type: 3}
-  DurationInSeconds: 5
+  img: {fileID: 21300000, guid: f2a7a6903bc507d4388be8524ca46e6b, type: 3}
+  DurationInSeconds: 60
   Value: 2
+  IsOneShot: 0
   spawnChance: 2
