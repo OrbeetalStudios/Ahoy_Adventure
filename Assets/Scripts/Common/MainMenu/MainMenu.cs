@@ -18,6 +18,10 @@ public class MainMenu : MonoBehaviour
     public GameObject fadeOut;
     [SerializeField]
     private GameObject creditsPanel;
+    public Animator anim;
+    [SerializeField]
+    private GameObject exitButtonCredits;
+
 
 
     public void Start()
@@ -69,11 +73,15 @@ public class MainMenu : MonoBehaviour
 
     public void OpenCredits()
     {
+
         creditsPanel.SetActive(true);
+        exitButtonCredits.SetActive(true);  
+        anim.Play("FadeInCredits", 0);
     }
     public void ExitCredits()
     {
-        creditsPanel.SetActive(false);
+        exitButtonCredits.SetActive(false); 
+        anim.Play("FadOutCredits",0);
     }
 
     public void ExitSettings()

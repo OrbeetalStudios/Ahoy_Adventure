@@ -4752,6 +4752,7 @@ GameObject:
   - component: {fileID: 1286965326}
   - component: {fileID: 1286965325}
   - component: {fileID: 1286965327}
+  - component: {fileID: 1286965328}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -4838,6 +4839,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!111 &1286965328
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286965323}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 22250fcd1c6285c4d8c92a05751e86f8, type: 2}
+  - {fileID: 7400000, guid: e645d56cdf4da7a499461ebd1ba476f8, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1311594026
 GameObject:
   m_ObjectHideFlags: 0
@@ -5785,6 +5803,8 @@ MonoBehaviour:
   crew: {fileID: 1362550668}
   fadeOut: {fileID: 1528398243}
   creditsPanel: {fileID: 1286965323}
+  anim: {fileID: 1286965327}
+  exitButtonCredits: {fileID: 1794720472}
 --- !u!1 &1580002651
 GameObject:
   m_ObjectHideFlags: 0

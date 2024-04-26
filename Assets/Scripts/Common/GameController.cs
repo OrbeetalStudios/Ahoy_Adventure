@@ -128,7 +128,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     }
     public void ImgAmmoActivated()
     {
-        Timing.RunCoroutine(ammoActive());
+        Timing.RunCoroutine(ammoActive().CancelWith(gameObject)); ;
     }
     protected IEnumerator<float> ammoActive()
     {
