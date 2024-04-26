@@ -18,11 +18,11 @@ MonoBehaviour:
   bio: Keith is a somewhat irreverent little fellow. He and his brother Mort form
     the duo in charge of renovating and maintaining the island. Keith tells everyone
     that he is better-looking and smarter than Mort.
-  sprite: {fileID: 21300000, guid: 0631e0333c7b59b4291aec5c22ed6448, type: 3}
+  sprite: {fileID: 21300000, guid: 7543510c94860e445b7a80f629f1cf51, type: 3}
   Cost: 80
   AbilitySprite: {fileID: 21300000, guid: e33ce6b343fb8204a9ae0fb168402308, type: 3}
   purchased: 0
   lastIndex: 0
-  buttonSprite: {fileID: 21300000, guid: ff2cab40f271dd849aabea43491e0a7b, type: 3}
-  buttonSpriteLight: {fileID: 21300000, guid: a72f1c3475fef2f44b97a1f9fca58fec, type: 3}
+  buttonSprite: {fileID: 21300000, guid: 82b046e40c81200408909b8e01ef3338, type: 3}
+  buttonSpriteLight: {fileID: 21300000, guid: 668f0195091375b47aec6d188e8f34d1, type: 3}
   Category: 1

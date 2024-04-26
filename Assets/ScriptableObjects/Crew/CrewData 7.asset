@@ -18,11 +18,11 @@ MonoBehaviour:
   bio: Mort is considered a nuisance by all. He forms the duo in charge of renovating
     and maintaining the island with his brother Keith.  Mort tells everyone that
     he is better-looking and smarter than Keith.
-  sprite: {fileID: 21300000, guid: ef56397bd1948c84dab4931eee5cb1b1, type: 3}
+  sprite: {fileID: 21300000, guid: 4deedd9298f0d894885eff9644e7aabe, type: 3}
   Cost: 80
   AbilitySprite: {fileID: 21300000, guid: e33ce6b343fb8204a9ae0fb168402308, type: 3}
   purchased: 0
   lastIndex: 0
-  buttonSprite: {fileID: 21300000, guid: 70a2893b7a9442f4b8dd20875f8bcd6a, type: 3}
-  buttonSpriteLight: {fileID: 21300000, guid: 003b18bb00fa3c046abbb967e11d5510, type: 3}
+  buttonSprite: {fileID: 21300000, guid: 7e0809cdfd54afb4884f158fd5be2eec, type: 3}
+  buttonSpriteLight: {fileID: 21300000, guid: f9360040926ae624b8822c76f5a214a7, type: 3}
   Category: 1

@@ -18,11 +18,11 @@ MonoBehaviour:
   bio: Don Pichotte is a true expert pirate! No one knows the behavior of the winds
     and the sea like he does. That is why he was chosen as the ship's helmsman. He
     always clogs the ship's toilet.
-  sprite: {fileID: 21300000, guid: fb348c16e0f2cf842bd061c8df08b2f5, type: 3}
+  sprite: {fileID: 21300000, guid: f066277f34a8e864d914b405b27320ac, type: 3}
   Cost: 50
   AbilitySprite: {fileID: 21300000, guid: be82859790caf95408a5ec36baf62a1f, type: 3}
   purchased: 0
   lastIndex: 0
-  buttonSprite: {fileID: 21300000, guid: 4496a58f3feac2544b52ab1e638392be, type: 3}
-  buttonSpriteLight: {fileID: 21300000, guid: 7ff771684d9d5f04c82951265ebc185f, type: 3}
+  buttonSprite: {fileID: 21300000, guid: 789b39cdf68903c4e8409b6192e84de4, type: 3}
+  buttonSpriteLight: {fileID: 21300000, guid: c64e3abe2484a3e4db18d878b473ca8e, type: 3}
   Category: 0

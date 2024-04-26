@@ -18,11 +18,11 @@ MonoBehaviour:
   bio: Descended from a prominent family from the far northern lands, Baroness Fon
     Teena has always stood out for her economic management skills. Some say, however,
     that she has a bit of a chip on her shoulder.
-  sprite: {fileID: 21300000, guid: ad3f13da8c1d9d342960bed22049631c, type: 3}
+  sprite: {fileID: 21300000, guid: 51cb58642f0228943bfc2b3f22a2be9e, type: 3}
   Cost: 60
   AbilitySprite: {fileID: 21300000, guid: 142199592a2236b438482e8d9a8d74e9, type: 3}
   purchased: 0
   lastIndex: 0
-  buttonSprite: {fileID: 21300000, guid: f0592de740e70b54ca7601df4afdef01, type: 3}
-  buttonSpriteLight: {fileID: 21300000, guid: 9013af2ecdddfdf4495a786f22d17f86, type: 3}
+  buttonSprite: {fileID: 21300000, guid: ad0d98e34fb26d746ae5e92867041b2c, type: 3}
+  buttonSpriteLight: {fileID: 21300000, guid: ea8689a3c4b76f24bbe0c7a6b271605f, type: 3}
   Category: 1
