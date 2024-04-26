@@ -6,6 +6,7 @@ public class Enemy : EnemyMovement
 {
     [SerializeField, Range(0f, 1f)] private float spawnChance;
     [SerializeField] private GameObject assaultArea;
+    [SerializeField] private GameObject plunderBar;
     [SerializeField] private Renderer render;
     [SerializeField] private Material originalMaterial;
     [SerializeField] private int enemyHitSfxIndex;
@@ -22,6 +23,7 @@ public class Enemy : EnemyMovement
         plunderDefault = plunderTime;
         GameObject islandObject = GameObject.FindWithTag("Island");
         IslandScript= islandObject.GetComponent<Island>();    
+        plunderBar.GetComponent<PlunderBar>().SetMaxPlunderTime(plunderTime);
     }
     void OnTriggerEnter(Collider other)
     {
@@ -58,6 +60,7 @@ public class Enemy : EnemyMovement
     }
     private void StartPlunder()
     {
+        plunderBar.SetActive(true);
         Timing.KillCoroutines(moveToTargetHandle);
 
         // rotate it by 90 degrees
@@ -76,6 +79,7 @@ public class Enemy : EnemyMovement
     {
     while (!isEngaged)
         {
+            plunderBar.GetComponent<PlunderBar>().SetPlunderTime(plunderTime);
             if (plunderTime <= 0)
             {
                 assaultArea.SetActive(false);
@@ -85,6 +89,7 @@ public class Enemy : EnemyMovement
                 transform.rotation = rotation;
                 IslandScript.DecreaseTreasure(plunderQuantity);
                 Timing.RunCoroutine(ReturnOutsideMap(relativePos).CancelWith(gameObject));
+                plunderBar.SetActive(false);
                 break;
             }
             plunderTime--;
