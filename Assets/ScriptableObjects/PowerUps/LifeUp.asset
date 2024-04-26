@@ -15,7 +15,7 @@ MonoBehaviour:
   ObjectName: Life Up
   Type: 4
   img: {fileID: 0}
-  DurationInSeconds: 0
+  DurationInSeconds: 1
   Value: 1
   IsOneShot: 1
   spawnChance: 0.5

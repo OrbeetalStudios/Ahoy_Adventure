@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: FireRate Power Up
   Type: 0
-  img: {fileID: 21300000, guid: 9ca404908b926e44c9695ba9d21f7f9b, type: 3}
-  DurationInSeconds: 5
+  img: {fileID: 21300000, guid: 2d8f974a559520048b87e4af062840e8, type: 3}
+  DurationInSeconds: 20
   Value: 0
+  IsOneShot: 0
   spawnChance: 3

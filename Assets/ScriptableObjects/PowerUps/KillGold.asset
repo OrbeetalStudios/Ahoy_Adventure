@@ -15,7 +15,7 @@ MonoBehaviour:
   ObjectName: More Gold PowerUp
   Type: 3
   img: {fileID: 21300000, guid: f2a7a6903bc507d4388be8524ca46e6b, type: 3}
-  DurationInSeconds: 60
+  DurationInSeconds: 20
   Value: 2
   IsOneShot: 0
   spawnChance: 2
