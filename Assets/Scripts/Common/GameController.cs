@@ -23,6 +23,11 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     [SerializeField] private GameObject PausePanel;
     [SerializeField] private GameObject TreasurePanel;
     [SerializeField] private GameObject pauseButton;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject loadingPanel;
+    [SerializeField] private GameObject keyText;
+    [SerializeField] private GameObject pool;
+    [SerializeField] private GameObject defend;
 
     private int currentScore = 0;
     [SerializeField] private int defaultScoreIncrement = 1;
@@ -47,13 +52,31 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         // Start checking game over conditions
         Timing.RunCoroutine(CheckGamOverCondition().CancelWith(gameObject));
 
+        Timing.RunCoroutine(StartPlayer().CancelWith(gameObject));
+
         // Inizializza UI
         UpdateScoreUI();
         UpdateLifeUI();
         AudioManager.Instance.StopSpecificMusic(0);
-        AudioManager.Instance.PlaySpecificMusic(2);     
+        
     }
 
+    protected IEnumerator<float> StartPlayer()
+    {
+        yield return Timing.WaitForSeconds(4f);
+        keyText.SetActive(true);
+        while (!(Input.anyKeyDown))
+        {
+            yield return Timing.WaitForOneFrame;
+        }
+        loadingPanel.SetActive(false);
+        player.SetActive(true);
+        pool.SetActive(true);
+        defend.SetActive(true);
+        AudioManager.Instance.PlaySpecificMusic(2);
+        Timing.KillCoroutines("StartPlayer");  
+
+    }
     public void UpdateScore()
     {
         currentScore += scoreIncrement;
@@ -72,6 +95,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         AudioManager.Instance.StopSpecificMusic(2);
         AudioManager.Instance.PlaySpecificOneShot(9);
         GameOverPanel.SetActive(true);
+        PoolController.Instance.Clear();
         Time.timeScale = 0;
     }
 

@@ -22,7 +22,7 @@ public class Player : PlayerMovement, IPowerUpEvent
     private bool isLoading = false;
     private bool invulnerabilityOn = false;
 
-    private void Start()
+    private new void Start()
     {
         base.Start();
         // iscriviti a eventlistener per ricevere gli eventi

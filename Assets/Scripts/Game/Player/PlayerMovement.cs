@@ -22,11 +22,13 @@ public class PlayerMovement : MonoBehaviour
     public GameObject displayAmmo;
     [HideInInspector]
     public Vector2 inputVector;
+    [SerializeField]
+    private GameObject defend;
 
     protected void Start()
     {
         speed = defaultSpeed;
-        Timing.RunCoroutine(Move());
+        Timing.RunCoroutine(Move().CancelWith(gameObject));
     }
     protected  IEnumerator<float> Move()
     {
@@ -69,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
             if (!isAnimStart)
             {
                 isAnimStart = true;
+                defend.SetActive(false);
                 clockwiseMotion = false;
                 startG = true;
                 GameController.Instance.ImgAmmoActivated();

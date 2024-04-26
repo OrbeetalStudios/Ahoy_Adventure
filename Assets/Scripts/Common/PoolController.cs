@@ -8,13 +8,14 @@ using UnityEngine;
 public class PoolController : MonoSingleton<PoolController>
 {
     [SerializeField] private List<PoolObject> collections;
-    [SerializeField] private float spawnInterval=30f;
+    [SerializeField] private float spawnInterval = 30f;
 
 
-    
-    private void Start()
+
+
+    private void OnEnable()
     {
-        InitializeCollections(); 
+        InitializeCollections();
     }
     private void InitializeCollections()
     {
@@ -60,6 +61,20 @@ public class PoolController : MonoSingleton<PoolController>
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(false);
+        }
+    }
+
+    public  void Clear()
+    {
+        foreach (PoolObject coll in collections)
+        {
+            // Loop through each object in the collection and deactivate it
+            foreach (GameObject obj in coll.collection)
+            {
+                obj.SetActive(false);
+            }
+            // Clear the collection after deactivating its objects
+            coll.collection.Clear();
         }
     }
 }
