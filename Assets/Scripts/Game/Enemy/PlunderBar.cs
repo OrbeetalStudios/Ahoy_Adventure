@@ -9,7 +9,7 @@ public class PlunderBar : MonoBehaviour
 
     public void SetMaxPlunderTime(int time){
         slider.maxValue = time;
-        slider.value = time;
+        slider.value = 0;
     }
 
     public void SetPlunderTime(int time){

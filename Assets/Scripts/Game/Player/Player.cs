@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class Player : PlayerMovement, IPowerUpEvent
 {
+    [SerializeField, Range(0f,30f)] private float reloadCannonTime;
+    [SerializeField, Range(0f, 10f)] private float defaultFireRatio;
+    [SerializeField, Range(0f, 2f)] private float cannonShotVfxOffset;
+    [SerializeField] private int cannonShotSfxIndex;
+    [SerializeField] private GameObject defaultSkin;
+    [SerializeField] private GameObject fireratePowSkin;
+    [SerializeField] private GameObject speedPowSkin;
+    [SerializeField] private GameObject invulnerabilityPowSkin;
+    [SerializeField] private List<GameObject> skinList;
+    private GameObject currentSkin;
     private PlayerControls controls;
-    [SerializeField, Range(0f,30f)] 
-    private float reloadCannonTime;
-    [SerializeField, Range(0f, 10f)]
-    private float defaultFireRatio;
     private float fireRatio;
-    [SerializeField, Range(0f, 2f)] 
-    private float cannonShotVfxOffset;
-    [SerializeField] 
-    private int cannonShotSfxIndex;
     private int ammoCount=3;
     private bool canFire = true;
     private float reload;
@@ -27,6 +30,8 @@ public class Player : PlayerMovement, IPowerUpEvent
         base.Start();
         // iscriviti a eventlistener per ricevere gli eventi
         EventListener.Instance.AddListener(this.gameObject);
+        currentSkin = defaultSkin;
+        skinList.Add(defaultSkin);
     }
     private void OnEnable()
     {
@@ -37,6 +42,7 @@ public class Player : PlayerMovement, IPowerUpEvent
         anim.Play("OnIiland",0);
         reload = reloadCannonTime;
         fireRatio = defaultFireRatio;
+        ChangeSkin();
     }
     private void OnDisable()
     {
@@ -138,16 +144,20 @@ public class Player : PlayerMovement, IPowerUpEvent
         {
             case EPowerUpType.FireRate:
                 fireRatio = data.Value;
+                CheckAndMoveSkin(fireratePowSkin);
                 break;
             case EPowerUpType.Speed:
                 speed = data.Value;
+                CheckAndMoveSkin(speedPowSkin);
                 break;
             case EPowerUpType.Invulnerability:
                 invulnerabilityOn = true;
+                CheckAndMoveSkin(invulnerabilityPowSkin);
                 break;
             default:
                 break;
         }
+        ChangeSkin();
     }
     public void OnPowerUpExpired(PowerUpData data)
     {
@@ -155,16 +165,35 @@ public class Player : PlayerMovement, IPowerUpEvent
         {
             case EPowerUpType.FireRate:
                 fireRatio = defaultFireRatio;
+                skinList.Remove(fireratePowSkin);
                 break;
             case EPowerUpType.Speed:
                 speed = defaultSpeed;
+                skinList.Remove(speedPowSkin);
                 break;
             case EPowerUpType.Invulnerability:
                 invulnerabilityOn = false;
+                skinList.Remove(invulnerabilityPowSkin);
                 break;
             default:
                 break;
         }
+        ChangeSkin();
+    }
+
+    private void CheckAndMoveSkin(GameObject skin){
+        if(!skinList.Contains(skin)){
+            skinList.Add(skin);
+        } else {
+            skinList.Remove(skin);
+            skinList.Add(skin);
+        }
+    }
+
+    private void ChangeSkin(){
+        currentSkin.SetActive(false);
+        currentSkin = skinList.Last();
+        currentSkin.SetActive(true);
     }
     private void PlayCannonShotVFX(GameObject parent, GameObject effect){
         effect.transform.position = parent.transform.TransformPoint(Vector3.back * cannonShotVfxOffset);
