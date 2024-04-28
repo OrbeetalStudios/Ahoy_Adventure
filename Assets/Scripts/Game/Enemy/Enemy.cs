@@ -80,7 +80,7 @@ public class Enemy : EnemyMovement
     {
     while (!isEngaged)
         {
-            plunderBar.GetComponent<PlunderBar>().SetPlunderTime(plunderTime);
+            plunderBar.GetComponent<PlunderBar>().SetPlunderTime(plunderDefault-plunderTime);
             if (plunderTime <= 0)
             {
                 assaultArea.SetActive(false);

@@ -4216,6 +4216,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 479872560}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &484320830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bba3c50839372f49acbdedcc9d5230a,
+    type: 3}
+  m_PrefabInstance: {fileID: 657161350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &493272060
 GameObject:
   m_ObjectHideFlags: 0
@@ -10320,6 +10326,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756352857}
   m_CullTransparentMesh: 1
+--- !u!1 &770009178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 82906d85f9265d3438b8205dc08a4c75,
+    type: 3}
+  m_PrefabInstance: {fileID: 40489628}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &771177059
 GameObject:
   m_ObjectHideFlags: 0
@@ -14914,6 +14926,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1516926581}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1531294901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 98ec6cfe5db137042a5abd3f61cc017e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1928522678}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1547806291
 GameObject:
   m_ObjectHideFlags: 0
@@ -19188,6 +19206,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1928522678}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1959662593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a3487ac450220848a749c8107676b84,
+    type: 3}
+  m_PrefabInstance: {fileID: 1728436566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1993419072
 GameObject:
   m_ObjectHideFlags: 0
@@ -20797,6 +20821,10 @@ MonoBehaviour:
   defaultFireRatio: 1
   cannonShotVfxOffset: 1
   cannonShotSfxIndex: 1
+  defaultSkin: {fileID: 770009178}
+  fireratePowSkin: {fileID: 1959662593}
+  speedPowSkin: {fileID: 1531294901}
+  invulnerabilityPowSkin: {fileID: 484320830}
 --- !u!1001 &8351470122176899728
 PrefabInstance:
   m_ObjectHideFlags: 0
