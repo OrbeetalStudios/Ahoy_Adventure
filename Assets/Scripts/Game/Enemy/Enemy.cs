@@ -14,7 +14,6 @@ public class Enemy : EnemyMovement
     [SerializeField] private int enemyCollisionSfxIndex;
     [SerializeField, Range(0, 6)] private int plunderQuantity;
     [SerializeField] private int MaxLives = 1;
-    [SerializeField] private GameObject skullPanelPrefab;
     private int currentLives;
     public int plunderTime;
     public int plunderDefault;
@@ -28,7 +27,6 @@ public class Enemy : EnemyMovement
         GameObject islandObject = GameObject.FindWithTag("Island");
         IslandScript= islandObject.GetComponent<Island>();    
         plunderBar.GetComponent<PlunderBar>().SetMaxPlunderTime(plunderTime);
-        SetupSkullPanel();
     }
     void OnTriggerEnter(Collider other)
     {
@@ -69,17 +67,6 @@ public class Enemy : EnemyMovement
         plunderTime = plunderDefault;
         render.material = originalMaterial;
         plunderBar.SetActive(false);
-    }
-    private void SetupSkullPanel()
-    {
-        if (MaxLives <= 1) return;
-        if (skullPanelPrefab == null) return;
-
-        GameObject obj = Instantiate(skullPanelPrefab);
-        //obj.transform.SetParent(GameObject.Find("Canvas").transform, false);
-        obj.GetComponent<FollowShipUI>().ship = this.transform;
-
-        obj.SetActive(true);
     }
     private void OnDeath()
     {
