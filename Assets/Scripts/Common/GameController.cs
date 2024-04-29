@@ -22,6 +22,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     [SerializeField] private GameObject GameOverPanel;
     [SerializeField] private GameObject PausePanel;
     [SerializeField] private GameObject TreasurePanel;
+    [SerializeField] private GameObject BonusPanel;
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject loadingPanel;
@@ -221,10 +222,12 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
                     currentLives++;
                     UpdateLifeUI();
                 }
+                BonusPanel.transform.Find("Life").gameObject.SetActive(true);
                 break;
             case EPowerUpType.DoubloonUp:
                 // save the doubloons
                 SavedDataManager.WriteInt(SavedDataManager.ESavedDataType.HighScore, ++currentDoubloonAmount);
+                BonusPanel.transform.Find("Doubloon").gameObject.SetActive(true);
                 break;
             default:
                 break;
