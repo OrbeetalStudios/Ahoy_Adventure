@@ -13,6 +13,9 @@ public class Enemy : EnemyMovement
     [SerializeField] private int enemyStartPlunderingSfxIndex;
     [SerializeField] private int enemyCollisionSfxIndex;
     [SerializeField, Range(0, 6)] private int plunderQuantity;
+    [SerializeField] private int MaxLives = 1;
+    [SerializeField] private GameObject skullPanelPrefab;
+    private int currentLives;
     public int plunderTime;
     public int plunderDefault;
     public bool isEngaged = false;
@@ -20,10 +23,12 @@ public class Enemy : EnemyMovement
 
     private void Awake()
     {
+        currentLives = MaxLives;
         plunderDefault = plunderTime;
         GameObject islandObject = GameObject.FindWithTag("Island");
         IslandScript= islandObject.GetComponent<Island>();    
         plunderBar.GetComponent<PlunderBar>().SetMaxPlunderTime(plunderTime);
+        SetupSkullPanel();
     }
     void OnTriggerEnter(Collider other)
     {
@@ -36,20 +41,26 @@ public class Enemy : EnemyMovement
                 PlaySFX(enemyCollisionSfxIndex);
                 break;
             case "Bullet":
-                GameController.Instance.UpdateScore();
-                SpawnBox();
+                currentLives--;
+                if (currentLives <= 0) // enemy dead
+                {
+                    OnDeath();
+                }
                 // TODO: if elite or not
                 GameObject destroyVfx = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.enemy_destroy_vfx);
                 PlayVFX(gameObject, destroyVfx);
                 PlaySFX(enemyHitSfxIndex);
-                //
                 other.gameObject.SetActive(false);//Deactivate Bullet
-                gameObject.SetActive(false);
                 break;
             case "Island":
                 StartPlunder();
                 break;
         }        
+    }
+    private void OnEnable()
+    {
+        currentLives = MaxLives;
+        base.OnEnable();
     }
     private void OnDisable()
     {
@@ -58,6 +69,23 @@ public class Enemy : EnemyMovement
         plunderTime = plunderDefault;
         render.material = originalMaterial;
         plunderBar.SetActive(false);
+    }
+    private void SetupSkullPanel()
+    {
+        if (MaxLives <= 1) return;
+        if (skullPanelPrefab == null) return;
+
+        GameObject obj = Instantiate(skullPanelPrefab);
+        //obj.transform.SetParent(GameObject.Find("Canvas").transform, false);
+        obj.GetComponent<FollowShipUI>().ship = this.transform;
+
+        obj.SetActive(true);
+    }
+    private void OnDeath()
+    {
+        GameController.Instance.UpdateScore();
+        SpawnBox();
+        gameObject.SetActive(false);
     }
     private void StartPlunder()
     {

@@ -13,7 +13,7 @@ public class Island : MonoSingleton<Island>
     }
 
     public void DecreaseTreasure(int amount)
-   {
+    {
         PlaySFX(treasureLostSfxIndex);
         currentTreasure -= amount;
         GameController.Instance.UpdateTreasureUI(currentTreasure);
@@ -22,7 +22,7 @@ public class Island : MonoSingleton<Island>
             //Game over
             GameController.Instance.GameOver();
         }
-   }
+    }
 
     private void PlaySFX(int index){
         AudioManager.Instance.PlaySpecificOneShot(index);

@@ -109,6 +109,9 @@ MonoBehaviour:
   enemyStartPlunderingSfxIndex: 12
   enemyCollisionSfxIndex: 5
   plunderQuantity: 6
+  MaxLives: 3
+  skullPanelPrefab: {fileID: 4266212118552444988, guid: c6de3b050368be84994a4882255f3e6c,
+    type: 3}
   plunderTime: 15
   plunderDefault: 0
   isEngaged: 0
