@@ -100,6 +100,11 @@ MonoBehaviour:
   speed: 5
   MultiplierAllowed: 1
   distanceTraveled: 0
+  distanceThreshold: 150
+  startFadeOutDistance: 100
+  meshRenderer: {fileID: 2003133923719287537}
+  fadeDuration: 1
+  initialAlpha: 0
   spawnChanceBox: 0.5
   spawnChanceMine: 0.5
   assaultArea: {fileID: 4655593177920169884}
@@ -480,6 +485,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7c3795dfacd043e6b941301c450ca81, type: 2}
+    - target: {fileID: -7511558181221131132, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: cccca61d8cfc74269a83589a1d3f6f8e, type: 2}
+    - target: {fileID: -7511558181221131132, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 24f848dca019b45389ab8251fd7e0ee3, type: 2}
+    - target: {fileID: -7511558181221131132, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: e4e778ea3c0a84e03a3cca33f8ccd79a, type: 2}
+    - target: {fileID: -7511558181221131132, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9053f162f53a543b9b0b4ce421325942, type: 2}
+    - target: {fileID: -7511558181221131132, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ab33cd1c22f84b37ad1644b888a9a6f, type: 2}
     - target: {fileID: 919132149155446097, guid: ebfb084eafd8be94eaaff05ed2e6a5f1,
         type: 3}
       propertyPath: m_Name
