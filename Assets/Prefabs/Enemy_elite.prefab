@@ -110,6 +110,7 @@ MonoBehaviour:
   enemyCollisionSfxIndex: 5
   plunderQuantity: 6
   MaxLives: 3
+  enemyType: 3
   plunderTime: 15
   plunderDefault: 0
   isEngaged: 0

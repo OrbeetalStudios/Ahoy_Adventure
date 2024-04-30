@@ -4,6 +4,14 @@ using MEC;
 
 public class Enemy : EnemyMovement
 {
+    private enum EEnemyType
+    { 
+        enemy_default = 0,
+        enemy_slow = 1,
+        enemy_fast = 2,
+        enemy_elite = 3
+    }
+
     [SerializeField, Range(0f, 1f)] private float spawnChance;
     [SerializeField] private GameObject assaultArea;
     [SerializeField] private GameObject plunderBar;
@@ -14,6 +22,7 @@ public class Enemy : EnemyMovement
     [SerializeField] private int enemyCollisionSfxIndex;
     [SerializeField, Range(0, 6)] private int plunderQuantity;
     [SerializeField] private int MaxLives = 1;
+    [SerializeField] private EEnemyType enemyType;
     private int currentLives;
     public int plunderTime;
     public int plunderDefault;
@@ -72,6 +81,13 @@ public class Enemy : EnemyMovement
     {
         GameController.Instance.UpdateScore();
         SpawnBox();
+
+        // se elite, dai un doblone
+        if (enemyType == EEnemyType.enemy_elite)
+        {
+            PowerUpController.Instance.ActivatePowerUp(EPowerUpType.DoubloonUp);
+        }
+
         gameObject.SetActive(false);
     }
     private void StartPlunder()

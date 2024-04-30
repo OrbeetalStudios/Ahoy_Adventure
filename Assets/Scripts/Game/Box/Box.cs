@@ -17,7 +17,7 @@ public class Box : LinearMotionToTarget
         if (other.CompareTag("Player"))
         {
             //manage power up
-            PowerUpController.Instance.ActivatePowerUp();
+            PowerUpController.Instance.ActivateRandomPowerUp();
 
             this.gameObject.SetActive(false);
             PlaySFX(sfxIndex);
