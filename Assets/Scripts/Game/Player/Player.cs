@@ -30,8 +30,6 @@ public class Player : PlayerMovement, IPowerUpEvent
         base.Start();
         // iscriviti a eventlistener per ricevere gli eventi
         EventListener.Instance.AddListener(this.gameObject);
-        currentSkin = defaultSkin;
-        skinList.Add(defaultSkin);
     }
     private void OnEnable()
     {
@@ -42,6 +40,8 @@ public class Player : PlayerMovement, IPowerUpEvent
         anim.Play("OnIiland",0);
         reload = reloadCannonTime;
         fireRatio = defaultFireRatio;
+        currentSkin = defaultSkin;
+        skinList.Add(defaultSkin);
         ChangeSkin();
     }
     private void OnDisable()
@@ -54,6 +54,8 @@ public class Player : PlayerMovement, IPowerUpEvent
         if (other.CompareTag("Enemy") ||
             other.CompareTag("Mine"))
         {
+            PlayAnimation();
+
             if (invulnerabilityOn) return;
 
             // Send message to any listeners
@@ -81,20 +83,24 @@ public class Player : PlayerMovement, IPowerUpEvent
         }
         
     }
+    private void PlayAnimation()
+    {
+        if (clockwiseMotion)
+        {
+            anim.Play("Fire", 1);
+        }
+        else
+        {
+            anim.Play("NoClocwiseFire", 1);
+        }
+    }
     private void StartFire()
     {  
         if (ammoCount > 0 && canFire)
         {
             ammoCount--;
             GameController.Instance.UpdateAmmo(ammoCount);
-            if (clockwiseMotion)
-            {
-                anim.Play("Fire",1);
-            }
-            else
-            {
-                anim.Play("NoClocwiseFire",1);
-            }
+            PlayAnimation();
             GameObject bullet = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.bullet);
             if (bullet != null)
             {
