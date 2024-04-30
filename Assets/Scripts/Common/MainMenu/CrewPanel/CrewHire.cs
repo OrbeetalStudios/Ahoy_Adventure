@@ -43,12 +43,12 @@ public class CrewHire : MonoBehaviour
         idPurchased=mainMenu.idPurchased;
         idAssigned=mainMenu.idAssigned;
         doubloons = mainMenu.doubloons;//I dobloni saranno gestiti da MainMenu
+        doubloonsText.text = doubloons.ToString();//Applica la scritta hai dobloni
     }
     public void SetButton(CrewButton currentButton)
     {
         active=currentButton;
         characterID=active.characterID;
-        doubloonsText.text = doubloons.ToString();
         cost = active.cost;
         SetCurrentIndex(characterID);
         
@@ -130,6 +130,7 @@ public class CrewHire : MonoBehaviour
         purchased = true;
         lastIndex = 1;
         doubloons -= cost;
+        mainMenu.doubloons = doubloons;
         doubloonsText.text = doubloons.ToString();
        
     }

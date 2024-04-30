@@ -31,6 +31,10 @@ public class DataPersistenceManager : MonoBehaviour
     public void NewGame()
     {
         this.gameData=new GameData();
+        foreach (IDataPeristence dataPeristenceObj in dataPeristenceObjects)
+        {
+            dataPeristenceObj.LoadData(gameData);
+        }
     }
 
     public void LoadGame()
