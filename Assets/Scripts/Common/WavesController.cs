@@ -5,7 +5,7 @@ using MEC;
 using System.Linq;
 using TMPro;
 
-public class WavesController : MonoBehaviour
+public class WavesController : MonoSingleton<WavesController>
 {
     // Riferimenti agli oggetti UI
     [SerializeField] private TMP_Text currentWaveText;
@@ -26,7 +26,6 @@ public class WavesController : MonoBehaviour
         {EQuadrant.Quadrant_270_360, new Coll<SpawnPoint>() }
     };
     [SerializeField] private string filenameJson;
-    [SerializeField] private float secondsBetweenWaves= 1;
     private List<WaveToSpawnType> wavesToSpawnList = new();
     [SerializeField] private List<EJsonTypes> wavesTypesToSpawn;
     private JSONWaves wavesDataJson = new();
@@ -34,6 +33,7 @@ public class WavesController : MonoBehaviour
     private int currentWave = 0;
     private int waveCounterUI = 1;
     private bool allWavesEnded = false;
+    public float WaveSpeedMultiplier { get { return wavesDataJson.waves[currentWave].speedMultiplier; } }
 
     // Start is called before the first frame update
     void Start()
@@ -76,6 +76,7 @@ public class WavesController : MonoBehaviour
     private IEnumerator<float> SpawnManager()
     {
         allWavesEnded = false;
+        float secondsBetweenWaves = 1.0f;
 
         // start coroutine for each wave to spawn
         foreach (var wave in wavesToSpawnList)
@@ -87,7 +88,11 @@ public class WavesController : MonoBehaviour
         {
             if (AreAllWavesEnded() && !allWavesEnded)
             {
-                if (!wavesDataJson.waves[currentWave].isLast) currentWave++;
+                if (!wavesDataJson.waves[currentWave].isLast)
+                {
+                    secondsBetweenWaves = wavesDataJson.waves[currentWave].timeUntilNextWave;
+                    if (currentWave + 1 < wavesDataJson.waves.Count) currentWave++; // safety
+                }
 
                 yield return Timing.WaitForSeconds(secondsBetweenWaves);
                 waveCounterUI++;

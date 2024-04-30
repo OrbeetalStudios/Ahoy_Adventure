@@ -20,8 +20,9 @@ public class JSONWaves
 [System.Serializable]
 public class JSONWave
 {
-    public int id;
+    public float timeUntilNextWave;
     public bool isLast;
+    public float speedMultiplier;
 
     // Json Objects, all inherit from JSONBase
     public List<JSONEnemy> enemies;
@@ -109,7 +110,7 @@ public class JSONMine : JSONBase
 [System.Serializable]
 public class JSONBase
 {
-    public int spawnTime;
+    public float spawnTime;
     public int spawnQuadrant;
     public virtual EPoolObjectType GetId()
     {

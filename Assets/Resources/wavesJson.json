@@ -1,7 +1,8 @@
 {"waves": [
 	{
-		"id": 1,
+		"timeUntilNextWave": 2,
 		"isLast": false,
+		"speedMultiplier": 1,
 		"enemies": [
 			{
 				"id": "enemy_default",
@@ -36,8 +37,9 @@
 		]
 	},
 	{
-		"id": 2,
+		"timeUntilNextWave": 2,
 		"isLast": true,
+		"speedMultiplier": 5,
 		"enemies": [
 			{
 				"id": "enemy_fast",

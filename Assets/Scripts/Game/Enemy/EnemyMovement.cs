@@ -38,7 +38,7 @@ public class EnemyMovement : AbstractMotionToTarget
             transform.rotation = rotation;
 
             // Update position
-            transform.position -= speed * Time.deltaTime * relativePos.normalized;
+            transform.position -= speed * WavesController.Instance.WaveSpeedMultiplier * Time.deltaTime * relativePos.normalized;
             yield return Timing.WaitForOneFrame;
         }
     }
