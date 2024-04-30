@@ -9,6 +9,8 @@ public class Island : MonoSingleton<Island>
     // Start is called before the first frame update
     void Awake()
     {
+        base.Awake();
+
         currentTreasure = maxTreasure;
     }
 

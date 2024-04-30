@@ -51,15 +51,14 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         EventListener.Instance.AddListener(this.gameObject);
 
         // Start checking game over conditions
-        Timing.RunCoroutine(CheckGamOverCondition().CancelWith(gameObject));
+        Timing.RunCoroutine(CheckGameOverCondition().CancelWith(gameObject));
 
         Timing.RunCoroutine(StartPlayer().CancelWith(gameObject));
 
         // Inizializza UI
         UpdateScoreUI();
         UpdateLifeUI();
-        AudioManager.Instance.StopSpecificMusic(0);
-        
+        AudioManager.Instance.StopSpecificMusic(0);    
     }
 
     protected IEnumerator<float> StartPlayer()
@@ -75,8 +74,6 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         pool.SetActive(true);
         defend.SetActive(true);
         AudioManager.Instance.PlaySpecificMusic(2);
-        Timing.KillCoroutines("StartPlayer");  
-
     }
     public void UpdateScore()
     {
@@ -200,9 +197,9 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     {
         AudioManager.Instance.PlaySpecificOneShot(14);   
     }
-    private IEnumerator<float> CheckGamOverCondition()
+    private IEnumerator<float> CheckGameOverCondition()
     {
-        while (currentLives > 0)// && Island.Instance.CurrentTreasure > 0)
+        while (currentLives > 0 && Island.Instance.CurrentTreasure > 0)
         {
             yield return Timing.WaitForOneFrame;
         }

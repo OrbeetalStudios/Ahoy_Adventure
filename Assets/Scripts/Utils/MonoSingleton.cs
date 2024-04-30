@@ -7,7 +7,7 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
     private static T instance;
     [SerializeField] private bool bDontDestroyOnLoad = true;
 
-    private void Awake()
+    protected void Awake()
     {
         if (instance != null)
         {
