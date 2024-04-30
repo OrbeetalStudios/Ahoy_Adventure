@@ -15,10 +15,19 @@ public class CrewButtonsPanel : MonoBehaviour
     public CrewButton crewButton;
     public CrewHire hire;
     public GameObject panelCrew;
+    public GameObject character;
+    public GameObject orizontalPanel;
+    [SerializeField]
+    private TMP_Text textDoubloons;
+    private int doubloons;
+    private bool firstClick;
    
    
     private void Start()
     {
+        doubloons = CrewController.Instance.doubloons;
+        textDoubloons.text = doubloons.ToString();//Applica la scritta hai dobloni
+        firstClick = false;
         buttonContainer=transform;
         CreateButtons();
     }
@@ -53,7 +62,14 @@ public class CrewButtonsPanel : MonoBehaviour
 
     private void OnButtonClick(Button newButton)
     {
-        panelCrew.SetActive(true);
+        if (!firstClick)
+        {
+            panelCrew.SetActive(true);
+            character.SetActive(true);
+            orizontalPanel.SetActive(true);
+            firstClick = true;
+        }
+       
         AudioManager.Instance.PlaySpecificOneShot(4);
         // Rimuovi il bottone attualmente attivo dalla lista
         if (activeButton != null)

@@ -15,10 +15,12 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
 
     // Riferimenti agli oggetti UI
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text dooublonsText;
     [SerializeField] private TMP_Text scoreOver;
     [SerializeField] private Image[] lifeImages;
     [SerializeField] private Image[] ammoImages;
     [SerializeField] private Image[] treasureImages;
+    [SerializeField] private TMP_Text[] scoreTextGameOver;
     [SerializeField] private GameObject GameOverPanel;
     [SerializeField] private GameObject PausePanel;
     [SerializeField] private GameObject TreasurePanel;
@@ -38,6 +40,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     private bool isPaused = false;
     [SerializeField] private WavesController waves;
     private int currentDoubloonAmount;
+    private int[] score;
 
     private void Start()
     {
@@ -88,7 +91,8 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
 
     public void GameOver()
     {
-        DataPersistenceManager.instance.NowSave();  
+        UpdateDifferentScore();
+        dooublonsText.text = currentDoubloonAmount.ToString();
         AudioManager.Instance.StopSpecificMusic(2);
         AudioManager.Instance.PlaySpecificOneShot(9);
         GameOverPanel.SetActive(true);
@@ -256,10 +260,28 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     public void LoadData(GameData data)
     {
         currentDoubloonAmount=data.doubloons;
+        score=data.score;
     }
 
     public void SaveData(ref GameData data)
     {
         data.doubloons = currentDoubloonAmount;
+        data.score = score;
     }
+
+    private void UpdateDifferentScore()
+    {
+        Array.Sort(score);//ordina l'array
+        if (score[0] < currentScore)
+        {
+            score[0] = currentScore;
+        }
+        Array.Sort(score);//riordina l'array
+        scoreTextGameOver[2].text = score[2].ToString();
+        scoreTextGameOver[1].text = score[1].ToString();
+        scoreTextGameOver[0].text = score[0].ToString();
+        DataPersistenceManager.instance.NowSave();
+    }
+
+    
 }
