@@ -8,10 +8,6 @@ using UnityEngine;
 public class PoolController : MonoSingleton<PoolController>
 {
     [SerializeField] private List<PoolObject> collections;
-    [SerializeField] private float spawnInterval = 30f;
-
-
-
 
     private void OnEnable()
     {
@@ -63,7 +59,6 @@ public class PoolController : MonoSingleton<PoolController>
             child.gameObject.SetActive(false);
         }
     }
-
     public  void Clear()
     {
         foreach (PoolObject coll in collections)
