@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: def13a5627a9c7047b639cca7c34ce7c, type: 3}
-  m_Name: CrewData 2
+  m_Name: Frytatina
   m_EditorClassIdentifier: 
   characterID: 2
   characterName: fry tatina
@@ -22,8 +22,8 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 86cf9326d290da24a9b65fca1092472a, type: 3}
   Cost: 50
   AbilitySprite: {fileID: 21300000, guid: 27e8d594ce726214ab8006e448f81127, type: 3}
-  purchased: 1
-  lastIndex: 1
+  purchased: 0
+  lastIndex: 0
   buttonSprite: {fileID: 21300000, guid: 9ceee786da0f96b4e8a7bf16b5cab604, type: 3}
   buttonSpriteLight: {fileID: 21300000, guid: 954f237d03666814a8571b55d5c6f18f, type: 3}
   Category: 0

@@ -25,11 +25,16 @@ public class DataPersistenceManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this.gameObject);
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+      
     }
 
     public void NewGame()
     {
         this.gameData=new GameData();
+        foreach (IDataPeristence dataPeristenceObj in dataPeristenceObjects)
+        {
+            dataPeristenceObj.LoadData(gameData);
+        }
     }
 
     public void LoadGame()
@@ -38,6 +43,7 @@ public class DataPersistenceManager : MonoBehaviour
         if (this.gameData == null)
         {
             Debug.Log("No data was found. newgame set");
+            NewGame();
             return;
         }
 
@@ -60,23 +66,21 @@ public class DataPersistenceManager : MonoBehaviour
         dataHandler.Save(gameData);
     }
 
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void NowLoad()
     {
         this.dataPeristenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
     }
 
-    public void OnSceneUnloaded(Scene scene)
+
+    public void NowSave()
     {
+        this.dataPeristenceObjects = FindAllDataPersistenceObjects();
         SaveGame();
     }
 
 
-
-    private void OnApplicationQuit()
-    {
-        SaveGame();//da controllare se necessario
-    }
+  
 
     private List<IDataPeristence> FindAllDataPersistenceObjects()
     {
@@ -84,15 +88,4 @@ public class DataPersistenceManager : MonoBehaviour
         return new List<IDataPeristence>(dataPeristenceObjects);
     }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.sceneUnloaded += OnSceneUnloaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.sceneUnloaded -= OnSceneUnloaded;
-    }
 }

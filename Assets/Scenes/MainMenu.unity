@@ -220,18 +220,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1362550672}
-        m_TargetAssemblyTypeName: CrewPanel, Assembly-CSharp
-        m_MethodName: DisableAllCrewPanel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 329074389}
         m_TargetAssemblyTypeName: AllCrewPanel, Assembly-CSharp
         m_MethodName: OnlightSolo
@@ -1421,18 +1409,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1362550672}
-        m_TargetAssemblyTypeName: CrewPanel, Assembly-CSharp
-        m_MethodName: EnableAllCrewPanel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 329074389}
         m_TargetAssemblyTypeName: AllCrewPanel, Assembly-CSharp
         m_MethodName: OnLightCrew
@@ -1926,6 +1902,8 @@ MonoBehaviour:
   LightCrew: {fileID: 21300000, guid: d8165720bee4ebb44b1c174a38b65648, type: 3}
   defSolo: {fileID: 21300000, guid: 03523ca511413134caf80855fa73ba5e, type: 3}
   defCrew: {fileID: 21300000, guid: ef16d034c1da53144b7f636fcb6b2184, type: 3}
+  PanelSolo: {fileID: 848913415}
+  PanelCrew: {fileID: 2019877684}
 --- !u!1 &338107691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,7 +1961,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: hire
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9131e592c5ab25842be91ec05b04a6d4, type: 2}
   m_sharedMaterial: {fileID: 3703565654224285237, guid: 9131e592c5ab25842be91ec05b04a6d4,
@@ -2453,8 +2431,9 @@ GameObject:
   - component: {fileID: 560752970}
   - component: {fileID: 560752969}
   - component: {fileID: 560752968}
+  - component: {fileID: 560752971}
   m_Layer: 5
-  m_Name: HireButtonSolo
+  m_Name: Hire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2524,8 +2503,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1362550672}
-        m_TargetAssemblyTypeName: CrewPanel, Assembly-CSharp
+      - m_Target: {fileID: 560752971}
+        m_TargetAssemblyTypeName: CrewHire, Assembly-CSharp
         m_MethodName: OnClickHIRE
         m_Mode: 1
         m_Arguments:
@@ -2556,8 +2535,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f441230023a37ec45b1221b471bf6425, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2574,6 +2553,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560752966}
   m_CullTransparentMesh: 1
+--- !u!114 &560752971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560752966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1477417b72a8058419e36af90ef2def0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hireButton: {fileID: 560752968}
+  sprites:
+  - {fileID: 21300000, guid: f441230023a37ec45b1221b471bf6425, type: 3}
+  - {fileID: 21300000, guid: 5a61e1127f888464c9a5496d48fce3b2, type: 3}
+  - {fileID: 21300000, guid: 95857863d77f0f64eb93685fb5d3b2b2, type: 3}
+  costObj: {fileID: 350527830}
+  crewPanelSolo: {fileID: 848913419}
+  crewButtonsPanel: {fileID: 1988606278}
+  doubloonsText: {fileID: 238373295}
+  Image: {fileID: 560752969}
+  text: {fileID: 338107693}
+  active: {fileID: 0}
+  anim: {fileID: 238373297}
+  crewPanel: {fileID: 2019877688}
+  mainMenu: {fileID: 1532858959}
+  doubloons: 100
 --- !u!1 &611950083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3171,9 +3178,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 967240085}
   - {fileID: 1651385826}
   - {fileID: 2031960974}
-  - {fileID: 967240085}
   - {fileID: 172021784}
   m_Father: {fileID: 178173098}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3366,6 +3373,7 @@ GameObject:
   - component: {fileID: 848913416}
   - component: {fileID: 848913418}
   - component: {fileID: 848913417}
+  - component: {fileID: 848913419}
   m_Layer: 5
   m_Name: Board
   m_TagString: Untagged
@@ -3432,6 +3440,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848913415}
   m_CullTransparentMesh: 1
+--- !u!114 &848913419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848913415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f6095cfeab33b4999f9c27145d5f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 1395758274}
+  bioText: {fileID: 625988769}
+  abilityText: {fileID: 256000070}
+  categoryText: {fileID: 1786598268}
+  crewButtonsPanel: {fileID: 1988606278}
+  costText: {fileID: 2051447767}
+  abilitySprite: {fileID: 1784235551}
+  characterSprite: {fileID: 967240087}
+  choosePirate: {fileID: 172021781}
 --- !u!1 &856450971
 GameObject:
   m_ObjectHideFlags: 0
@@ -3544,8 +3573,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -285, y: -76.869}
-  m_SizeDelta: {x: 189, y: 30.948}
+  m_AnchoredPosition: {x: -330.14, y: -60.7}
+  m_SizeDelta: {x: 189, y: 30.947998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &967240086
 MonoBehaviour:
@@ -3591,8 +3620,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1362550672}
-        m_TargetAssemblyTypeName: CrewPanel, Assembly-CSharp
+      - m_Target: {fileID: 848913419}
+        m_TargetAssemblyTypeName: CrewPanelSolo, Assembly-CSharp
         m_MethodName: OnClickCharacter
         m_Mode: 1
         m_Arguments:
@@ -5235,7 +5264,6 @@ GameObject:
   - component: {fileID: 1362550669}
   - component: {fileID: 1362550671}
   - component: {fileID: 1362550670}
-  - component: {fileID: 1362550672}
   m_Layer: 5
   m_Name: CrewPanel
   m_TagString: Untagged
@@ -5301,55 +5329,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362550668}
   m_CullTransparentMesh: 1
---- !u!114 &1362550672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362550668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad439c1c4841bd74791a96721e8c7426, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 1395758274}
-  categoryText: {fileID: 1786598268}
-  costText: {fileID: 2051447767}
-  doubloonsAmount: {fileID: 238373295}
-  chooseText: {fileID: 172021781}
-  allPanelCrew: {fileID: 2019877684}
-  assagnedCharacterPanel: {fileID: 247566953}
-  assagnedCharacterAbility: {fileID: 311021819}
-  soloCrewPanel: {fileID: 848913415}
-  VerticalButton: {fileID: 1988606272}
-  characters: {fileID: 967240086}
-  Bio: {fileID: 625988769}
-  panelCost: {fileID: 350527830}
-  anim: {fileID: 238373297}
-  Ability: {fileID: 256000070}
-  characterSprite: {fileID: 967240087}
-  imageButtonSolo: {fileID: 14525537}
-  imageButtonCrew: {fileID: 265993844}
-  characterDataList:
-  - {fileID: 11400000, guid: dd295e5e3192e28448cc3dae309608e3, type: 2}
-  - {fileID: 11400000, guid: 9b6a7efab05835d468f42994540d7963, type: 2}
-  - {fileID: 11400000, guid: 980aa549e63db9f45b17d20c14466a8d, type: 2}
-  - {fileID: 11400000, guid: a40706dd7cea2c2499a17005bd2d47bb, type: 2}
-  - {fileID: 11400000, guid: 9853347ca2194ff4bad760b65b5617ef, type: 2}
-  - {fileID: 11400000, guid: 5099b77767ed1b746aaf5b45c61b480a, type: 2}
-  - {fileID: 11400000, guid: 7c4f0021187bc7c44be5e332133e2582, type: 2}
-  - {fileID: 11400000, guid: bcb588586d19d6b45b12fc403b04860e, type: 2}
-  - {fileID: 11400000, guid: 1acf5967116e63c4a9bff0d550e24cf3, type: 2}
-  characterAbility: {fileID: 1784235551}
-  selectionSprite:
-  - {fileID: 21300000, guid: f441230023a37ec45b1221b471bf6425, type: 3}
-  - {fileID: 21300000, guid: 5a61e1127f888464c9a5496d48fce3b2, type: 3}
-  - {fileID: 21300000, guid: 95857863d77f0f64eb93685fb5d3b2b2, type: 3}
-  hireButton: {fileID: 560752969}
-  hireButtonText: {fileID: 338107693}
-  Doubloons: 400
-  characterButtonPrefab: {fileID: 0}
 --- !u!1 &1395758272
 GameObject:
   m_ObjectHideFlags: 0
@@ -5817,51 +5796,8 @@ MonoBehaviour:
   creditsPanel: {fileID: 1286965323}
   anim: {fileID: 1286965327}
   exitButtonCredits: {fileID: 1794720472}
---- !u!1 &1575080304
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1575080306}
-  - component: {fileID: 1575080305}
-  m_Layer: 0
-  m_Name: DataManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1575080305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575080304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27c1be0a83a503348958c133c4716581, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fileName: data.json
---- !u!4 &1575080306
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575080304}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1003.53973, y: 514.46265, z: -6.7341223}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  idPurchased: 
+  idAssigned: 
 --- !u!1 &1580002651
 GameObject:
   m_ObjectHideFlags: 0
@@ -7325,6 +7261,7 @@ GameObject:
   - component: {fileID: 1988606274}
   - component: {fileID: 1988606276}
   - component: {fileID: 1988606277}
+  - component: {fileID: 1988606278}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -7349,7 +7286,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.00008392334, y: -0.000061035156}
-  m_SizeDelta: {x: 0.00016785, y: -545}
+  m_SizeDelta: {x: 0.00016785, y: -535}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1988606274
 MonoBehaviour:
@@ -7427,6 +7364,35 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: -20}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1988606278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988606271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee65aaa2778cae45bab94f144a469c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CrewData:
+  - {fileID: 11400000, guid: dd295e5e3192e28448cc3dae309608e3, type: 2}
+  - {fileID: 11400000, guid: 9b6a7efab05835d468f42994540d7963, type: 2}
+  - {fileID: 11400000, guid: 980aa549e63db9f45b17d20c14466a8d, type: 2}
+  - {fileID: 11400000, guid: a40706dd7cea2c2499a17005bd2d47bb, type: 2}
+  - {fileID: 11400000, guid: 9853347ca2194ff4bad760b65b5617ef, type: 2}
+  - {fileID: 11400000, guid: 5099b77767ed1b746aaf5b45c61b480a, type: 2}
+  - {fileID: 11400000, guid: 7c4f0021187bc7c44be5e332133e2582, type: 2}
+  - {fileID: 11400000, guid: bcb588586d19d6b45b12fc403b04860e, type: 2}
+  - {fileID: 11400000, guid: 9b6a7efab05835d468f42994540d7963, type: 2}
+  - {fileID: 11400000, guid: 1acf5967116e63c4a9bff0d550e24cf3, type: 2}
+  buttonPrefab: {fileID: 8901225514751697048, guid: 22230599ae35c8643822f080b1dca703,
+    type: 3}
+  buttonContainer: {fileID: 1988606272}
+  activeButton: {fileID: 0}
+  hire: {fileID: 560752971}
+  mainMenu: {fileID: 1532858959}
 --- !u!1 &2019877684
 GameObject:
   m_ObjectHideFlags: 0
@@ -7438,6 +7404,7 @@ GameObject:
   - component: {fileID: 2019877685}
   - component: {fileID: 2019877687}
   - component: {fileID: 2019877686}
+  - component: {fileID: 2019877688}
   m_Layer: 5
   m_Name: AllCrewBoard
   m_TagString: Untagged
@@ -7503,6 +7470,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019877684}
   m_CullTransparentMesh: 1
+--- !u!114 &2019877688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019877684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49eccfb40600b20419517dacfd2bfe07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelCharacter: {fileID: 247566953}
+  panelAbility: {fileID: 311021819}
+  crewHire: {fileID: 560752971}
+  buttonImagePrefab: {fileID: 7725007834301464937, guid: 2b8edf37170947c48bc561010a013521,
+    type: 3}
+  buttonPanel: {fileID: 1988606278}
+  assignID: 
 --- !u!1 &2027825750
 GameObject:
   m_ObjectHideFlags: 0
@@ -8779,4 +8765,3 @@ SceneRoots:
   - {fileID: 1765634493}
   - {fileID: 1710071168}
   - {fileID: 1332710693}
-  - {fileID: 1575080306}
