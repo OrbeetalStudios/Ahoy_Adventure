@@ -4,7 +4,7 @@ using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 using UnityEngine.UI;
 
-public class AllCrewPanel : MonoBehaviour
+public class CrewBoardSwitch : MonoBehaviour
 {
     [SerializeField]
     private Image soloImage;
@@ -18,18 +18,26 @@ public class AllCrewPanel : MonoBehaviour
     private Sprite defSolo;
     [SerializeField]
     private Sprite defCrew;
+    [SerializeField]
+    private GameObject PanelSolo;
+    [SerializeField]
+    private GameObject PanelCrew;
 
-    
+
 
     public void OnlightSolo()
     {
         soloImage.sprite = LightSolo;
+        PanelSolo.SetActive(true);
+        PanelCrew.SetActive(false);
         CrewImage.sprite = defCrew;
     }
 
     public void OnLightCrew()
     {
         soloImage.sprite = defSolo;
+        PanelSolo.SetActive(false);
+        PanelCrew.SetActive(true);
         CrewImage.sprite = LightCrew;
     }
 }
