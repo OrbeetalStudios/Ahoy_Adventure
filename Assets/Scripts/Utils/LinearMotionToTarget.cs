@@ -4,10 +4,6 @@ using MEC;
 
 public class LinearMotionToTarget : AbstractMotionToTarget
 {
-    protected void Start()
-    {
-        currentSpeed = speed;
-    }
     private void OnEnable()
     {
         moveToTargetHandle = Timing.RunCoroutine(Move().CancelWith(gameObject));
@@ -20,7 +16,7 @@ public class LinearMotionToTarget : AbstractMotionToTarget
             Vector3 relativePos = targetPosition - transform.position;
 
             // Update position
-            transform.position += currentSpeed * Time.deltaTime * relativePos.normalized;
+            transform.position += speed * Time.deltaTime * relativePos.normalized;
             
             yield return Timing.WaitForOneFrame;
         }
