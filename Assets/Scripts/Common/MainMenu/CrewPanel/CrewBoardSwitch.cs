@@ -28,7 +28,6 @@ public class CrewBoardSwitch : MonoBehaviour
     public void OnlightSolo()
     {
         soloImage.sprite = LightSolo;
-        PanelSolo.SetActive(true);
         PanelCrew.SetActive(false);
         CrewImage.sprite = defCrew;
     }
@@ -36,7 +35,6 @@ public class CrewBoardSwitch : MonoBehaviour
     public void OnLightCrew()
     {
         soloImage.sprite = defSolo;
-        PanelSolo.SetActive(false);
         PanelCrew.SetActive(true);
         CrewImage.sprite = LightCrew;
     }
