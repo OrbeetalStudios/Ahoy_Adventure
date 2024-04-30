@@ -27,17 +27,25 @@ public class WavesController : MonoBehaviour
     };
     [SerializeField] private string filenameJson;
     [SerializeField] private float secondsBetweenWaves= 1;
+    private List<WaveToSpawnType> wavesToSpawnList = new();
+    [SerializeField] private List<EJsonTypes> wavesTypesToSpawn;
     private JSONWaves wavesDataJson = new();
     private int numberOfWaves;
     private int currentWave = 0;
     private int waveCounterUI = 1;
-    private bool enemiesEnd, minesEnd, bothEnd;
+    private bool allWavesEnded = false;
 
     // Start is called before the first frame update
     void Start()
     {
         LoadSpawnPoints();
-        LoadWavesData(filenameJson);   
+        LoadWavesData(filenameJson);
+
+        // set up the waves to spawn
+        foreach (var wave in wavesTypesToSpawn)
+        {
+            wavesToSpawnList.Add(new WaveToSpawnType(wave, false));
+        }
     }
 
     public void StartGame()
@@ -67,41 +75,44 @@ public class WavesController : MonoBehaviour
     }
     private IEnumerator<float> SpawnManager()
     {
-        enemiesEnd = false;
-        minesEnd = false;
-        bothEnd = false;
+        allWavesEnded = false;
 
-        Timing.RunCoroutine(SpawnEnemies().CancelWith(gameObject));
-        Timing.RunCoroutine(SpawnMines().CancelWith(gameObject));
+        // start coroutine for each wave to spawn
+        foreach (var wave in wavesToSpawnList)
+        {
+            Timing.RunCoroutine(SpawnWave(wave.objType).CancelWith(gameObject));
+        }
         PlaySFX(waveStartSfxIndex);
         while (true)
         {
-            if (enemiesEnd && minesEnd && !bothEnd)
+            if (AreAllWavesEnded() && !allWavesEnded)
             {
                 if (!wavesDataJson.waves[currentWave].isLast) currentWave++;
 
                 yield return Timing.WaitForSeconds(secondsBetweenWaves);
                 waveCounterUI++;
-                bothEnd = true;
+                allWavesEnded = true;
                 PlaySFX(waveStartSfxIndex);
             }
-            else if (!enemiesEnd && !minesEnd) bothEnd = false;
+            else if (AreAllWavesReset()) allWavesEnded = false;
             
             UpdateUI();
 
             yield return Timing.WaitForOneFrame;
         }
     }
-    private IEnumerator<float> SpawnEnemies()
+    private IEnumerator<float> SpawnWave(EJsonTypes waveObjType)
     {   
-        int currentEnemy = -1;
+        int currentObj = -1;
         List<GameObject> activeObj = new();
+        int waveIndex = wavesToSpawnList.FindIndex(x => x.objType == waveObjType);
+        if (waveIndex == -1) yield break; // something went wrong, exit
 
         while (currentWave < numberOfWaves)
         {
-            currentEnemy++;
+            currentObj++;
 
-            if (currentEnemy >= wavesDataJson.waves[currentWave].enemies.Count)
+            if (currentObj >= wavesDataJson.waves[currentWave].GetCount(waveObjType))
             {
                 bool goOn = true;
                 foreach (GameObject obj in activeObj)
@@ -110,14 +121,14 @@ public class WavesController : MonoBehaviour
                 }
                 if (goOn)
                 {
-                    enemiesEnd = true;
+                    wavesToSpawnList[waveIndex].isWaveEnded = true;
                     activeObj.Clear();
-                    if (bothEnd)
+                    if (allWavesEnded)
                     {
-                        enemiesEnd = false;
+                        wavesToSpawnList[waveIndex].isWaveEnded = false;
                         
-                        if (wavesDataJson.waves[currentWave].enemies.Count == 0) break;
-                        currentEnemy = -1;         
+                        if (wavesDataJson.waves[currentWave].GetCount(waveObjType) == 0) break;
+                        currentObj = -1;         
                     }
                 }
 
@@ -125,64 +136,15 @@ public class WavesController : MonoBehaviour
                 continue;
             }
 
-            JSONEnemy enemy = wavesDataJson.waves[currentWave].enemies[currentEnemy];
-            GameObject enemyShip = PoolController.Instance.GetObjectFromCollection(enemy.GetId());
-            GameObject spawnVfx = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.enemy_spawn_vfx);
-            if (enemyShip != null)
+            JSONBase jsonObjToSpawn = wavesDataJson.waves[currentWave].GetObj(waveObjType, currentObj);
+            GameObject newObj = PoolController.Instance.GetObjectFromCollection(jsonObjToSpawn.GetId());
+            if (newObj != null)
             {
-                SetUpNewGameObject(enemyShip, (EQuadrant)enemy.spawnQuadrant);
+                SetUpNewGameObject(newObj, (EQuadrant)jsonObjToSpawn.spawnQuadrant);
 
-                yield return Timing.WaitForSeconds(enemy.spawnTime);
-                enemyShip.SetActive(true);
-                activeObj.Add(enemyShip);
-                PlaySpawnVFX(enemyShip, spawnVfx);
-            }
-        }
-    }
-    private void PlaySpawnVFX(GameObject enemy, GameObject effect){
-        effect.transform.position = enemy.transform.position;
-        effect.SetActive(true);
-    }
-    private IEnumerator<float> SpawnMines()
-    {    
-        int currentMine = -1;
-        List<GameObject> activeObj = new();
-
-        while (currentWave < numberOfWaves)
-        {
-            currentMine++;
-
-            if (currentMine >= wavesDataJson.waves[currentWave].mines.Count)
-            {
-                bool goOn = true;
-                foreach (GameObject obj in activeObj)
-                {
-                    goOn &= !obj.activeSelf;
-                }
-                if (goOn)
-                {
-                    minesEnd = true;
-                    activeObj.Clear();
-                    if (bothEnd)
-                    {
-                        minesEnd = false;
-                        if (wavesDataJson.waves[currentWave].enemies.Count == 0) break;
-                        currentMine = -1;
-                    }
-                }
-
-                yield return Timing.WaitForSeconds(1);
-                continue;
-            }
-
-            JSONMine mine = wavesDataJson.waves[currentWave].mines[currentMine];
-            GameObject newMine = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.mine);
-            if (newMine != null)
-            {
-                SetUpNewGameObject(newMine, (EQuadrant)mine.spawnQuadrant);
-
-                yield return Timing.WaitForSeconds(mine.spawnTime);
-                newMine.SetActive(true);
+                yield return Timing.WaitForSeconds(jsonObjToSpawn.spawnTime);
+                newObj.SetActive(true);
+                activeObj.Add(newObj);
             }
         }
     }
@@ -207,9 +169,29 @@ public class WavesController : MonoBehaviour
     {
         currentWaveText.text = "Wave: " + waveCounterUI.ToString();
     }
+    private bool AreAllWavesEnded()
+    {
+        return !wavesToSpawnList.Exists(x => x.isWaveEnded == false);
+    }
+    private bool AreAllWavesReset()
+    {
+        return !wavesToSpawnList.Exists(x => x.isWaveEnded == true);
+    }
 
     private void PlaySFX(int index){
         AudioManager.Instance.PlaySpecificOneShot(index);
+    }
+}
+
+public class WaveToSpawnType
+{
+    public EJsonTypes objType;
+    public bool isWaveEnded;
+
+    public WaveToSpawnType(EJsonTypes a, bool b)
+    {
+        objType = a;
+        isWaveEnded = b;
     }
 }
 

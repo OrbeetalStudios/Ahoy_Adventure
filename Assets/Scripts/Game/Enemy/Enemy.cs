@@ -63,8 +63,10 @@ public class Enemy : EnemyMovement
     }
     private void OnEnable()
     {
-        currentLives = MaxLives;
         base.OnEnable();
+        currentLives = MaxLives;
+
+        PlayVFX(gameObject, PoolController.Instance.GetObjectFromCollection(EPoolObjectType.enemy_spawn_vfx));
     }
     private void OnDisable()
     {
