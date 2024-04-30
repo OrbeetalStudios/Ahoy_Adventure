@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
     public Animator anim;
     [SerializeField]
     private GameObject exitButtonCredits;
+    public GameObject buttonSettings;
   
 
 
@@ -45,6 +46,8 @@ public class MainMenu : MonoBehaviour
             settings.SetActive(true);
             buttonPanel.SetActive(false);
             OpenSettings = true;
+            buttonSettings.SetActive(false);
+            OnClickSound();
 
         }
         else
@@ -52,6 +55,8 @@ public class MainMenu : MonoBehaviour
             OpenSettings = false;
             buttonPanel.SetActive(true);
             settings.SetActive(false);
+            buttonSettings.SetActive(true);
+            OnClickSound();
         }
         
     }
@@ -90,10 +95,6 @@ public class MainMenu : MonoBehaviour
         anim.Play("FadOutCredits",0);
     }
 
-    public void ExitSettings()
-    {
-        settings.SetActive(false);
-    }
 
     public void ExitGame()
     {
