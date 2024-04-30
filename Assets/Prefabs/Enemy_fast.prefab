@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  MultiplierAllowed: 1
   distanceTraveled: 0
   spawnChance: 0.33
   assaultArea: {fileID: 2871684803554304643}

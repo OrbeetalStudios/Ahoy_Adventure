@@ -9,8 +9,6 @@ public class Box : LinearMotionToTarget
     {
         targetPosition = Vector3.zero;
         targetPosition.y = 0f;
-
-        base.Start();
     }
     void OnTriggerEnter(Collider other)
     {

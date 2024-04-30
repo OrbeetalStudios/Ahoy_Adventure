@@ -13253,12 +13253,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d89cef3b7ff82d49aa04e0df1a4b678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bDontDestroyOnLoad: 0
   currentWaveText: {fileID: 1234993670}
   waveStartSfxIndex: 16
   spawnPointPrefab: {fileID: 2488922333133670303, guid: 0581bb66a555e7c45bb3ced54de441d4,
     type: 3}
   filenameJson: wavesJson
-  secondsBetweenWaves: 1
   wavesTypesToSpawn: 0000000001000000
 --- !u!4 &1414464500
 Transform:
