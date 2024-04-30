@@ -14,6 +14,7 @@ public class CrewButtonsPanel : MonoBehaviour
     public Button activeButton;
     public CrewButton crewButton;
     public CrewHire hire;
+    public GameObject panelCrew;
    
    
     private void Start()
@@ -52,6 +53,7 @@ public class CrewButtonsPanel : MonoBehaviour
 
     private void OnButtonClick(Button newButton)
     {
+        panelCrew.SetActive(true);
         AudioManager.Instance.PlaySpecificOneShot(4);
         // Rimuovi il bottone attualmente attivo dalla lista
         if (activeButton != null)

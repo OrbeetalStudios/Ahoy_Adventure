@@ -487,7 +487,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choose your pirates!
+  m_text: 'Choose your Dumblings!
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9131e592c5ab25842be91ec05b04a6d4, type: 2}
   m_sharedMaterial: {fileID: 3703565654224285237, guid: 9131e592c5ab25842be91ec05b04a6d4,
@@ -576,13 +578,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 802257729}
+  m_Children:
+  - {fileID: 338859572}
+  m_Father: {fileID: 178173098}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 56.775, y: -42.74994}
-  m_SizeDelta: {x: 644.51, y: 334.6761}
+  m_AnchoredPosition: {x: -0.0000023841858, y: 0.0000076293945}
+  m_SizeDelta: {x: 1215, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &175124712
 GameObject:
@@ -735,6 +738,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 172021784}
   - {fileID: 431198717}
   - {fileID: 802257729}
   - {fileID: 1212507861}
@@ -2039,6 +2043,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338107691}
   m_CullTransparentMesh: 1
+--- !u!1 &338859571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 338859572}
+  - component: {fileID: 338859574}
+  - component: {fileID: 338859573}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &338859572
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338859571}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 172021784}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &338859573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338859571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 8823949adbd5a1e46ac0d5495aacc52b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &338859574
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338859571}
+  m_CullTransparentMesh: 1
 --- !u!1 &350527830
 GameObject:
   m_ObjectHideFlags: 0
@@ -3183,7 +3262,6 @@ RectTransform:
   - {fileID: 967240085}
   - {fileID: 1651385826}
   - {fileID: 2031960974}
-  - {fileID: 172021784}
   m_Father: {fileID: 178173098}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3595,6 +3673,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9b6a7efab05835d468f42994540d7963, type: 2}
   - {fileID: 11400000, guid: 1acf5967116e63c4a9bff0d550e24cf3, type: 2}
   - {fileID: 11400000, guid: a40706dd7cea2c2499a17005bd2d47bb, type: 2}
+  assignedCrew: []
+  idPurchased: 
+  idAssigned: 
+  doubloons: 0
 --- !u!1 &967240084
 GameObject:
   m_ObjectHideFlags: 0
@@ -4632,7 +4714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1212507861
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5853,9 +5935,6 @@ MonoBehaviour:
   creditsPanel: {fileID: 1286965323}
   anim: {fileID: 1286965327}
   exitButtonCredits: {fileID: 1794720472}
-  idPurchased: 
-  idAssigned: 
-  doubloons: 0
 --- !u!1 &1580002651
 GameObject:
   m_ObjectHideFlags: 0
@@ -7434,23 +7513,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee65aaa2778cae45bab94f144a469c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CrewData:
-  - {fileID: 11400000, guid: dd295e5e3192e28448cc3dae309608e3, type: 2}
-  - {fileID: 11400000, guid: 9b6a7efab05835d468f42994540d7963, type: 2}
-  - {fileID: 11400000, guid: 980aa549e63db9f45b17d20c14466a8d, type: 2}
-  - {fileID: 11400000, guid: a40706dd7cea2c2499a17005bd2d47bb, type: 2}
-  - {fileID: 11400000, guid: 9853347ca2194ff4bad760b65b5617ef, type: 2}
-  - {fileID: 11400000, guid: 5099b77767ed1b746aaf5b45c61b480a, type: 2}
-  - {fileID: 11400000, guid: 7c4f0021187bc7c44be5e332133e2582, type: 2}
-  - {fileID: 11400000, guid: bcb588586d19d6b45b12fc403b04860e, type: 2}
-  - {fileID: 11400000, guid: 9b6a7efab05835d468f42994540d7963, type: 2}
-  - {fileID: 11400000, guid: 1acf5967116e63c4a9bff0d550e24cf3, type: 2}
   buttonPrefab: {fileID: 8901225514751697048, guid: 22230599ae35c8643822f080b1dca703,
     type: 3}
   buttonContainer: {fileID: 1988606272}
   activeButton: {fileID: 0}
   crewButton: {fileID: 0}
   hire: {fileID: 560752971}
+  panelCrew: {fileID: 1212507860}
 --- !u!1 &2019877684
 GameObject:
   m_ObjectHideFlags: 0
@@ -7545,7 +7614,6 @@ MonoBehaviour:
   crewHire: {fileID: 560752971}
   buttonImagePrefab: {fileID: 7725007834301464937, guid: 2b8edf37170947c48bc561010a013521,
     type: 3}
-  buttonPanel: {fileID: 1988606278}
   assignID: 
 --- !u!1 &2027825750
 GameObject:
