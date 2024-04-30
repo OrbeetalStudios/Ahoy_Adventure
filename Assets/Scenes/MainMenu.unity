@@ -3676,15 +3676,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bDontDestroyOnLoad: 1
   crewData:
-  - {fileID: 11400000, guid: 9853347ca2194ff4bad760b65b5617ef, type: 2}
-  - {fileID: 11400000, guid: 5099b77767ed1b746aaf5b45c61b480a, type: 2}
-  - {fileID: 11400000, guid: 980aa549e63db9f45b17d20c14466a8d, type: 2}
-  - {fileID: 11400000, guid: 7c4f0021187bc7c44be5e332133e2582, type: 2}
-  - {fileID: 11400000, guid: bcb588586d19d6b45b12fc403b04860e, type: 2}
   - {fileID: 11400000, guid: dd295e5e3192e28448cc3dae309608e3, type: 2}
   - {fileID: 11400000, guid: 9b6a7efab05835d468f42994540d7963, type: 2}
-  - {fileID: 11400000, guid: 1acf5967116e63c4a9bff0d550e24cf3, type: 2}
+  - {fileID: 11400000, guid: 980aa549e63db9f45b17d20c14466a8d, type: 2}
   - {fileID: 11400000, guid: a40706dd7cea2c2499a17005bd2d47bb, type: 2}
+  - {fileID: 11400000, guid: 9853347ca2194ff4bad760b65b5617ef, type: 2}
+  - {fileID: 11400000, guid: 5099b77767ed1b746aaf5b45c61b480a, type: 2}
+  - {fileID: 11400000, guid: 7c4f0021187bc7c44be5e332133e2582, type: 2}
+  - {fileID: 11400000, guid: bcb588586d19d6b45b12fc403b04860e, type: 2}
+  - {fileID: 11400000, guid: 1acf5967116e63c4a9bff0d550e24cf3, type: 2}
   assignedCrew: []
   idPurchased: 
   idAssigned: 
