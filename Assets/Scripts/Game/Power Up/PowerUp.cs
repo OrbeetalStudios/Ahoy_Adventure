@@ -5,17 +5,16 @@ using MEC;
 
 public class PowerUp : MonoBehaviour
 {
-    private CoroutineHandle waitHandle;
     public PowerUpData data;
-   [SerializeField] private bool active = false;
-     [SerializeField] private int currentDurationTime;
+    [SerializeField] private bool active = false;
+    [SerializeField] private int currentDurationTime;
 
     public void Collected()
     {
         currentDurationTime = data.DurationInSeconds; // reset power up duration counter
         if (!active && !data.IsOneShot)
         {
-            waitHandle = Timing.RunCoroutine(WaitPowerUpDuration().CancelWith(gameObject));
+            Timing.RunCoroutine(WaitPowerUpDuration().CancelWith(gameObject));
         }
 
         // Send message to any listeners
