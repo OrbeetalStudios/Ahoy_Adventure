@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  MultiplierAllowed: 1
+  collisionSfxIndex: 0
 --- !u!65 &6165362779206876814
 BoxCollider:
   m_ObjectHideFlags: 0

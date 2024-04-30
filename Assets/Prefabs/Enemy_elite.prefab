@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  MultiplierAllowed: 1
   distanceTraveled: 0
   spawnChance: 1
   assaultArea: {fileID: 7823696862274009246}
