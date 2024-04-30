@@ -80,7 +80,7 @@ public class CrewHire : MonoBehaviour
                     {
                         BuyPirate(characterID);
                         Image.sprite = sprites[1];
-                        text.text = "Assigned";
+                        text.text = "Assign";
                         AudioManager.Instance.PlaySpecificOneShot(10);
 
                     }
@@ -109,7 +109,7 @@ public class CrewHire : MonoBehaviour
                 case 2:
                     crewPanel.Dismiss(characterID);
                     Image.sprite = sprites[1];
-                    text.text = "Assigned";
+                    text.text = "Assign";
                     lastIndex = 1;
                     RemoveMainManuListIndex(characterID);
                     AudioManager.Instance.PlaySpecificOneShot(17);
@@ -143,7 +143,7 @@ public class CrewHire : MonoBehaviour
             if (lastIndex == 1)
             {
                 Image.sprite = sprites[1];
-                text.text = "Assigned";
+                text.text = "Assign";
             }
             else
             {
