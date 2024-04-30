@@ -4,6 +4,14 @@ using MEC;
 
 public class Enemy : EnemyMovement
 {
+    private enum EEnemyType
+    { 
+        enemy_default = 0,
+        enemy_slow = 1,
+        enemy_fast = 2,
+        enemy_elite = 3
+    }
+
     [SerializeField, Range(0f, 1f)] private float spawnChance;
     [SerializeField] private GameObject assaultArea;
     [SerializeField] private GameObject plunderBar;
@@ -13,16 +21,17 @@ public class Enemy : EnemyMovement
     [SerializeField] private int enemyStartPlunderingSfxIndex;
     [SerializeField] private int enemyCollisionSfxIndex;
     [SerializeField, Range(0, 6)] private int plunderQuantity;
+    [SerializeField] private int MaxLives = 1;
+    [SerializeField] private EEnemyType enemyType;
+    private int currentLives;
     public int plunderTime;
     public int plunderDefault;
     public bool isEngaged = false;
-    private Island IslandScript;
 
     private void Awake()
     {
-        plunderDefault = plunderTime;
-        GameObject islandObject = GameObject.FindWithTag("Island");
-        IslandScript= islandObject.GetComponent<Island>();    
+        currentLives = MaxLives;
+        plunderDefault = plunderTime;  
         plunderBar.GetComponent<PlunderBar>().SetMaxPlunderTime(plunderTime);
     }
     void OnTriggerEnter(Collider other)
@@ -36,20 +45,26 @@ public class Enemy : EnemyMovement
                 PlaySFX(enemyCollisionSfxIndex);
                 break;
             case "Bullet":
-                GameController.Instance.UpdateScore();
-                SpawnBox();
+                currentLives--;
+                if (currentLives <= 0) // enemy dead
+                {
+                    OnDeath();
+                }
                 // TODO: if elite or not
                 GameObject destroyVfx = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.enemy_destroy_vfx);
                 PlayVFX(gameObject, destroyVfx);
                 PlaySFX(enemyHitSfxIndex);
-                //
                 other.gameObject.SetActive(false);//Deactivate Bullet
-                gameObject.SetActive(false);
                 break;
             case "Island":
                 StartPlunder();
                 break;
         }        
+    }
+    private void OnEnable()
+    {
+        currentLives = MaxLives;
+        base.OnEnable();
     }
     private void OnDisable()
     {
@@ -58,6 +73,19 @@ public class Enemy : EnemyMovement
         plunderTime = plunderDefault;
         render.material = originalMaterial;
         plunderBar.SetActive(false);
+    }
+    private void OnDeath()
+    {
+        GameController.Instance.UpdateScore();
+        SpawnBox();
+
+        // se elite, dai un doblone
+        if (enemyType == EEnemyType.enemy_elite)
+        {
+            PowerUpController.Instance.ActivatePowerUp(EPowerUpType.DoubloonUp);
+        }
+
+        gameObject.SetActive(false);
     }
     private void StartPlunder()
     {
@@ -88,7 +116,7 @@ public class Enemy : EnemyMovement
                 Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
                 rotation *= Quaternion.Euler(0, 180, 0);
                 transform.rotation = rotation;
-                IslandScript.DecreaseTreasure(plunderQuantity);
+                Island.Instance.DecreaseTreasure(plunderQuantity);
                 Timing.RunCoroutine(ReturnOutsideMap(relativePos).CancelWith(gameObject));
                 plunderBar.SetActive(false);
                 break;

@@ -14486,7 +14486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2f81be8250b2d44a0cbf652641a551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1036650266193326275}
+  ship: {fileID: 1036650266193326275}
   offset: {x: 8, y: 0, z: 0}
 --- !u!114 &1400073484
 MonoBehaviour:
@@ -16269,7 +16269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2f81be8250b2d44a0cbf652641a551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1036650266193326275}
+  ship: {fileID: 1036650266193326275}
   offset: {x: 0, y: 21, z: 0}
 --- !u!1 &1674004486
 GameObject:
@@ -21115,7 +21115,7 @@ PrefabInstance:
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}
       propertyPath: dataList.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}
@@ -21151,6 +21151,12 @@ PrefabInstance:
       propertyPath: dataList.Array.data[4]
       value: 
       objectReference: {fileID: 11400000, guid: f9a65886abff4174d85971ccb96a6ec9,
+        type: 2}
+    - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
+        type: 3}
+      propertyPath: dataList.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 761b58d72de2ffa41a3faf24e28d5bf1,
         type: 2}
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}

@@ -9,11 +9,13 @@ public class Island : MonoSingleton<Island>
     // Start is called before the first frame update
     void Awake()
     {
+        base.Awake();
+
         currentTreasure = maxTreasure;
     }
 
     public void DecreaseTreasure(int amount)
-   {
+    {
         PlaySFX(treasureLostSfxIndex);
         currentTreasure -= amount;
         GameController.Instance.UpdateTreasureUI(currentTreasure);
@@ -22,7 +24,7 @@ public class Island : MonoSingleton<Island>
             //Game over
             GameController.Instance.GameOver();
         }
-   }
+    }
 
     private void PlaySFX(int index){
         AudioManager.Instance.PlaySpecificOneShot(index);

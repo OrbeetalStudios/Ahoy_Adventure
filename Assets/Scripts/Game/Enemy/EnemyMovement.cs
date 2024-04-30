@@ -7,7 +7,7 @@ public class EnemyMovement : AbstractMotionToTarget
     [SerializeField] private float distanceTraveled;
     private float distanceThreshold = 150f;
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         moveToTargetHandle = Timing.RunCoroutine(Move().CancelWith(gameObject));
     }
