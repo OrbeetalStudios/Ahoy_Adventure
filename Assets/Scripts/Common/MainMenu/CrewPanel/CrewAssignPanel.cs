@@ -9,26 +9,22 @@ public class CrewAssignPanel : MonoBehaviour
     [SerializeField] private Transform panelAbility;
     [SerializeField] private CrewHire crewHire;
     [SerializeField] Image buttonImagePrefab;
-    [SerializeField]
-    private CrewButtonsPanel buttonPanel;
-    private List<CrewData> crewDataList;
     public List<int> assignID = new List<int>();
 
 
     private void Start()
     {
-        crewDataList=buttonPanel.CrewData;
         CreateLastCrew();
     }
 
     public void CreateLastCrew()
     {
-        assignID = crewHire.idAssigned;
+        assignID = CrewController.Instance.idAssigned;
         foreach (int id in assignID)
         {
             // Trova il bottone dell'equipaggio corrispondente all'ID assegnato
             CrewData crewButton = null;
-            foreach (CrewData button in buttonPanel.CrewData)
+            foreach (CrewData button in CrewController.Instance.crewData)
             {
                 if (button.characterID == id)
                 {

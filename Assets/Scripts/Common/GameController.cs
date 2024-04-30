@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPlayerEvent
+public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPlayerEvent,IDataPeristence
 {
     // Dichiarazione degli eventi per la vita, il punteggio e le munizioni
     public event Action<int> LifeUpdated;
@@ -41,11 +41,9 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
 
     private void Start()
     {
+        DataPersistenceManager.instance.NowLoad();
         currentLives = defaultStartLives;
         scoreIncrement = defaultScoreIncrement;
-
-        // Read saved amount of doubloons collected by user up to now
-        currentDoubloonAmount = SavedDataManager.ReadInt(SavedDataManager.ESavedDataType.HighScore);
 
         // iscriviti a eventlistener per ricevere gli eventi
         EventListener.Instance.AddListener(this.gameObject);
@@ -90,6 +88,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
 
     public void GameOver()
     {
+        DataPersistenceManager.instance.NowSave();  
         AudioManager.Instance.StopSpecificMusic(2);
         AudioManager.Instance.PlaySpecificOneShot(9);
         GameOverPanel.SetActive(true);
@@ -222,8 +221,8 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
                 BonusPanel.transform.Find("Life").gameObject.SetActive(true);
                 break;
             case EPowerUpType.DoubloonUp:
-                // save the doubloons
-                SavedDataManager.WriteInt(SavedDataManager.ESavedDataType.HighScore, ++currentDoubloonAmount);
+                 currentDoubloonAmount+=(int)data.Value;
+            
                 BonusPanel.transform.Find("Doubloon").gameObject.SetActive(true);
                 break;
             default:
@@ -252,5 +251,15 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         {
             treasureImages[i].gameObject.SetActive(i < currentTreasure);
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        currentDoubloonAmount=data.doubloons;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.doubloons = currentDoubloonAmount;
     }
 }

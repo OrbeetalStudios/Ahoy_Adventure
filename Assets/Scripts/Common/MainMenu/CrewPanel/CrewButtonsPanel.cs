@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class CrewButtonsPanel : MonoBehaviour
 {
-    public List<CrewData> CrewData;
+    //public List<CrewData> CrewData;
     public GameObject buttonPrefab;
     public Transform buttonContainer; // Riferimento al contenitore dei bottoni nel pannello
     public Button activeButton;
@@ -25,7 +25,7 @@ public class CrewButtonsPanel : MonoBehaviour
 
     public void CreateButtons()
     {
-        foreach (var crewData in CrewData)
+        foreach (var crewData in CrewController.Instance.crewData)
         {
             // Istanzia il prefab del bottone
             GameObject newButtonObject = Instantiate(buttonPrefab, buttonContainer);

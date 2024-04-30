@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour, IDataPeristence
+public class MainMenu : MonoBehaviour
 {
     [SerializeField]
     private GameObject settings;
@@ -21,14 +21,14 @@ public class MainMenu : MonoBehaviour, IDataPeristence
     public Animator anim;
     [SerializeField]
     private GameObject exitButtonCredits;
-    public List<int> idPurchased = new List<int>();
-    public List<int> idAssigned= new List<int>();
-    public int doubloons;
+  
+
 
     public void Start()
     {
         AudioManager.Instance.PlaySpecificMusic(0);
         DataPersistenceManager.instance.NowLoad();
+
     }
 
    
@@ -72,6 +72,7 @@ public class MainMenu : MonoBehaviour, IDataPeristence
             AudioManager.Instance.PlaySpecificMusic(0);
             crew.SetActive(false) ;
             DataPersistenceManager.instance.NowSave();
+            CrewController.Instance.SetCrewData();
 
         }
     }
@@ -115,17 +116,5 @@ public class MainMenu : MonoBehaviour, IDataPeristence
         AudioManager.Instance.PlaySpecificOneShot(13);
     }
 
-    public void LoadData(GameData data)
-    {
-       idPurchased=data.idPurchased;    
-       idAssigned=data.idAssigned;
-       doubloons=data.doubloons;
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        data.idPurchased = idPurchased;
-        data.idAssigned = idAssigned;
-        data.doubloons = doubloons;
-    }
+    
 }

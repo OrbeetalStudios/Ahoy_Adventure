@@ -40,9 +40,9 @@ public class CrewHire : MonoBehaviour
 
     private void OnEnable()
     {
-        idPurchased=mainMenu.idPurchased;
-        idAssigned=mainMenu.idAssigned;
-        doubloons = mainMenu.doubloons;//I dobloni saranno gestiti da MainMenu
+        idPurchased=CrewController.Instance.idPurchased;
+        idAssigned= CrewController.Instance.idAssigned;
+        doubloons = CrewController.Instance.doubloons;//I dobloni saranno gestiti da MainMenu
         doubloonsText.text = doubloons.ToString();//Applica la scritta hai dobloni
     }
     public void SetButton(CrewButton currentButton)
@@ -130,7 +130,7 @@ public class CrewHire : MonoBehaviour
         purchased = true;
         lastIndex = 1;
         doubloons -= cost;
-        mainMenu.doubloons = doubloons;
+        CrewController.Instance.doubloons = doubloons;
         doubloonsText.text = doubloons.ToString();
        
     }
@@ -162,24 +162,24 @@ public class CrewHire : MonoBehaviour
 
     public void AddMainManuListPurchased(int characterID)
     {
-        if (!mainMenu.idPurchased.Contains(characterID))
+        if (!CrewController.Instance.idPurchased.Contains(characterID))
         {
-            mainMenu.idPurchased.Add(characterID);
+            CrewController.Instance.idPurchased.Add(characterID);
         }
     }
 
     public void AddMainManuListIndex(int characterID)
     {
-        if (!mainMenu.idAssigned.Contains(characterID))
+        if (!CrewController.Instance.idAssigned.Contains(characterID))
         {
-            mainMenu.idAssigned.Add(characterID);
+            CrewController.Instance.idAssigned.Add(characterID);
         }
     }
     public void RemoveMainManuListIndex(int characterID)
     {
-        if (mainMenu.idAssigned.Contains(characterID))
+        if (CrewController.Instance.idAssigned.Contains(characterID))
         {
-            mainMenu.idAssigned.Remove(characterID);
+            CrewController.Instance.idAssigned.Remove(characterID);
         }
     }
 
