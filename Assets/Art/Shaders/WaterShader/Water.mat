@@ -56,9 +56,9 @@ Material:
     - _QueueControl: 1
     - _QueueOffset: 0
     - _RefracrtionSpeed: 0.06
-    - _RefractionScale: -6.51
-    - _RefreactionStrength: 0.09
-    - _Smoothness: 0.47
+    - _RefractionScale: -6.86
+    - _RefreactionStrength: -0.06
+    - _Smoothness: 0.478
     - _WaveAmplitude: 0.01
     - _WaveSpeed: 0.7
     m_Colors:
