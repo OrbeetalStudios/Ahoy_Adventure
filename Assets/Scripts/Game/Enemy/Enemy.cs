@@ -14,6 +14,7 @@ public class Enemy : EnemyMovement
 
     [SerializeField, Range(0f, 1f)] private float spawnChanceBox;
     [SerializeField, Range(0f, 1f)] private float spawnChanceMine;
+    [SerializeField] private float spawnMineThreshold = 90f;
     [SerializeField] private GameObject assaultArea;
     [SerializeField] private GameObject plunderBar;
     [SerializeField] private Renderer render;
@@ -138,6 +139,11 @@ public class Enemy : EnemyMovement
         int index = WeightedRandom.GetRandomWeightedIndex(weights);
 
         if (index >= 2) return;
+        if (index == 1) // mine
+        {
+            if (Vector3.Distance(this.transform.position, targetPosition) < spawnMineThreshold) 
+                return;
+        }
 
         GameObject box = PoolController.Instance.GetObjectFromCollection(index == 0 ? EPoolObjectType.box : EPoolObjectType.mine);
         box.transform.localPosition = this.transform.localPosition;
