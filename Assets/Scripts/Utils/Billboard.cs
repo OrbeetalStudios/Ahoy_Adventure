@@ -1,3 +1,4 @@
+using MEC;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,16 @@ public class Billboard : MonoBehaviour
 
     private void Awake() {
         camera = Camera.main.transform;
+        Timing.RunCoroutine(BillCoroutine().CancelWith(gameObject));
     }
 
-    // Update is called once per frame
-    void LateUpdate()
+    protected IEnumerator<float> BillCoroutine()
     {
-        transform.LookAt(new Vector3(camera.position.x, camera.position.y, 1000)); 
+        while (isActiveAndEnabled)
+        {
+            transform.LookAt(new Vector3(camera.position.x, camera.position.y, 1000));
+            yield return Timing.WaitForOneFrame;
+        }
     }
+
 }
