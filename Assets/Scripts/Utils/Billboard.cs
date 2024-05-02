@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Billboard : MonoBehaviour
 {
-    Transform camera;
+     Transform Cam;
 
-    private void Awake() {
-        camera = Camera.main.transform;
+    private void OnEnable() {
+        Cam = Camera.main.transform;
         Timing.RunCoroutine(BillCoroutine().CancelWith(gameObject));
     }
 
@@ -16,7 +16,7 @@ public class Billboard : MonoBehaviour
     {
         while (isActiveAndEnabled)
         {
-            transform.LookAt(new Vector3(camera.position.x, camera.position.y, 1000));
+            transform.LookAt(new Vector3(Cam.position.x, Cam.position.y, 1000));
             yield return Timing.WaitForOneFrame;
         }
     }
