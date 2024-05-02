@@ -215,7 +215,8 @@ MonoBehaviour:
   speed: 4
   MultiplierAllowed: 1
   distanceTraveled: 0
-  spawnChance: 0.33
+  spawnChanceBox: 0.4
+  spawnChanceMine: 0.6
   assaultArea: {fileID: 8358944469325113104}
   plunderBar: {fileID: 594739674574156260}
   render: {fileID: 7540039136025590463}

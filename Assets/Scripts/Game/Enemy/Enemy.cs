@@ -12,7 +12,8 @@ public class Enemy : EnemyMovement
         enemy_elite = 3
     }
 
-    [SerializeField, Range(0f, 1f)] private float spawnChance;
+    [SerializeField, Range(0f, 1f)] private float spawnChanceBox;
+    [SerializeField, Range(0f, 1f)] private float spawnChanceMine;
     [SerializeField] private GameObject assaultArea;
     [SerializeField] private GameObject plunderBar;
     [SerializeField] private Renderer render;
@@ -133,9 +134,12 @@ public class Enemy : EnemyMovement
     }
     private void SpawnBox()
     {
-        if (spawnChance == 0f || Random.value > spawnChance) return; // if random value is between 0 and spawnChanche, go on and spawn a box
+        float[] weights = new float[]{ spawnChanceBox, spawnChanceMine, 1 - (spawnChanceBox + spawnChanceMine) };
+        int index = WeightedRandom.GetRandomWeightedIndex(weights);
 
-        GameObject box = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.box);
+        if (index >= 2) return;
+
+        GameObject box = PoolController.Instance.GetObjectFromCollection(index == 0 ? EPoolObjectType.box : EPoolObjectType.mine);
         box.transform.localPosition = this.transform.localPosition;
         box.SetActive(true);
     }
