@@ -34,6 +34,7 @@ public class EnemyMovement : AbstractMotionToTarget
             {
                 distanceTraveled = 0;
                 gameObject.SetActive(false);
+                PlayVFX(gameObject, PoolController.Instance.GetObjectFromCollection(EPoolObjectType.enemy_spawn_vfx));
                 break;
             }
             yield return Timing.WaitForOneFrame;
@@ -118,4 +119,8 @@ public class EnemyMovement : AbstractMotionToTarget
     //         material.DisableKeyword("_ALPHABLEND_ON");
     // }
 
+    private void PlayVFX(GameObject parent, GameObject effect){
+        effect.transform.position = parent.transform.position;
+        effect.SetActive(true);
+    }
 }
