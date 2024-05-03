@@ -19,7 +19,8 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     [SerializeField] private TMP_Text scoreOver;
     [SerializeField] private Image[] lifeImages;
     [SerializeField] private Image[] ammoImages;
-    [SerializeField] private Image[] treasureImages;
+    [SerializeField] private Image[] greenTreasureImages;
+    [SerializeField] private Image redTreasureImage;
     [SerializeField] private TMP_Text[] scoreTextGameOver;
     [SerializeField] private GameObject GameOverPanel;
     [SerializeField] private GameObject PausePanel;
@@ -255,10 +256,19 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         UpdateLifeUI();
     }
 
-    public void UpdateTreasureUI(int currentTreasure){
-        for (int i = 0; i < treasureImages.Length; i++)
-        {
-            treasureImages[i].gameObject.SetActive(i < currentTreasure);
+    public void UpdateTreasureUI(float currentTreasure){
+        if(currentTreasure%1==0){
+            redTreasureImage.gameObject.SetActive(false);
+            for (int i = 0; i < greenTreasureImages.Length; i++)
+            {
+                greenTreasureImages[i].gameObject.SetActive(i < currentTreasure);
+            }
+        } else {
+            for (int i = 0; i < greenTreasureImages.Length; i++)
+            {
+                greenTreasureImages[i].gameObject.SetActive(i < (currentTreasure-1));
+            }
+            redTreasureImage.gameObject.SetActive(true);
         }
     }
 

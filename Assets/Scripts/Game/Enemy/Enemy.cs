@@ -22,7 +22,7 @@ public class Enemy : EnemyMovement
     [SerializeField] private int enemyHitSfxIndex;
     [SerializeField] private int enemyStartPlunderingSfxIndex;
     [SerializeField] private int enemyCollisionSfxIndex;
-    [SerializeField, Range(0, 6)] private int plunderQuantity;
+    [SerializeField, Range(0, 3)] private float plunderQuantity;
     [SerializeField] private int MaxLives = 1;
     [SerializeField] private EEnemyType enemyType;
     private int currentLives;
@@ -51,11 +51,12 @@ public class Enemy : EnemyMovement
                 if (currentLives <= 0) // enemy dead
                 {
                     OnDeath();
+                } else {
+                    GameObject eliteEnemyHitEffect = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.elite_enemy_hit);
+                    PlayVFX(gameObject, eliteEnemyHitEffect);
+                    PlaySFX(enemyHitSfxIndex);
                 }
                 // TODO: if elite or not
-                GameObject destroyVfx = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.enemy_destroy_vfx);
-                PlayVFX(gameObject, destroyVfx);
-                PlaySFX(enemyHitSfxIndex);
                 other.gameObject.SetActive(false);//Deactivate Bullet
                 break;
             case "Island":
@@ -80,6 +81,9 @@ public class Enemy : EnemyMovement
     }
     private void OnDeath()
     {
+        GameObject destroyVfx = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.enemy_destroy_vfx);
+        PlayVFX(gameObject, destroyVfx);
+        PlaySFX(enemyHitSfxIndex);
         GameController.Instance.UpdateScore();
         SpawnBox();
 
