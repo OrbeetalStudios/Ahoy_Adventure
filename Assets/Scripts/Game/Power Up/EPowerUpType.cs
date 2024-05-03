@@ -1,10 +1,13 @@
 public enum EPowerUpType
 {
+    // From boxes
     FireRate,
     Speed,
-    //PlunderRate,
     Invulnerability,
     KillGold,
     LifeUp,
-    DoubloonUp
+    DoubloonUp,
+
+    // From Crew
+    HPTreasure
 }

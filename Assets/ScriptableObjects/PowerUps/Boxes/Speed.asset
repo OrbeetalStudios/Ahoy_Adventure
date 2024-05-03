@@ -16,6 +16,6 @@ MonoBehaviour:
   Type: 1
   img: {fileID: 21300000, guid: fc44831b395e19346bcc9ce402cb5753, type: 3}
   DurationInSeconds: 20
-  Value: 1
-  IsOneShot: 0
+  Value: 0.4
+  IsPermanent: 0
   spawnChance: 3

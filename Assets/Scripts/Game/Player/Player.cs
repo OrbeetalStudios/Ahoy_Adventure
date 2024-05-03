@@ -30,6 +30,9 @@ public class Player : PlayerMovement, IPowerUpEvent
         base.Start();
         // iscriviti a eventlistener per ricevere gli eventi
         EventListener.Instance.AddListener(this.gameObject);
+
+        // Apply crew power ups
+        CrewController.Instance.ActivateCrew();
     }
     private void OnEnable()
     {
@@ -149,16 +152,16 @@ public class Player : PlayerMovement, IPowerUpEvent
         switch (data.Type)
         {
             case EPowerUpType.FireRate:
-                fireRatio = data.Value;
-                CheckAndMoveSkin(fireratePowSkin);
+                fireRatio += data.Value;
+                if (!data.IsPermanent) CheckAndMoveSkin(fireratePowSkin);
                 break;
             case EPowerUpType.Speed:
-                speed = data.Value;
-                CheckAndMoveSkin(speedPowSkin);
+                speed += data.Value;
+                if (!data.IsPermanent) CheckAndMoveSkin(speedPowSkin);
                 break;
             case EPowerUpType.Invulnerability:
                 invulnerabilityOn = true;
-                CheckAndMoveSkin(invulnerabilityPowSkin);
+                if (!data.IsPermanent) CheckAndMoveSkin(invulnerabilityPowSkin);
                 break;
             default:
                 break;
@@ -170,11 +173,11 @@ public class Player : PlayerMovement, IPowerUpEvent
         switch (data.Type)
         {
             case EPowerUpType.FireRate:
-                fireRatio = defaultFireRatio;
+                fireRatio -= data.Value;
                 skinList.Remove(fireratePowSkin);
                 break;
             case EPowerUpType.Speed:
-                speed = defaultSpeed;
+                speed -= data.Value;
                 skinList.Remove(speedPowSkin);
                 break;
             case EPowerUpType.Invulnerability:

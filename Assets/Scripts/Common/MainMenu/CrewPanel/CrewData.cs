@@ -6,6 +6,14 @@ using UnityEngine;
 
 public class CrewData : ScriptableObject
 {
+    public enum CategoryID
+    {
+        Normal,
+        Special,
+        Legend
+    }
+
+    public CategoryID Category;
     public int characterID;
     public string characterName;
     public string ability;
@@ -15,24 +23,6 @@ public class CrewData : ScriptableObject
     public Sprite AbilitySprite;
     public Sprite buttonSprite;
     public Sprite buttonSpriteLight;
-    public float value;
-    public enum CategoryID
-    {
-        Normal,
-        Special,
-        Legend
-    }
-
-    public enum PowerUp
-    {
-        speed,
-        life,
-        doubloons,
-        HPTresure,
-    }
-
-    public PowerUp powerUp;
-
-    public CategoryID Category;
+    public PowerUpData powerUpData;
 }
 

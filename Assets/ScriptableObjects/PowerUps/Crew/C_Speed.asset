@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb75150075d36d4db1c84ff7896f08d, type: 3}
-  m_Name: LifeUp
+  m_Name: C_Speed
   m_EditorClassIdentifier: 
-  ObjectName: Life Up
-  Type: 4
+  ObjectName: 
+  Type: 1
   img: {fileID: 0}
-  DurationInSeconds: 1
-  Value: 1
-  IsOneShot: 1
-  spawnChance: 0.5
+  DurationInSeconds: 0
+  Value: 0.5
+  IsPermanent: 1
+  spawnChance: 0

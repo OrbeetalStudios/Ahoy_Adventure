@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPlayerEvent,IDataPeristence
+public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPlayerEvent, IDataPeristence
 {
     // Dichiarazione degli eventi per la vita, il punteggio e le munizioni
     public event Action<int> LifeUpdated;
@@ -56,7 +56,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         // Start checking game over conditions
         Timing.RunCoroutine(CheckGameOverCondition().CancelWith(gameObject));
 
-        Timing.RunCoroutine(StartPlayer().CancelWith(gameObject));
+        Timing.RunCoroutine(StartGame().CancelWith(gameObject));
 
         // Inizializza UI
         UpdateScoreUI();
@@ -64,7 +64,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         AudioManager.Instance.StopSpecificMusic(0);    
     }
 
-    protected IEnumerator<float> StartPlayer()
+    protected IEnumerator<float> StartGame()
     {
         yield return Timing.WaitForSeconds(4f);
         keyText.SetActive(true);
@@ -77,6 +77,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         pool.SetActive(true);
         defPanel.SetActive(true);
         defend.SetActive(true);
+
         AudioManager.Instance.PlaySpecificMusic(2);
     }
     public void UpdateScore()

@@ -18,7 +18,7 @@ public class PowerUpPanel : MonoBehaviour, IPowerUpEvent
 
         foreach (var data in PowerUpController.Instance.DataList)
         {
-            if (data.IsOneShot) continue;
+            if (data.IsPermanent) continue;
 
             GameObject obj = new GameObject(data.ObjectName);
             Image img = obj.AddComponent<Image>();
@@ -42,6 +42,8 @@ public class PowerUpPanel : MonoBehaviour, IPowerUpEvent
     }
     public void OnPowerUpCollected(PowerUpData data)
     {
+        if (data.IsPermanent) return;
+
         UpdateElement(data.Type, true);
     }
     public void OnPowerUpExpired(PowerUpData data)

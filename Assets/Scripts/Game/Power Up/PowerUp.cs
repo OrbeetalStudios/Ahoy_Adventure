@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using MEC;
 
@@ -12,16 +11,14 @@ public class PowerUp : MonoBehaviour
     public void Collected()
     {
         currentDurationTime = data.DurationInSeconds; // reset power up duration counter
-        if (!active && !data.IsOneShot)
+        if (active) return; // if already collected, do not send the signal again. Only reset the duration counter
+
+        if (!data.IsPermanent)
         {
             Timing.RunCoroutine(WaitPowerUpDuration().CancelWith(gameObject));
         }
 
-        // Send message to any listeners
-        foreach (GameObject go in EventListener.Instance.listeners)
-        {
-            ExecuteEvents.Execute<IPowerUpEvent>(go, null, (x, y) => x.OnPowerUpCollected(this.data));
-        }     
+        data.CollectPowerUp();    
     }
     protected IEnumerator<float> WaitPowerUpDuration()
     {
@@ -32,15 +29,7 @@ public class PowerUp : MonoBehaviour
             yield return Timing.WaitForSeconds(1f);
         }
 
-        Expired();
+        data.ExpirePowerUp();
         active = false;
-    }
-    private void Expired()
-    {
-        // Send message to any listeners
-        foreach (GameObject go in EventListener.Instance.listeners)
-        {
-            ExecuteEvents.Execute<IPowerUpEvent>(go, null, (x, y) => x.OnPowerUpExpired(this.data));
-        }
     }
 }

@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class CrewController : MonoSingleton<CrewController>, IDataPeristence
 {
@@ -24,6 +22,13 @@ public class CrewController : MonoSingleton<CrewController>, IDataPeristence
            {
                 assignedCrew.Add(crewData[index]);
            }
+        }
+    }
+    public void ActivateCrew()
+    {
+        foreach (CrewData crew in assignedCrew)
+        {
+            crew.powerUpData.CollectPowerUp();
         }
     }
 
