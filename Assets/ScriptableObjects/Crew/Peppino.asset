@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def13a5627a9c7047b639cca7c34ce7c, type: 3}
   m_Name: Peppino
   m_EditorClassIdentifier: 
+  Category: 0
   characterID: 0
   characterName: peppino
   ability: Reload Speed increase
@@ -21,8 +22,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: bddf0df7f22729c4f8705721d14a3bbe, type: 3}
   Cost: 40
   AbilitySprite: {fileID: 21300000, guid: a7006bdbf1b0c504dbf7acc503d907b5, type: 3}
-  purchased: 0
-  lastIndex: 0
   buttonSprite: {fileID: 21300000, guid: d33b892c5bfdf1140bc775a20b7f6241, type: 3}
   buttonSpriteLight: {fileID: 21300000, guid: 05e8f9905a5e01c4e9389342ccdb9898, type: 3}
-  Category: 0
+  powerUpData: {fileID: 11400000, guid: b1d09e4b8cd35684dbb5342ed93656d0, type: 2}

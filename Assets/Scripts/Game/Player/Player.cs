@@ -21,7 +21,6 @@ public class Player : PlayerMovement, IPowerUpEvent
     private float fireRatio;
     private int ammoCount=3;
     private bool canFire = true;
-    private float reload;
     private bool isLoading = false;
     private bool invulnerabilityOn = false;
 
@@ -41,7 +40,6 @@ public class Player : PlayerMovement, IPowerUpEvent
         controls.Player.Movement.performed += OnMovePerformed;
         GameController.Instance.ImgAmmoDeactivated();
         anim.Play("OnIiland",0);
-        reload = reloadCannonTime;
         fireRatio = defaultFireRatio;
         currentSkin = defaultSkin;
         skinList.Add(defaultSkin);
@@ -129,7 +127,6 @@ public class Player : PlayerMovement, IPowerUpEvent
                 yield return Timing.WaitForSeconds(reloadCannonTime);
                 ammoCount = 3;
                 GameController.Instance.UpdateAmmo(ammoCount);
-                reloadCannonTime = reload;
                 break;
             }
             yield return Timing.WaitForOneFrame;
@@ -162,6 +159,9 @@ public class Player : PlayerMovement, IPowerUpEvent
             case EPowerUpType.Invulnerability:
                 invulnerabilityOn = true;
                 if (!data.IsPermanent) CheckAndMoveSkin(invulnerabilityPowSkin);
+                break;
+            case EPowerUpType.ReloadSpeed:
+                reloadCannonTime -= data.Value;
                 break;
             default:
                 break;

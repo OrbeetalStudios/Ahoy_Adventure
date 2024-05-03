@@ -9,5 +9,6 @@ public enum EPowerUpType
     DoubloonUp,
 
     // From Crew
-    HPTreasure
+    HPTreasure,
+    ReloadSpeed
 }
