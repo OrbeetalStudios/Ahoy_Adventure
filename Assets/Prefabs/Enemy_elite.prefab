@@ -108,6 +108,7 @@ MonoBehaviour:
   initialAlpha: 0
   spawnChanceBox: 1
   spawnChanceMine: 0
+  spawnMineThreshold: 90
   assaultArea: {fileID: 7823696862274009246}
   plunderBar: {fileID: 3734370120990791392}
   render: {fileID: 8798570924568291983}
@@ -118,7 +119,7 @@ MonoBehaviour:
   plunderQuantity: 3
   MaxLives: 3
   enemyType: 3
-  plunderTime: 15
+  plunderTime: 8
   plunderDefault: 0
   isEngaged: 0
 --- !u!1 &2482921419280379747
