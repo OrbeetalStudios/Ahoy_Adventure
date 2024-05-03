@@ -14,5 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objID: 7
   prefab: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
-  numberOfObjects: 5
-  collection: []
+  numberOfObjects: 10
+  collection:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
