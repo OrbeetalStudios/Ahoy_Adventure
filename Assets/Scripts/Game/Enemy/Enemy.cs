@@ -22,7 +22,7 @@ public class Enemy : EnemyMovement
     [SerializeField] private int enemyHitSfxIndex;
     [SerializeField] private int enemyStartPlunderingSfxIndex;
     [SerializeField] private int enemyCollisionSfxIndex;
-    [SerializeField, Range(0, 6)] private int plunderQuantity;
+    [SerializeField, Range(0, 3)] private float plunderQuantity;
     [SerializeField] private int MaxLives = 1;
     [SerializeField] private EEnemyType enemyType;
     private int currentLives;

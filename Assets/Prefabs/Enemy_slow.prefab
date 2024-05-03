@@ -229,7 +229,7 @@ MonoBehaviour:
   enemyHitSfxIndex: 8
   enemyStartPlunderingSfxIndex: 12
   enemyCollisionSfxIndex: 5
-  plunderQuantity: 4
+  plunderQuantity: 2
   MaxLives: 1
   enemyType: 1
   plunderTime: 15
