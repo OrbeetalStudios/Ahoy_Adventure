@@ -48,7 +48,7 @@ public class CrewButton : MonoBehaviour
         
         if (buttonImage != null)
         {
-            buttonImage.sprite = characterSprite;
+            buttonImage.sprite = buttonDefault;
         }
 
         Button buttonComponent = GetComponent<Button>();

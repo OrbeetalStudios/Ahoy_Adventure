@@ -21,6 +21,7 @@ public class CrewButtonsPanel : MonoBehaviour
     private TMP_Text textDoubloons;
     private int doubloons;
     private bool firstClick;
+    
    
    
     private void Start()

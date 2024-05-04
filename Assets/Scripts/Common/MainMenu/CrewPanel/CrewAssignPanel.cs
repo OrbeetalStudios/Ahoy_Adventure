@@ -42,7 +42,7 @@ public class CrewAssignPanel : MonoBehaviour
                 Image abilityToSet = newAbilityIMG.GetComponent<Image>();
 
                 // Imposta gli sprite direttamente dai bottoni dell'equipaggio
-                imageToSet.sprite = crewButton.buttonSprite;
+                imageToSet.sprite = crewButton.sprite;
                 abilityToSet.sprite = crewButton.AbilitySprite;
             }
         }
