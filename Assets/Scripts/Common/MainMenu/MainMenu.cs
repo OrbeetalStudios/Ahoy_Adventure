@@ -87,12 +87,13 @@ public class MainMenu : MonoBehaviour
 
         creditsPanel.SetActive(true);
         exitButtonCredits.SetActive(true);  
-        anim.Play("FadeInCredits", 0);
+        //anim.Play("FadeInCredits", 0);
     }
     public void ExitCredits()
     {
-        exitButtonCredits.SetActive(false); 
-        anim.Play("FadOutCredits",0);
+        exitButtonCredits.SetActive(false);
+        creditsPanel.SetActive(false);
+       // anim.Play("FadOutCredits",0);
     }
 
 
