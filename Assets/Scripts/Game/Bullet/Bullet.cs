@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     private Rigidbody rb;
     private readonly float distanceThreshold = 300f;
 
-    public void Start()
+ /*  public void Start()
     {
         var targetObject = GameObject.FindWithTag("Player"); 
         if (targetObject == null)
@@ -25,22 +25,30 @@ public class Bullet : MonoBehaviour
         target = targetObject.transform; 
         transform.position = targetObject.transform.position - targetObject.transform.forward * distance; // position of bullet forward player
         Vector3 perpendicularDirection = Quaternion.Euler(0, 180, 0) * target.forward;//Instantiate the bullet towards the sides of the map
-        Timing.RunCoroutine(Movement(perpendicularDirection));
-    }
+        Timing.RunCoroutine(BulletMovement(perpendicularDirection));
+    }*/
     void OnEnable()
     {
-        ResetPosition();
+        var targetObject = GameObject.FindWithTag("Player");
+        if (targetObject == null)
+        {
+            Debug.LogError("the bullet script dosen't find the player target!");
+            return;
+        }
+
+        target = targetObject.transform;
+        transform.position = targetObject.transform.position - targetObject.transform.forward * distance; // position of bullet forward player
+        Vector3 perpendicularDirection = Quaternion.Euler(0, 180, 0) * target.forward;//Instantiate the bullet towards the sides of the map
+        Timing.RunCoroutine(BulletMovement(perpendicularDirection));
+       
     }
-    public void ResetPosition()
-    {
-        Start();
-    }
-    protected IEnumerator<float> Movement(Vector3 perpendicularDirection)
+    
+    protected IEnumerator<float> BulletMovement(Vector3 perpendicularDirection)
     {
         Vector3 oldPosition = transform.position;
         float distanceTraveled = 0.0f;
 
-        while (true)
+        while (isActiveAndEnabled)
         {
             if (this != null)
             {
@@ -56,5 +64,11 @@ public class Bullet : MonoBehaviour
                 yield return Timing.WaitForOneFrame;
             }
         }
+        
+    }
+
+    private void OnDisable()
+    {
+        Timing.KillCoroutines("BulletMovement");
     }
 }

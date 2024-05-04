@@ -69,4 +69,9 @@ public class EnemyMovement : AbstractMotionToTarget
         effect.transform.position = parent.transform.position;
         effect.SetActive(true);
     }
+    private void OnDisable()
+    {
+        Timing.KillCoroutines("Move");
+        Timing.KillCoroutines("ReturnOutsideMap");
+    }
 }

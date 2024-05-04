@@ -30,12 +30,7 @@ public class Enemy : EnemyMovement
     public int plunderDefault;
     public bool isEngaged = false;
 
-    private void Awake()
-    {
-        currentLives = MaxLives;
-        plunderDefault = plunderTime;  
-        plunderBar.GetComponent<PlunderBar>().SetMaxPlunderTime(plunderTime);
-    }
+  
     void OnTriggerEnter(Collider other)
     {
         switch (other.tag)
@@ -68,6 +63,8 @@ public class Enemy : EnemyMovement
     {
         base.OnEnable();
         currentLives = MaxLives;
+        plunderDefault = plunderTime;
+        plunderBar.GetComponent<PlunderBar>().SetMaxPlunderTime(plunderTime);
     }
     private void OnDisable()
     {
@@ -130,6 +127,7 @@ public class Enemy : EnemyMovement
             plunderTime--;
             yield return Timing.WaitForSeconds(1f);
         }
+
     }
     public void RestartPlunder()
     {
