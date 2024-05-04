@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MEC;
+using Unity.VisualScripting;
 
 public class RaycastTarget : MonoBehaviour
 {
@@ -31,7 +32,14 @@ public class RaycastTarget : MonoBehaviour
                     {
                         lastHitEnemy = enemyComponent;
                         render = enemyComponent.GetComponentInChildren<MeshRenderer>();
-                        render.material = highlightMaterial;
+                        Material[] materials = render.materials;
+                        for(int i =0; i<materials.Length; i++){
+                            if(materials[i].name.Contains("Chiglia")){
+                                materials[i] = highlightMaterial;
+                            }
+                        }
+                        render.materials = materials;
+                        // render.material = highlightMaterial;
                         IsHit = true;
                     }
                 }
@@ -42,7 +50,14 @@ public class RaycastTarget : MonoBehaviour
                 if (IsHit == true)
                 {
                     render = lastHitEnemy.GetComponentInChildren<MeshRenderer>();
-                    render.material = originalMaterial;
+                    Material[] materials = render.materials;
+                    for(int i =0; i<materials.Length; i++){
+                        if(materials[i].name.Contains("barile")){
+                            materials[i] = originalMaterial;
+                        }
+                    }
+                    render.materials = materials;
+                    // render.material = originalMaterial;
                     lastHitEnemy = null; // Azzera l'ultimo nemico colpito
                     IsHit = false;
                 }

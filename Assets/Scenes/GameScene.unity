@@ -21140,7 +21140,7 @@ MonoBehaviour:
     m_Bits: 192
   highlightMaterial: {fileID: 1146215725531996892, guid: fa7c822998a3fa040b702cf65bb97052,
     type: 3}
-  originalMaterial: {fileID: 2100000, guid: f7c3795dfacd043e6b941301c450ca81, type: 2}
+  originalMaterial: {fileID: 2100000, guid: 19108d9d9a08c480eb8a548efd98adf0, type: 2}
 --- !u!114 &7791608244395059052
 MonoBehaviour:
   m_ObjectHideFlags: 0
