@@ -1222,7 +1222,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 130.42532, y: -26.048}
-  m_SizeDelta: {x: 260.8508, y: 233.09}
+  m_SizeDelta: {x: 230, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &256000070
 MonoBehaviour:
@@ -6139,7 +6139,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Federico Di Stefano
 
-    Stefano Maone'
+    Stefano Maone
+
+    Davide Ventriglia'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fff63e2fe17352649aa4e5fad37b9336, type: 2}
   m_sharedMaterial: {fileID: 7066825998792310174, guid: fff63e2fe17352649aa4e5fad37b9336,
@@ -7753,7 +7755,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -125.96, y: -22.75}
-  m_SizeDelta: {x: 251.93, y: 226.48999}
+  m_SizeDelta: {x: 230, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1784235551
 MonoBehaviour:

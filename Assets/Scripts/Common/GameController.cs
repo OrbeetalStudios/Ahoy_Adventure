@@ -31,11 +31,8 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     [SerializeField] private GameObject loadingPanel;
     [SerializeField] private GameObject keyText;
     [SerializeField] private GameObject pool;
-    [SerializeField] private GameObject defend;
-    [SerializeField] private GameObject defPanel;
-    [SerializeField] private GameObject PanelWave1;
-
-
+    public GameObject defend;
+    public GameObject WaveStart;
     private int currentScore = 0;
     [SerializeField] private int defaultScoreIncrement = 1;
     private int scoreIncrement;
@@ -51,6 +48,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         DataPersistenceManager.instance.NowLoad();
         currentLives = defaultStartLives;
         scoreIncrement = defaultScoreIncrement;
+       
         // iscriviti a eventlistener per ricevere gli eventi
         EventListener.Instance.AddListener(this.gameObject);
 
@@ -76,10 +74,9 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         loadingPanel.SetActive(false);
         player.SetActive(true);
         pool.SetActive(true);
-        defPanel.SetActive(true);
         defend.SetActive(true);
-
         AudioManager.Instance.PlaySpecificMusic(2);
+        Timing.KillCoroutines("StartGame");
     }
     public void UpdateScore()
     {
@@ -145,8 +142,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
             SetImageTransparency(ammoImages[i], 100f);         
         }
         waves.StartGame();
-        defPanel.SetActive(false);   
-        PanelWave1.SetActive(true);
+        Timing.KillCoroutines("ammoActive");
     }
     private void SetImageTransparency(Image image, float alpha)
     {
@@ -214,6 +210,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         }
 
         GameOver();
+        Timing.KillCoroutines("CheckGameOverCondition");
     }
     public void OnPowerUpCollected(PowerUpData data)
     {

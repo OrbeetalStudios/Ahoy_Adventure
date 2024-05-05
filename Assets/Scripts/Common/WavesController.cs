@@ -173,6 +173,7 @@ public class WavesController : MonoSingleton<WavesController>
     private void UpdateUI()
     {
         currentWaveText.text = "Wave: " + waveCounterUI.ToString();
+        
     }
     private bool AreAllWavesEnded()
     {
@@ -185,6 +186,7 @@ public class WavesController : MonoSingleton<WavesController>
 
     private void PlaySFX(int index){
         AudioManager.Instance.PlaySpecificOneShot(index);
+        GameController.Instance.WaveStart.GetComponent<Animator>().Play("Wave1", 0);
     }
 }
 

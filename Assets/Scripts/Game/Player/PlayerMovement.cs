@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     }
     protected  IEnumerator<float> Move()
     {
-        while (true)
+        while (isActiveAndEnabled)
         {
             // Check if there is movement direction set
             if (movementDirection != Vector3.zero && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f && startG==true)
@@ -71,11 +71,11 @@ public class PlayerMovement : MonoBehaviour
             if (!isAnimStart)
             {
                 isAnimStart = true;
-                defend.SetActive(false);
                 clockwiseMotion = false;
                 startG = true;
                 GameController.Instance.ImgAmmoActivated();
                 anim.SetBool("FirstInput", true);
+                GameController.Instance.defend.GetComponent<Animator>().SetTrigger("FadeOutDef");
                 FoamEffect.Instance.StartFoam(isAnimStart);
               
             }

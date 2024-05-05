@@ -13,20 +13,7 @@ public class Bullet : MonoBehaviour
     private Rigidbody rb;
     private readonly float distanceThreshold = 300f;
 
- /*  public void Start()
-    {
-        var targetObject = GameObject.FindWithTag("Player"); 
-        if (targetObject == null)
-        {
-            Debug.LogError("the bullet script dosen't find the player target!");
-            return;
-        }
 
-        target = targetObject.transform; 
-        transform.position = targetObject.transform.position - targetObject.transform.forward * distance; // position of bullet forward player
-        Vector3 perpendicularDirection = Quaternion.Euler(0, 180, 0) * target.forward;//Instantiate the bullet towards the sides of the map
-        Timing.RunCoroutine(BulletMovement(perpendicularDirection));
-    }*/
     void OnEnable()
     {
         var targetObject = GameObject.FindWithTag("Player");

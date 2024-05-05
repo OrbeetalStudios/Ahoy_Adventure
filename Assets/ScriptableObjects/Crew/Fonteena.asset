@@ -12,17 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def13a5627a9c7047b639cca7c34ce7c, type: 3}
   m_Name: Fonteena
   m_EditorClassIdentifier: 
+  Category: 1
   characterID: 5
   characterName: Fon teena
-  ability: HP Treasure Island for every 20 Scores earned
+  ability: +1 Treasure point every 20 score earned
   bio: Descended from a prominent family from the far northern lands, Baroness Fon
     Teena has always stood out for her economic management skills. Some say, however,
     that she has a bit of a chip on her shoulder.
   sprite: {fileID: 21300000, guid: 51cb58642f0228943bfc2b3f22a2be9e, type: 3}
   Cost: 60
   AbilitySprite: {fileID: 21300000, guid: 142199592a2236b438482e8d9a8d74e9, type: 3}
-  purchased: 0
-  lastIndex: 0
   buttonSprite: {fileID: 21300000, guid: ad0d98e34fb26d746ae5e92867041b2c, type: 3}
   buttonSpriteLight: {fileID: 21300000, guid: ea8689a3c4b76f24bbe0c7a6b271605f, type: 3}
-  Category: 1
+  powerUpData: {fileID: 0}

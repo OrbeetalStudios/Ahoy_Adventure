@@ -50,7 +50,7 @@ public class EnemyMovement : AbstractMotionToTarget
     }
     protected override IEnumerator<float> Move()
     {
-        while (true)
+        while (isActiveAndEnabled)
         {
             // relative vector from center to object
             Vector3 relativePos = transform.position - Vector3.zero;

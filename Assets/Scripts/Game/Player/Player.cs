@@ -48,7 +48,8 @@ public class Player : PlayerMovement, IPowerUpEvent
     private void OnDisable()
     {
         controls.Disable();
-        controls.Player.Movement.performed -= OnMovePerformed;     
+        controls.Player.Movement.performed -= OnMovePerformed;
+        Timing.KillCoroutines("Move");
     }
     void OnTriggerEnter(Collider other)
     {
