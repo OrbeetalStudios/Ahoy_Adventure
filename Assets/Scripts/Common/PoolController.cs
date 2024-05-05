@@ -59,17 +59,4 @@ public class PoolController : MonoSingleton<PoolController>
             child.gameObject.SetActive(false);
         }
     }
-    public  void Clear()
-    {
-        foreach (PoolObject coll in collections)
-        {
-            // Loop through each object in the collection and deactivate it
-            foreach (GameObject obj in coll.collection)
-            {
-                obj.SetActive(false);
-            }
-            // Clear the collection after deactivating its objects
-            coll.collection.Clear();
-        }
-    }
 }

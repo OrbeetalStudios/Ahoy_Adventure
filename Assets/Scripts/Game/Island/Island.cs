@@ -1,35 +1,57 @@
 using UnityEngine;
+using MEC;
+using System.Collections.Generic;
 
-public class Island : MonoSingleton<Island>
+public class Island : MonoSingleton<Island>, IPowerUpEvent
 {
-    [SerializeField, Range(1, 10)] private float currentTreasure;
+    [SerializeField, Range(1, 10)] private float maxTreasure = 10;
+    [SerializeField, Range(1, 10)] private float startTreasure = 5;
+    private float currentTreasure;
     public float CurrentTreasure { get { return currentTreasure; } }
+    public float MaxTreasure { get { return maxTreasure; } }
     [SerializeField] private int treasureLostSfxIndex;
-    // Start is called before the first frame update
+
     void Awake()
     {
         base.Awake();
-    }
 
+        currentTreasure = startTreasure;
+    }
+    private void Start()
+    {
+        // iscriviti a eventlistener per ricevere gli eventi
+        EventListener.Instance.AddListener(this.gameObject);
+    }
     public void DecreaseTreasure(float amount)
     {
         PlaySFX(treasureLostSfxIndex);
         currentTreasure -= amount;
-        GameController.Instance.UpdateTreasureUI(currentTreasure);
-        if (currentTreasure <= 0f)
-        {
-            //Game over
-            GameController.Instance.GameOver();
-        }
     }
-
     public void IncreaseTreasure(float amount)
     {
-        currentTreasure += amount;
-        GameController.Instance.UpdateTreasureUI(currentTreasure);
-    }
+        if (currentTreasure == maxTreasure) return;
 
+        currentTreasure += amount;
+    }
     private void PlaySFX(int index){
         AudioManager.Instance.PlaySpecificOneShot(index);
+    }
+    public void OnPowerUpCollected(PowerUpData data)
+    {
+        if (data.Type != EPowerUpType.HPTreasure) return;
+
+        Timing.RunCoroutine(TimedTreasureIncrease(data.Value).CancelWith(gameObject));
+    }
+    public void OnPowerUpExpired(PowerUpData data)
+    {
+        // nothing
+    }
+    private IEnumerator<float> TimedTreasureIncrease(float increaseRate)
+    {
+        while (true)
+        {
+            IncreaseTreasure(1);
+            yield return Timing.WaitForSeconds(increaseRate);
+        }   
     }
 }

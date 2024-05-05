@@ -91,14 +91,14 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         UpdateAmmoUI(ammoCount);
     }
 
-    public void GameOver()
+    private void GameOver()
     {
         UpdateDifferentScore();
         dooublonsText.text = currentDoubloonAmount.ToString();
         AudioManager.Instance.StopSpecificMusic(2);
         AudioManager.Instance.PlaySpecificOneShot(9);
         GameOverPanel.SetActive(true);
-        PoolController.Instance.Clear();
+        PoolController.Instance.DeactivateAll();
         Time.timeScale = 0;
     }
 
@@ -229,8 +229,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
                 BonusPanel.transform.Find("Life").gameObject.SetActive(true);
                 break;
             case EPowerUpType.DoubloonUp:
-                 currentDoubloonAmount+=(int)data.Value;
-            
+                currentDoubloonAmount+=(int)data.Value;
                 BonusPanel.transform.Find("Doubloon").gameObject.SetActive(true);
                 break;
             default:
@@ -252,22 +251,6 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     {
         currentLives--;
         UpdateLifeUI();
-    }
-
-    public void UpdateTreasureUI(float currentTreasure){
-        if(currentTreasure%1==0){
-            redTreasureImage.gameObject.SetActive(false);
-            for (int i = 0; i < greenTreasureImages.Length; i++)
-            {
-                greenTreasureImages[i].gameObject.SetActive(i < currentTreasure);
-            }
-        } else {
-            for (int i = 0; i < greenTreasureImages.Length; i++)
-            {
-                greenTreasureImages[i].gameObject.SetActive(i < (currentTreasure-1));
-            }
-            redTreasureImage.gameObject.SetActive(true);
-        }
     }
 
     public void LoadData(GameData data)
@@ -295,6 +278,4 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         scoreTextGameOver[0].text = score[0].ToString();
         DataPersistenceManager.instance.NowSave();
     }
-
-    
 }
