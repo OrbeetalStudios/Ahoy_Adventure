@@ -46,12 +46,18 @@ public class Island : MonoSingleton<Island>, IPowerUpEvent
     {
         // nothing
     }
-    private IEnumerator<float> TimedTreasureIncrease(float increaseRate)
+    private IEnumerator<float> TimedTreasureIncrease(float scoreCheck)
     {
+        int old = GameController.Instance.CurrentScore;
         while (true)
         {
-            IncreaseTreasure(1);
-            yield return Timing.WaitForSeconds(increaseRate);
+            if ((GameController.Instance.CurrentScore - old) >= (int)scoreCheck)
+            {
+                old = GameController.Instance.CurrentScore;
+                IncreaseTreasure(1);
+            }
+            
+            yield return Timing.WaitForOneFrame;
         }   
     }
 }

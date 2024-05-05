@@ -34,6 +34,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     public GameObject defend;
     public GameObject WaveStart;
     private int currentScore = 0;
+    public int CurrentScore { get { return currentScore; } }
     [SerializeField] private int defaultScoreIncrement = 1;
     private int scoreIncrement;
     [SerializeField] private int defaultStartLives = 3;
