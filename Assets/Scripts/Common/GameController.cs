@@ -17,10 +17,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text dooublonsText;
     [SerializeField] private TMP_Text scoreOver;
-    [SerializeField] private Image[] lifeImages;
     [SerializeField] private Image[] ammoImages;
-    [SerializeField] private Image[] greenTreasureImages;
-    [SerializeField] private Image redTreasureImage;
     [SerializeField] private TMP_Text[] scoreTextGameOver;
     [SerializeField] private GameObject GameOverPanel;
     [SerializeField] private GameObject PausePanel;
@@ -37,8 +34,12 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     public int CurrentScore { get { return currentScore; } }
     [SerializeField] private int defaultScoreIncrement = 1;
     private int scoreIncrement;
+    private int scoreMultiplier = 1;
+    private bool hardModeOn = false;
     [SerializeField] private int defaultStartLives = 3;
+    public int MaxLives { get { return defaultStartLives; } }
     private int currentLives;
+    public int CurrentLives { get { return currentLives; } }
     private bool isPaused = false;
     [SerializeField] private WavesController waves;
     private int currentDoubloonAmount;
@@ -60,7 +61,6 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
 
         // Inizializza UI
         UpdateScoreUI();
-        UpdateLifeUI();
         AudioManager.Instance.StopSpecificMusic(0);    
     }
 
@@ -81,7 +81,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     }
     public void UpdateScore()
     {
-        currentScore += scoreIncrement;
+        currentScore += scoreIncrement * scoreMultiplier;
         ScoreUpdated?.Invoke(currentScore);
         UpdateScoreUI();
     }
@@ -108,13 +108,12 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         scoreText.text = currentScore.ToString();
         scoreOver.text = currentScore.ToString();
     }
+    private void IncreaseLives()
+    {
+        if (currentLives >= defaultStartLives) return;
+        if (hardModeOn) return;
 
-    private void UpdateLifeUI()
-    {      
-        for (int i = 0; i < lifeImages.Length; i++)
-        {
-            lifeImages[i].gameObject.SetActive(i < currentLives);
-        }
+        currentLives++;
     }
     private void UpdateAmmoUI(int ammoCount)
     {
@@ -222,16 +221,17 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
                 scoreIncrement = (int)data.Value;
                 break;
             case EPowerUpType.LifeUp:
-                if (currentLives < defaultStartLives)
-                {
-                    currentLives++;
-                    UpdateLifeUI();
-                }
+                IncreaseLives();
                 BonusPanel.transform.Find("Life").gameObject.SetActive(true);
                 break;
             case EPowerUpType.DoubloonUp:
                 currentDoubloonAmount+=(int)data.Value;
                 BonusPanel.transform.Find("Doubloon").gameObject.SetActive(true);
+                break;
+            case EPowerUpType.HardMode:
+                hardModeOn = true;
+                currentLives = 1;
+                scoreMultiplier = (int)data.Value;
                 break;
             default:
                 break;
@@ -251,7 +251,6 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     public void OnPlayerHit()
     {
         currentLives--;
-        UpdateLifeUI();
     }
 
     public void LoadData(GameData data)

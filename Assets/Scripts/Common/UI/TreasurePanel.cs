@@ -3,11 +3,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using MEC;
 
-public class TreasurePanel : MonoBehaviour
+public class TreasurePanel : BaseSpritePanel
 {
     [SerializeField] private Sprite evenCoinsImage;
     [SerializeField] private Sprite oddCoinsImage;
-    private List<GameObject> images = new();
 
     void Start()
     {
@@ -15,7 +14,7 @@ public class TreasurePanel : MonoBehaviour
         Image img = objRed.AddComponent<Image>();
         img.sprite = oddCoinsImage;
         objRed.GetComponent<RectTransform>().SetParent(this.transform);
-        objRed.GetComponent<RectTransform>().localScale = new Vector3(1.3f, 1.1f, 1f);
+        objRed.GetComponent<RectTransform>().localScale = spriteScale;
         objRed.SetActive(false);
         
         for (int i = 0; i < Island.Instance.MaxTreasure; i++)
@@ -24,7 +23,7 @@ public class TreasurePanel : MonoBehaviour
             img = obj.AddComponent<Image>();
             img.sprite = evenCoinsImage;
             obj.GetComponent<RectTransform>().SetParent(this.transform);
-            obj.GetComponent<RectTransform>().localScale = new Vector3(1.3f, 1.1f, 1f);
+            obj.GetComponent<RectTransform>().localScale = spriteScale;
             images.Add(obj);
             obj.SetActive(i < Island.Instance.CurrentTreasure);
         }
