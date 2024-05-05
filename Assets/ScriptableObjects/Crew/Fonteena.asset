@@ -21,7 +21,7 @@ MonoBehaviour:
     that she has a bit of a chip on her shoulder.
   sprite: {fileID: 21300000, guid: 51cb58642f0228943bfc2b3f22a2be9e, type: 3}
   Cost: 60
-  AbilitySprite: {fileID: 21300000, guid: 142199592a2236b438482e8d9a8d74e9, type: 3}
+  AbilitySprite: {fileID: 21300000, guid: 6517c56dc98b24915ae7bb209a1f1967, type: 3}
   buttonSprite: {fileID: 21300000, guid: ad0d98e34fb26d746ae5e92867041b2c, type: 3}
   buttonSpriteLight: {fileID: 21300000, guid: ea8689a3c4b76f24bbe0c7a6b271605f, type: 3}
   powerUpData: {fileID: 11400000, guid: 87b90af5a8acde64998cbbfc24543272, type: 2}

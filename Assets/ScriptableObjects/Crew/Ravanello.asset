@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def13a5627a9c7047b639cca7c34ce7c, type: 3}
   m_Name: Ravanello
   m_EditorClassIdentifier: 
+  Category: 0
   characterID: 1
   characterName: Ravan ello
   ability: Cannonball Size Increase
@@ -21,9 +22,7 @@ MonoBehaviour:
     to prove his superiority to everyone.
   sprite: {fileID: 21300000, guid: a4ebc3976e5c8d54d878457d5e7e2e14, type: 3}
   Cost: 70
-  AbilitySprite: {fileID: 21300000, guid: 7c7e7acf5b73fcd4fac04b6e1b145e9e, type: 3}
-  purchased: 0
-  lastIndex: 0
+  AbilitySprite: {fileID: 21300000, guid: af3254df17be941869940b1bfdf1de7e, type: 3}
   buttonSprite: {fileID: 21300000, guid: f49e23dc697505e4985f86a5ed77321f, type: 3}
   buttonSpriteLight: {fileID: 21300000, guid: c25529ff0c6fc3c4ea00b1fab0872a0c, type: 3}
-  Category: 0
+  powerUpData: {fileID: 0}

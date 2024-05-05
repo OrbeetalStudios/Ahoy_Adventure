@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def13a5627a9c7047b639cca7c34ce7c, type: 3}
   m_Name: Mort
   m_EditorClassIdentifier: 
+  Category: 1
   characterID: 7
   characterName: Mort
   ability: Island Level Up
@@ -20,9 +21,7 @@ MonoBehaviour:
     he is better-looking and smarter than Keith.
   sprite: {fileID: 21300000, guid: 4deedd9298f0d894885eff9644e7aabe, type: 3}
   Cost: 80
-  AbilitySprite: {fileID: 21300000, guid: e33ce6b343fb8204a9ae0fb168402308, type: 3}
-  purchased: 0
-  lastIndex: 0
+  AbilitySprite: {fileID: 21300000, guid: 6cd40cafbca724359b23c90d1a95f25c, type: 3}
   buttonSprite: {fileID: 21300000, guid: 7e0809cdfd54afb4884f158fd5be2eec, type: 3}
   buttonSpriteLight: {fileID: 21300000, guid: f9360040926ae624b8822c76f5a214a7, type: 3}
-  Category: 1
+  powerUpData: {fileID: 0}

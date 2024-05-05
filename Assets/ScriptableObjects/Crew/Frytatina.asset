@@ -22,7 +22,7 @@ MonoBehaviour:
     to drink coffee to prevent her from having an uncontrollable adrenaline rush.
   sprite: {fileID: 21300000, guid: 86cf9326d290da24a9b65fca1092472a, type: 3}
   Cost: 50
-  AbilitySprite: {fileID: 21300000, guid: 27e8d594ce726214ab8006e448f81127, type: 3}
+  AbilitySprite: {fileID: 21300000, guid: 85b69f2a6236b42248ed37b975163810, type: 3}
   buttonSprite: {fileID: 21300000, guid: 9ceee786da0f96b4e8a7bf16b5cab604, type: 3}
   buttonSpriteLight: {fileID: 21300000, guid: 954f237d03666814a8571b55d5c6f18f, type: 3}
   powerUpData: {fileID: 11400000, guid: 0b71b7001ead09544b2537b1a48c5ce3, type: 2}

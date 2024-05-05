@@ -3334,18 +3334,6 @@ MonoBehaviour:
   - {fileID: 1774436214}
   - {fileID: 286595109}
   - {fileID: 1260749565}
-  greenTreasureImages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  redTreasureImage: {fileID: 0}
   scoreTextGameOver:
   - {fileID: 1923378094}
   - {fileID: 2121316020}
@@ -15926,7 +15914,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 63fd49925a3fcfd44adfa83605058012, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b4b5d836845074d15a436ae3d4844ac9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
