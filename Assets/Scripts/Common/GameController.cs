@@ -142,6 +142,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
             SetImageTransparency(ammoImages[i], 100f);         
         }
         waves.StartGame();
+        pauseButton.SetActive(true);    
         Timing.KillCoroutines("ammoActive");
     }
     private void SetImageTransparency(Image image, float alpha)
