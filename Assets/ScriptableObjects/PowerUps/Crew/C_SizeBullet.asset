@@ -16,6 +16,6 @@ MonoBehaviour:
   Type: 11
   img: {fileID: 0}
   DurationInSeconds: 0
-  Value: 1
+  Value: 2
   IsPermanent: 1
   spawnChance: 0

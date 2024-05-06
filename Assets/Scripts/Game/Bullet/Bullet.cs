@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Transform target;
+    private Transform target;
     public float distance;
     public float speed;
     [SerializeField]
@@ -46,5 +46,10 @@ public class Bullet : MonoBehaviour
                 yield return Timing.WaitForOneFrame;
             }
         }       
+    }
+    public void SetObjectScale(float multiplier)
+    {
+        Vector3 newScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        this.transform.localScale = newScale * multiplier;
     }
 }

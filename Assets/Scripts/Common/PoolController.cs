@@ -1,17 +1,18 @@
-using MEC;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class PoolController : MonoSingleton<PoolController>
+public class PoolController : MonoSingleton<PoolController>, IPowerUpEvent
 {
     [SerializeField] private List<PoolObject> collections;
 
     private void OnEnable()
     {
         InitializeCollections();
+    }
+    private void Start()
+    {
+        // iscriviti a eventlistener per ricevere gli eventi
+        EventListener.Instance.AddListener(this.gameObject);
     }
     private void InitializeCollections()
     {
@@ -58,5 +59,34 @@ public class PoolController : MonoSingleton<PoolController>
         {
             child.gameObject.SetActive(false);
         }
+    }
+    private List<GameObject> GetCollection(EPoolObjectType id)
+    {
+        foreach (PoolObject coll in collections)
+        {
+            if (coll.objID == id)
+            {
+                return coll.collection;
+            }
+        }
+
+        // If the specified id is not found, return null
+        return null;
+    }
+    public void OnPowerUpCollected(PowerUpData data)
+    {
+        if (data.Type != EPowerUpType.BulletSize) return;
+
+        List<GameObject> bullets = GetCollection(EPoolObjectType.bullet);
+        if (bullets == null) return;
+
+        foreach (GameObject bullet in bullets)
+        {
+            bullet.GetComponent<Bullet>().SetObjectScale(data.Value);
+        }
+    }
+    public void OnPowerUpExpired(PowerUpData data)
+    {
+        // nothing
     }
 }
