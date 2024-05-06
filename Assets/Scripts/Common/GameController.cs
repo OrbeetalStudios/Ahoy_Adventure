@@ -117,16 +117,18 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     }
     private void UpdateAmmoUI(int ammoCount)
     {
-        for (int i = 0; i < ammoImages.Length; i++)
+        int startAmmo = player.GetComponent<Player>().StartAmmo;
+        for (int i = 0; i < Mathf.Min(ammoImages.Length, startAmmo); i++)
         {
-            SetImageTransparency(ammoImages[i], i >= ammoCount ? 0.5f : 1f);
+            ImageEdit.SetImageTransparency(ammoImages[i], i >= ammoCount ? 0.5f : 1f);
         }
     }
     public void ImgAmmoDeactivated()
     {
         for (int i = 0; i < ammoImages.Length; i++)
         {
-            SetImageTransparency(ammoImages[i],0f);
+            ammoImages[i].gameObject.SetActive(false);
+            //ImageEdit.SetImageTransparency(ammoImages[i],0f);
         }
     }
     public void ImgAmmoActivated()
@@ -135,29 +137,16 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     }
     protected IEnumerator<float> ammoActive()
     {
+        int startAmmo = player.GetComponent<Player>().StartAmmo;
         yield return Timing.WaitForSeconds(4f);
-        for (int i = 0; i < ammoImages.Length; i++)
+        for (int i = 0; i < Mathf.Min(ammoImages.Length, startAmmo); i++)
         {
             yield return Timing.WaitForSeconds(0.5f);
-            SetImageTransparency(ammoImages[i], 100f);         
+            ammoImages[i].gameObject.SetActive(true);
+            //ImageEdit.SetImageTransparency(ammoImages[i], 100f);         
         }
         waves.StartGame();
-        pauseButton.SetActive(true);    
-        Timing.KillCoroutines("ammoActive");
-    }
-    private void SetImageTransparency(Image image, float alpha)
-    {
-        if (image != null)
-        {
-            // Ottieni il colore corrente dell'immagine
-            Color currentColor = image.color;
-
-            // Imposta il valore alpha del colore
-            currentColor.a = alpha;
-
-            // Applica il nuovo colore all'immagine
-            image.color = currentColor;
-        }
+        pauseButton.SetActive(true);
     }
     public void Pause()
     {
@@ -211,7 +200,6 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         }
 
         GameOver();
-        Timing.KillCoroutines("CheckGameOverCondition");
     }
     public void OnPowerUpCollected(PowerUpData data)
     {
@@ -225,7 +213,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
                 BonusPanel.transform.Find("Life").gameObject.SetActive(true);
                 break;
             case EPowerUpType.DoubloonUp:
-                currentDoubloonAmount+=(int)data.Value;
+                currentDoubloonAmount += (int)data.Value;
                 BonusPanel.transform.Find("Doubloon").gameObject.SetActive(true);
                 break;
             case EPowerUpType.HardMode:

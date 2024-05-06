@@ -16,10 +16,14 @@ public class Player : PlayerMovement, IPowerUpEvent
     [SerializeField] private GameObject speedPowSkin;
     [SerializeField] private GameObject invulnerabilityPowSkin;
     [SerializeField] private List<GameObject> skinList;
+    [SerializeField] private int maxAmmo = 4;
+    [SerializeField] private int startAmmo = 3;
+    public int StartAmmo { get { return startAmmo; } }
     private GameObject currentSkin;
     private PlayerControls controls;
     private float fireRatio;
-    private int ammoCount=3;
+    public int MaxAmmo { get { return maxAmmo; } }
+    private int currentAmmo;
     private bool canFire = true;
     private bool isLoading = false;
     private bool invulnerabilityOn = false;
@@ -44,6 +48,7 @@ public class Player : PlayerMovement, IPowerUpEvent
         currentSkin = defaultSkin;
         skinList.Add(defaultSkin);
         ChangeSkin();
+        currentAmmo = startAmmo;
     }
     private void OnDisable()
     {
@@ -98,17 +103,17 @@ public class Player : PlayerMovement, IPowerUpEvent
     }
     private void StartFire()
     {  
-        if (ammoCount > 0 && canFire)
+        if (currentAmmo > 0 && canFire)
         {
-            ammoCount--;
-            GameController.Instance.UpdateAmmo(ammoCount);
+            currentAmmo--;
+            GameController.Instance.UpdateAmmo(currentAmmo);
             PlayAnimation();
             GameObject bullet = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.bullet);
             if (bullet != null)
             {
                 bullet.SetActive(true);
                 Timing.RunCoroutine(FireRatio(fireRatio).CancelWith(gameObject));
-                if (ammoCount < 3 && !isLoading)
+                if (currentAmmo < startAmmo && !isLoading)
                 {
                     Timing.RunCoroutine(LoadingCannon().CancelWith(gameObject));
                 }
@@ -121,13 +126,13 @@ public class Player : PlayerMovement, IPowerUpEvent
     protected  IEnumerator<float> LoadingCannon()
     {
         isLoading = true;
-        while (ammoCount!=3)
+        while (currentAmmo != startAmmo)
         {
-            if(ammoCount<=0)
+            if(currentAmmo <= 0)
             {
                 yield return Timing.WaitForSeconds(reloadCannonTime);
-                ammoCount = 3;
-                GameController.Instance.UpdateAmmo(ammoCount);
+                currentAmmo = startAmmo;
+                GameController.Instance.UpdateAmmo(currentAmmo);
                 break;
             }
             yield return Timing.WaitForOneFrame;
@@ -163,6 +168,10 @@ public class Player : PlayerMovement, IPowerUpEvent
                 break;
             case EPowerUpType.ReloadSpeed:
                 reloadCannonTime -= data.Value;
+                break;
+            case EPowerUpType.AmmoUp:
+                startAmmo += (int)data.Value;
+                currentAmmo = startAmmo;
                 break;
             default:
                 break;

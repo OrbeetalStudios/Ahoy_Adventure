@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     public float Acceleration=0.1f;
     public float deceleration = 0.3f;
     public bool isAnimStart=false;
-    public GameObject displayAmmo;
     [HideInInspector]
     public Vector2 inputVector;
     [SerializeField]

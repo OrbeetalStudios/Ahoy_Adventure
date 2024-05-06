@@ -12,5 +12,6 @@ public enum EPowerUpType
     HPTreasure,
     ReloadSpeed,
     HardMode,
-    IslandLevelUp
+    IslandLevelUp,
+    AmmoUp
 }
