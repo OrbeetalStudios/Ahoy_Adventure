@@ -11,5 +11,6 @@ public enum EPowerUpType
     // From Crew
     HPTreasure,
     ReloadSpeed,
-    HardMode
+    HardMode,
+    IslandLevelUp
 }

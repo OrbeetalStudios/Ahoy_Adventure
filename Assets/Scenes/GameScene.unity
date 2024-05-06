@@ -19561,6 +19561,7 @@ GameObject:
   - component: {fileID: 7489004505615018513}
   - component: {fileID: 7489004505615018514}
   - component: {fileID: 7489004505615018515}
+  - component: {fileID: 7489004505615018516}
   m_Layer: 3
   m_Name: Island
   m_TagString: Island
@@ -19843,6 +19844,18 @@ MonoBehaviour:
   maxTreasure: 10
   startTreasure: 5
   treasureLostSfxIndex: 15
+--- !u!114 &7489004505615018516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678103044673904336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c605dd5151459046b70ee8c33428b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7550664474569322767
 RectTransform:
   m_ObjectHideFlags: 0

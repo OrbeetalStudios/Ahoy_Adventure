@@ -38,9 +38,18 @@ public class Island : MonoSingleton<Island>, IPowerUpEvent
     }
     public void OnPowerUpCollected(PowerUpData data)
     {
-        if (data.Type != EPowerUpType.HPTreasure) return;
-
-        Timing.RunCoroutine(TimedTreasureIncrease(data.Value).CancelWith(gameObject));
+        switch (data.Type)
+        {
+            case EPowerUpType.HPTreasure:
+                Timing.RunCoroutine(TimedTreasureIncrease(data.Value).CancelWith(gameObject));
+                break;
+            case EPowerUpType.IslandLevelUp:
+                startTreasure++;
+                currentTreasure = startTreasure;
+                break;
+            default:
+                break;
+        }
     }
     public void OnPowerUpExpired(PowerUpData data)
     {
