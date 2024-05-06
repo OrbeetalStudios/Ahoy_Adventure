@@ -28,7 +28,7 @@
             ]
         },
         {
-            "timeUntilNextWave": 3,
+            "timeUntilNextWave": 4,
             "isLast": false,
             "speedMultiplier": 1,
             "enemies": [
@@ -65,7 +65,7 @@
             ]
         },
         {
-            "timeUntilNextWave": 3,
+            "timeUntilNextWave": 4,
             "isLast": false,
             "speedMultiplier": 1,
             "enemies": [
@@ -122,7 +122,7 @@
             ]
         },
         {
-            "timeUntilNextWave": 3,
+            "timeUntilNextWave": 4,
             "isLast": false,
             "speedMultiplier": 1,
             "enemies": [
@@ -148,7 +148,7 @@
                 },
                 {
                     "id": "enemy_default",
-                    "spawnTime": 6,
+                    "spawnTime": 10,
                     "spawnQuadrant": 1
                 },
                 {
@@ -163,7 +163,7 @@
                 },
                 {
                     "id": "enemy_slow",
-                    "spawnTime": 5,
+                    "spawnTime": 10,
                     "spawnQuadrant": 2
                 },
                 {
@@ -194,8 +194,8 @@
             ]
         },
         {
-            "timeUntilNextWave": 3,
-            "isLast": true,
+            "timeUntilNextWave": 4,
+            "isLast": false,
             "speedMultiplier": 1,
             "enemies": [
                 {
@@ -240,7 +240,7 @@
                 },
                 {
                     "id": "enemy_elite",
-                    "spawnTime": 15,
+                    "spawnTime": 12,
                     "spawnQuadrant": 1
                 },
                 {
@@ -255,12 +255,12 @@
                 },
                 {
                     "id": "enemy_fast",
-                    "spawnTime": 3,
+                    "spawnTime": 4,
                     "spawnQuadrant": 4
                 },
                 {
                     "id": "enemy_fast",
-                    "spawnTime": 1,
+                    "spawnTime": 2,
                     "spawnQuadrant": 4
                 },
                 {
@@ -275,8 +275,968 @@
                 },
                 {
                     "id": "enemy_fast",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 2
+                }
+            ]
+        },
+        {
+            "timeUntilNextWave": 4,
+            "isLast": false,
+            "speedMultiplier": 1.5,
+            "enemies": [
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
                     "spawnTime": 1,
                     "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 6,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 10,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 10,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 10,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                }
+            ]
+        },
+        {
+            "timeUntilNextWave": 4,
+            "isLast": false,
+            "speedMultiplier": 1.5,
+            "enemies": [
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 4,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 10,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 10,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 8,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 4,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 10,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 6,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 8,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 10,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 15,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 10,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 8,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 8,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 15,
+                    "spawnQuadrant": 4
+                }
+            ]
+        },
+        {
+            "timeUntilNextWave": 4,
+            "isLast": false,
+            "speedMultiplier": 1.5,
+            "enemies": [
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 15,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 10,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 15,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 8,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 10,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 10,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 15,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 6,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 6,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 15,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 15,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 4
+                }
+            ]
+        },
+        {
+            "timeUntilNextWave": 4,
+            "isLast": false,
+            "speedMultiplier": 1.7,
+            "enemies": [
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 6,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 6,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 15,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 8,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 15,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 6,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 8,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                }
+            ]
+        },
+        {
+            "timeUntilNextWave": 4,
+            "isLast": true,
+            "speedMultiplier": 1.7,
+            "enemies": [
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 6,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 6,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 4,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 4,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 15,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 10,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 8,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 4,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 4,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 15,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 4,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 8,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 4,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 8,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_default",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 6,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 2,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 3,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 5,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 2
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 8,
+                    "spawnQuadrant": 1
+                },
+                {
+                    "id": "enemy_elite",
+                    "spawnTime": 6,
+                    "spawnQuadrant": 4
+                },
+                {
+                    "id": "enemy_slow",
+                    "spawnTime": 4,
+                    "spawnQuadrant": 3
+                },
+                {
+                    "id": "enemy_fast",
+                    "spawnTime": 1,
+                    "spawnQuadrant": 3
                 }
             ]
         }
