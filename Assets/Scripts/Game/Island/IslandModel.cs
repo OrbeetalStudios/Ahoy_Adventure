@@ -6,9 +6,7 @@ public class IslandModel : ModelController, IPowerUpEvent
 
     private void OnEnable()
     {
-        islandLevel = 0;
-
-        UpdateIslandModel();
+        islandLevel = 0;      
     }
     private void Start()
     {
@@ -16,6 +14,8 @@ public class IslandModel : ModelController, IPowerUpEvent
 
         // iscriviti a eventlistener per ricevere gli eventi
         EventListener.Instance.AddListener(this.gameObject);
+
+        UpdateIslandModel();
     }
     private void UpdateIslandModel()
     {
