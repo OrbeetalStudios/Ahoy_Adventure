@@ -128,7 +128,6 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         for (int i = 0; i < ammoImages.Length; i++)
         {
             ammoImages[i].gameObject.SetActive(false);
-            //ImageEdit.SetImageTransparency(ammoImages[i],0f);
         }
     }
     public void ImgAmmoActivated()
@@ -142,8 +141,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         for (int i = 0; i < Mathf.Min(ammoImages.Length, startAmmo); i++)
         {
             yield return Timing.WaitForSeconds(0.5f);
-            ammoImages[i].gameObject.SetActive(true);
-            //ImageEdit.SetImageTransparency(ammoImages[i], 100f);         
+            ammoImages[i].gameObject.SetActive(true);         
         }
         waves.StartGame();
         pauseButton.SetActive(true);
