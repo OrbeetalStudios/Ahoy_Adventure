@@ -25,4 +25,4 @@ MonoBehaviour:
   AbilitySprite: {fileID: 21300000, guid: af3254df17be941869940b1bfdf1de7e, type: 3}
   buttonSprite: {fileID: 21300000, guid: f49e23dc697505e4985f86a5ed77321f, type: 3}
   buttonSpriteLight: {fileID: 21300000, guid: c25529ff0c6fc3c4ea00b1fab0872a0c, type: 3}
-  powerUpData: {fileID: 0}
+  powerUpData: {fileID: 11400000, guid: 8946782ca96908f47af0ad91fe5bc8c4, type: 2}

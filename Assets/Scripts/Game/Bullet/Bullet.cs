@@ -1,7 +1,5 @@
 using MEC;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -12,7 +10,6 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
     private readonly float distanceThreshold = 300f;
-
 
     void OnEnable()
     {
@@ -26,10 +23,8 @@ public class Bullet : MonoBehaviour
         target = targetObject.transform;
         transform.position = targetObject.transform.position - targetObject.transform.forward * distance; // position of bullet forward player
         Vector3 perpendicularDirection = Quaternion.Euler(0, 180, 0) * target.forward;//Instantiate the bullet towards the sides of the map
-        Timing.RunCoroutine(BulletMovement(perpendicularDirection));
-       
-    }
-    
+        Timing.RunCoroutine(BulletMovement(perpendicularDirection).CancelWith(gameObject));
+    }  
     protected IEnumerator<float> BulletMovement(Vector3 perpendicularDirection)
     {
         Vector3 oldPosition = transform.position;
@@ -50,12 +45,6 @@ public class Bullet : MonoBehaviour
                 }
                 yield return Timing.WaitForOneFrame;
             }
-        }
-        
-    }
-
-    private void OnDisable()
-    {
-        Timing.KillCoroutines("BulletMovement");
+        }       
     }
 }

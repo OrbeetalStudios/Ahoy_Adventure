@@ -13,5 +13,6 @@ public enum EPowerUpType
     ReloadSpeed,
     HardMode,
     IslandLevelUp,
-    AmmoUp
+    AmmoUp,
+    BulletSize
 }
