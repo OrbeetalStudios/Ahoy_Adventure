@@ -10,6 +10,7 @@ public class CrewAssignPanel : MonoBehaviour
     [SerializeField] private CrewHire crewHire;
     [SerializeField] Image buttonImagePrefab;
     public List<int> assignID = new List<int>();
+    public GameData data;
 
     private void Awake()
     {
@@ -17,11 +18,17 @@ public class CrewAssignPanel : MonoBehaviour
     }
     private void Start()
     {
-        CreateLastCrew();
+        //se il salvataggio non è vuoto
+        if(data.idAssigned.Count!=0)
+        {
+            CreateLastCrew();
+        }
+ 
     }
 
     public void CreateLastCrew()
     {
+        
         assignID = CrewController.Instance.idAssigned;
         foreach (int id in assignID)
         {
