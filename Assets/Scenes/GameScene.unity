@@ -20619,7 +20619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bDontDestroyOnLoad: 0
-  maxTreasure: 10
+  maxTreasure: 7
   startTreasure: 5
   treasureLostSfxIndex: 15
 --- !u!114 &7489004505615018516
