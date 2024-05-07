@@ -15,6 +15,7 @@ public class CrewController : MonoSingleton<CrewController>, IDataPeristence
     public void SetCrewData()
     {
         int index;
+        assignedCrew.Clear();
         foreach (int id in idAssigned)
         {
            index = crewData.FindIndex(x => x.characterID == id);
@@ -31,7 +32,6 @@ public class CrewController : MonoSingleton<CrewController>, IDataPeristence
             crew.powerUpData.CollectPowerUp();
         }
     }
-
     public void LoadData(GameData data)
     {
         idPurchased = data.idPurchased;
