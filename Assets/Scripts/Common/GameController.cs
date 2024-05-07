@@ -77,6 +77,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         pool.SetActive(true);
         defend.SetActive(true);
         AudioManager.Instance.PlaySpecificMusic(2);
+        AudioManager.Instance.PlaySpecificMusic(3);
         Timing.KillCoroutines("StartGame");
     }
     public void UpdateScore()
@@ -97,6 +98,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         UpdateDifferentScore();
         dooublonsText.text = currentDoubloonAmount.ToString();
         AudioManager.Instance.StopSpecificMusic(2);
+        AudioManager.Instance.StopSpecificMusic(3);
         AudioManager.Instance.PlaySpecificOneShot(9);
         GameOverPanel.SetActive(true);
         PoolController.Instance.DeactivateAll();

@@ -15,7 +15,7 @@ MonoBehaviour:
   Category: 2
   characterID: 8
   characterName: Slim jim
-  ability: x2 Score          Only 1 life and no HP regain.
+  ability: x2 Score          Only 1 life and no HP regain
   bio: Slim Jim is the group's youngest and most enterprising pirate. His boundless
     ambition to become the greatest pirate of all time leads him to achieve ever-greater
     goals, often disregarding the consequences of his actions.
