@@ -15,4 +15,9 @@ MonoBehaviour:
   objID: 3
   prefab: {fileID: 2054213451365819344, guid: 10d9096ee22d50a41b8d9942616950bb, type: 3}
   numberOfObjects: 5
-  collection: []
+  collection:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
