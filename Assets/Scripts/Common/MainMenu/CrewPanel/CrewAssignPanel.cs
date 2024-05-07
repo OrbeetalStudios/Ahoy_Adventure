@@ -10,7 +10,6 @@ public class CrewAssignPanel : MonoBehaviour
     [SerializeField] private CrewHire crewHire;
     [SerializeField] Image buttonImagePrefab;
     public List<int> assignID = new List<int>();
-    public GameData data;
 
     private void Awake()
     {
@@ -18,12 +17,7 @@ public class CrewAssignPanel : MonoBehaviour
     }
     private void Start()
     {
-        //se il salvataggio non è vuoto
-        if(data.idAssigned.Count!=0)
-        {
-            CreateLastCrew();
-        }
- 
+       CreateLastCrew(); 
     }
 
     public void CreateLastCrew()
@@ -59,17 +53,10 @@ public class CrewAssignPanel : MonoBehaviour
     }
 
 
-    public void Assign(int characterID, Sprite sprite, Sprite ability)
+    public void Assign(int characterID)
     {// Controlla se l'ID è già presente nella lista assignID
         if (!assignID.Contains(characterID))
         {
-            // Se l'ID non è già presente, aggiungilo alla lista e crea il pulsante
-            Image newCharIMG = Instantiate(buttonImagePrefab, panelCharacter);
-            Image imageToSet = newCharIMG.GetComponent<Image>();
-            Image newAbilityIMG = Instantiate(buttonImagePrefab, panelAbility);
-            Image abilityToSet = newAbilityIMG.GetComponent<Image>();
-            imageToSet.sprite = sprite;
-            abilityToSet.sprite = ability;
             assignID.Add(characterID);
         }
     }

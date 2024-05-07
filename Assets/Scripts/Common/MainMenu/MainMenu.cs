@@ -60,6 +60,7 @@ public class MainMenu : MonoBehaviour
             OpenCrew = true;
             AudioManager.Instance.StopSpecificMusic(0);
             AudioManager.Instance.PlaySpecificMusic(1);
+            DataPersistenceManager.instance.NowLoad();
             crew.SetActive(true);
         }
         else

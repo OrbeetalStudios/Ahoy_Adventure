@@ -97,7 +97,7 @@ public class CrewHire : MonoBehaviour
                     }
                     else
                     {
-                        crewPanel.Assign(characterID,active.characterSprite,active.abilitySprite);
+                        crewPanel.Assign(characterID);
                         Image.sprite = sprites[2];
                         text.text = "Dismiss";
                         lastIndex = 2;
