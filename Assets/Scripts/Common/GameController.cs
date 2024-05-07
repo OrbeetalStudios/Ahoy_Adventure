@@ -67,6 +67,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     protected IEnumerator<float> StartGame()
     {
         yield return Timing.WaitForSeconds(4f);
+
         keyText.SetActive(true);
         while (!(Input.anyKeyDown))
         {
@@ -78,7 +79,9 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         defend.SetActive(true);
         AudioManager.Instance.PlaySpecificMusic(2);
         AudioManager.Instance.PlaySpecificMusic(3);
-        Timing.KillCoroutines("StartGame");
+
+        // Apply crew power ups
+        CrewController.Instance.ActivateCrew();
     }
     public void UpdateScore()
     {
