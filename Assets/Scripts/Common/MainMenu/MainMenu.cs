@@ -22,23 +22,18 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject exitButtonCredits;
     public GameObject buttonSettings;
-  
-
 
     public void Start()
     {
         AudioManager.Instance.PlaySpecificMusic(0);
         DataPersistenceManager.instance.NowLoad();
-
+        CrewController.Instance.SetCrewData();
     }
-
-   
     public void PlayGame()
     {
         fadeOut.SetActive(true);
         SceneManager.LoadScene(2);
     }
-
     public void Settings()
     {
         if (OpenSettings == false)
@@ -48,7 +43,6 @@ public class MainMenu : MonoBehaviour
             OpenSettings = true;
             buttonSettings.SetActive(false);
             OnClickSound();
-
         }
         else
         {
@@ -57,10 +51,8 @@ public class MainMenu : MonoBehaviour
             settings.SetActive(false);
             buttonSettings.SetActive(true);
             OnClickSound();
-        }
-        
+        }       
     }
-
     public void OpenCrewPanel()
     {
         if (!OpenCrew)
@@ -78,45 +70,32 @@ public class MainMenu : MonoBehaviour
             crew.SetActive(false) ;
             DataPersistenceManager.instance.NowSave();
             CrewController.Instance.SetCrewData();
-
         }
     }
-
     public void OpenCredits()
     {
-
         creditsPanel.SetActive(true);
         exitButtonCredits.SetActive(true);  
-        //anim.Play("FadeInCredits", 0);
     }
     public void ExitCredits()
     {
         exitButtonCredits.SetActive(false);
         creditsPanel.SetActive(false);
-       // anim.Play("FadOutCredits",0);
     }
-
-
     public void ExitGame()
     {
         Application.Quit();
     }
-
-   
     public void OnClickSound()
     {
         AudioManager.Instance.PlaySpecificOneShot(4);
     }
-
     public void PlayOnOff()
     {
         AudioManager.Instance.PlaySpecificOneShot(14);
     }
-
     public void ScrollMenu()
     {
         AudioManager.Instance.PlaySpecificOneShot(13);
-    }
-
-    
+    }   
 }
