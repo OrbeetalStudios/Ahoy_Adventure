@@ -11,7 +11,10 @@ public class CrewAssignPanel : MonoBehaviour
     [SerializeField] Image buttonImagePrefab;
     public List<int> assignID = new List<int>();
 
-
+    private void Awake()
+    {
+        assignID = CrewController.Instance.idAssigned;
+    }
     private void Start()
     {
         CreateLastCrew();

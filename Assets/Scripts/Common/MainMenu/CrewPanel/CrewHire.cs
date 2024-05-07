@@ -91,7 +91,7 @@ public class CrewHire : MonoBehaviour
                     }
                     break;
                 case 1:
-                    if (crewPanel.assignID.Count == 4)
+                    if (CrewController.Instance.idAssigned.Count == 4)
                     {
                         AudioManager.Instance.PlaySpecificOneShot(19);
                     }
