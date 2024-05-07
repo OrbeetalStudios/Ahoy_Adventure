@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Mine : LinearMotionToTarget
 {
-    [SerializeField] private int collisionSfxIndex;
+    [SerializeField] private int collisionWithPlayerSfxIndex;
+    [SerializeField] private int collisionWithIslandSfxIndex;
     void Start()
     {
         targetPosition = Vector3.zero;
@@ -17,13 +18,14 @@ public class Mine : LinearMotionToTarget
             this.gameObject.SetActive(false);
             GameObject effect = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.collision_with_barrels);
             PlayVFX(gameObject,effect);
-            PlaySFX(collisionSfxIndex);
+            PlaySFX(collisionWithPlayerSfxIndex);
         }
         else if (other.tag == "Island")
         {
             this.gameObject.SetActive(false);
             GameObject effect = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.prop_disappear);
             PlayVFX(gameObject,effect);
+            PlaySFX(collisionWithIslandSfxIndex);
         }
     }
 

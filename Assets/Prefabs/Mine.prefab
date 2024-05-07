@@ -149,7 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   MultiplierAllowed: 1
-  collisionSfxIndex: 5
+  collisionWithPlayerSfxIndex: 5
+  collisionWithIslandSfxIndex: 21
 --- !u!1001 &5689626241248069246
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -122,8 +122,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   MultiplierAllowed: 0
-  sfxIndex: 3
-  speed: 20
+  boxLostSfxIndex: 21
+  boxCollectedSfxIndex: 3
+  lifeUpSfxIndex: 20
 --- !u!54 &-1422588531697778677
 Rigidbody:
   m_ObjectHideFlags: 0

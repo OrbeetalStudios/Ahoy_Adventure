@@ -28,9 +28,11 @@ public class PowerUpController : MonoSingleton<PowerUpController>
             powerUps.Add(powerUp);
         }
     }
-    public void ActivateRandomPowerUp()
+    public int ActivateRandomPowerUp()
     {
-        Activate(WeightedRandom.GetRandomWeightedIndex(weights));    
+        int index = WeightedRandom.GetRandomWeightedIndex(weights);
+        Activate(index);
+        return index;    
     }
     public void ActivatePowerUp(EPowerUpType powerUpType)
     {

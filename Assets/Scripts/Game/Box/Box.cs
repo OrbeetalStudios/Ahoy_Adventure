@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Box : LinearMotionToTarget
 {
-    [SerializeField] private int sfxIndex;
+    [SerializeField] private int boxLostSfxIndex;
+    [SerializeField] private int boxCollectedSfxIndex;
+    [SerializeField] private int lifeUpSfxIndex;
     void Start()
     {
         targetPosition = Vector3.zero;
@@ -15,16 +17,20 @@ public class Box : LinearMotionToTarget
         if (other.CompareTag("Player"))
         {
             //manage power up
-            PowerUpController.Instance.ActivateRandomPowerUp();
-
+            int i = PowerUpController.Instance.ActivateRandomPowerUp();
+            if(i==0){ // index 0 is the one assigned to LifeUp in PowerUpController prefab
+                PlaySFX(lifeUpSfxIndex);
+            } else {
+                PlaySFX(boxCollectedSfxIndex);
+            }
             this.gameObject.SetActive(false);
-            PlaySFX(sfxIndex);
         }
         else if (other.CompareTag("Island"))
         {
             this.gameObject.SetActive(false);
             GameObject effect = PoolController.Instance.GetObjectFromCollection(EPoolObjectType.prop_disappear);
             PlayVFX(gameObject,effect);
+            PlaySFX(boxLostSfxIndex);
         }
     }
 

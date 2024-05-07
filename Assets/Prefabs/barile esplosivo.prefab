@@ -100,7 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   MultiplierAllowed: 1
-  collisionSfxIndex: 0
+  collisionWithPlayerSfxIndex: 5
+  collisionWithIslandSfxIndex: 21
 --- !u!65 &6165362779206876814
 BoxCollider:
   m_ObjectHideFlags: 0

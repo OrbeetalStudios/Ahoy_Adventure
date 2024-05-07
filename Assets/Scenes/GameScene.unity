@@ -3475,6 +3475,8 @@ MonoBehaviour:
   loadingPanel: {fileID: 1832286609}
   keyText: {fileID: 86658610}
   pool: {fileID: 48564971}
+  lifeUpSfxIndex: 20
+  boxCollectedSfxIndex: 3
   defend: {fileID: 97349736}
   WaveStart: {fileID: 861835856}
   defaultScoreIncrement: 1
@@ -20790,6 +20792,7 @@ MonoBehaviour:
   defaultFireRatio: 1
   cannonShotVfxOffset: 1
   cannonShotSfxIndex: 1
+  boxCollectedSfxIndex: 3
   defaultSkin: {fileID: 770009178}
   fireratePowSkin: {fileID: 1959662593}
   speedPowSkin: {fileID: 1531294901}
