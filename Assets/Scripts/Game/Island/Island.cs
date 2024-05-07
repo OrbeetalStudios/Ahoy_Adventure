@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class Island : MonoSingleton<Island>, IPowerUpEvent
 {
-    [SerializeField, Range(1, 10)] private float maxTreasure = 10;
-    [SerializeField, Range(1, 10)] private float startTreasure = 5;
+    [SerializeField, Range(1, 7)] private float maxTreasure = 7;
+    [SerializeField, Range(1, 7)] private float startTreasure = 5;
     private float currentTreasure;
     public float CurrentTreasure { get { return currentTreasure; } }
     public float MaxTreasure { get { return maxTreasure; } }
@@ -29,7 +29,12 @@ public class Island : MonoSingleton<Island>, IPowerUpEvent
     }
     public void IncreaseTreasure(float amount)
     {
-        if (currentTreasure == maxTreasure) return;
+        float maxTr = Mathf.Min(maxTreasure, startTreasure);
+        if (currentTreasure >= maxTr)
+        {
+            currentTreasure = maxTr;
+            return;
+        }
 
         currentTreasure += amount;
     }

@@ -33,9 +33,6 @@ public class Player : PlayerMovement, IPowerUpEvent
         base.Start();
         // iscriviti a eventlistener per ricevere gli eventi
         EventListener.Instance.AddListener(this.gameObject);
-
-        // Apply crew power ups
-        CrewController.Instance.ActivateCrew();
     }
     private void OnEnable()
     {

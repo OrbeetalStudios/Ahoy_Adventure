@@ -7,9 +7,9 @@ public class Bullet : MonoBehaviour
     private Transform target;
     public float distance;
     public float speed;
-    [SerializeField]
-    private Rigidbody rb;
+    [SerializeField] private Rigidbody rb;
     private readonly float distanceThreshold = 300f;
+    [SerializeField] private Vector3 defaultScale = new Vector3(3, 3, 3);
 
     void OnEnable()
     {
@@ -49,7 +49,6 @@ public class Bullet : MonoBehaviour
     }
     public void SetObjectScale(float multiplier)
     {
-        Vector3 newScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        this.transform.localScale = newScale * multiplier;
+        this.transform.localScale = defaultScale * multiplier;
     }
 }

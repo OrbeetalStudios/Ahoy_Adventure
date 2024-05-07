@@ -8,11 +8,12 @@ public class PoolController : MonoSingleton<PoolController>, IPowerUpEvent
     private void OnEnable()
     {
         InitializeCollections();
+        // iscriviti a eventlistener per ricevere gli eventi
+        EventListener.Instance.AddListener(this.gameObject);
     }
     private void Start()
     {
-        // iscriviti a eventlistener per ricevere gli eventi
-        EventListener.Instance.AddListener(this.gameObject);
+        
     }
     private void InitializeCollections()
     {
