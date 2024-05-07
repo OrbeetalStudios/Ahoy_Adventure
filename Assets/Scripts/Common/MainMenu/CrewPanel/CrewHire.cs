@@ -91,18 +91,22 @@ public class CrewHire : MonoBehaviour
                     }
                     break;
                 case 1:
-                    if (CrewController.Instance.idAssigned.Count == 4)
+                    if (crewPanel.assignID.Count == 4 || CrewController.Instance.idAssigned.Count==4)
                     {
                         AudioManager.Instance.PlaySpecificOneShot(19);
                     }
                     else
                     {
-                        crewPanel.Assign(characterID);
+                    if (CrewController.Instance.idAssigned.Count < 4)
+                    {
+                        crewPanel.Assign(characterID, active.characterSprite, active.abilitySprite);
                         Image.sprite = sprites[2];
                         text.text = "Dismiss";
                         lastIndex = 2;
                         AddMainManuListIndex(characterID);
                         AudioManager.Instance.PlaySpecificOneShot(18);
+                    }
+               
                     }
                     break;
 

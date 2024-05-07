@@ -1843,8 +1843,7 @@ MonoBehaviour:
   LightCrew: {fileID: 21300000, guid: d8165720bee4ebb44b1c174a38b65648, type: 3}
   defSolo: {fileID: 21300000, guid: 03523ca511413134caf80855fa73ba5e, type: 3}
   defCrew: {fileID: 21300000, guid: ef16d034c1da53144b7f636fcb6b2184, type: 3}
-  PanelSolo: {fileID: 848913415}
-  PanelCrew: {fileID: 2019877684}
+  PanelDescription: {fileID: 848913415}
 --- !u!1 &338107691
 GameObject:
   m_ObjectHideFlags: 0
@@ -5318,8 +5317,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 848913416}
   - {fileID: 2019877685}
+  - {fileID: 848913416}
   - {fileID: 560752967}
   - {fileID: 1911405298}
   m_Father: {fileID: 178173098}
@@ -8698,7 +8697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2019877685
 RectTransform:
   m_ObjectHideFlags: 0

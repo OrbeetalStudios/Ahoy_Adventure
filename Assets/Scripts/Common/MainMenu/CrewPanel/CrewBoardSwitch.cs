@@ -19,23 +19,21 @@ public class CrewBoardSwitch : MonoBehaviour
     [SerializeField]
     private Sprite defCrew;
     [SerializeField]
-    private GameObject PanelSolo;
-    [SerializeField]
-    private GameObject PanelCrew;
+    private GameObject PanelDescription;
 
 
 
     public void OnlightSolo()
     {
         soloImage.sprite = LightSolo;
-        PanelCrew.SetActive(false);
+        PanelDescription.SetActive(true);
         CrewImage.sprite = defCrew;
     }
 
     public void OnLightCrew()
     {
         soloImage.sprite = defSolo;
-        PanelCrew.SetActive(true);
+        PanelDescription.SetActive(false);
         CrewImage.sprite = LightCrew;
     }
 }

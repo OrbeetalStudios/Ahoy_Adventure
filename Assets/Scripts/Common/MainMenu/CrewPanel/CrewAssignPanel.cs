@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,20 +11,17 @@ public class CrewAssignPanel : MonoBehaviour
     [SerializeField] private CrewHire crewHire;
     [SerializeField] Image buttonImagePrefab;
     public List<int> assignID = new List<int>();
+   
 
-    private void Awake()
-    {
-        assignID = CrewController.Instance.idAssigned;
-    }
+
     private void Start()
     {
-       CreateLastCrew(); 
+        CreateLastCrew();
     }
 
     public void CreateLastCrew()
     {
-        
-        assignID = CrewController.Instance.idAssigned;
+        assignID=CrewController.Instance.idAssigned;
         foreach (int id in assignID)
         {
             // Trova il bottone dell'equipaggio corrispondente all'ID assegnato
@@ -53,10 +51,17 @@ public class CrewAssignPanel : MonoBehaviour
     }
 
 
-    public void Assign(int characterID)
+    public void Assign(int characterID, Sprite sprite, Sprite ability)
     {// Controlla se l'ID è già presente nella lista assignID
-        if (!assignID.Contains(characterID))
+        if (!assignID.Contains(characterID)&&assignID.Count<4)
         {
+            // Se l'ID non è già presente, aggiungilo alla lista e crea il pulsante
+            Image newCharIMG = Instantiate(buttonImagePrefab, panelCharacter);
+            Image imageToSet = newCharIMG.GetComponent<Image>();
+            Image newAbilityIMG = Instantiate(buttonImagePrefab, panelAbility);
+            Image abilityToSet = newAbilityIMG.GetComponent<Image>();
+            imageToSet.sprite = sprite;
+            abilityToSet.sprite = ability;
             assignID.Add(characterID);
         }
     }
