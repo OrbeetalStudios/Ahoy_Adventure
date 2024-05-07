@@ -2392,7 +2392,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: -0.000030517578}
+  m_AnchoredPosition: {x: 30, y: 0}
   m_SizeDelta: {x: 58, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &321205965
@@ -2610,8 +2610,8 @@ MonoBehaviour:
   m_StartAxis: 0
   m_CellSize: {x: 280, y: 80}
   m_Spacing: {x: 0, y: 0}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  m_Constraint: 2
+  m_ConstraintCount: 1
 --- !u!1 &373918724
 GameObject:
   m_ObjectHideFlags: 0
@@ -9762,6 +9762,7 @@ GameObject:
   - component: {fileID: 956662549}
   - component: {fileID: 956662548}
   - component: {fileID: 956662550}
+  - component: {fileID: 956662551}
   m_Layer: 5
   m_Name: Life
   m_TagString: Untagged
@@ -9786,7 +9787,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 62.186523, y: -21.579224}
-  m_SizeDelta: {x: 15, y: 15}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &956662548
 MonoBehaviour:
@@ -9808,7 +9809,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7f26d9ab557d4a24b9546415a9ea6f1a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47e9b92fc1e364845aafffddf8f81125, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9842,6 +9843,27 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   slideDuration: 1.5
   slideHeight: 50
+--- !u!95 &956662551
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956662546}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a2a5d0b8c1fe11447bd8dbe7d62e7741, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &988453035
 GameObject:
   m_ObjectHideFlags: 0
@@ -10492,7 +10514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1133839634
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10509,7 +10531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -76.7, y: 0}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1133839635
@@ -20750,7 +20772,7 @@ PrefabInstance:
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}
       propertyPath: dataList.Array.size
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}
@@ -20761,25 +20783,25 @@ PrefabInstance:
         type: 3}
       propertyPath: dataList.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 08c3e0280a2ef3d4b81f465051da6b0e,
+      objectReference: {fileID: 11400000, guid: f9a65886abff4174d85971ccb96a6ec9,
         type: 2}
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}
       propertyPath: dataList.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 3ba90c6b7403ee44c8c699d6cb58fee0,
+      objectReference: {fileID: 11400000, guid: f9a65886abff4174d85971ccb96a6ec9,
         type: 2}
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}
       propertyPath: dataList.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 5e1c33c21eff12e45bcbd72254b17f25,
+      objectReference: {fileID: 11400000, guid: f9a65886abff4174d85971ccb96a6ec9,
         type: 2}
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}
       propertyPath: dataList.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 6215f6e726d2e904ba6abe7550b54872,
+      objectReference: {fileID: 11400000, guid: f9a65886abff4174d85971ccb96a6ec9,
         type: 2}
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}

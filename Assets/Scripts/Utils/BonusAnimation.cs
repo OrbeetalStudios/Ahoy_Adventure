@@ -17,7 +17,7 @@ public class BonusAnimation : MonoBehaviour
             startPosition = transform.position = playerScreenPosition;
         }
         StartCoroutine(Slide());
-        StartCoroutine(Fade());
+       
     }
 
     IEnumerator Slide(){
@@ -30,14 +30,7 @@ public class BonusAnimation : MonoBehaviour
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-    }
-    IEnumerator Fade(){
-        for (float i = 1f; i >= 0; i -= Time.deltaTime)
-        {
-            // set color with i as alpha
-            gameObject.GetComponent<Image>().color = new Color(1, 1, 1, i);
-            yield return null;
-        }
         gameObject.SetActive(false);
     }
+
 }
