@@ -10055,6 +10055,7 @@ GameObject:
   - component: {fileID: 1000524623}
   - component: {fileID: 1000524622}
   - component: {fileID: 1000524624}
+  - component: {fileID: 1000524625}
   m_Layer: 5
   m_Name: Doubloon
   m_TagString: Untagged
@@ -10079,7 +10080,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 62.186523, y: -21.58252}
-  m_SizeDelta: {x: 15, y: 15}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1000524622
 MonoBehaviour:
@@ -10101,7 +10102,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9d23ed00895f615479d1115959000b22, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 845780a980fb6884eab4959d4dd0ee53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10135,6 +10136,27 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   slideDuration: 1.5
   slideHeight: 50
+--- !u!95 &1000524625
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000524620}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cbef5d585769005469d40afea8207a7c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1048382206
 GameObject:
   m_ObjectHideFlags: 0
@@ -20923,7 +20945,7 @@ PrefabInstance:
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}
       propertyPath: dataList.Array.size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}
@@ -20940,31 +20962,37 @@ PrefabInstance:
         type: 3}
       propertyPath: dataList.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: f9a65886abff4174d85971ccb96a6ec9,
+      objectReference: {fileID: 11400000, guid: 761b58d72de2ffa41a3faf24e28d5bf1,
         type: 2}
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}
       propertyPath: dataList.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: f9a65886abff4174d85971ccb96a6ec9,
+      objectReference: {fileID: 11400000, guid: 08c3e0280a2ef3d4b81f465051da6b0e,
         type: 2}
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}
       propertyPath: dataList.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: f9a65886abff4174d85971ccb96a6ec9,
+      objectReference: {fileID: 11400000, guid: 5e1c33c21eff12e45bcbd72254b17f25,
         type: 2}
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}
       propertyPath: dataList.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: f9a65886abff4174d85971ccb96a6ec9,
+      objectReference: {fileID: 11400000, guid: 6215f6e726d2e904ba6abe7550b54872,
         type: 2}
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}
       propertyPath: dataList.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 761b58d72de2ffa41a3faf24e28d5bf1,
+      objectReference: {fileID: 11400000, guid: 3ba90c6b7403ee44c8c699d6cb58fee0,
+        type: 2}
+    - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
+        type: 3}
+      propertyPath: dataList.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ba90c6b7403ee44c8c699d6cb58fee0,
         type: 2}
     - target: {fileID: 6868283225228497027, guid: accab964194ae5747b57f984386bebc8,
         type: 3}
