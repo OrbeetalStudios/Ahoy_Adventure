@@ -26,7 +26,7 @@ public class CrewHire : MonoBehaviour
     public CrewButton active;
     private int cost;
     [SerializeField] private Animation anim;
-    [SerializeField] private CrewAssignPanel crewPanel;
+    public CrewAssignPanel crewPanel;
     [SerializeField]
     private MainMenu mainMenu;
     private int characterID;
@@ -170,7 +170,7 @@ public class CrewHire : MonoBehaviour
 
     public void AddMainManuListIndex(int characterID)
     {
-        if (!CrewController.Instance.idAssigned.Contains(characterID))
+        if (!CrewController.Instance.idAssigned.Contains(characterID) && CrewController.Instance.idPurchased.Count < 5)
         {
             CrewController.Instance.idAssigned.Add(characterID);
         }
