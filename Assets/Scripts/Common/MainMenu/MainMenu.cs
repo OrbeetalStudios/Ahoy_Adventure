@@ -1,9 +1,12 @@
 using MEC;
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 using static UnityEngine.Rendering.DebugUI;
 
 public class MainMenu : MonoBehaviour
@@ -24,7 +27,8 @@ public class MainMenu : MonoBehaviour
     private GameObject exitButtonCredits;
     public GameObject buttonSettings;
     public GameObject page;
-    private float target;
+    public GameObject creditsPage;
+    private float time;
 
     public void Start()
     {
@@ -69,7 +73,8 @@ public class MainMenu : MonoBehaviour
         else
         {
             OpenCrew = false;
-            OnCloseCrewPanel(crew);
+            time = 0.05f;
+            OnCloseCrewPanel(crew, time);
             AudioManager.Instance.StopSpecificMusic(1);
             AudioManager.Instance.PlaySpecificMusic(0);
             DataPersistenceManager.instance.NowSave();
@@ -78,13 +83,19 @@ public class MainMenu : MonoBehaviour
     }
     public void OpenCredits()
     {
-        creditsPanel.SetActive(true);
+        LeanTween.moveLocalY(creditsPage, -50f, 0.5f).setEase(LeanTweenType.easeInCubic);
+        OnOpenCrew(creditsPanel);
+       // creditsPanel.SetActive(true);
         exitButtonCredits.SetActive(true);  
     }
     public void ExitCredits()
     {
         exitButtonCredits.SetActive(false);
-        creditsPanel.SetActive(false);
+        LeanTween.moveLocalY(creditsPage, 1000f, 0.5f).setEase(LeanTweenType.easeOutCubic);
+        time = 0f;
+        OnCloseCrewPanel(creditsPanel,time);
+     
+       // creditsPanel.SetActive(false);
     }
     public void ExitGame()
     {
@@ -108,14 +119,16 @@ public class MainMenu : MonoBehaviour
         LeanTween.scale(panel, new Vector3(1f,1f,1f),0.8f).setDelay(.3f).setEase(LeanTweenType.easeInOutElastic);
     }
 
-    public void OnCloseCrewPanel(GameObject panel)
+    public void OnCloseCrewPanel(GameObject panel, float time)
     {
-        LeanTween.scale(panel, new Vector3(0f, 0f, 0f), 0.1f).setDelay(.3f).setEase(LeanTweenType.easeOutSine);
+        LeanTween.scale(panel, new Vector3(0f, 0f, 0f), time).setDelay(time).setEase(LeanTweenType.easeOutSine);
     }
 
    public void OnOpenCrew(GameObject panel)
     {
         LeanTween.scale(panel, new Vector3(1f, 1f, 1f), 0.1f).setDelay(.3f).setEase(LeanTweenType.easeInOutSine);
     }
+
+  
 
 }
