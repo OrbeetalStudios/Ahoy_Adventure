@@ -44,14 +44,14 @@ public class MainMenu : MonoBehaviour
         {
             settings.SetActive(true);
             OpenSettings = true;
-            LeanTween.rotateY(buttonSettings, 90, 0.5f).setEase(LeanTweenType.easeOutBounce);
+            LeanTween.scale(buttonSettings, new Vector3(0f, 0f, 0f), 0.3f).setDelay(0f).setEase(LeanTweenType.easeOutElastic);
             OnClickSound();
         }
         else
         {
             settings.SetActive(false);
             OpenSettings = false;
-            LeanTween.rotateY(buttonSettings, 0f, 0.5f).setEase(LeanTweenType.easeInBounce);
+            LeanTween.scale(buttonSettings, new Vector3(1f, 1f, 1f), 0.3f).setDelay(0f).setEase(LeanTweenType.easeInElastic);
             OnClickSound();
         }       
     }
