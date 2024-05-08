@@ -164,10 +164,12 @@ public class WavesController : MonoSingleton<WavesController>
 
         if (spawnPoints[currQuadrant].Count != 0)
         {
-            int[] newValues = Enumerable.Range(0, spawnPoints[currQuadrant].Count).Where(x => x != spawnPoints[currQuadrant].LastInd).ToArray();
+            int[] newValues = Enumerable.Range(0, spawnPoints[currQuadrant].Count).Where(x => !spawnPoints[currQuadrant].IsSelected(x)).ToArray();
             int newIndex = newValues[Random.Range(0, newValues.Length)];
 
             go.transform.position = spawnPoints[currQuadrant].GetAt(newIndex).transform.position;
+
+spawnPoints[currQuadrant].CheckReset();
         }
     }
     private void UpdateUI()
@@ -205,10 +207,9 @@ public class WaveToSpawnType
 public class Coll<T>
 {
     List<T> coll = new List<T>();
-    int lastInd = -1;
+    List<int> lastIndeces = new List<int>;
 
     public int Count { get { return coll.Count; } }
-    public int LastInd { get { return lastInd; } }
 
     public void Add(T item)
     {
@@ -216,7 +217,18 @@ public class Coll<T>
     }
     public T GetAt(int index)
     {
-        lastInd = index;
+        lastIndeces.Add(index);
         return coll.ElementAt(index);
+    }
+    public bool IsSelected(int index)
+    {
+        return lastIndeces.Contains(index);
+    }
+    public void CheckReset()
+    {
+        if (coll.Count == lastIndeces.Count)
+        {
+            lastIndeces.Clear();
+        }
     }
 }
