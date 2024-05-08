@@ -11,7 +11,7 @@ public class GameData
 
     public GameData()
     {
-        this.doubloons = 1000;
+        this.doubloons = 200;
         this.score=new int[3];
         idPurchased = new List<int>();
         idAssigned = new List<int>();
