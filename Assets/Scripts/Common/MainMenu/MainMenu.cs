@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.Rendering.DebugUI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -22,9 +23,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject exitButtonCredits;
     public GameObject buttonSettings;
+    public GameObject page;
+    private float target;
 
     public void Start()
     {
+        
         AudioManager.Instance.PlaySpecificMusic(0);
         DataPersistenceManager.instance.NowLoad();
         CrewController.Instance.SetCrewData();
@@ -39,17 +43,15 @@ public class MainMenu : MonoBehaviour
         if (OpenSettings == false)
         {
             settings.SetActive(true);
-            buttonPanel.SetActive(false);
             OpenSettings = true;
-            buttonSettings.SetActive(false);
+            LeanTween.rotateY(buttonSettings, 90, 0.5f).setEase(LeanTweenType.easeOutBounce);
             OnClickSound();
         }
         else
         {
-            OpenSettings = false;
-            buttonPanel.SetActive(true);
             settings.SetActive(false);
-            buttonSettings.SetActive(true);
+            OpenSettings = false;
+            LeanTween.rotateY(buttonSettings, 0f, 0.5f).setEase(LeanTweenType.easeInBounce);
             OnClickSound();
         }       
     }
@@ -58,17 +60,18 @@ public class MainMenu : MonoBehaviour
         if (!OpenCrew)
         {
             OpenCrew = true;
+            OnOpenCrew(crew);
             AudioManager.Instance.StopSpecificMusic(0);
             AudioManager.Instance.PlaySpecificMusic(1);
             DataPersistenceManager.instance.NowLoad();
-            crew.SetActive(true);
+          
         }
         else
         {
             OpenCrew = false;
+            OnCloseCrewPanel(crew);
             AudioManager.Instance.StopSpecificMusic(1);
             AudioManager.Instance.PlaySpecificMusic(0);
-            crew.SetActive(false) ;
             DataPersistenceManager.instance.NowSave();
             CrewController.Instance.SetCrewData();
         }
@@ -99,4 +102,20 @@ public class MainMenu : MonoBehaviour
     {
         AudioManager.Instance.PlaySpecificOneShot(13);
     }   
+
+    public void OnOpenWindow(GameObject panel)
+    {
+        LeanTween.scale(panel, new Vector3(1f,1f,1f),0.8f).setDelay(.3f).setEase(LeanTweenType.easeInOutElastic);
+    }
+
+    public void OnCloseCrewPanel(GameObject panel)
+    {
+        LeanTween.scale(panel, new Vector3(0f, 0f, 0f), 0.1f).setDelay(.3f).setEase(LeanTweenType.easeOutSine);
+    }
+
+   public void OnOpenCrew(GameObject panel)
+    {
+        LeanTween.scale(panel, new Vector3(1f, 1f, 1f), 0.1f).setDelay(.3f).setEase(LeanTweenType.easeInOutSine);
+    }
+
 }

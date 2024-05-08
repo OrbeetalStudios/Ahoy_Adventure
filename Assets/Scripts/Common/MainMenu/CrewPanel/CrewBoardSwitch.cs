@@ -20,21 +20,39 @@ public class CrewBoardSwitch : MonoBehaviour
     private Sprite defCrew;
     [SerializeField]
     private GameObject PanelDescription;
+    [SerializeField]
+    private GameObject pageDescription;
+    [SerializeField]
+    private GameObject pageCrew;
 
 
 
     public void OnlightSolo()
     {
         soloImage.sprite = LightSolo;
-        PanelDescription.SetActive(true);
+        //PanelDescription.SetActive(true);
+        pageScrollOut(pageCrew);
+        //pageScrollIn(pageDescription);
         CrewImage.sprite = defCrew;
     }
 
     public void OnLightCrew()
     {
         soloImage.sprite = defSolo;
-        PanelDescription.SetActive(false);
+        //PanelDescription.SetActive(false);
+        //pageScrollOut(pageDescription);
+        pageScrollIn(pageCrew);
         CrewImage.sprite = LightCrew;
+    }
+
+    public void pageScrollIn(GameObject panel)
+    {
+        LeanTween.moveLocalX(panel, 1f, 0.2f).setEase(LeanTweenType.easeInCubic);
+    }
+
+    public void pageScrollOut(GameObject panel)
+    {
+        LeanTween.moveLocalX(panel, 1000f, 0.2f).setEase(LeanTweenType.easeOutCubic);
     }
 }
   
