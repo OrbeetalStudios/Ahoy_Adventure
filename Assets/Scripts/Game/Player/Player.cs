@@ -31,8 +31,7 @@ public class Player : PlayerMovement, IPowerUpEvent
     private new void Start()
     {
         base.Start();
-        // iscriviti a eventlistener per ricevere gli eventi
-        EventListener.Instance.AddListener(this.gameObject);
+        
     }
     private void OnEnable()
     {
@@ -46,6 +45,8 @@ public class Player : PlayerMovement, IPowerUpEvent
         skinList.Add(defaultSkin);
         ChangeSkin();
         currentAmmo = startAmmo;
+        // iscriviti a eventlistener per ricevere gli eventi
+        EventListener.Instance.AddListener(this.gameObject);
     }
     private void OnDisable()
     {
