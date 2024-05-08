@@ -15,7 +15,9 @@ public class EnemyMovement : AbstractMotionToTarget
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private float fadeDuration;
     [SerializeField] private float initialAlpha = 1.0f;
-    private bool isExitingMap = false;
+    public bool isExitingMap = false;
+    public bool isMoving = false;
+  
 
     protected void OnEnable()
     {
@@ -29,6 +31,7 @@ public class EnemyMovement : AbstractMotionToTarget
     }
     protected IEnumerator<float> ReturnOutsideMap(Vector3 relativePos)
     {
+        isMoving = true;
         isExitingMap = true;
         while (this.isActiveAndEnabled)
         {
@@ -71,6 +74,7 @@ public class EnemyMovement : AbstractMotionToTarget
     }
     private void OnDisable()
     {
+        isMoving = false;
         Timing.KillCoroutines("Move");
         Timing.KillCoroutines("ReturnOutsideMap");
     }

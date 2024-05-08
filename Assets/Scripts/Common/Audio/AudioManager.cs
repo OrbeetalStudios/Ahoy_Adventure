@@ -88,4 +88,13 @@ public class AudioManager : MonoSingleton<AudioManager>
         }
     }
 
+    public void PlayRandomOneShot(int [] index)
+    {
+        int randomIndex = index[Random.Range(0, index.Length)];
+        OneShots[randomIndex].Play();
+    }
+    /* PER UTILIZZARLE LA FUNZIONE RANDOMICA
+    int[] index = { 0, 1, 2 }; // Esempio di array di indici
+    PlayRandomOneShot(index);
+    */
 }

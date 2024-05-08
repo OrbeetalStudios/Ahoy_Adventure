@@ -9,7 +9,7 @@ public class WavesController : MonoSingleton<WavesController>
 {
     // Riferimenti agli oggetti UI
     [SerializeField] private TMP_Text currentWaveText;
-    [SerializeField] private int waveStartSfxIndex;
+    [SerializeField] private int[] waveStartSfxIndex;
     enum EQuadrant
     {
         Quadrant_0_90 = 1,
@@ -186,8 +186,8 @@ spawnPoints[currQuadrant].CheckReset();
         return !wavesToSpawnList.Exists(x => x.isWaveEnded == true);
     }
 
-    private void PlaySFX(int index){
-        AudioManager.Instance.PlaySpecificOneShot(index);
+    private void PlaySFX(int[] index){
+        AudioManager.Instance.PlayRandomOneShot(index);
         GameController.Instance.WaveStart.GetComponent<Animator>().Play("Wave1", 0);
     }
 }

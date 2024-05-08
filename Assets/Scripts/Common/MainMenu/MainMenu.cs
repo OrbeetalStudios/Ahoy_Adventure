@@ -20,8 +20,6 @@ public class MainMenu : MonoBehaviour
     private bool OpenSettings = false;
     private bool OpenCrew = false;
     public GameObject fadeOut;
-    [SerializeField]
-    private GameObject creditsPanel;
     public Animator anim;
     [SerializeField]
     private GameObject exitButtonCredits;
@@ -84,18 +82,12 @@ public class MainMenu : MonoBehaviour
     public void OpenCredits()
     {
         LeanTween.moveLocalY(creditsPage, -50f, 0.5f).setEase(LeanTweenType.easeInCubic);
-        OnOpenCrew(creditsPanel);
-       // creditsPanel.SetActive(true);
         exitButtonCredits.SetActive(true);  
     }
     public void ExitCredits()
     {
         exitButtonCredits.SetActive(false);
         LeanTween.moveLocalY(creditsPage, 1000f, 0.5f).setEase(LeanTweenType.easeOutCubic);
-        time = 0f;
-        OnCloseCrewPanel(creditsPanel,time);
-     
-       // creditsPanel.SetActive(false);
     }
     public void ExitGame()
     {

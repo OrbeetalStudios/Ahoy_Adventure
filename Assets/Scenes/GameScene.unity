@@ -5111,6 +5111,7 @@ GameObject:
   - component: {fileID: 1000524622}
   - component: {fileID: 1000524624}
   - component: {fileID: 1000524625}
+  - component: {fileID: 1000524626}
   m_Layer: 5
   m_Name: Doubloon
   m_TagString: Untagged
@@ -5212,6 +5213,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1000524626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000524620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a999e351392fd4a8e7e831aedb83d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1023794303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8158,7 +8171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bDontDestroyOnLoad: 0
   currentWaveText: {fileID: 1234993670}
-  waveStartSfxIndex: 16
+  waveStartSfxIndex: 100000001700000018000000
   spawnPointPrefab: {fileID: 2488922333133670303, guid: 0581bb66a555e7c45bb3ced54de441d4,
     type: 3}
   filenameJson: wavesJson

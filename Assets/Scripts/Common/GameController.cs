@@ -44,6 +44,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     [SerializeField] private WavesController waves;
     private int currentDoubloonAmount;
     private int[] score;
+    public bool GameIsStarted=false;
 
     private void Start()
     {
@@ -105,6 +106,7 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
         AudioManager.Instance.PlaySpecificOneShot(9);
         GameOverPanel.SetActive(true);
         PoolController.Instance.DeactivateAll();
+        GameIsStarted = false;  
         Time.timeScale = 0;
     }
 
@@ -142,13 +144,16 @@ public class GameController : MonoSingleton<GameController>, IPowerUpEvent, IPla
     protected IEnumerator<float> ammoActive()
     {
         int startAmmo = player.GetComponent<Player>().StartAmmo;
-        yield return Timing.WaitForSeconds(4f);
+        yield return Timing.WaitForSeconds(2f);
+        AudioManager.Instance.PlaySpecificOneShot(22);
+        yield return Timing.WaitForSeconds(2f);
         for (int i = 0; i < Mathf.Min(ammoImages.Length, startAmmo); i++)
         {
             yield return Timing.WaitForSeconds(0.5f);
             ammoImages[i].gameObject.SetActive(true);         
         }
         waves.StartGame();
+        GameIsStarted = true;
         pauseButton.SetActive(true);
     }
     public void Pause()
