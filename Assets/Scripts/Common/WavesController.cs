@@ -207,7 +207,7 @@ public class WaveToSpawnType
 public class Coll<T>
 {
     List<T> coll = new List<T>();
-    List<int> lastIndeces = new List<int>;
+    List<int> lastIndeces = new List<int>();
 
     public int Count { get { return coll.Count; } }
 
