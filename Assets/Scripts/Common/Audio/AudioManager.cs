@@ -26,7 +26,7 @@ public class AudioManager : MonoSingleton<AudioManager>
     public void MusicOn()
     {
         musicIsPlaying=true;
-        musicGroup.audioMixer.SetFloat("MusicVolume", -14.03f);
+        musicGroup.audioMixer.SetFloat("MusicVolume", -22.00f);
     }
 
     public void SoundOff()
@@ -39,7 +39,7 @@ public class AudioManager : MonoSingleton<AudioManager>
     public void SoundOn()
     {
         soundIsPlaying = true;
-        oneShotGroup.audioMixer.SetFloat("OneShotsVolume", -14.03f);
+        oneShotGroup.audioMixer.SetFloat("OneShotsVolume", -10.6f);
     }
 
     public void PlaySpecificMusic(int index)
